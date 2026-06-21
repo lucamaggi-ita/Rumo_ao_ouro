@@ -407,6 +407,9 @@ MathJax = {{
 <script src="../assets/js/mochila-data.js"></script>
 <script src="../assets/js/app.js"></script>
 <script>initChapter({final_num});</script>
+<footer class="site-footer">
+  © 2025 Luca Maggi — <em>Rumo ao Ouro</em>. Uso pessoal. Proibida a reprodução ou distribuição sem autorização.
+</footer>
 </body>
 </html>"""
 
@@ -487,6 +490,9 @@ def build_index() -> str:
 
 <script src="assets/js/app.js"></script>
 <script>initIndex();</script>
+<footer class="site-footer">
+  © 2025 Luca Maggi — <em>Rumo ao Ouro</em>. Uso pessoal. Proibida a reprodução ou distribuição sem autorização.
+</footer>
 </body>
 </html>"""
 
@@ -543,6 +549,9 @@ def build_mochila_page() -> str:
 </main>
 <script src="assets/js/app.js"></script>
 <script>initMochilaPage();</script>
+<footer class="site-footer">
+  © 2025 Luca Maggi — <em>Rumo ao Ouro</em>. Uso pessoal. Proibida a reprodução ou distribuição sem autorização.
+</footer>
 </body>
 </html>"""
 
@@ -582,6 +591,9 @@ def build_oficinas_page() -> str:
   </ul>
 </main>
 <script src="assets/js/app.js"></script>
+<footer class="site-footer">
+  © 2025 Luca Maggi — <em>Rumo ao Ouro</em>. Uso pessoal. Proibida a reprodução ou distribuição sem autorização.
+</footer>
 </body>
 </html>"""
 
