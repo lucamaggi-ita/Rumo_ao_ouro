@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 10 — Quando a lógica encontra o caminho | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-prata">Nível Prata</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link sidebar-active" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 10</span>
+        <h1 class="cap-title">Quando a lógica encontra o caminho</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Depois de contar, vem a pergunta que decide</h2>
+<p>No capítulo anterior, Felipe aprendeu a contar possibilidades sem esquecer nenhuma e sem repetir a mesma. Árvores, tabelas e caminhos em malha ajudaram a organizar escolhas que, no começo, pareciam invisíveis.</p>
+<p>Mas alguns problemas olímpicos fazem uma coisa curiosa: não pedem uma conta logo de início. Eles apresentam frases, pistas, lugares, pessoas, cartões ou caixas e perguntam o que <strong>precisa</strong> acontecer.</p>
+<p>Nesses momentos, a pergunta não é apenas:</p>
+<blockquote>
+<p>Quantas possibilidades existem?</p>
+</blockquote>
+<p>Ela passa a ser:</p>
+<blockquote>
+<p>Quais possibilidades ainda sobrevivem depois de todas as pistas?</p>
+</blockquote>
+<p>Essa é a sala da lógica.</p>
+<p>Lógica matemática não é falar difícil. É ler com precisão, transformar frases em afirmações que podem ser verificadas e eliminar o que entra em contradição com os fatos.</p>
+<p>O Professor da Academia colocou três cartões sobre a mesa:</p>
+<ul>
+<li>“Todo múltiplo de 6 é par.”</li>
+<li>“Todo número par é múltiplo de 6.”</li>
+<li>“Algum número ímpar é múltiplo de 6.”</li>
+</ul>
+<p>Felipe leu rápido e disse:</p>
+<p>— Os três falam de números pares. Então devem ser parecidos.</p>
+<p>A coruja, que às vezes fazia perguntas em vez de comentários, respondeu:</p>
+<p>— Parecidos não significa iguais. Qual deles resiste a um exemplo? Qual deles cai diante de um único contraexemplo?</p>
+<p>Essa é uma boa primeira chave: na lógica, uma palavra pequena pode mudar toda a frase.</p>
+<hr>
+<h2>2. Afirmações que podem ser verificadas</h2>
+<p>Uma afirmação matemática é uma frase para a qual podemos decidir, usando os dados, se ela é verdadeira ou falsa.</p>
+<p>Veja estes exemplos:</p>
+<ol>
+<li>“Todo múltiplo de 6 é par.”</li>
+<li>“Todo número par é múltiplo de 6.”</li>
+<li>“Algum número ímpar é múltiplo de 6.”</li>
+</ol>
+<p>A primeira é <strong>verdadeira</strong>. Se um número é múltiplo de 6, ele pode ser escrito como <code>6 × k</code>. Como 6 é par, o resultado também é par.</p>
+<p>A segunda é <strong>falsa</strong>. Basta encontrar um número par que não seja múltiplo de 6. O número 2 serve. Também servem 4, 8, 10 e muitos outros.</p>
+<p>A terceira é <strong>falsa</strong>. Todo múltiplo de 6 é par; portanto, nenhum deles pode ser ímpar.</p>
+<p>Repare no poder de um contraexemplo. Para derrubar uma frase que começa com “todo”, não é preciso testar todos os números do universo. Basta um caso que não obedeça à regra.</p>
+<div class="ferramenta" data-num="63" id="f63"><span class="f-badge">Ferramenta 63</span><span class="f-text">Transformar frases em afirmações verificáveis</span></div>
+
+<blockquote>
+<p>Antes de concordar ou discordar, pergunte: qual seria um exemplo que confirma a frase? E qual seria um exemplo que a derruba?</p>
+</blockquote>
+<h3>Verdadeiro, falso ou não determinado?</h3>
+<p>Existe uma terceira situação muito importante: às vezes os dados não bastam para concluir.</p>
+<p>Uma turma tem 30 estudantes. Sabemos apenas que 18 gostam de matemática.</p>
+<p>Considere a frase:</p>
+<blockquote>
+<p>“Algum estudante da turma gosta de futebol.”</p>
+</blockquote>
+<p>Ela pode ser verdadeira na vida real, mas os dados dados pelo problema não permitem afirmar isso. Não sabemos nada sobre futebol.</p>
+<p>Portanto, a resposta lógica é:</p>
+<blockquote>
+<p><strong>Não determinado pelos dados.</strong></p>
+</blockquote>
+<p>Não determinado não quer dizer falso. Quer dizer apenas que a informação disponível ainda não obriga uma resposta.</p>
+<table>
+<thead>
+<tr>
+<th>Afirmação</th>
+<th>Situação</th>
+<th>Por quê?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Todo múltiplo de 6 é par.</td>
+<td>Verdadeira</td>
+<td>Um múltiplo de 6 sempre tem fator 2.</td>
+</tr>
+<tr>
+<td>Todo número par é múltiplo de 6.</td>
+<td>Falsa</td>
+<td>O número 2 é par e não é múltiplo de 6.</td>
+</tr>
+<tr>
+<td>Algum aluno gosta de futebol.</td>
+<td>Não determinado</td>
+<td>O enunciado não falou de futebol.</td>
+</tr>
+</tbody>
+</table>
+<div class="figura-spec fig-manter"><span class="fig-label">Tabela</span><span class="fig-desc">A tabela desta seção é a própria figura: normalizá-la como quadro de três colunas, “verdadeiro”, “falso por contraexemplo” e “não determinado pelos dados”, sem criar cartão repetido.</span></div>
+
+<div class="ferramenta" data-num="64" id="f64"><span class="f-badge">Ferramenta 64</span><span class="f-text">Separar verdadeiro, falso e não determinado</span></div>
+
+<blockquote>
+<p>Não invente uma informação que o problema não entregou. Uma conclusão só vale quando as pistas a sustentam.</p>
+</blockquote>
+<hr>
+<h2>3. As palavras pequenas que mandam na frase</h2>
+<p>Na Academia, há palavras que merecem ser circuladas na primeira leitura. Elas parecem discretas, mas carregam quase toda a força lógica de uma frase.</p>
+<table>
+<thead>
+<tr>
+<th>Palavra</th>
+<th>O que ela exige</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>todos</td>
+<td>nenhum caso pode escapar</td>
+</tr>
+<tr>
+<td>nenhum</td>
+<td>não existe sequer um caso</td>
+</tr>
+<tr>
+<td>algum</td>
+<td>existe pelo menos um caso</td>
+</tr>
+<tr>
+<td>sempre</td>
+<td>vale em toda situação indicada</td>
+</tr>
+<tr>
+<td>nunca</td>
+<td>não vale em situação alguma indicada</td>
+</tr>
+<tr>
+<td>exatamente</td>
+<td>nem mais, nem menos</td>
+</tr>
+<tr>
+<td>no máximo</td>
+<td>pode ser menos, mas não pode passar</td>
+</tr>
+<tr>
+<td>no mínimo</td>
+<td>pode ser mais, mas não pode ficar abaixo</td>
+</tr>
+</tbody>
+</table>
+<p>Considere as frases:</p>
+<ul>
+<li>“Todos os cartões são azuis.”</li>
+<li>“Algum cartão é azul.”</li>
+</ul>
+<p>A primeira exige que cada cartão seja azul. A segunda exige apenas um cartão azul. Portanto, a primeira é muito mais forte.</p>
+<p>Agora compare:</p>
+<ul>
+<li>“A equipe fez no máximo 3 pontos.”</li>
+<li>“A equipe fez exatamente 3 pontos.”</li>
+</ul>
+<p>No máximo 3 permite 0, 1, 2 ou 3. Exatamente 3 permite apenas 3.</p>
+<p>Felipe escreveu no quadro:</p>
+<p><code>no máximo 3 = 0, 1, 2 ou 3</code></p>
+<p>O Professor assentiu.</p>
+<p>— Excelente. Quando uma expressão pode ser traduzida em uma pequena lista, ela fica muito menos misteriosa.</p>
+<div class="ferramenta" data-num="66" id="f66"><span class="f-badge">Ferramenta 66</span><span class="f-text">Cuidar de palavras como todos, nenhum, algum, sempre e nunca</span></div>
+
+<div class="ferramenta" data-num="67" id="f67"><span class="f-badge">Ferramenta 67</span><span class="f-text">Cuidar de expressões como exatamente, no máximo e no mínimo</span></div>
+
+<p>Essas ferramentas não servem só para problemas de lógica. Elas também evitam erros em contagem, geometria, desigualdades e enunciados de prova.</p>
+<hr>
+<h2>4. Negar não é gritar o contrário</h2>
+<p>Uma das armadilhas mais comuns da lógica é negar uma frase com exagero.</p>
+<p>Considere:</p>
+<blockquote>
+<p>“Todos os armários estão fechados.”</p>
+</blockquote>
+<p>A negação correta é:</p>
+<blockquote>
+<p>“Pelo menos um armário não está fechado.”</p>
+</blockquote>
+<p>Não é correto negar dizendo “Nenhum armário está fechado”. Essa segunda frase é muito mais forte. É possível que apenas um armário esteja aberto e todos os outros estejam fechados.</p>
+<p>Veja outros pares importantes:</p>
+<table>
+<thead>
+<tr>
+<th>Frase</th>
+<th>Negação correta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Todos os alunos resolveram o problema.</td>
+<td>Pelo menos um aluno não resolveu o problema.</td>
+</tr>
+<tr>
+<td>Nenhum caminho passa pelo ponto P.</td>
+<td>Pelo menos um caminho passa pelo ponto P.</td>
+</tr>
+<tr>
+<td>Algum cartão é dourado.</td>
+<td>Nenhum cartão é dourado.</td>
+</tr>
+<tr>
+<td>A equipe fez exatamente 4 pontos.</td>
+<td>A equipe não fez 4 pontos.</td>
+</tr>
+<tr>
+<td>Há no máximo 2 portas abertas.</td>
+<td>Há pelo menos 3 portas abertas.</td>
+</tr>
+<tr>
+<td>Há no mínimo 5 moedas na caixa.</td>
+<td>Há no máximo 4 moedas na caixa.</td>
+</tr>
+</tbody>
+</table>
+<p>No caso de “exatamente 4”, a negação inclui duas possibilidades: pode haver menos de 4 ou mais de 4. Por isso, dizer apenas “há menos de 4” não basta.</p>
+<div class="ferramenta" data-num="65" id="f65"><span class="f-badge">Ferramenta 65</span><span class="f-text">Negar uma frase sem exagerar para o lado oposto</span></div>
+
+<blockquote>
+<p>Para negar “todos”, procure “pelo menos um não”. Para negar “algum”, procure “nenhum”. Para negar “exatamente”, aceite tanto menos quanto mais.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C10_F01_mapa_negacoes.svg" alt="Mapa de negações com setas entre cada frase e sua negação precisa, mantendo explicitamente os dois lados de “exatamente”." loading="lazy"><figcaption>Mapa de negações com setas entre cada frase e sua negação precisa, mantendo explicitamente os dois lados de “exatamente”.</figcaption></figure>
+
+<hr>
+<h2>5. Quando aparece “se... então...”</h2>
+<p>Agora observe esta frase:</p>
+<blockquote>
+<p>Se um número termina em 0, então ele é múltiplo de 10.</p>
+</blockquote>
+<p>Ela é verdadeira. Terminar em 0 garante que o número pode ser dividido por 10 sem sobra.</p>
+<p>Mas cuidado: não podemos simplesmente inverter a frase e continuar acreditando nela sem testar.</p>
+<blockquote>
+<p>Se um número é múltiplo de 10, então ele termina em 0.</p>
+</blockquote>
+<p>Neste caso, a frase invertida também é verdadeira. Mas isso é uma característica particular dos múltiplos de 10, não uma permissão geral para inverter condições.</p>
+<p>Veja esta outra:</p>
+<blockquote>
+<p>Se um número é múltiplo de 4, então ele é par.</p>
+</blockquote>
+<p>Ela é verdadeira. Todo múltiplo de 4 é par.</p>
+<p>Agora a inversão:</p>
+<blockquote>
+<p>Se um número é par, então ele é múltiplo de 4.</p>
+</blockquote>
+<p>É falsa. O número 6 é par, mas não é múltiplo de 4.</p>
+<p>Uma condição pode ser suficiente sem ser necessária.</p>
+<p>Ser múltiplo de 4 é <strong>suficiente</strong> para ser par: quando isso acontece, a conclusão está garantida.</p>
+<p>Ser par é <strong>necessário</strong> para ser múltiplo de 4: um múltiplo de 4 não consegue ser ímpar. Mas ser par, sozinho, não basta para garantir que o número seja múltiplo de 4.</p>
+<div class="ferramenta" data-num="68" id="f68"><span class="f-badge">Ferramenta 68</span><span class="f-text">Entender “se... então...” como uma condição com consequência</span></div>
+
+<div class="ferramenta" data-num="69" id="f69"><span class="f-badge">Ferramenta 69</span><span class="f-text">Não inverter uma condição sem verificar</span></div>
+
+<div class="ferramenta" data-num="70" id="f70"><span class="f-badge">Ferramenta 70</span><span class="f-text">Distinguir condição suficiente de condição necessária</span></div>
+
+<p>O Matemático Invisível deixou uma pergunta no mural:</p>
+<blockquote>
+<p>“Ser divisível por 6 é suficiente para ser divisível por 3?”</p>
+</blockquote>
+<p>Sim. Todo múltiplo de 6 é múltiplo de 3.</p>
+<blockquote>
+<p>“Ser divisível por 3 é suficiente para ser divisível por 6?”</p>
+</blockquote>
+<p>Não. O número 3 é divisível por 3, mas não por 6.</p>
+<p>Uma boa maneira de testar uma inversão é procurar um contraexemplo antes de confiar nela.</p>
+<hr>
+<h2>6. Tabelas: o lugar onde as pistas podem respirar</h2>
+<p>Quando há várias pessoas, posições, horários ou objetos, tentar guardar tudo apenas na cabeça é cansativo. Uma tabela transforma pistas em um terreno visível.</p>
+<p>Quatro estudantes vão sentar em uma fila com quatro lugares, numerados de 1 a 4: Nando, Sofia, Leo e Maira.</p>
+<p>As pistas são:</p>
+<ol>
+<li>Maira senta imediatamente depois de Leo.</li>
+<li>Sofia não senta em uma ponta.</li>
+<li>Nando senta antes de Leo.</li>
+</ol>
+<p>Não é preciso adivinhar. Vamos eliminar.</p>
+<p>Se Leo estivesse no lugar 1, Maira teria de estar no 2, mas Nando não conseguiria ficar antes de Leo. Impossível.</p>
+<p>Se Leo estivesse no lugar 2, Maira ficaria no 3. Nando teria de ocupar o 1, e Sofia sobraria para o 4. Mas Sofia não pode sentar em uma ponta. Impossível.</p>
+<p>Logo, Leo está no lugar 3 e Maira no 4. Nando deve estar antes de Leo. Sofia não pode ficar no 1, então Sofia fica no 2 e Nando no 1.</p>
+<table>
+<thead>
+<tr>
+<th>Lugar</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Estudante</td>
+<td>Nando</td>
+<td>Sofia</td>
+<td>Leo</td>
+<td>Maira</td>
+</tr>
+</tbody>
+</table>
+<p>Chegamos a uma resposta porque cada possibilidade errada entrou em conflito com uma pista.</p>
+<div class="ferramenta" data-num="71" id="f71"><span class="f-badge">Ferramenta 71</span><span class="f-text">Listar possibilidades antes de eliminar</span></div>
+
+<div class="ferramenta" data-num="72" id="f72"><span class="f-badge">Ferramenta 72</span><span class="f-text">Usar tabelas para organizar pistas</span></div>
+
+<div class="ferramenta" data-num="73" id="f73"><span class="f-badge">Ferramenta 73</span><span class="f-text">Eliminar casos impossíveis</span></div>
+
+<figure class="figura"><img src="../assets/figuras/C10_F02_grade_Leo_Maira.svg" alt="Transformar a tabela de eliminação em grade de quatro lugares, com os casos descartados para a dupla Leo-Maira riscados e a disposição final destacada." loading="lazy"><figcaption>Transformar a tabela de eliminação em grade de quatro lugares, com os casos descartados para a dupla Leo-Maira riscados e a disposição final destacada.</figcaption></figure>
+
+<hr>
+<h2>7. Contradição: quando uma hipótese bate numa parede</h2>
+<figure class="figura"><img src="../assets/figuras/C10_F03_caixas_ABC.svg" alt="Junto às três caixas A, B e C, mostrar as frases e os estados verdadeiro/falso requeridos em cada hipótese, sem inventar pistas além das já dadas." loading="lazy"><figcaption>Junto às três caixas A, B e C, mostrar as frases e os estados verdadeiro/falso requeridos em cada hipótese, sem inventar pistas além das já dadas.</figcaption></figure>
+
+<p>Uma contradição acontece quando uma hipótese obriga uma coisa e uma pista obriga o contrário.</p>
+<p>Ela não é um fracasso. É uma placa muito útil dizendo:</p>
+<blockquote>
+<p>Por aqui não passa.</p>
+</blockquote>
+<p>Considere três caixas A, B e C. Uma medalha está em exatamente uma delas. Cada caixa traz uma frase:</p>
+<ul>
+<li>Caixa A: “A medalha está na caixa B.”</li>
+<li>Caixa B: “A medalha não está na caixa B.”</li>
+<li>Caixa C: “A medalha não está na caixa A.”</li>
+</ul>
+<p>Sabemos que <strong>exatamente uma</strong> das três frases é verdadeira.</p>
+<p>Vamos testar as hipóteses com calma.</p>
+<p>Se a medalha estivesse em B:</p>
+<ul>
+<li>a frase da caixa A seria verdadeira;</li>
+<li>a frase da caixa B seria falsa;</li>
+<li>a frase da caixa C seria verdadeira.</li>
+</ul>
+<p>Teríamos duas frases verdadeiras. Contradição.</p>
+<p>Se a medalha estivesse em C:</p>
+<ul>
+<li>a frase da caixa A seria falsa;</li>
+<li>a frase da caixa B seria verdadeira;</li>
+<li>a frase da caixa C seria verdadeira.</li>
+</ul>
+<p>De novo, duas frases verdadeiras. Contradição.</p>
+<p>Portanto, a medalha está na caixa A. Nesse caso, apenas a frase da caixa B é verdadeira.</p>
+<table>
+<thead>
+<tr>
+<th>Medalha em...</th>
+<th>Frase A</th>
+<th>Frase B</th>
+<th>Frase C</th>
+<th>Serve?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>B</td>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td>Não</td>
+</tr>
+<tr>
+<td>C</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>Não</td>
+</tr>
+</tbody>
+</table>
+<div class="ferramenta" data-num="74" id="f74"><span class="f-badge">Ferramenta 74</span><span class="f-text">Testar hipóteses e procurar contradições</span></div>
+
+<blockquote>
+<p>Uma hipótese que produz duas respostas incompatíveis deve ser abandonada, mesmo que pareça bonita no começo.</p>
+</blockquote>
+<hr>
+<h2>8. “Pode ser” não é o mesmo que “precisa ser”</h2>
+<p>Esta diferença é pequena na fala diária, mas enorme em problemas olímpicos.</p>
+<p>Suponha que Ana, Bruno e Caio receberam, cada um, uma medalha de ouro, prata ou bronze, sem repetir medalhas. Sabemos apenas que Ana não recebeu ouro.</p>
+<p>Bruno <strong>pode</strong> receber ouro. Caio também <strong>pode</strong> receber ouro. Ainda não há dados para decidir qual deles recebeu.</p>
+<p>Mas se acrescentarmos:</p>
+<blockquote>
+<p>Bruno recebeu uma medalha de valor maior que a de Caio.</p>
+</blockquote>
+<p>Então Bruno precisa receber ouro, Caio precisa receber bronze e Ana fica com prata.</p>
+<p>A primeira pista deixava várias possibilidades abertas. A segunda fechou todas menos uma.</p>
+<p>Em uma solução, use “pode ser” quando existe pelo menos um caso compatível. Use “precisa ser” apenas quando todos os casos compatíveis levam à mesma conclusão.</p>
+<div class="ferramenta" data-num="75" id="f75"><span class="f-badge">Ferramenta 75</span><span class="f-text">Distinguir “pode ser” de “precisa ser”</span></div>
+
+<blockquote>
+<p>Para provar que algo pode acontecer, basta construir um caso válido. Para provar que precisa acontecer, é preciso eliminar todos os casos contrários.</p>
+</blockquote>
+<p>Essa ferramenta conversa diretamente com a combinatória do capítulo anterior. Primeiro listamos ou organizamos casos; depois vemos o que continua possível e o que se tornou inevitável.</p>
+<hr>
+<h2>9. Lógica misturada com outras ferramentas</h2>
+<p>Na OBMEP, a lógica raramente vem sozinha. Ela se mistura com números, restos, contagem, posições e geometria.</p>
+<p>Veja este pequeno problema.</p>
+<blockquote>
+<p>Um número natural <code>n</code> deixa resto 1 quando dividido por 3. Sabe-se também que <code>n</code> é par e está entre 10 e 20. Qual é o valor de <code>n</code> se ele é múltiplo de 5?</p>
+</blockquote>
+<p>Vamos organizar as pistas:</p>
+<ul>
+<li>entre 10 e 20 e múltiplo de 5: <code>15</code> ou <code>20</code>;</li>
+<li>par: sobra apenas <code>20</code>;</li>
+<li><code>20</code> deixa resto 2 na divisão por 3, não resto 1.</li>
+</ul>
+<p>Não há nenhum número que satisfaça todas as pistas.</p>
+<p>Isso não significa que esquecemos de procurar. Significa que o conjunto de condições é impossível.</p>
+<p>Agora altere apenas uma pista: em vez de “deixa resto 1”, leia “deixa resto 2”. Então <code>20</code> funciona.</p>
+<p>O papel da lógica foi organizar filtros. O papel dos restos foi testar uma condição numérica. Juntos, eles resolveram o problema.</p>
+<div class="ferramenta" data-num="76" id="f76"><span class="f-badge">Ferramenta 76</span><span class="f-text">Combinar lógica com contagem, restos, paridade e posições</span></div>
+
+<blockquote>
+<p>Em problemas mistos, transforme cada dado em um filtro e aplique-os um de cada vez.</p>
+</blockquote>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>10. Problema em estilo OBMEP — As placas do corredor</h2>
+<p>Três salas da Academia, A, B e C, guardam uma chave. A chave está em exatamente uma sala. Em cada porta há uma placa:</p>
+<ul>
+<li>A: “A chave não está na sala A.”</li>
+<li>B: “A chave está na sala C.”</li>
+<li>C: “A chave não está na sala C.”</li>
+</ul>
+<p>Exatamente <strong>duas</strong> placas dizem a verdade. Em qual sala está a chave?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Vamos testar as três posições possíveis.</p>
+<p>Se a chave estivesse em A:</p>
+<ul>
+<li>placa A: falsa;</li>
+<li>placa B: falsa;</li>
+<li>placa C: verdadeira.</li>
+</ul>
+<p>Haveria apenas uma placa verdadeira. Não serve.</p>
+<p>Se a chave estivesse em B:</p>
+<ul>
+<li>placa A: verdadeira;</li>
+<li>placa B: falsa;</li>
+<li>placa C: verdadeira.</li>
+</ul>
+<p>Há exatamente duas placas verdadeiras. Serve.</p>
+<p>Se a chave estivesse em C:</p>
+<ul>
+<li>placa A: verdadeira;</li>
+<li>placa B: verdadeira;</li>
+<li>placa C: falsa.</li>
+</ul>
+<p>Também haveria duas placas verdadeiras.</p>
+<p>Então as pistas ainda permitem duas respostas: B ou C.</p>
+<p>Essa é a parte importante: o problema, como está escrito, <strong>não determina uma única sala</strong>. A conclusão correta não é escolher uma por palpite. É dizer que a chave pode estar em B ou em C.</p>
+<blockquote>
+<p><strong>Resposta:</strong> não é possível determinar uma única sala; as salas B e C são compatíveis com as pistas.</p>
+</blockquote>
+<p>O problema foi feito assim de propósito. Em lógica, perceber que os dados são insuficientes também é resolver.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>11. Problema em estilo OBMEP — A fila da biblioteca</h2>
+<p>Quatro estudantes, Davi, Elisa, Gabriel e Helena, estão em uma fila de 1 a 4. Sabe-se que:</p>
+<ol>
+<li>Helena está imediatamente depois de Gabriel.</li>
+<li>Davi está antes de Gabriel.</li>
+<li>Elisa não está em uma ponta.</li>
+</ol>
+<p>Qual é a ordem da fila?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A dupla Gabriel–Helena não pode ocupar os lugares 1 e 2, pois Davi deveria ficar antes de Gabriel e não haveria espaço.</p>
+<p>Ela também não pode ocupar os lugares 2 e 3: Davi ficaria no 1 e Elisa sobraria para o 4, uma ponta proibida.</p>
+<p>Portanto, Gabriel e Helena ocupam os lugares 3 e 4.</p>
+<p>Davi está antes de Gabriel. Elisa não pode ser a primeira. Logo:</p>
+<table>
+<thead>
+<tr>
+<th>Lugar</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Estudante</td>
+<td>Davi</td>
+<td>Elisa</td>
+<td>Gabriel</td>
+<td>Helena</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Resposta:</strong> Davi, Elisa, Gabriel, Helena.</p>
+</blockquote>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>12. Problema em estilo OBMEP — A regra que não volta</h2>
+<p>Considere a afirmação:</p>
+<blockquote>
+<p>“Se um número é múltiplo de 12, então é múltiplo de 3.”</p>
+</blockquote>
+<p>Qual das frases abaixo é necessariamente verdadeira?</p>
+<p>A) Se um número é múltiplo de 3, então é múltiplo de 12.<br>
+B) Todo número não múltiplo de 3 não é múltiplo de 12.<br>
+C) Todo número par é múltiplo de 12.<br>
+D) Todo múltiplo de 3 é par.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A alternativa A inverte a condição. É falsa: 3 é múltiplo de 3, mas não de 12.</p>
+<p>A alternativa C é falsa: 2 é par, mas não é múltiplo de 12.</p>
+<p>A alternativa D é falsa: 3 é múltiplo de 3, mas é ímpar.</p>
+<p>Resta B. Se um número fosse múltiplo de 12, ele seria obrigatoriamente múltiplo de 3. Portanto, um número que não é múltiplo de 3 não pode ser múltiplo de 12.</p>
+<blockquote>
+<p><strong>Resposta:</strong> B.</p>
+</blockquote>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>13. Problema em estilo OBMEP — As medalhas da equipe</h2>
+<p>Ana, Bruno e Caio receberam, sem repetição, uma medalha de ouro, uma de prata e uma de bronze. Sabe-se que:</p>
+<ol>
+<li>Ana não recebeu ouro.</li>
+<li>Bruno recebeu uma medalha de valor maior que a de Caio.</li>
+</ol>
+<p>Quem recebeu cada medalha?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Bruno não pode receber prata, pois então Caio teria de receber bronze e Ana ficaria com ouro, contrariando a primeira pista.</p>
+<p>Bruno também não pode receber bronze, pois não existe medalha de valor menor para Caio.</p>
+<p>Logo, Bruno recebeu ouro.</p>
+<p>Caio recebeu uma medalha de valor menor, portanto não pode receber prata se Ana ficaria com bronze? Vamos verificar: se Caio recebesse prata, Ana receberia bronze. Isso respeita as duas pistas.</p>
+<p>Mas também seria possível Caio receber bronze e Ana prata. Portanto, com as pistas dadas, a distribuição completa <strong>ainda não é única</strong>.</p>
+<p>As possibilidades são:</p>
+<p>| Ana | Bruno | Caio |
+|---|---|
+| Prata | Ouro | Bronze |
+| Bronze | Ouro | Prata |</p>
+<blockquote>
+<p><strong>Resposta:</strong> Bruno recebeu ouro; Ana e Caio podem trocar prata e bronze. Não há dados para determinar mais.</p>
+</blockquote>
+<p>Mais uma vez, a resposta lógica não pode inventar uma certeza que as pistas não deram.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>14. Problema em estilo OBMEP — O número escondido</h2>
+<figure class="figura"><img src="../assets/figuras/C10_F04_tabela_filtros.svg" alt="Tabela de filtros com as colunas intervalo, paridade, múltiplo e resto; cada eliminação deve deixar rastro até o número final." loading="lazy"><figcaption>Tabela de filtros com as colunas intervalo, paridade, múltiplo e resto; cada eliminação deve deixar rastro até o número final.</figcaption></figure>
+
+<p>Um número natural <code>n</code> satisfaz simultaneamente as condições:</p>
+<ul>
+<li><code>10 &lt; n &lt; 30</code>;</li>
+<li><code>n</code> é par;</li>
+<li><code>n</code> é múltiplo de 5;</li>
+<li>ao dividir <code>n</code> por 3, o resto é 2.</li>
+</ul>
+<p>Determine <code>n</code>.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Os múltiplos de 5 entre 10 e 30 são:</p>
+<p><code>15, 20, 25</code>.</p>
+<p>Entre eles, o único par é 20.</p>
+<p>Finalmente:</p>
+<p><code>20 = 3 × 6 + 2</code>.</p>
+<p>Logo, ao dividir 20 por 3, o resto é 2.</p>
+<blockquote>
+<p><strong>Resposta:</strong> <code>n = 20</code>.</p>
+</blockquote>
+<p>Não foi necessário procurar todos os números de 11 a 29. Cada condição funcionou como um filtro.</p>
+<hr>
+</div></details>
+<h2><span class="badge-oficina">Oficina</span>15. Oficina Olímpica 9 — Pistas que não deixam escapar</h2>
+<h3>Desafio 1 — A negação certa</h3>
+<p>Qual é a negação correta da frase “Todos os 12 cartões da caixa são vermelhos”?</p>
+<p><strong>Resposta comentada:</strong> “Pelo menos um dos 12 cartões não é vermelho.” Não podemos dizer “nenhum é vermelho”, pois talvez só um cartão tenha outra cor.</p>
+<h3>Desafio 2 — No máximo não é exatamente</h3>
+<p>Uma equipe marcou no máximo 4 pontos. Quais totais são possíveis, considerando apenas pontos inteiros não negativos?</p>
+<p><strong>Resposta comentada:</strong> <code>0, 1, 2, 3 ou 4</code>. “No máximo 4” permite todos os valores até 4.</p>
+<h3>Desafio 3 — Uma inversão perigosa</h3>
+<p>É verdade que “se um número é múltiplo de 8, então é par”. A frase inversa é sempre verdadeira?</p>
+<p><strong>Resposta comentada:</strong> Não. O número 6 é par e não é múltiplo de 8. Ser múltiplo de 8 é suficiente para ser par, mas ser par não é suficiente para ser múltiplo de 8.</p>
+<h3>Desafio 4 — Três lanternas</h3>
+<p>Três lanternas A, B e C estão em uma das posições ligada ou desligada. Sabe-se que:</p>
+<ul>
+<li>exatamente duas lanternas estão ligadas;</li>
+<li>A está ligada se, e somente se, B está desligada;</li>
+<li>C está ligada.</li>
+</ul>
+<p>Quais lanternas estão ligadas?</p>
+<p><strong>Resposta comentada:</strong> Como C está ligada e exatamente duas lanternas estão ligadas, exatamente uma entre A e B está ligada. Isso já combina com a segunda pista: A ligada equivale a B desligada. Portanto, há duas possibilidades compatíveis: A e C ligadas, ou B e C ligadas? Vamos testar cuidadosamente a expressão “A está ligada se, e somente se, B está desligada”. Ela diz que A ligada acontece exatamente quando B desligada. </p>
+<p>Se A está ligada, B está desligada: A e C ligadas, válido. Se B está ligada, então B não está desligada; logo A não pode estar ligada. A desligada e B ligada também satisfaz a equivalência, e C ligada dá exatamente duas lanternas ligadas. </p>
+<blockquote>
+<p><strong>Conclusão:</strong> as pistas não determinam uma única configuração: podem estar ligadas A e C, ou B e C.</p>
+</blockquote>
+<p>Este desafio mostra que uma frase forte ainda pode deixar mais de uma possibilidade, e que é preciso testar todas as condições.</p>
+<h3>Desafio 5 — A última posição</h3>
+<p>Quatro livros diferentes de matemática, história, ciências e literatura estão em uma prateleira. Sabe-se que:</p>
+<ul>
+<li>o livro de história está imediatamente à esquerda do de ciências;</li>
+<li>o livro de literatura não está em uma ponta;</li>
+<li>o livro de matemática está à direita do de ciências.</li>
+</ul>
+<p>Qual é a ordem dos livros?</p>
+<p><strong>Resposta comentada:</strong> História e ciências formam uma dupla nessa ordem. Elas não podem estar nas posições 2 e 3, pois matemática teria de ficar à direita do livro de ciências, na posição 4, e literatura sobraria para a posição 1, uma ponta proibida. Logo, história e ciências ocupam 1 e 2; literatura ocupa 3 e matemática ocupa 4.</p>
+<blockquote>
+<p><strong>Resposta:</strong> história, ciências, literatura, matemática.</p>
+</blockquote>
+<hr>
+<h2>16. As ferramentas da Mochila nesta sala</h2>
+<p>Nesta sala, a Mochila ganhou ferramentas de leitura precisa e eliminação organizada:</p>
+<ol>
+<li>Transformar frases em afirmações verificáveis.</li>
+<li>Separar verdadeiro, falso e não determinado.</li>
+<li>Negar uma frase sem exagerar para o lado oposto.</li>
+<li>Cuidar de palavras como todos, nenhum, algum, sempre e nunca.</li>
+<li>Cuidar de expressões como exatamente, no máximo e no mínimo.</li>
+<li>Entender “se... então...” como uma condição com consequência.</li>
+<li>Não inverter uma condição sem verificar.</li>
+<li>Distinguir condição suficiente de condição necessária.</li>
+<li>Listar possibilidades antes de eliminar.</li>
+<li>Usar tabelas para organizar pistas.</li>
+<li>Eliminar casos impossíveis.</li>
+<li>Testar hipóteses e procurar contradições.</li>
+<li>Distinguir “pode ser” de “precisa ser”.</li>
+<li>Combinar lógica com contagem, restos, paridade e posições.</li>
+</ol>
+<p>Quando um problema parecer cheio de frases, a primeira jogada não precisa ser uma conta. Pode ser uma tabela, uma lista de casos, um contraexemplo ou uma pergunta simples:</p>
+<blockquote>
+<p>O que esta pista realmente obriga?</p>
+</blockquote>
+<hr>
+<h2>17. Figuras aplicadas no ponto de uso</h2>
+<p>Os quadros, a grade de lugares, as caixas e os filtros foram especificados nas seções em que as pistas são usadas. Nenhuma representação visual adicional é necessária no encerramento.</p>
+<hr>
+<h2>18. Pergunta para amanhã</h2>
+<p>Agora Felipe já consegue contar possibilidades e eliminar as que entram em contradição. Mas em problemas olímpicos mais fortes, restos, figuras, padrões, contagem e lógica podem aparecer todos misturados.</p>
+<blockquote>
+<p>Quando um problema parece ter muitas portas ao mesmo tempo, como escolher a primeira jogada sem sair calculando no escuro?</p>
+</blockquote>
+<p>No próximo capítulo, a Academia entra na sala dos problemas mistos e das estratégias olímpicas.</p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap09.html" class="nav-prev">← Cap. 9</a>
+      <a href="cap11.html" class="nav-next">Cap. 11 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(10);</script>
+</body>
+</html>

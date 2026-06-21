@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" role="img" aria-labelledby="title desc">
+  <title id="title">Retângulo dividido em duas metades</title><desc id="desc">Uso: mostra dois triângulos congruentes, com uma metade preenchida.</desc>
+  <rect width="1000" height="620" fill="#ffffff"/>
+  <text x="50" y="52" font-family="Arial, Helvetica, sans-serif" font-size="27" text-anchor="start" font-weight="700" fill="#18202a">Retângulo dividido em duas metades</text>
+  <line x1="50" y1="72" x2="950" y2="72" stroke="#7a8a99" stroke-width="1" />
+  <rect x="280" y="150" width="440" height="280" rx="0" fill="#ffffff" stroke="#18202a" stroke-width="3"/><polygon points="280,150 720,430 280,430" fill="#dcecf7"/><line x1="280" y1="150" x2="720" y2="430" stroke="#18202a" stroke-width="3" /><text x="500" y="485" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="middle" font-weight="700" fill="#18202a">duas metades congruentes</text>
+  <text x="50" y="590" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="start" font-weight="400" fill="#18202a">Uso: mostra dois triângulos congruentes, com uma metade preenchida.</text>
+  </svg>

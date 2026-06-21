@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 2 — O mundo dos números | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-bronze">Nível Bronze</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link sidebar-active" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 2</span>
+        <h1 class="cap-title">O mundo dos números</h1>
+      </div>
+      <article class="chapter-body">
+<h2>Nota editorial</h2>
+<p>Este capítulo é uma etapa prática da revisão global iniciada na Oficina da Revisão.</p>
+<p>Na montagem final do livro, este texto deve substituir o rascunho antigo do <strong>Capítulo 2 — O mundo dos números</strong>.</p>
+<p>Aqui, o número deixa de ser apenas algo que aparece em uma conta. Ele começa a ser observado por dentro: seus divisores, seus múltiplos, sua forma de se decompor, suas possibilidades e suas armadilhas.</p>
+<p>Este capítulo não deve parecer uma lista de definições. A ideia principal continua sendo a mesma da Academia do Raciocínio:</p>
+<blockquote>
+<p>Primeiro nasce a ideia. Depois aparece o nome.</p>
+</blockquote>
+<p><strong>Nota de auditoria direta (Capítulo 40):</strong> os blocos marcados como “Problema em estilo OBMEP” e os desafios da Oficina são materiais originais deste livro. Atividades de resposta aberta, quando houver, devem ser identificadas como tais e não recebem aparência de gabarito único.</p>
+<hr>
+<h2>1. Depois da primeira chave</h2>
+<p>Felipe saiu da primeira sala da Academia do Raciocínio com uma descoberta simples e poderosa:</p>
+<blockquote>
+<p>antes de calcular, é preciso aprender a olhar.</p>
+</blockquote>
+<p>Na porta seguinte, havia apenas uma placa.</p>
+<p><strong>O mundo dos números</strong></p>
+<p>Felipe sorriu.</p>
+<p>— Essa parece fácil.</p>
+<p>O Professor da Academia não respondeu imediatamente. Apontou para uma mesa de madeira. Sobre ela havia cartões com números:</p>
+<p><strong>6, 8, 12, 15, 24, 25, 36</strong></p>
+<p>— O que você vê? — perguntou o Professor.</p>
+<p>Felipe respondeu depressa:</p>
+<p>— Números.</p>
+<p>A coruja, pousada no alto da porta, virou a cabeça.</p>
+<p>— Isso é o que eles são por fora. Mas o que eles escondem por dentro?</p>
+<p>Felipe olhou de novo.</p>
+<p>Alguns eram pares.<br>
+Alguns terminavam em 5.<br>
+Alguns pareciam aparecer em tabuadas conhecidas.<br>
+O 24 parecia ter muitos jeitos de ser dividido.<br>
+O 25 parecia quadrado.<br>
+O 36 parecia ainda mais organizado.</p>
+<p>A primeira chave já começava a funcionar.</p>
+<p>Ele não estava apenas vendo números.<br>
+Estava começando a investigar números.</p>
+<hr>
+<h2>2. Números por fora e por dentro</h2>
+<p>Um número tem aparência.</p>
+<p>O número 24, por exemplo, parece apenas um símbolo formado pelos algarismos 2 e 4.</p>
+<p>Mas um número também tem estrutura.</p>
+<p>O 24 pode ser visto como:</p>
+<ul>
+<li>12 + 12;</li>
+<li>20 + 4;</li>
+<li>6 × 4;</li>
+<li>3 × 8;</li>
+<li>2 × 12;</li>
+<li>1 × 24.</li>
+</ul>
+<p>Essas escritas não são apenas maneiras diferentes de fazer conta. Elas mostram como o número pode ser construído.</p>
+<p>O Professor escreveu:</p>
+<blockquote>
+<p>Um número não é só uma quantidade. É também uma construção.</p>
+</blockquote>
+<p>Felipe pegou o cartão do 24.</p>
+<p>— Então o 24 tem várias portas de entrada.</p>
+<p>— Exatamente — disse o Professor. — E, em problemas olímpicos, muitas vezes a porta certa não é a conta mais rápida. É a forma mais inteligente de olhar o número.</p>
+<hr>
+<h2>3. O estranho caso do número 24</h2>
+<p>O Professor colocou 24 medalhas pequenas sobre a mesa.</p>
+<p>— Imagine que queremos guardar essas medalhas em saquinhos iguais, sem sobrar nenhuma medalha e sem deixar nenhum saquinho incompleto.</p>
+<p>Felipe começou a testar.</p>
+<p>Se colocar 1 medalha em cada saquinho, dá certo.<br>
+Se colocar 2 medalhas em cada saquinho, dá certo: 12 saquinhos.<br>
+Se colocar 3 medalhas em cada saquinho, dá certo: 8 saquinhos.<br>
+Se colocar 4 medalhas em cada saquinho, dá certo: 6 saquinhos.<br>
+Se colocar 5 medalhas em cada saquinho, não dá certo.<br>
+Se colocar 6 medalhas em cada saquinho, dá certo: 4 saquinhos.<br>
+Se colocar 7, não dá certo.<br>
+Se colocar 8, dá certo: 3 saquinhos.<br>
+Se colocar 12, dá certo: 2 saquinhos.<br>
+Se colocar 24, dá certo: 1 saquinho.</p>
+<p>A lista que realmente funcionava era:</p>
+<p><strong>1, 2, 3, 4, 6, 8, 12, 24</strong></p>
+<p>O Professor esperou alguns segundos.</p>
+<p>— Esses números têm uma relação especial com o 24. Eles dividem o 24 sem deixar sobra.</p>
+<p>Agora o nome podia aparecer.</p>
+<blockquote>
+<p>Os números que dividem outro número sem deixar resto são chamados de <strong>divisores</strong> desse número.</p>
+</blockquote>
+<p>Então:</p>
+<p><strong>1, 2, 3, 4, 6, 8, 12 e 24 são divisores de 24.</strong></p>
+<p>Felipe observou a lista.</p>
+<p>— O 5 não entrou porque sobra.</p>
+<p>— Sim. E essa sobra é uma informação importante. Às vezes, descobrir que algo não funciona é tão útil quanto descobrir que funciona.</p>
+<hr>
+<h2>4. Dividir sem sobrar</h2>
+<p>A Academia não tratava a palavra “divisor” como decoração.</p>
+<p>Um divisor serve para responder perguntas como:</p>
+<ul>
+<li>Posso dividir estes objetos em grupos iguais?</li>
+<li>Posso formar caixas com a mesma quantidade?</li>
+<li>Posso cortar uma fita em pedaços iguais sem sobra?</li>
+<li>Posso organizar pessoas em fileiras completas?</li>
+<li>Posso repartir medalhas, cartas, fichas ou livros sem quebrar a regra?</li>
+</ul>
+<p>O Professor escreveu no quadro:</p>
+<p><strong>18 pode ser dividido em grupos de 3?</strong></p>
+<p>Felipe pensou:</p>
+<p>18 ÷ 3 = 6.</p>
+<p>Não sobra nada.<br>
+Então 3 é divisor de 18.</p>
+<p>Depois o Professor escreveu:</p>
+<p><strong>18 pode ser dividido em grupos de 5?</strong></p>
+<p>Felipe pensou:</p>
+<p>5 + 5 + 5 = 15, e ainda sobram 3.<br>
+Então 5 não é divisor de 18.</p>
+<p>A coruja comentou:</p>
+<p>— Divisor não é o número que aparece na conta. Divisor é o número que encaixa perfeitamente.</p>
+<p>Essa frase ficou na parede da sala.</p>
+<blockquote>
+<p>Dividir sem sobrar é encaixar perfeitamente.</p>
+</blockquote>
+<hr>
+<h2>5. O outro lado: múltiplos</h2>
+<p>O Professor agora apagou a mesa e colocou uma régua comprida no chão da Academia.</p>
+<p>Nela estavam marcados alguns números:</p>
+<p><strong>0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30</strong></p>
+<p>— O que esses números têm em comum?</p>
+<p>Felipe respondeu:</p>
+<p>— Eles pulam de 3 em 3.</p>
+<p>— Então todos eles aparecem quando damos passos de tamanho 3. São números que podem ser formados multiplicando 3 por algum número inteiro.</p>
+<p>Agora o nome podia aparecer.</p>
+<blockquote>
+<p>Os números que aparecem quando multiplicamos um número por 1, 2, 3, 4, 5... são chamados de <strong>múltiplos</strong> desse número.</p>
+</blockquote>
+<p>Assim:</p>
+<p><strong>3, 6, 9, 12, 15, 18, 21, 24, 27, 30...</strong> são múltiplos de 3.</p>
+<p>O Professor perguntou:</p>
+<p>— 24 é múltiplo de 3?</p>
+<p>— Sim, porque 3 × 8 = 24.</p>
+<p>— E 3 é divisor de 24?</p>
+<p>— Sim, porque 24 ÷ 3 = 8 sem sobra.</p>
+<p>O Professor sorriu.</p>
+<p>— Percebeu a ponte?</p>
+<p>Felipe percebeu.</p>
+<p>Se 3 divide 24 sem sobra, então 24 é múltiplo de 3.</p>
+<p>O mesmo encaixe pode ser visto de dois lados:</p>
+<ul>
+<li>3 é divisor de 24;</li>
+<li>24 é múltiplo de 3.</li>
+</ul>
+<hr>
+<h2>6. Dois lados da mesma porta</h2>
+<p>O Professor desenhou uma porta com duas placas.</p>
+<p>De um lado:</p>
+<p><strong>3 é divisor de 24.</strong></p>
+<p>Do outro:</p>
+<p><strong>24 é múltiplo de 3.</strong></p>
+<p>Era a mesma porta.</p>
+<p>A diferença estava no ponto de vista.</p>
+<p>A coruja explicou:</p>
+<p>— Quando você olha do número pequeno para o grande, pensa em múltiplos. Quando olha do número grande para o pequeno, pensa em divisores.</p>
+<p>Felipe anotou no caderno:</p>
+<blockquote>
+<p>Divisor olha para dentro do número.<br>
+Múltiplo olha para a trilha que o número constrói.</p>
+</blockquote>
+<p>Essa distinção seria importante mais adiante.<br>
+No Capítulo 4, ela ajudaria a separar problemas de <strong>MDC</strong> e <strong>MMC</strong>.<br>
+Mas agora a Academia não tinha pressa.</p>
+<p>Primeiro era preciso sentir a ideia.</p>
+<hr>
+<h2>7. O perigo da lista apressada</h2>
+<p>O Professor escreveu:</p>
+<p><strong>Quais são os divisores de 30?</strong></p>
+<p>Felipe começou:</p>
+<p>1, 2, 3, 5, 6, 10, 15, 30.</p>
+<p>— Ótimo — disse o Professor. — Agora me diga: como você sabe que não esqueceu nenhum?</p>
+<p>Felipe parou.</p>
+<p>Essa era uma pergunta mais importante do que parecia.</p>
+<p>Listar divisores não é apenas sair testando números sem ordem.<br>
+É preciso organizar.</p>
+<p>Uma forma inteligente é procurar pares de multiplicação:</p>
+<p>1 × 30<br>
+2 × 15<br>
+3 × 10<br>
+5 × 6</p>
+<p>Todos esses produtos dão 30.</p>
+<p>Então os divisores são:</p>
+<p><strong>1, 2, 3, 5, 6, 10, 15, 30</strong></p>
+<p>Organizar por pares evita esquecer divisores e ajuda a perceber quando a lista terminou.</p>
+<p>O Professor perguntou:</p>
+<p>— Por que paramos depois do par 5 × 6?</p>
+<p>Felipe pensou.</p>
+<p>Depois viria 6 × 5, que já apareceu.<br>
+Depois 10 × 3, que já apareceu.<br>
+Depois 15 × 2, que já apareceu.<br>
+Depois 30 × 1, que já apareceu.</p>
+<p>A lista começou a se repetir.</p>
+<p>A coruja bateu as asas.</p>
+<p>— Quando a investigação começa a voltar pelo mesmo caminho, talvez você já tenha encontrado tudo.</p>
+<hr>
+<h2>8. O número pode contar uma mentira?</h2>
+<p>O Professor escreveu uma frase no quadro:</p>
+<p><strong>Todo número ímpar é primo.</strong></p>
+<p>Felipe olhou rápido.</p>
+<p>Números ímpares famosos: 3, 5, 7, 11, 13.<br>
+Todos primos.</p>
+<p>A frase parecia verdadeira.</p>
+<p>Mas a Academia não aceitava frases apenas porque pareciam bonitas.</p>
+<p>— Como derrubamos uma frase que diz “todo”? — perguntou a coruja.</p>
+<p>Felipe lembrou da primeira chave.</p>
+<p>Basta encontrar um caso que não obedece.</p>
+<p>O número 9 é ímpar.<br>
+Mas 9 = 3 × 3.<br>
+Então 9 não é primo.</p>
+<p>A frase caiu.</p>
+<p>Esse tipo de exemplo recebe um nome importante.</p>
+<blockquote>
+<p>Um <strong>contraexemplo</strong> é um caso que mostra que uma afirmação geral é falsa.</p>
+</blockquote>
+<p>A afirmação “todo número ímpar é primo” é falsa porque 9 é um contraexemplo.<br>
+Também poderiam servir 15, 21, 25, 27, 33...</p>
+<p>O Professor destacou:</p>
+<blockquote>
+<p>Em matemática, uma frase com “todo”, “sempre” ou “nunca” precisa sobreviver a todos os casos. Um único contraexemplo certo derruba a frase.</p>
+</blockquote>
+<p>Essa ferramenta já começava a entrar na Mochila.</p>
+<hr>
+<h2>9. Os primos entram em cena</h2>
+<p>O Professor colocou quatro cartões sobre a mesa:</p>
+<p><strong>2, 6, 7, 12</strong></p>
+<p>— Alguns números podem ser construídos de muitos jeitos. Outros parecem ter uma estrutura mais simples.</p>
+<p>Felipe começou pelo 6:</p>
+<p>6 = 1 × 6<br>
+6 = 2 × 3</p>
+<p>O 6 tinha divisores 1, 2, 3 e 6.</p>
+<p>Depois olhou o 12:</p>
+<p>12 = 1 × 12<br>
+12 = 2 × 6<br>
+12 = 3 × 4</p>
+<p>O 12 tinha vários divisores.</p>
+<p>Depois olhou o 7.</p>
+<p>7 = 1 × 7.</p>
+<p>Não havia outro jeito de formar 7 como produto de números naturais maiores que 1.</p>
+<p>O Professor explicou:</p>
+<blockquote>
+<p>Um número maior que 1 que só tem dois divisores positivos, 1 e ele mesmo, é chamado de <strong>número primo</strong>.</p>
+</blockquote>
+<p>Então 7 é primo.</p>
+<p>E o 2?</p>
+<p>2 = 1 × 2.</p>
+<p>O 2 também só tem dois divisores positivos: 1 e 2.</p>
+<p>Então 2 é primo.</p>
+<p>A coruja completou:</p>
+<p>— O 2 é o único primo par.</p>
+<p>Felipe pensou no motivo.</p>
+<p>Todo número par maior que 2 é divisível por 2, mas também tem 1 e ele mesmo como divisores.<br>
+Por exemplo, 8 tem 1, 2, 4 e 8.<br>
+Então não pode ser primo.</p>
+<p>O 2 é especial porque ser divisível por 2 não acrescenta um terceiro divisor. O próprio número já é 2.</p>
+<hr>
+<h2>10. Números compostos</h2>
+<p>Se os primos são números que não se quebram em fatores menores além de 1 e eles mesmos, os outros números maiores que 1 recebem outro nome.</p>
+<blockquote>
+<p>Um número maior que 1 que tem mais de dois divisores positivos é chamado de <strong>composto</strong>.</p>
+</blockquote>
+<p>6 é composto, porque 6 = 2 × 3.<br>
+12 é composto, porque 12 = 3 × 4.<br>
+25 é composto, porque 25 = 5 × 5.<br>
+49 é composto, porque 49 = 7 × 7.</p>
+<p>O Professor fez questão de destacar o 25 e o 49.</p>
+<p>— Um número não deixa de ser composto só porque seus fatores são iguais. Se ele pode ser escrito como produto de dois números maiores que 1, ele já tem estrutura interna.</p>
+<p>Felipe percebeu outra armadilha:</p>
+<p>— Então número ímpar também pode ser composto.</p>
+<p>— Sim. 9, 15, 21, 25, 27, 33, 35, 39... todos são ímpares compostos.</p>
+<p>A frase da sala ficou mais precisa:</p>
+<blockquote>
+<p>Primo não significa “número estranho”. Primo significa “número com exatamente dois divisores positivos”.</p>
+</blockquote>
+<hr>
+<h2>11. O número 1 é primo?</h2>
+<p>Felipe levantou a mão.</p>
+<p>— E o 1?</p>
+<p>A pergunta era pequena, mas importante.</p>
+<p>O 1 tem apenas um divisor positivo: ele mesmo.</p>
+<p>Para ser primo, um número precisa ter exatamente dois divisores positivos: 1 e ele mesmo.</p>
+<p>No caso do 1, esses dois papéis viram a mesma coisa.<br>
+Ele não tem dois divisores diferentes.</p>
+<p>Então:</p>
+<blockquote>
+<p>O número 1 não é primo.</p>
+</blockquote>
+<p>O Professor acrescentou:</p>
+<p>— Essa escolha não é capricho. Ela ajuda a manter a fatoração dos números organizada.</p>
+<p>Felipe ainda não precisava conhecer todos os detalhes dessa história.<br>
+Mas precisava guardar a regra com clareza:</p>
+<p><strong>1 não é primo.</strong><br>
+<strong>2 é primo.</strong><br>
+<strong>Todo primo maior que 2 é ímpar.</strong><br>
+<strong>Nem todo ímpar é primo.</strong></p>
+<hr>
+<h2>12. Construindo números por dentro</h2>
+<p>O Professor escreveu:</p>
+<p><strong>84</strong></p>
+<p>— Vamos desmontar esse número.</p>
+<p>Felipe começou:</p>
+<p>84 = 2 × 42<br>
+42 = 2 × 21<br>
+21 = 3 × 7</p>
+<p>Então:</p>
+<p><strong>84 = 2 × 2 × 3 × 7</strong></p>
+<p>Todos os fatores finais eram primos.</p>
+<p>O Professor desenhou uma árvore:</p>
+<pre><code class="language-text">        84
+       /  \
+      2   42
+          / \
+         2  21
+            / \
+           3   7
+</code></pre>
+<figure class="figura"><img src="../assets/figuras/C02_F01_arvore_fatoracao_84.svg" alt="Converter a árvore textual em diagrama limpo, mantendo exatamente a ramificação `84 -&gt; 2 e 42 -&gt; 2 e 21 -&gt; 3 e 7`; os fatores finais são `2`, `2`, `3` e `7`. A função é tornar visível a decomposição, sem acrescentar outro método de fatoração." loading="lazy"><figcaption>Converter a árvore textual em diagrama limpo, mantendo exatamente a ramificação `84 -&gt; 2 e 42 -&gt; 2 e 21 -&gt; 3 e 7`; os fatores finais são `2`, `2`, `3` e `7`. A função é tornar visível a decomposição, sem acrescentar outro método de fatoração.</figcaption></figure>
+
+<p>Essa árvore não era decoração.<br>
+Ela mostrava que o número 84 podia ser desmontado até chegar em peças fundamentais.</p>
+<p>A coruja disse:</p>
+<p>— Os primos são como peças básicas de construção dos números.</p>
+<p>O Professor completou:</p>
+<blockquote>
+<p>Decompor um número em fatores primos é escrever esse número como produto de números primos.</p>
+</blockquote>
+<p>Mais adiante, essa ideia seria usada para encontrar divisores comuns, múltiplos comuns, MDC e MMC com mais eficiência.</p>
+<p>Por enquanto, bastava entender o sentido:</p>
+<p><strong>desmontar para enxergar a estrutura.</strong></p>
+<hr>
+<h2>13. Nem todo caminho de desmontagem parece igual</h2>
+<p>Felipe tentou decompor 84 de outro jeito:</p>
+<p>84 = 7 × 12<br>
+12 = 3 × 4<br>
+4 = 2 × 2</p>
+<p>Então:</p>
+<p><strong>84 = 7 × 3 × 2 × 2</strong></p>
+<p>A ordem mudou.<br>
+Mas as peças eram as mesmas:</p>
+<p><strong>2, 2, 3, 7</strong></p>
+<p>O Professor explicou:</p>
+<p>— A ordem dos fatores pode mudar, mas a construção fundamental é a mesma.</p>
+<p>Não era necessário transformar isso em teorema naquele momento.<br>
+Mas a ideia era forte:</p>
+<blockquote>
+<p>Quando desmontamos corretamente um número composto até chegar aos primos, encontramos suas peças básicas.</p>
+</blockquote>
+<p>Felipe olhou para o 84 como se ele não fosse mais apenas 84.</p>
+<p>Agora ele via:</p>
+<p><strong>84 = 2² × 3 × 7</strong></p>
+<p>A notação com expoente podia aparecer como uma economia de escrita:</p>
+<p><strong>2 × 2 = 2²</strong></p>
+<p>Então:</p>
+<p><strong>84 = 2² × 3 × 7</strong></p>
+<p>O Professor avisou:</p>
+<p>— Expoente aqui não é enfeite. É apenas uma forma curta de dizer que o fator se repete.</p>
+<hr>
+<h2>14. O erro de confiar só no tamanho</h2>
+<p>O Professor colocou dois números no quadro:</p>
+<p><strong>97</strong> e <strong>100</strong></p>
+<p>— Qual deles parece mais complicado?</p>
+<p>Felipe respondeu:</p>
+<p>— 100 parece maior e mais pesado.</p>
+<p>Mas 100 se desmonta facilmente:</p>
+<p>100 = 10 × 10 = 2 × 5 × 2 × 5 = 2² × 5².</p>
+<p>Já 97 não é divisível por 2, nem por 3, nem por 5, nem por 7.</p>
+<p>E, como 10 × 10 já passa de 97, não precisamos testar divisores maiores que 10 para procurar um fator pequeno que se repita do outro lado.</p>
+<p>97 é primo.</p>
+<p>O Professor explicou com cuidado:</p>
+<p>— Números grandes podem ser simples em estrutura. Números menores podem ter muitos divisores. Não julgue um número apenas pelo tamanho.</p>
+<p>A coruja deixou uma pergunta no ar:</p>
+<p>— O número é grande ou é cheio de portas?</p>
+<p>Essa pergunta era mais olímpica do que parecia.</p>
+<hr>
+<h2>15. A informação essencial</h2>
+<p>O Professor escreveu:</p>
+<p><strong>Um número de dois algarismos é múltiplo de 6 e termina em 4. Quais são as possibilidades?</strong></p>
+<p>Felipe começou a listar todos os números de dois algarismos que terminam em 4:</p>
+<p>14, 24, 34, 44, 54, 64, 74, 84, 94.</p>
+<p>Agora precisava testar quais eram múltiplos de 6.</p>
+<p>Múltiplo de 6 significa múltiplo de 2 e de 3 ao mesmo tempo.</p>
+<p>Todos os números da lista terminam em 4, então todos são pares.<br>
+Mas nem todos têm soma dos algarismos múltipla de 3.</p>
+<p>14: 1 + 4 = 5, não.<br>
+24: 2 + 4 = 6, sim.<br>
+34: 3 + 4 = 7, não.<br>
+44: 4 + 4 = 8, não.<br>
+54: 5 + 4 = 9, sim.<br>
+64: 6 + 4 = 10, não.<br>
+74: 7 + 4 = 11, não.<br>
+84: 8 + 4 = 12, sim.<br>
+94: 9 + 4 = 13, não.</p>
+<p>As possibilidades são:</p>
+<p><strong>24, 54 e 84.</strong></p>
+<p>O Professor destacou:</p>
+<p>— O segredo não foi testar tudo sem pensar. Foi usar a informação essencial: dois algarismos, termina em 4, múltiplo de 6.</p>
+<p>Essa ferramenta ainda seria usada muitas vezes.</p>
+<blockquote>
+<p>Em problemas olímpicos, quase sempre há dados que guiam e dados que distraem. A primeira tarefa é descobrir quais informações realmente mandam no problema.</p>
+</blockquote>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>16. Problema em estilo OBMEP — As caixas de medalhas</h2>
+<p>A Academia tem 48 medalhas de bronze.<br>
+Elas serão guardadas em caixas, todas com a mesma quantidade de medalhas.<br>
+Nenhuma medalha pode sobrar.</p>
+<p>A caixa não pode ter apenas 1 medalha, e também não pode conter todas as 48 medalhas.</p>
+<p>Quais quantidades de medalhas por caixa são possíveis?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A pergunta pede quantidades que dividem 48 sem deixar sobra.</p>
+<p>Então precisamos procurar divisores de 48.</p>
+<p>Vamos organizar por pares de multiplicação:</p>
+<p>1 × 48<br>
+2 × 24<br>
+3 × 16<br>
+4 × 12<br>
+6 × 8</p>
+<p>Agora a lista de divisores é:</p>
+<p><strong>1, 2, 3, 4, 6, 8, 12, 16, 24, 48</strong></p>
+<p>Mas o enunciado proibiu duas opções:</p>
+<ul>
+<li>caixa com apenas 1 medalha;</li>
+<li>uma única caixa com todas as 48 medalhas.</li>
+</ul>
+<p>Então retiramos 1 e 48.</p>
+<p>As quantidades possíveis são:</p>
+<p><strong>2, 3, 4, 6, 8, 12, 16 e 24.</strong></p>
+</div></details>
+<h3>O que este problema treinou</h3>
+<p>Não bastava listar divisores.<br>
+Era preciso ler a restrição final.</p>
+<p>A resposta não era “todos os divisores de 48”.<br>
+Era “todos os divisores de 48, exceto 1 e 48”.</p>
+<p>A pergunta escondida estava nos detalhes.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>17. Problema em estilo OBMEP — O número da porta</h2>
+<p>A porta da segunda sala da Academia só abre com um número de dois algarismos.</p>
+<p>O número:</p>
+<ul>
+<li>é múltiplo de 4;</li>
+<li>é múltiplo de 6;</li>
+<li>é menor que 50;</li>
+<li>não é 24.</li>
+</ul>
+<p>Quais números podem abrir a porta?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>O número precisa ser múltiplo de 4 e de 6 ao mesmo tempo.</p>
+<p>Vamos listar múltiplos de 4 menores que 50:</p>
+<p>4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48.</p>
+<p>Agora verificamos quais também são múltiplos de 6:</p>
+<p>12 = 6 × 2, sim.<br>
+24 = 6 × 4, sim.<br>
+36 = 6 × 6, sim.<br>
+48 = 6 × 8, sim.</p>
+<p>Mas o enunciado diz que o número não é 24.</p>
+<p>Então as possibilidades são:</p>
+<p><strong>12, 36 e 48.</strong></p>
+</div></details>
+<h3>Outra forma de pensar</h3>
+<p>Um número que é múltiplo de 4 e de 6 precisa aparecer no encontro das duas trilhas:</p>
+<p>Múltiplos de 4: 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48...<br>
+Múltiplos de 6: 6, 12, 18, 24, 30, 36, 42, 48...</p>
+<p>Os encontros menores que 50 são:</p>
+<p><strong>12, 24, 36, 48</strong></p>
+<p>Tirando 24:</p>
+<p><strong>12, 36, 48</strong></p>
+<h3>O que este problema treinou</h3>
+<p>Aqui apareceu uma ponte para o Capítulo 4: encontros de múltiplos.</p>
+<p>Mas ainda não precisamos chamar isso de MMC.<br>
+A ideia nasceu antes do nome.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>18. Problema em estilo OBMEP — O primo escondido</h2>
+<p>Um cartão tem um número de dois algarismos.</p>
+<p>Sabe-se que:</p>
+<ul>
+<li>o número é maior que 40;</li>
+<li>é menor que 60;</li>
+<li>a soma de seus algarismos é 11;</li>
+<li>o número é primo.</li>
+</ul>
+<p>Qual é o número?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Os números entre 40 e 60 cuja soma dos algarismos é 11 são:</p>
+<p>47, pois 4 + 7 = 11.<br>
+56, pois 5 + 6 = 11.</p>
+<p>Agora precisamos verificar qual deles é primo.</p>
+<p>56 é par e maior que 2, então não é primo.<br>
+Também podemos ver que 56 = 7 × 8.</p>
+<p>47 não é divisível por 2, por 3, por 5 nem por 7.<br>
+Como 7 × 7 = 49, não precisamos testar números maiores para encontrar um divisor menor.</p>
+<p>Então 47 é primo.</p>
+<p>Resposta:</p>
+<p><strong>47</strong></p>
+</div></details>
+<h3>O que este problema treinou</h3>
+<p>A condição “soma dos algarismos é 11” reduziu muito a busca.<br>
+A condição “primo” decidiu entre as possibilidades.</p>
+<p>Um problema olímpico quase nunca entrega uma única pista.<br>
+Ele entrega pistas que precisam conversar.</p>
+<hr>
+<h2><span class="badge-oficina">Oficina</span>19. Oficina Olímpica 1 — Pensar os números por dentro</h2>
+<p>Esta oficina não é uma lista mecânica de contas.<br>
+Ela é um treino de olhar para a estrutura dos números.</p>
+<p>Use o caderno se quiser.<br>
+Antes de calcular, pergunte:</p>
+<ul>
+<li>o problema fala de dividir sem sobrar?</li>
+<li>fala de aparecer em uma trilha de múltiplos?</li>
+<li>pede um número com poucos divisores?</li>
+<li>tem uma afirmação geral que pode cair com contraexemplo?</li>
+<li>há uma informação essencial escondida em palavras pequenas?</li>
+</ul>
+<h3>Desafio 1 — Divisores organizados</h3>
+<p>Liste os divisores de 36 sem esquecer nenhum.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Organizamos por pares:</p>
+<p>1 × 36<br>
+2 × 18<br>
+3 × 12<br>
+4 × 9<br>
+6 × 6</p>
+<p>Divisores:</p>
+<p><strong>1, 2, 3, 4, 6, 9, 12, 18, 36</strong></p>
+<p>O par 6 × 6 mostra que 36 é um quadrado perfeito.<br>
+O 6 aparece uma vez só na lista.</p>
+<hr>
+</div></details>
+<h3>Desafio 2 — A frase falsa</h3>
+<p>A frase abaixo é verdadeira ou falsa?</p>
+<p><strong>Todo número que termina em 5 é primo.</strong></p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>É falsa.</p>
+<p>Um contraexemplo é 15.</p>
+<p>15 termina em 5, mas 15 = 3 × 5.<br>
+Então 15 não é primo.</p>
+<p>Também serviriam 25, 35, 45, 55...</p>
+<p>Um único contraexemplo correto basta para derrubar uma afirmação com “todo”.</p>
+<hr>
+</div></details>
+<h3>Desafio 3 — Trilhas de múltiplos</h3>
+<p>Quais múltiplos de 7 estão entre 30 e 60?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Vamos listar a trilha do 7:</p>
+<p>7, 14, 21, 28, 35, 42, 49, 56, 63...</p>
+<p>Entre 30 e 60 ficam:</p>
+<p><strong>35, 42, 49 e 56</strong></p>
+<hr>
+</div></details>
+<h3>Desafio 4 — Primo ou composto?</h3>
+<p>Classifique os números 29, 39, 49 e 51 como primos ou compostos.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>29 não é divisível por 2, 3 ou 5.<br>
+Como 5 × 5 = 25 e 6 × 6 = 36, basta testar até 5 para procurar divisor pequeno.<br>
+29 é primo.</p>
+<p>39 é divisível por 3, pois 3 + 9 = 12, e 12 é múltiplo de 3.<br>
+39 = 3 × 13.<br>
+39 é composto.</p>
+<p>49 = 7 × 7.<br>
+49 é composto.</p>
+<p>51 é divisível por 3, pois 5 + 1 = 6.<br>
+51 = 3 × 17.<br>
+51 é composto.</p>
+<p>Resposta:</p>
+<ul>
+<li>29: primo;</li>
+<li>39: composto;</li>
+<li>49: composto;</li>
+<li>51: composto.</li>
+</ul>
+<hr>
+</div></details>
+<h3>Desafio 5 — O número possível</h3>
+<p>Um número de dois algarismos:</p>
+<ul>
+<li>é múltiplo de 9;</li>
+<li>é menor que 50;</li>
+<li>é maior que 20;</li>
+<li>é par.</li>
+</ul>
+<p>Qual é o número?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Múltiplos de 9 entre 20 e 50:</p>
+<p>27, 36, 45.</p>
+<p>Entre eles, o único par é:</p>
+<p><strong>36</strong></p>
+<hr>
+</div></details>
+<h2>20. As ferramentas da Mochila nesta sala</h2>
+<p>Nesta versão harmonizada do Capítulo 2, a Mochila do Matemático ganha organização para a família inicial dos números.</p>
+<p>As ferramentas centrais são:</p>
+<ol>
+<li>olhar o número por dentro, não apenas pelo tamanho;</li>
+<li>procurar divisões sem sobra;</li>
+<li>reconhecer divisores;</li>
+<li>reconhecer múltiplos como trilhas;</li>
+<li>ver divisor e múltiplo como dois lados da mesma relação;</li>
+<li>listar divisores por pares para não esquecer casos;</li>
+<li>usar contraexemplos para testar frases com “todo”, “sempre” e “nunca”;</li>
+<li>reconhecer números primos;</li>
+<li>reconhecer números compostos;</li>
+<li>decompor números compostos em fatores primos;</li>
+<li>separar informação essencial de informação decorativa;</li>
+<li>deixar a ideia nascer antes do nome.</li>
+</ol>
+<div class="ferramenta" data-num="11" id="f11"><span class="f-badge">Ferramenta 11</span><span class="f-text">Procurar contraexemplos</span></div>
+
+<div class="ferramenta" data-num="14" id="f14"><span class="f-badge">Ferramenta 14</span><span class="f-text">Identificar a informação essencial</span></div>
+
+<p>Algumas dessas ferramentas já estavam preparadas desde a entrada do livro.<br>
+Outras serão aprofundadas quando a Academia chegar a restos, ciclos, MDC e MMC.</p>
+<hr>
+<h2>21. A frase da Academia</h2>
+<p>Na saída da sala, o Professor entregou a Felipe um cartão.</p>
+<p>Nele estava escrito:</p>
+<blockquote>
+<p>Número não é só quantidade. É estrutura.</p>
+</blockquote>
+<p>Felipe guardou o cartão na Mochila.</p>
+<p>Agora ele sabia que um número podia ser olhado por dentro.<br>
+Podia ter divisores.<br>
+Podia caminhar por múltiplos.<br>
+Podia ser primo.<br>
+Podia ser composto.<br>
+Podia esconder uma decomposição.<br>
+Podia derrubar uma frase apressada com um único contraexemplo.</p>
+<p>O mundo dos números parecia menos plano.</p>
+<p>Parecia ter profundidade.</p>
+<hr>
+<h2>22. Pergunta para amanhã</h2>
+<p>Antes de sair, Felipe olhou para a régua dos múltiplos.</p>
+<p>3, 6, 9, 12, 15, 18...<br>
+4, 8, 12, 16, 20, 24...<br>
+5, 10, 15, 20, 25, 30...</p>
+<p>Ele percebeu que algumas trilhas se encontravam.<br>
+Outras pareciam deixar sobras.<br>
+Alguns números apareciam em ciclos.</p>
+<p>A coruja fez a pergunta que abriria a próxima sala:</p>
+<blockquote>
+<p>Quando uma divisão não encaixa perfeitamente, a sobra é apenas um erro — ou pode virar uma nova ideia?</p>
+</blockquote>
+<p>O Professor sorriu.</p>
+<p>A porta seguinte já tinha uma placa.</p>
+<p><strong>Quando sobra, nasce uma ideia.</strong></p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap01.html" class="nav-prev">← Cap. 1</a>
+      <a href="cap03.html" class="nav-next">Cap. 3 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(2);</script>
+</body>
+</html>

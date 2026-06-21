@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 15 — A prova que confirma | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-prata">Nível Prata</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link sidebar-active" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 15</span>
+        <h1 class="cap-title">A prova que confirma</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Quando o treino volta a ser prova</h2>
+<p>Depois de alguns ciclos de treino, Felipe abriu de novo a porta da sala dos simulados. A Mochila estava no mesmo lugar, mas ele não estava igual. Tinha retornado a problemas, reconstruído ideias, refeito rotas e guardado evidências pequenas: uma justificativa mais clara, uma condição que agora enxergava, uma pausa feita na hora certa.</p>
+<p>— Então esta prova vai dizer se o treino funcionou? — perguntou.</p>
+<p>— Ela vai mostrar o que já aparece quando ninguém anuncia a ferramenta — respondeu o Professor. — Isso é mais útil do que uma sentença.</p>
+<p>Uma prova de confirmação não existe para provar que o estudante agora acerta tudo. Ela existe para observar se o treino acumulado se torna decisão dentro de uma prova inteira. Quando aparece um enunciado novo, Felipe consegue:</p>
+<ol>
+<li>ler o pedido antes de sair calculando;</li>
+<li>escolher uma porta de entrada sem receber a dica;</li>
+<li>deixar uma pista e circular quando uma rota para de produzir informação;</li>
+<li>voltar com uma pergunta mais precisa;</li>
+<li>proteger a escrita e a revisão mesmo sob alguma pressão.</li>
+</ol>
+<p>O resultado continua sendo importante. Mas, sozinho, ele conta pouco sobre o caminho. Um acerto pode ter vindo de uma ideia firme ou de uma coincidência; um erro pode ter escondido uma rota quase pronta. A confirmação procura esse retrato mais completo.</p>
+<div class="ferramenta" data-num="116" id="f116"><span class="f-badge">Ferramenta 116</span><span class="f-text">Transformar o treino acumulado em desempenho de prova inteira</span></div>
+
+<blockquote>
+<p>Em um simulado, observe como você lê, escolhe, pausa, retorna, escreve e revisa. A nota é uma parte do retrato, não o retrato inteiro.</p>
+</blockquote>
+<div class="ferramenta" data-num="117" id="f117"><span class="f-badge">Ferramenta 117</span><span class="f-text">Usar o simulado de confirmação para observar comportamento, não apenas nota</span></div>
+
+<blockquote>
+<p>Compare decisões, retornos, escrita e revisão com evidências concretas; a pontuação é apenas uma parte desse retrato.</p>
+</blockquote>
+<hr>
+<h2>2. Confirmar não é acertar tudo</h2>
+<p>Felipe imaginou duas provas possíveis.</p>
+<p>Na primeira, ele acertou quatro questões, mas em duas delas não saberia explicar por que a resposta funciona. Nas outras, abandonou cedo demais e não deixou pista para um retorno.</p>
+<p>Na segunda, acertou três questões. Em uma quarta, encontrou uma estrutura correta, mas perdeu um caso na escrita. Em outra, percebeu que a primeira representação não ajudava, desenhou uma malha e avançou até uma contagem parcial. Ao revisar, corrigiu uma unidade esquecida.</p>
+<p>A primeira prova pode ter nota maior. A segunda pode trazer mais evidências de evolução. Isso não quer dizer que a nota não importa; quer dizer que ela precisa de companhia.</p>
+<table>
+<thead>
+<tr>
+<th>O que a prova mostra</th>
+<th>Leitura apressada</th>
+<th>Leitura útil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acerto explicado</td>
+<td>“Acertei.”</td>
+<td>A ferramenta apareceu e a solução ficou conferível.</td>
+</tr>
+<tr>
+<td>Acerto frágil</td>
+<td>“Acertei, então acabou.”</td>
+<td>Vale reconstruir: a rota sobreviveria a uma variação?</td>
+</tr>
+<tr>
+<td>Erro com pista</td>
+<td>“Errei.”</td>
+<td>Há uma ideia para retomar e completar.</td>
+</tr>
+<tr>
+<td>Erro sem pista</td>
+<td>“Não sei nada.”</td>
+<td>É preciso voltar ao pedido e procurar outra porta de entrada.</td>
+</tr>
+</tbody>
+</table>
+<p>Confirmar evolução é transformar algumas situações da coluna da esquerda em ações da coluna da direita. É descobrir que, mesmo quando uma questão não termina, a tentativa pode ficar mais organizada e mais útil para amanhã.</p>
+<hr>
+<h2>3. Antes de começar: três decisões quietas</h2>
+<p>Uma prova fica mais difícil quando todas as decisões são deixadas para o momento do travamento. Antes de abrir o primeiro problema, a Academia combina três escolhas simples.</p>
+<h3>Primeira decisão: fazer uma volta de reconhecimento</h3>
+<p>Leia todos os problemas sem obrigação de resolver na ordem. Procure o pedido final e uma primeira sensação honesta: “há uma conta pequena aqui”, “este desenho pode ajudar”, “esta condição parece um filtro”, “ainda não vejo porta”.</p>
+<p>Essa volta não serve para classificar questões em fáceis ou difíceis de modo definitivo. Ela serve para escolher uma entrada que produza informação.</p>
+<h3>Segunda decisão: definir um limite de insistência</h3>
+<p>Insistir é bom quando a tentativa está abrindo algo: aparece uma lista menor, um caso, um desenho, uma relação, uma pergunta melhor. Mas ficar muito tempo repetindo a mesma conta ou lendo a mesma frase sem novidade é outra coisa.</p>
+<p>Não existe um número mágico de minutos. O limite pode ser reconhecido por uma pergunta:</p>
+<blockquote>
+<p>Minha próxima tentativa é realmente diferente da anterior?</p>
+</blockquote>
+<p>Se a resposta for não, deixe uma pista curta e circule. Voltar depois não é desistir. É usar a prova inteira como terreno, e não como um corredor com uma única porta.</p>
+<h3>Terceira decisão: proteger a escrita</h3>
+<p>Uma resposta não vira mais forte só porque ficou longa. Antes de começar, lembre o esqueleto de uma solução clara:</p>
+<ol>
+<li>o que preciso encontrar ou provar;</li>
+<li>que ideia organiza os dados;</li>
+<li>quais passos levam até o resultado;</li>
+<li>por que esses passos bastam;</li>
+<li>a resposta final com a grandeza pedida.</li>
+</ol>
+<blockquote>
+<p><strong>Retomada da Ferramenta da Mochila 90 — Escolher a ordem de ataque</strong><br>
+Faça uma volta de reconhecimento, entre por uma questão que produza informação e deixe espaço para retornar às outras.</p>
+</blockquote>
+<hr>
+<h2>4. O silêncio produtivo</h2>
+<p>Durante uma prova, pode haver silêncio por fora e muita conversa por dentro. O silêncio produtivo não é ficar parado esperando uma ideia mágica. É fazer perguntas que movem a tentativa:</p>
+<ul>
+<li>o que a pergunta pede exatamente?</li>
+<li>quais dados realmente importam?</li>
+<li>posso desenhar, listar, montar uma tabela ou testar um caso pequeno?</li>
+<li>esta conta responde ao pedido ou apenas usa números do enunciado?</li>
+<li>o que sei com certeza até aqui?</li>
+</ul>
+<p>Felipe percebeu que pedir uma pista logo no primeiro desconforto o deixava dependente da voz de fora. Mas fingir que não estava travado também não ajudava. O meio-termo era registrar o ponto de quebra e fazer uma nova pergunta à questão.</p>
+<p>Por exemplo, em vez de escrever mentalmente “não sei caminhos”, ele poderia guardar: “contei todos os caminhos; ainda não separei os que passam pelo ponto proibido”. Essa frase já aponta uma volta possível.</p>
+<div class="ferramenta" data-num="118" id="f118"><span class="f-badge">Ferramenta 118</span><span class="f-text">Trabalhar em silêncio produtivo, sem depender de pistas externas</span></div>
+
+<blockquote>
+<p>Quando não vier uma ideia inteira, produza uma pergunta pequena, uma representação ou uma pista verdadeira antes de pedir ajuda ou abandonar a rota.</p>
+</blockquote>
+<hr>
+<h2>5. Simulado de confirmação da Academia</h2>
+<p>Os seis problemas seguintes são originais, em estilo OBMEP. Eles não trazem a família da ferramenta nem uma primeira jogada pronta. Faça uma volta de reconhecimento, escolha sua ordem e registre apenas pistas curtas quando for útil.</p>
+<p>Não leia as correções antes de produzir uma tentativa própria. O objetivo não é competir com um relógio artificial; é observar decisões honestas em uma prova inteira.</p>
+<h3>Problema 1 — Os três sinos da torre</h3>
+<blockquote>
+<p>Três sinos da Academia tocam juntos neste instante. O primeiro toca a cada 4 minutos, o segundo a cada 6 minutos e o terceiro a cada 9 minutos. Depois de quantos minutos os três tocarão juntos novamente pela primeira vez?</p>
+</blockquote>
+<h3>Problema 2 — As faixas do painel</h3>
+<blockquote>
+<p>Um painel retangular mede 12 cm de largura e 9 cm de altura. Uma faixa vertical de 3 cm de largura ocupa toda a altura do painel. Uma faixa horizontal de 2 cm de altura ocupa toda a largura do painel. Qual é a área pintada por pelo menos uma das faixas?</p>
+</blockquote>
+<h3>Problema 3 — O caminho com ponto proibido</h3>
+<blockquote>
+<p>Para ir de A até B pelo caminho mais curto em uma malha, são necessários 4 passos para a direita e 3 passos para cima. O ponto P fica depois de 2 passos para a direita e 1 passo para cima a partir de A. Quantos caminhos mais curtos de A até B não passam por P?</p>
+</blockquote>
+<h3>Problema 4 — As três caixas</h3>
+<blockquote>
+<p>Um prêmio está escondido em exatamente uma das caixas A, B e C. As etiquetas dizem:</p>
+<ul>
+<li>Caixa A: “O prêmio está na caixa B.”</li>
+<li>Caixa B: “O prêmio não está na caixa C.”</li>
+<li>Caixa C: “O prêmio não está na caixa B.”</li>
+</ul>
+<p>Sabe-se que exatamente uma das três etiquetas diz a verdade. Em qual caixa está o prêmio?</p>
+</blockquote>
+<h3>Problema 5 — O mural retangular</h3>
+<blockquote>
+<p>A figura de número <code>n</code> de um mural é formada por um retângulo com <code>n</code> linhas e <code>n + 2</code> colunas de quadradinhos iguais. Quantos quadradinhos há na figura de número 12? Escreva também uma expressão para a quantidade de quadradinhos da figura de número <code>n</code>.</p>
+</blockquote>
+<h3>Problema 6 — As fichas que mudam de cor</h3>
+<blockquote>
+<p>Sobre uma mesa há 19 fichas brancas. Em cada jogada, Felipe escolhe exatamente 4 fichas e vira suas cores: cada ficha branca escolhida fica preta, e cada ficha preta escolhida fica branca. É possível terminar com todas as 19 fichas pretas? Justifique.</p>
+</blockquote>
+<hr>
+<h2>6. Depois da tentativa: não corrija só a resposta</h2>
+<p>Antes das soluções, faça uma pausa. Para cada problema, escolha a descrição que mais se aproxima da sua tentativa.</p>
+<table>
+<thead>
+<tr>
+<th>Situação</th>
+<th>Sinal de processo</th>
+<th>Próxima leitura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seguro</td>
+<td>A ideia apareceu e eu consigo explicar por que basta.</td>
+<td>Revisar os cinco olhos.</td>
+</tr>
+<tr>
+<td>Frágil</td>
+<td>Cheguei ao resultado, mas uma variação me deixaria perdido.</td>
+<td>Reconstruir e transferir.</td>
+</tr>
+<tr>
+<td>Com pista</td>
+<td>Descobri algo verdadeiro, mas a ligação final faltou.</td>
+<td>Guardar a pista e procurar o próximo degrau.</td>
+</tr>
+<tr>
+<td>Sem porta</td>
+<td>Não soube transformar o enunciado em ação.</td>
+<td>Voltar ao pedido e mudar de representação.</td>
+</tr>
+</tbody>
+</table>
+<p>Não é necessário preencher uma ficha longa. Uma frase basta: “usei MMC sem saber por que”, “lembrei de subtrair os proibidos, mas contei mal”, “a tabela das etiquetas eliminou dois casos”, “a paridade apareceu tarde”.</p>
+<div class="ferramenta" data-num="122" id="f122"><span class="f-badge">Ferramenta 122</span><span class="f-text">Circular estrategicamente quando um problema trava</span></div>
+
+<blockquote>
+<p>Quando uma rota parar de produzir informação, registre o que já é verdadeiro e visite outra questão. A pista transforma o retorno em continuação, não em recomeço.</p>
+</blockquote>
+<hr>
+<h2>7. Correção comentada — O que cada problema podia revelar</h2>
+<h3>Problema 1 — Os três sinos da torre</h3>
+<p>Os três sinos começaram juntos. Procuramos o primeiro número que seja múltiplo de 4, de 6 e de 9.</p>
+<p>Fatorando:</p>
+<p><code>4 = 2²</code>, <code>6 = 2 × 3</code> e <code>9 = 3²</code>.</p>
+<p>O MMC precisa conter <code>2²</code> e <code>3²</code>:</p>
+<p><code>MMC(4, 6, 9) = 2² × 3² = 36</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> os três sinos tocarão juntos de novo depois de <strong>36 minutos</strong>.</p>
+</blockquote>
+<p><strong>O que observar:</strong> listar múltiplos também funciona, desde que a busca seja pelo primeiro encontro. Somar <code>4 + 6 + 9</code> não responde à ideia de ritmos que voltam a coincidir.</p>
+<h3>Problema 2 — As faixas do painel</h3>
+<p>A faixa vertical tem área:</p>
+<p><code>3 × 9 = 27 cm²</code>.</p>
+<p>A faixa horizontal tem área:</p>
+<p><code>12 × 2 = 24 cm²</code>.</p>
+<p>Se somarmos as duas áreas, o retângulo de cruzamento, com <code>3 cm</code> por <code>2 cm</code>, será contado duas vezes. Sua área é:</p>
+<p><code>3 × 2 = 6 cm²</code>.</p>
+<p>Portanto, a área pintada por pelo menos uma faixa é:</p>
+<p><code>27 + 24 - 6 = 45 cm²</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> a área pintada é <strong>45 cm²</strong>.</p>
+</blockquote>
+<p><strong>O que observar:</strong> este problema pede união de duas regiões. Quem respondeu 51 encontrou duas áreas corretas, mas esqueceu que a sobreposição não pode ficar em duplicidade.</p>
+<h3>Problema 3 — O caminho com ponto proibido</h3>
+<p>Todo caminho mais curto tem 7 passos: 4 para a direita e 3 para cima. Basta escolher as 3 posições dos passos para cima:</p>
+<p><code>C(7, 3) = 35</code> caminhos no total.</p>
+<p>Agora contamos os que passam por P. De A até P são 2 passos para a direita e 1 para cima, em <code>C(3, 1) = 3</code> ordens. De P até B são 2 passos para a direita e 2 para cima, em <code>C(4, 2) = 6</code> ordens.</p>
+<p>Assim, passam por P:</p>
+<p><code>3 × 6 = 18</code> caminhos.</p>
+<p>Os caminhos permitidos são:</p>
+<p><code>35 - 18 = 17</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> existem <strong>17 caminhos</strong> mais curtos que não passam por P.</p>
+</blockquote>
+<p><strong>O que observar:</strong> desenhar a malha pode abrir a porta. A estrutura decisiva é separar todos os caminhos dos caminhos proibidos. Encontrar 18 não é erro vazio: é ter contado justamente a parte que ainda precisava ser retirada.</p>
+<h3>Problema 4 — As três caixas</h3>
+<p>Vamos testar cada possibilidade, pois há apenas três.</p>
+<table>
+<thead>
+<tr>
+<th>Caixa do prêmio</th>
+<th>Etiqueta A</th>
+<th>Etiqueta B</th>
+<th>Etiqueta C</th>
+<th style="text-align: right;">Quantas verdadeiras?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Falsa</td>
+<td>Verdadeira</td>
+<td>Verdadeira</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Verdadeira</td>
+<td>Verdadeira</td>
+<td>Falsa</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Falsa</td>
+<td>Falsa</td>
+<td>Verdadeira</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Somente a terceira linha respeita a condição de haver exatamente uma etiqueta verdadeira.</p>
+<blockquote>
+<p><strong>Resposta:</strong> o prêmio está na <strong>caixa C</strong>.</p>
+</blockquote>
+<p><strong>O que observar:</strong> uma tabela curta não é um recurso menor; ela protege contra esquecer uma frase enquanto se avalia outra. A condição “exatamente uma” é mais forte que “pelo menos uma”.</p>
+<h3>Problema 5 — O mural retangular</h3>
+<p>Na figura 12, há 12 linhas e <code>12 + 2 = 14</code> colunas. Portanto:</p>
+<p><code>12 × 14 = 168</code> quadradinhos.</p>
+<p>Para uma figura de número <code>n</code>, há <code>n</code> linhas e <code>n + 2</code> colunas. A expressão é:</p>
+<p><code>n(n + 2)</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> a figura 12 tem <strong>168 quadradinhos</strong> e a expressão geral é <strong><code>n(n + 2)</code></strong>.</p>
+</blockquote>
+<p><strong>O que observar:</strong> o desenho ou uma tabela com figuras pequenas ajuda a distinguir posição da figura e quantidade de quadradinhos. A expressão não precisa ser expandida para estar correta.</p>
+<h3>Problema 6 — As fichas que mudam de cor</h3>
+<p>Em cada jogada, quatro fichas mudam de cor. Se entre elas houver <code>k</code> fichas brancas, então <code>4 - k</code> fichas pretas passam a brancas. A quantidade de fichas brancas muda em:</p>
+<p><code>(4 - k) - k = 4 - 2k</code>.</p>
+<p>Esse número é sempre par. Portanto, a paridade da quantidade de fichas brancas não muda: ela começa ímpar, pois há 19 fichas brancas, e continuará ímpar depois de qualquer número de jogadas.</p>
+<p>Terminar com todas as fichas pretas significaria ter 0 fichas brancas, uma quantidade par. Isso é impossível.</p>
+<blockquote>
+<p><strong>Resposta:</strong> <strong>não é possível</strong> terminar com todas as 19 fichas pretas.</p>
+</blockquote>
+<p><strong>O que observar:</strong> experimentar jogadas pode sugerir algo, mas a justificativa precisa encontrar o que não muda. Aqui, não importa quais quatro fichas são escolhidas: a paridade das brancas é preservada.</p>
+<hr>
+<h2>8. Comparar simulados sem se enganar</h2>
+<p>Ao comparar a prova de confirmação com tentativas anteriores, Felipe não deve procurar uma linha sempre crescente. Uma prova pode trazer problemas diferentes, um dia pode estar mais cansado e uma questão pode conversar diretamente com uma ferramenta recém-treinada.</p>
+<p>Em vez de perguntar somente “minha nota subiu?”, ele pode comparar evidências do processo.</p>
+<table>
+<thead>
+<tr>
+<th>Evidência</th>
+<th>Antes</th>
+<th>Agora</th>
+<th>Próxima decisão possível</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leitura do pedido</td>
+<td>Começava a conta cedo demais.</td>
+<td>Marca a grandeza ou a condição final.</td>
+<td>Manter a revisão do pedido.</td>
+</tr>
+<tr>
+<td>Primeira jogada</td>
+<td>Esperava uma dica.</td>
+<td>Testa desenho, tabela ou caso pequeno.</td>
+<td>Transferir para uma família nova.</td>
+</tr>
+<tr>
+<td>Travamento</td>
+<td>Ficava preso sem registro.</td>
+<td>Deixa uma pista e circula.</td>
+<td>Ajustar o limite de insistência.</td>
+</tr>
+<tr>
+<td>Escrita</td>
+<td>Tinha resultado, mas saltava a ideia.</td>
+<td>Mostra a decisão central.</td>
+<td>Revisar um caso ou uma unidade.</td>
+</tr>
+<tr>
+<td>Revisão</td>
+<td>Só confere contas.</td>
+<td>Procura pedido, condição, caso e unidade.</td>
+<td>Manter os cinco olhos ativos.</td>
+</tr>
+</tbody>
+</table>
+<p>Essa tabela não precisa ser preenchida toda vez. Ela mostra o tipo de comparação que vale: uma comparação de rotas, e não uma competição entre duas notas isoladas.</p>
+<div class="ferramenta" data-num="119" id="f119"><span class="f-badge">Ferramenta 119</span><span class="f-text">Comparar simulados por evidências concretas de evolução</span></div>
+
+<blockquote>
+<p>Compare simulados por portas reconhecidas, pistas deixadas, retornos úteis, justificativas e revisões. Só então leia a nota ao lado desses dados.</p>
+</blockquote>
+<hr>
+<h2>9. Acertos frágeis e erros melhores</h2>
+<p>Um acerto é frágil quando a resposta chegou, mas a ideia ainda não está disponível. Talvez Felipe tenha testado números até encontrar um que funciona, copiado uma conta sem saber o que ela mede ou usado a fórmula certa sem conseguir justificar a escolha.</p>
+<p>Esse acerto não deve ser apagado, nem comemorado como se a aprendizagem estivesse fechada. Ele pede reconstrução e transferência.</p>
+<p>Um erro é melhor quando a tentativa avançou de verdade. Por exemplo:</p>
+<ul>
+<li>contou todos os caminhos e esqueceu de retirar os proibidos;</li>
+<li>fez a tabela correta, mas deixou um caso sem verificar;</li>
+<li>percebeu uma paridade, mas ainda não mostrou que ela se preserva;</li>
+<li>encontrou a área de duas faixas, mas contou a sobreposição duas vezes.</li>
+</ul>
+<p>Esses erros têm uma boa notícia escondida: a porta apareceu. O próximo treino não começa do zero.</p>
+<div class="ferramenta" data-num="120" id="f120"><span class="f-badge">Ferramenta 120</span><span class="f-text">Reconhecer acertos frágeis</span></div>
+
+<blockquote>
+<p>Pergunte se a ideia sobreviveria a uma variação. Um resultado sem rota ainda pede treino; uma rota quase completa já indica onde continuar.</p>
+</blockquote>
+<div class="ferramenta" data-num="121" id="f121"><span class="f-badge">Ferramenta 121</span><span class="f-text">Reconhecer erros melhores</span></div>
+
+<blockquote>
+<p>Um erro que conserva uma boa pista, uma representação útil ou uma justificativa quase completa indica por onde o próximo treino deve recomeçar.</p>
+</blockquote>
+<hr>
+<h2>10. Travar sem perder a prova</h2>
+<p>Há um tipo de travamento que não precisa dominar a prova inteira. Quando Felipe percebe que uma questão fechou as portas por enquanto, ele pode seguir uma sequência curta:</p>
+<ol>
+<li>escrever uma pista verdadeira;</li>
+<li>formular a próxima pergunta para essa questão;</li>
+<li>visitar outra questão;</li>
+<li>voltar depois com olhos diferentes;</li>
+<li>decidir se falta apenas um degrau ou se é melhor conservar a pista para a correção.</li>
+</ol>
+<p>Circulação estratégica não é fuga. É uma forma de proteger o conjunto da prova. Resolver uma questão que estava acessível pode liberar confiança e deixar a cabeça descansar da anterior. Às vezes, enquanto trabalha em outro problema, uma estrutura retorna sem aviso.</p>
+<p>Ao final, ainda que uma questão fique aberta, Felipe pode escrever o que conseguiu com clareza. Em uma prova discursiva, uma solução parcial bem organizada mostra mais matemática do que uma resposta final solta.</p>
+<div class="ferramenta" data-num="123" id="f123"><span class="f-badge">Ferramenta 123</span><span class="f-text">Proteger a escrita mesmo sob pressão</span></div>
+
+<blockquote>
+<p>Mesmo em uma questão incompleta, registre o pedido, uma ideia verdadeira e o ponto exato que falta. A escrita organiza a volta e torna visível o que você já construiu.</p>
+</blockquote>
+<hr>
+<h2>11. A reta final não é uma avalanche</h2>
+<p>Depois de uma prova de confirmação, é tentador montar uma lista enorme: revisar tudo, aprender todas as lacunas, refazer cada erro e fazer muitos simulados. A Academia conhece essa vontade. Ela parece esforço, mas pode esconder medo.</p>
+<p>A confirmação deve produzir seleção. Ao olhar os registros, escolha:</p>
+<ul>
+<li>uma ferramenta forte que merece apenas revisão curta;</li>
+<li>um ponto médio que pode render ganho real com alguns retornos;</li>
+<li>uma fragilidade necessária que precisa de uma versão de emergência;</li>
+<li>um assunto que, por enquanto, não deve virar avalanche.</li>
+</ul>
+<p>Uma versão de emergência não substitui estudo profundo. Ela é uma pequena pergunta de entrada para um ponto ainda inseguro: “posso testar um caso?”, “qual grandeza a pergunta pede?”, “o que não muda?”, “posso separar total e parte proibida?”.</p>
+<p>O próximo capítulo organizará essa escolha. Por enquanto, basta encerrar a prova com uma decisão honesta: qual é a prioridade que mais melhora a próxima tentativa inteira?</p>
+<div class="ferramenta" data-num="124" id="f124"><span class="f-badge">Ferramenta 124</span><span class="f-text">Escolher prioridades de reta final sem transformar o estudo em avalanche</span></div>
+
+<blockquote>
+<p>Depois do simulado, mantenha uma força, trabalhe um ponto médio e crie uma pergunta de emergência para uma fragilidade necessária. Não tente recomeçar o livro inteiro.</p>
+</blockquote>
+<hr>
+<h2><span class="badge-oficina">Oficina</span>12. Oficina Olímpica 14 — Confirmar para avançar</h2>
+<p>Os desafios desta oficina são originais, em estilo OBMEP. Escolha uma ordem e deixe, em pelo menos dois deles, uma marca curta de rota antes de comparar qualquer correção.</p>
+<p>Os desafios com resultado numérico ou lógico são <strong>problemas originais em estilo OBMEP</strong> de resposta determinada. Quando o desafio pedir comparação, justificativa de rota ou escolha de prioridade, ele é uma <strong>atividade aberta</strong>: as pistas de correção oferecem critérios, não gabarito único.</p>
+<h3>Desafio 1 — Os sinais da entrada</h3>
+<blockquote>
+<p>Três sinais luminosos acendem juntos agora. Eles voltam a acender, respectivamente, a cada 8, 12 e 18 segundos. Depois de quantos segundos os três voltarão a acender juntos pela primeira vez?</p>
+</blockquote>
+<h3>Desafio 2 — A moldura pintada</h3>
+<blockquote>
+<p>Um retângulo de 15 cm por 10 cm recebe uma faixa pintada de 2 cm de largura ao longo de toda a borda interna. Qual é a área pintada da moldura?</p>
+</blockquote>
+<h3>Desafio 3 — A rota incompleta</h3>
+<blockquote>
+<p>Em uma malha, um estudante contou todos os caminhos mais curtos de A até B e depois contou os que passam por P. Ele parou com os dois números na mão. Escreva uma frase que indique a próxima operação e explique por que ela responde à pergunta sobre caminhos que evitam P.</p>
+</blockquote>
+<h3>Desafio 4 — As etiquetas revisadas</h3>
+<blockquote>
+<p>Há três caixas A, B e C, e o prêmio está em uma delas. As etiquetas dizem:</p>
+<ul>
+<li>A: “O prêmio não está em A.”</li>
+<li>B: “O prêmio está em C.”</li>
+<li>C: “O prêmio não está em C.”</li>
+</ul>
+<p>Sabendo que exatamente duas etiquetas dizem a verdade, determine a caixa do prêmio e justifique.</p>
+</blockquote>
+<h3>Desafio 5 — A melhor comparação</h3>
+<blockquote>
+<p>Em dois simulados, Felipe teve a mesma nota. No primeiro, deixou três questões em branco. No segundo, deixou uma pista verdadeira em duas questões abertas, revisou uma unidade e escreveu uma justificativa que antes não faria. Qual simulado oferece evidência mais útil para o próximo ciclo? Explique sem desprezar a nota.</p>
+</blockquote>
+<h3>Pistas de correção</h3>
+<ol>
+<li>O MMC de 8, 12 e 18 é <code>72</code>.</li>
+<li>A área total é <code>15 × 10 = 150</code>. O retângulo sem a moldura mede <code>11 × 6</code>, portanto a moldura tem área <code>150 - 66 = 84 cm²</code>.</li>
+<li>Deve-se subtrair os caminhos que passam por P do total, porque os que passam por P não são permitidos.</li>
+<li>O prêmio está em B: A é verdadeira, B é falsa e C é verdadeira.</li>
+<li>O segundo simulado oferece evidência mais útil, pois mostra leitura, escrita, pista e revisão melhores; a nota ainda é um dado a acompanhar, não um dado suficiente.</li>
+</ol>
+<hr>
+<h2>13. A Mochila depois da confirmação</h2>
+<p>O simulado de confirmação não fecha a Mochila. Ele mostra quais ferramentas agora saem mais depressa e quais ainda precisam de uma pergunta de entrada.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Ferramenta</th>
+<th>O que ela protege</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">116</td>
+<td>Transformar o treino acumulado em desempenho de prova inteira.</td>
+</tr>
+<tr>
+<td style="text-align: right;">117</td>
+<td>Usar o simulado de confirmação para observar comportamento, não apenas nota.</td>
+</tr>
+<tr>
+<td style="text-align: right;">118</td>
+<td>Trabalhar em silêncio produtivo, sem depender de pistas externas.</td>
+</tr>
+<tr>
+<td style="text-align: right;">119</td>
+<td>Comparar simulados por evidências concretas de evolução.</td>
+</tr>
+<tr>
+<td style="text-align: right;">120</td>
+<td>Reconhecer acertos frágeis.</td>
+</tr>
+<tr>
+<td style="text-align: right;">121</td>
+<td>Reconhecer erros melhores.</td>
+</tr>
+<tr>
+<td style="text-align: right;">122</td>
+<td>Circular estrategicamente quando um problema trava.</td>
+</tr>
+<tr>
+<td style="text-align: right;">123</td>
+<td>Proteger a escrita mesmo sob pressão.</td>
+</tr>
+<tr>
+<td style="text-align: right;">124</td>
+<td>Escolher prioridades de reta final sem transformar o estudo em avalanche.</td>
+</tr>
+</tbody>
+</table>
+<p>Felipe fechou a prova sem procurar uma palavra definitiva sobre si mesmo. Havia acertos seguros, dois acertos que ainda pediam reconstrução, um erro com uma boa pista e uma questão que continuava misteriosa. Mas o mapa estava mais nítido.</p>
+<blockquote>
+<p><strong>Pergunta para amanhã</strong><br>
+Depois de confirmar a evolução, como escolher a reta final sem tentar aprender tudo ao mesmo tempo?</p>
+</blockquote>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap14.html" class="nav-prev">← Cap. 14</a>
+      <a href="cap16.html" class="nav-next">Cap. 16 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(15);</script>
+</body>
+</html>

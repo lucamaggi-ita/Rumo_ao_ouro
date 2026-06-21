@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 4 — Quando os divisores se encontram | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-bronze">Nível Bronze</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link sidebar-active" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 4</span>
+        <h1 class="cap-title">Quando os divisores se encontram</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Depois dos restos e dos ciclos</h2>
+<p>Felipe saiu da sala dos restos com uma descoberta importante: uma sobra não é apenas o que ficou de fora da conta.</p>
+<p>A sobra pode dizer posição.</p>
+<p>Pode revelar um ciclo.</p>
+<p>Pode mostrar que uma porta é impossível de abrir.</p>
+<p>Pode avisar que dois acontecimentos vão se reencontrar depois de algumas voltas.</p>
+<p>No corredor seguinte da Academia do Raciocínio, havia duas trilhas desenhadas no chão.</p>
+<p>A primeira descia por pequenos degraus:</p>
+<pre><code>48, 24, 12, 6, 3, 1
+</code></pre>
+<p>A segunda subia por marcas de passos:</p>
+<pre><code>6, 12, 18, 24, 30, 36...
+</code></pre>
+<p>Felipe olhou para as duas e perguntou:</p>
+<p>— Uma trilha está dividindo e a outra está multiplicando?</p>
+<p>O Professor sorriu.</p>
+<p>— Sim. E hoje você vai aprender quando deve olhar para baixo, procurando pedaços que servem, e quando deve olhar para frente, procurando encontros que ainda vão acontecer.</p>
+<p>A coruja da Academia pousou sobre uma placa:</p>
+<blockquote>
+<p>Quando o problema fala de dividir sem sobrar, procure divisores.<br>
+Quando o problema fala de reencontros, repetições e ciclos, procure múltiplos.</p>
+</blockquote>
+<p>Era a ponte natural entre os três capítulos anteriores.</p>
+<p>No Capítulo 2, os números foram vistos por dentro: divisores, múltiplos, primos e fatores.</p>
+<p>No Capítulo 3, as sobras viraram ciclos, relógios e calendários.</p>
+<p>Agora, no Capítulo 4 harmonizado, essas ideias se encontram.</p>
+<hr>
+<h2>2. Dois tipos de encaixe</h2>
+<p>O Professor colocou sobre a mesa 24 medalhas douradas e 36 cartões de treino.</p>
+<p>— Quero montar kits iguais, sem sobrar nenhuma medalha e sem sobrar nenhum cartão. Cada kit deve ter a mesma quantidade de medalhas e a mesma quantidade de cartões. Qual é o maior número de kits que posso montar?</p>
+<p>Felipe começou a imaginar caixas.</p>
+<p>Se fossem 2 kits, daria certo: cada kit receberia 12 medalhas e 18 cartões.</p>
+<p>Se fossem 3 kits, também daria certo: cada kit receberia 8 medalhas e 12 cartões.</p>
+<p>Se fossem 4 kits, também: 6 medalhas e 9 cartões.</p>
+<p>Mas se fossem 5 kits, 24 não dividiria certinho.</p>
+<p>A pergunta escondida não era:</p>
+<p>— Quanto é 24 + 36?</p>
+<p>Nem:</p>
+<p>— Quanto é 36 − 24?</p>
+<p>A pergunta real era:</p>
+<p>— Qual quantidade divide 24 e 36 ao mesmo tempo, sem deixar sobra?</p>
+<p>Essa é uma pergunta de divisor comum.</p>
+<p>Agora o Professor acendeu duas lanternas.</p>
+<p>A lanterna azul piscava a cada 6 segundos.</p>
+<p>A lanterna dourada piscava a cada 8 segundos.</p>
+<p>As duas piscaram juntas agora.</p>
+<p>— Depois de quantos segundos elas vão piscar juntas novamente?</p>
+<p>Felipe percebeu que a pergunta mudou.</p>
+<p>Agora não se tratava de repartir 6 e 8 em pedaços iguais.</p>
+<p>Tratava-se de esperar uma quantidade de tempo que fosse alcançada pelos dois ritmos:</p>
+<ul>
+<li>6, 12, 18, 24, 30...</li>
+<li>8, 16, 24, 32...</li>
+</ul>
+<p>O primeiro encontro depois do começo era 24.</p>
+<p>Essa é uma pergunta de múltiplo comum.</p>
+<p>A mesma família de números apareceu nos dois problemas.</p>
+<p>Mas o tipo de encaixe era diferente.</p>
+<p>No primeiro, as quantidades precisavam ser divididas.</p>
+<p>No segundo, os ciclos precisavam se reencontrar.</p>
+<hr>
+<h2>3. O maior pedaço que serve para todos</h2>
+<figure class="figura"><img src="../assets/figuras/C04_F01_divisores_24_36.svg" alt="Depois das listas de divisores de 24 e 36, apresentar duas listas alinhadas ou dois conjuntos; destacar apenas `1, 2, 3, 4, 6, 12` como comuns e marcar `12` como o maior. A figura sustenta os dados já calculados." loading="lazy"><figcaption>Depois das listas de divisores de 24 e 36, apresentar duas listas alinhadas ou dois conjuntos; destacar apenas `1, 2, 3, 4, 6, 12` como comuns e marcar `12` como o maior. A figura sustenta os dados já calculados.</figcaption></figure>
+
+<p>Vamos voltar aos kits.</p>
+<p>Há 24 medalhas e 36 cartões.</p>
+<p>Queremos o maior número de kits iguais, sem sobra.</p>
+<p>Para uma quantidade de kits funcionar, ela precisa dividir 24 e 36 ao mesmo tempo.</p>
+<p>Então podemos listar os divisores.</p>
+<p>Divisores de 24:</p>
+<pre><code>1, 2, 3, 4, 6, 8, 12, 24
+</code></pre>
+<p>Divisores de 36:</p>
+<pre><code>1, 2, 3, 4, 6, 9, 12, 18, 36
+</code></pre>
+<p>Os divisores comuns são:</p>
+<pre><code>1, 2, 3, 4, 6, 12
+</code></pre>
+<p>O maior deles é 12.</p>
+<p>Então é possível montar 12 kits iguais.</p>
+<p>Cada kit terá:</p>
+<pre><code>24 ÷ 12 = 2 medalhas
+36 ÷ 12 = 3 cartões
+</code></pre>
+<p>O Professor escreveu no quadro:</p>
+<blockquote>
+<p>O maior divisor que dois números têm em comum chama-se máximo divisor comum.</p>
+</blockquote>
+<p>Depois apagou metade da frase e deixou apenas:</p>
+<blockquote>
+<p>MDC</p>
+</blockquote>
+<p>Felipe riu.</p>
+<p>— Então o nome apareceu depois da ideia.</p>
+<p>— Exatamente — disse o Professor. — Primeiro você entendeu o problema. Depois ganhou uma abreviação para conversar com ele.</p>
+<hr>
+<h2>4. O nome vem depois: MDC</h2>
+<p>MDC significa máximo divisor comum.</p>
+<p>Máximo porque queremos o maior.</p>
+<p>Divisor porque precisa dividir sem sobra.</p>
+<p>Comum porque precisa servir para mais de uma quantidade ao mesmo tempo.</p>
+<p>Mas a palavra mais importante não é “máximo”.</p>
+<p>É “divisor”.</p>
+<p>Se o problema fala em:</p>
+<ul>
+<li>cortar em pedaços iguais;</li>
+<li>formar grupos iguais;</li>
+<li>montar kits iguais;</li>
+<li>dividir várias quantidades sem sobra;</li>
+<li>encontrar o maior tamanho possível;</li>
+<li>organizar caixas iguais usando tudo;</li>
+<li>separar equipes com a mesma composição;</li>
+</ul>
+<p>então a pergunta provavelmente está apontando para divisores comuns.</p>
+<p>E, se ela pede o maior tamanho, o maior número de grupos ou o maior pedaço possível, o MDC costuma aparecer.</p>
+<p>A coruja da Academia deixou uma frase curta:</p>
+<blockquote>
+<p>MDC é o maior pedaço que cabe certinho em todas as quantidades.</p>
+</blockquote>
+<hr>
+<h2>5. Listar funciona, mas às vezes cansa</h2>
+<p>Para 24 e 36, listar divisores foi tranquilo.</p>
+<p>Mas imagine que o problema fale de 84 e 126.</p>
+<p>Ainda dá para listar, mas a lista começa a cansar.</p>
+<p>Divisores de 84:</p>
+<pre><code>1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84
+</code></pre>
+<p>Divisores de 126:</p>
+<pre><code>1, 2, 3, 6, 7, 9, 14, 18, 21, 42, 63, 126
+</code></pre>
+<p>Divisores comuns:</p>
+<pre><code>1, 2, 3, 6, 7, 14, 21, 42
+</code></pre>
+<p>O maior é 42.</p>
+<p>Então:</p>
+<pre><code>MDC(84, 126) = 42
+</code></pre>
+<p>Funciona.</p>
+<p>Mas existe uma forma mais organizada de enxergar isso usando a desmontagem dos números por dentro.</p>
+<p>Essa ideia já apareceu no Capítulo 2: fatoração em primos.</p>
+<p>Vamos desmontar:</p>
+<pre><code>84 = 2 × 2 × 3 × 7
+126 = 2 × 3 × 3 × 7
+</code></pre>
+<p>Agora Felipe procurou o que os dois números têm em comum.</p>
+<p>Nos dois aparece um 2.</p>
+<p>Nos dois aparece um 3.</p>
+<p>Nos dois aparece um 7.</p>
+<p>Então o pedaço comum é:</p>
+<pre><code>2 × 3 × 7 = 42
+</code></pre>
+<p>O MDC é 42.</p>
+<p>A fatoração não é mágica.</p>
+<p>Ela apenas mostra as peças internas dos números.</p>
+<p>Para encontrar o maior pedaço comum, usamos as peças que aparecem nos dois.</p>
+<hr>
+<h2>6. Um cuidado importante com fatores repetidos</h2>
+<p>A coruja apagou o quadro e escreveu:</p>
+<pre><code>72 = 2 × 2 × 2 × 3 × 3
+120 = 2 × 2 × 2 × 3 × 5
+</code></pre>
+<p>— Qual é o MDC? — perguntou ela.</p>
+<p>Felipe respondeu depressa:</p>
+<p>— Os dois têm 2 e 3, então 2 × 3 = 6.</p>
+<p>O Professor não disse que estava errado. Apenas perguntou:</p>
+<p>— Eles têm só um 2 em comum?</p>
+<p>Felipe olhou melhor.</p>
+<p>O 72 tem três fatores 2.</p>
+<p>O 120 também tem três fatores 2.</p>
+<p>Então os três fatores 2 são comuns.</p>
+<p>Ambos também têm um fator 3.</p>
+<p>Logo:</p>
+<pre><code>MDC(72, 120) = 2 × 2 × 2 × 3 = 24
+</code></pre>
+<p>O erro de Felipe foi comum: ele olhou apenas para o tipo de fator, não para a quantidade de vezes que ele aparece.</p>
+<p>Na decomposição em primos, fatores repetidos contam.</p>
+<p>A pergunta é:</p>
+<blockquote>
+<p>Quais peças aparecem nos dois números, respeitando a quantidade que aparece em cada um?</p>
+</blockquote>
+<hr>
+<h2>7. Quando o problema pede MDC sem dizer “MDC”</h2>
+<p>Problemas olímpicos raramente dizem:</p>
+<p>— Calcule o MDC.</p>
+<p>Eles preferem esconder a pergunta dentro de uma história.</p>
+<p>Veja.</p>
+<p>A Academia recebeu 48 lápis e 60 cadernos para distribuir em caixas iguais. Todas as caixas devem ter a mesma quantidade de lápis e a mesma quantidade de cadernos. Nenhum material pode sobrar. Qual é o maior número de caixas que podem ser montadas?</p>
+<p>O enunciado não disse “MDC”.</p>
+<p>Mas as pistas são fortes:</p>
+<ul>
+<li>caixas iguais;</li>
+<li>usar todos os lápis;</li>
+<li>usar todos os cadernos;</li>
+<li>nada pode sobrar;</li>
+<li>maior número de caixas.</li>
+</ul>
+<p>A quantidade de caixas deve dividir 48 e 60.</p>
+<p>Então procuramos o maior divisor comum.</p>
+<p>Divisores comuns de 48 e 60:</p>
+<pre><code>1, 2, 3, 4, 6, 12
+</code></pre>
+<p>O maior é 12.</p>
+<p>Logo, podem ser montadas 12 caixas.</p>
+<p>Cada caixa terá:</p>
+<pre><code>48 ÷ 12 = 4 lápis
+60 ÷ 12 = 5 cadernos
+</code></pre>
+<p>A resposta não é apenas “12”.</p>
+<p>A solução precisa mostrar por que 12 é possível e por que não dá para fazer mais caixas.</p>
+<p>É por isso que o MDC aparece: ele garante o maior número de caixas sem sobra.</p>
+<hr>
+<h2>8. O outro lado: quando os múltiplos se encontram</h2>
+<figure class="figura"><img src="../assets/figuras/C04_F02_ciclos_6_10.svg" alt="Depois das trilhas de 6 e 10 minutos, mostrar duas linhas sincronizadas e destacar `30` como primeiro encontro. Não listar múltiplos além do necessário nem transformar a figura em uma nova regra." loading="lazy"><figcaption>Depois das trilhas de 6 e 10 minutos, mostrar duas linhas sincronizadas e destacar `30` como primeiro encontro. Não listar múltiplos além do necessário nem transformar a figura em uma nova regra.</figcaption></figure>
+
+<p>Agora o Professor mudou a mesa.</p>
+<p>Desta vez não havia caixas.</p>
+<p>Havia dois robôs de treino andando em uma pista circular.</p>
+<p>O robô azul completava uma volta a cada 6 minutos.</p>
+<p>O robô dourado completava uma volta a cada 10 minutos.</p>
+<p>Eles partiram juntos da linha inicial.</p>
+<p>— Depois de quantos minutos eles estarão juntos na linha inicial novamente?</p>
+<p>Felipe pensou nos múltiplos.</p>
+<p>O robô azul volta à linha inicial depois de:</p>
+<pre><code>6, 12, 18, 24, 30, 36, 42, 48, 54, 60...
+</code></pre>
+<p>O robô dourado volta depois de:</p>
+<pre><code>10, 20, 30, 40, 50, 60...
+</code></pre>
+<p>O primeiro tempo que aparece nas duas listas é 30.</p>
+<p>Então os robôs se reencontram na linha inicial depois de 30 minutos.</p>
+<p>Aqui não faria sentido procurar o maior divisor comum de 6 e 10.</p>
+<p>O MDC de 6 e 10 é 2.</p>
+<p>Mas 2 minutos não é tempo suficiente para nenhum dos robôs completar uma volta.</p>
+<p>A pergunta não é sobre repartir.</p>
+<p>É sobre reencontrar.</p>
+<p>E reencontros moram nos múltiplos.</p>
+<hr>
+<h2>9. O nome vem depois: MMC</h2>
+<p>O menor múltiplo positivo que dois números têm em comum chama-se mínimo múltiplo comum.</p>
+<p>Ou, de forma curta:</p>
+<blockquote>
+<p>MMC</p>
+</blockquote>
+<p>Mínimo porque queremos o primeiro encontro depois do início.</p>
+<p>Múltiplo porque estamos olhando para passos, voltas, ciclos ou repetições.</p>
+<p>Comum porque o mesmo tempo, posição ou quantidade precisa servir para os dois ritmos.</p>
+<p>Se o problema fala em:</p>
+<ul>
+<li>duas pessoas que fazem algo em ritmos diferentes;</li>
+<li>lanternas que piscam;</li>
+<li>sinos que tocam;</li>
+<li>ônibus que saem de tempos em tempos;</li>
+<li>aulas que se repetem em calendários diferentes;</li>
+<li>engrenagens que voltam à posição inicial;</li>
+<li>ciclos que precisam coincidir;</li>
+<li>o primeiro momento em que algo acontece junto novamente;</li>
+</ul>
+<p>então a pergunta provavelmente aponta para múltiplos comuns.</p>
+<p>A coruja resumiu:</p>
+<blockquote>
+<p>MMC é o primeiro reencontro de trilhas que andam em passos diferentes.</p>
+</blockquote>
+<hr>
+<h2>10. Listando múltiplos com cuidado</h2>
+<p>Vamos procurar o MMC de 8 e 12.</p>
+<p>Múltiplos de 8:</p>
+<pre><code>8, 16, 24, 32, 40, 48...
+</code></pre>
+<p>Múltiplos de 12:</p>
+<pre><code>12, 24, 36, 48...
+</code></pre>
+<p>O primeiro múltiplo comum positivo é 24.</p>
+<p>Então:</p>
+<pre><code>MMC(8, 12) = 24
+</code></pre>
+<p>Um erro comum é parar no primeiro número que aparece em uma das listas e “parece grande o bastante”.</p>
+<p>Mas o número precisa aparecer nas duas listas.</p>
+<p>Outro erro comum é esquecer que 0 é múltiplo de qualquer número, mas não serve para o “próximo reencontro” depois do início.</p>
+<p>Se duas lanternas piscam juntas no instante 0, queremos o próximo instante positivo.</p>
+<p>Por isso, em problemas de reencontro, começamos a contar depois do começo.</p>
+<hr>
+<h2>11. MMC por fatoração: juntar tudo sem repetir demais</h2>
+<p>A fatoração também ajuda no MMC.</p>
+<p>Vamos calcular o MMC de 18 e 24.</p>
+<p>Primeiro desmontamos:</p>
+<pre><code>18 = 2 × 3 × 3
+24 = 2 × 2 × 2 × 3
+</code></pre>
+<p>O MMC precisa ser um número que contenha as peças necessárias para ser múltiplo de 18 e também de 24.</p>
+<p>Para ser múltiplo de 18, precisa ter:</p>
+<pre><code>2 × 3 × 3
+</code></pre>
+<p>Para ser múltiplo de 24, precisa ter:</p>
+<pre><code>2 × 2 × 2 × 3
+</code></pre>
+<p>Então juntamos as maiores necessidades:</p>
+<ul>
+<li>três fatores 2, porque 24 precisa de três;</li>
+<li>dois fatores 3, porque 18 precisa de dois.</li>
+</ul>
+<p>Logo:</p>
+<pre><code>MMC(18, 24) = 2 × 2 × 2 × 3 × 3 = 72
+</code></pre>
+<p>Felipe percebeu a diferença.</p>
+<p>No MDC, pegamos apenas as peças comuns.</p>
+<p>No MMC, pegamos peças suficientes para cobrir os dois números.</p>
+<p>O Professor escreveu:</p>
+<pre><code>MDC: o que os dois têm em comum.
+MMC: o que é suficiente para os dois caberem.
+</code></pre>
+<hr>
+<h2>12. A armadilha: MDC e MMC não são a mesma coisa</h2>
+<figure class="figura"><img src="../assets/figuras/C04_F03_mdc_ou_mmc.svg" alt="Inserir quadro comparativo de duas colunas: de um lado, “repartir sem sobra”; do outro, “reencontrar ciclos”. Usar as palavras-sinal já explicadas e não introduzir fórmulas novas." loading="lazy"><figcaption>Inserir quadro comparativo de duas colunas: de um lado, “repartir sem sobra”; do outro, “reencontrar ciclos”. Usar as palavras-sinal já explicadas e não introduzir fórmulas novas.</figcaption></figure>
+
+<p>A armadilha mais perigosa deste capítulo é escolher a ferramenta pelo nome bonito, e não pela pergunta do problema.</p>
+<p>Veja estes dois enunciados:</p>
+<ol>
+<li>
+<p>Tenho 18 adesivos azuis e 24 adesivos dourados. Quero montar o maior número possível de envelopes iguais, sem sobrar adesivos. Quantos envelopes posso montar?</p>
+</li>
+<li>
+<p>Um sinal azul toca a cada 18 minutos e um sinal dourado toca a cada 24 minutos. Eles tocaram juntos agora. Daqui a quantos minutos tocarão juntos novamente?</p>
+</li>
+</ol>
+<p>Os números são os mesmos: 18 e 24.</p>
+<p>Mas a pergunta é diferente.</p>
+<p>No primeiro, queremos dividir 18 e 24 sem sobra.</p>
+<p>Então:</p>
+<pre><code>MDC(18, 24) = 6
+</code></pre>
+<p>Podemos montar 6 envelopes.</p>
+<p>No segundo, queremos o primeiro reencontro dos ciclos de 18 e 24 minutos.</p>
+<p>Então:</p>
+<pre><code>MMC(18, 24) = 72
+</code></pre>
+<p>Os sinais tocarão juntos novamente depois de 72 minutos.</p>
+<p>Mesmos números.</p>
+<p>Ferramentas diferentes.</p>
+<p>Porque a pergunta escondida mudou.</p>
+<hr>
+<h2>13. A pergunta que decide tudo</h2>
+<p>Felipe abriu a Mochila do Matemático e encontrou duas etiquetas novas.</p>
+<p>A primeira dizia:</p>
+<blockquote>
+<p>Dividir sem sobrar.</p>
+</blockquote>
+<p>A segunda dizia:</p>
+<blockquote>
+<p>Reencontrar ciclos.</p>
+</blockquote>
+<p>O Professor pediu que ele completasse mentalmente:</p>
+<p>Se o problema quer dividir várias quantidades em partes iguais, sem sobra, eu procuro...</p>
+<p>Felipe respondeu:</p>
+<p>— Divisores comuns. E, se quer o maior, MDC.</p>
+<p>Se o problema quer saber quando dois ritmos acontecem juntos de novo, eu procuro...</p>
+<p>— Múltiplos comuns. E, se quer o primeiro encontro, MMC.</p>
+<p>A coruja bateu as asas.</p>
+<p>— Agora você tem a pergunta que decide tudo.</p>
+<p>Antes de calcular, pergunte:</p>
+<blockquote>
+<p>Estou repartindo quantidades ou esperando ciclos se reencontrarem?</p>
+</blockquote>
+<p>Essa pergunta evita muitas contas erradas.</p>
+<hr>
+<h2>14. Uma descoberta elegante</h2>
+<p>O Professor colocou no quadro:</p>
+<pre><code>18 e 24
+</code></pre>
+<p>Felipe já sabia:</p>
+<pre><code>MDC(18, 24) = 6
+MMC(18, 24) = 72
+</code></pre>
+<p>O Professor então multiplicou:</p>
+<pre><code>18 × 24 = 432
+6 × 72 = 432
+</code></pre>
+<p>Felipe arregalou os olhos.</p>
+<p>— Deu igual!</p>
+<p>— Para dois números positivos, isso sempre acontece:</p>
+<pre><code>primeiro número × segundo número = MDC × MMC
+</code></pre>
+<p>Mas o Professor levantou um dedo.</p>
+<p>— Cuidado. Essa relação é elegante, mas não substitui a leitura do problema. Ela ajuda a conferir, a descobrir um valor quando o outro já é conhecido, ou a enxergar a ligação entre as ferramentas. Mas a escolha entre MDC e MMC ainda nasce da pergunta.</p>
+<p>O livro não quer que Felipe decore uma fórmula antes de entender a sala.</p>
+<p>Quer que ele veja a arquitetura.</p>
+<p>O MDC olha para o que dois números compartilham por dentro.</p>
+<p>O MMC olha para o primeiro lugar onde as trilhas dos múltiplos se encontram.</p>
+<p>São ferramentas diferentes da mesma família.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>15. Problema em estilo OBMEP — As caixas da Academia</h2>
+<p>A Academia recebeu 72 lápis, 90 borrachas e 108 cartões de treino. O Professor quer montar o maior número possível de caixas iguais, usando todos os materiais. Todas as caixas devem ter a mesma quantidade de lápis, a mesma quantidade de borrachas e a mesma quantidade de cartões.</p>
+<p>Qual é o maior número de caixas que podem ser montadas? Quantos itens de cada tipo haverá em cada caixa?</p>
+<h3>Primeira jogada</h3>
+<p>A frase “maior número possível de caixas iguais, usando todos os materiais” aponta para divisão sem sobra.</p>
+<p>Então procuramos o MDC de 72, 90 e 108.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução</h3>
+<p>Vamos fatorar:</p>
+<pre><code>72 = 2 × 2 × 2 × 3 × 3
+90 = 2 × 3 × 3 × 5
+108 = 2 × 2 × 3 × 3 × 3
+</code></pre>
+<p>As peças comuns aos três números são:</p>
+<pre><code>2 × 3 × 3 = 18
+</code></pre>
+<p>Logo:</p>
+<pre><code>MDC(72, 90, 108) = 18
+</code></pre>
+<p>Podem ser montadas 18 caixas.</p>
+<p>Agora calculamos o conteúdo de cada caixa:</p>
+<pre><code>72 ÷ 18 = 4 lápis
+90 ÷ 18 = 5 borrachas
+108 ÷ 18 = 6 cartões
+</code></pre>
+</div></details>
+<h3>Resposta</h3>
+<p>O maior número possível é 18 caixas.</p>
+<p>Cada caixa terá 4 lápis, 5 borrachas e 6 cartões.</p>
+<h3>Revisão da Academia</h3>
+<p>A resposta faz sentido porque 18 divide as três quantidades sem deixar sobra.</p>
+<p>E é o maior divisor comum, então não é possível montar mais caixas iguais usando tudo.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>16. Problema em estilo OBMEP — O calendário das aulas especiais</h2>
+<p>Na Academia, a aula de lógica acontece a cada 6 dias, a aula de geometria acontece a cada 10 dias e a aula de restos acontece a cada 15 dias. Hoje as três aulas aconteceram no mesmo dia.</p>
+<p>Daqui a quantos dias as três aulas acontecerão juntas novamente?</p>
+<h3>Primeira jogada</h3>
+<p>A pergunta fala de eventos que se repetem em ciclos.</p>
+<p>Não estamos repartindo 6, 10 e 15.</p>
+<p>Estamos procurando o primeiro reencontro.</p>
+<p>Então precisamos do MMC de 6, 10 e 15.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução</h3>
+<p>Fatorando:</p>
+<pre><code>6 = 2 × 3
+10 = 2 × 5
+15 = 3 × 5
+</code></pre>
+<p>Para ser múltiplo dos três, o número precisa ter as peças necessárias:</p>
+<pre><code>2 × 3 × 5 = 30
+</code></pre>
+<p>Logo:</p>
+<pre><code>MMC(6, 10, 15) = 30
+</code></pre>
+</div></details>
+<h3>Resposta</h3>
+<p>As três aulas acontecerão juntas novamente daqui a 30 dias.</p>
+<h3>Revisão da Academia</h3>
+<p>30 é múltiplo de 6, de 10 e de 15.</p>
+<p>Além disso, é o primeiro múltiplo positivo comum aos três.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>17. Problema em estilo OBMEP — Dois pedidos parecidos</h2>
+<p>Resolva os dois itens e explique por que as ferramentas são diferentes.</p>
+<p><strong>a)</strong> O Professor tem 40 fichas azuis e 56 fichas douradas. Ele quer separar tudo no maior número possível de grupos iguais, sem sobrar fichas. Quantos grupos pode formar?</p>
+<p><strong>b)</strong> Uma luz azul pisca a cada 40 segundos e uma luz dourada pisca a cada 56 segundos. Elas piscaram juntas agora. Depois de quantos segundos piscarão juntas novamente?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução do item a</h3>
+<p>O item a fala de grupos iguais e nenhuma sobra.</p>
+<p>Então procuramos o MDC de 40 e 56.</p>
+<pre><code>40 = 2 × 2 × 2 × 5
+56 = 2 × 2 × 2 × 7
+</code></pre>
+<p>Peças comuns:</p>
+<pre><code>2 × 2 × 2 = 8
+</code></pre>
+<p>Logo:</p>
+<pre><code>MDC(40, 56) = 8
+</code></pre>
+<p>O Professor pode formar 8 grupos.</p>
+<p>Cada grupo terá:</p>
+<pre><code>40 ÷ 8 = 5 fichas azuis
+56 ÷ 8 = 7 fichas douradas
+</code></pre>
+</div></details>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução do item b</h3>
+<p>O item b fala de luzes que piscam em ciclos e pergunta quando piscam juntas novamente.</p>
+<p>Então procuramos o MMC de 40 e 56.</p>
+<p>Para o MMC, precisamos juntar as maiores necessidades:</p>
+<pre><code>40 = 2 × 2 × 2 × 5
+56 = 2 × 2 × 2 × 7
+</code></pre>
+<p>Precisamos de três fatores 2, um fator 5 e um fator 7:</p>
+<pre><code>MMC(40, 56) = 2 × 2 × 2 × 5 × 7 = 280
+</code></pre>
+<p>As luzes piscarão juntas novamente depois de 280 segundos.</p>
+</div></details>
+<h3>Revisão da Academia</h3>
+<p>Os números eram os mesmos.</p>
+<p>Mas o item a pedia divisão sem sobra.</p>
+<p>O item b pedia reencontro de ciclos.</p>
+<p>Por isso as ferramentas mudaram.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>18. Problema em estilo OBMEP — A sala dos robôs</h2>
+<p>Dois robôs andam sobre uma pista circular e partem juntos da porta dourada. O robô A passa novamente pela porta a cada 12 minutos. O robô B passa novamente pela porta a cada 18 minutos.</p>
+<p>Depois de quanto tempo eles passarão juntos pela porta dourada pela terceira vez, contando também o instante da partida?</p>
+<h3>Primeira jogada</h3>
+<p>A pergunta fala de ciclos e reencontros.</p>
+<p>O primeiro encontro contado é o instante da partida.</p>
+<p>O segundo encontro será depois de um MMC.</p>
+<p>O terceiro encontro será depois de dois MMCs.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução</h3>
+<p>Vamos calcular o MMC de 12 e 18.</p>
+<pre><code>12 = 2 × 2 × 3
+18 = 2 × 3 × 3
+</code></pre>
+<p>Para o MMC, precisamos de dois fatores 2 e dois fatores 3:</p>
+<pre><code>MMC(12, 18) = 2 × 2 × 3 × 3 = 36
+</code></pre>
+<p>Os robôs se encontram na porta:</p>
+<ul>
+<li>no instante 0;</li>
+<li>depois de 36 minutos;</li>
+<li>depois de 72 minutos.</li>
+</ul>
+</div></details>
+<h3>Resposta</h3>
+<p>Eles passarão juntos pela porta dourada pela terceira vez, contando a partida, depois de 72 minutos.</p>
+<h3>Revisão da Academia</h3>
+<p>A armadilha era contar “terceira vez” como se fosse apenas um MMC.</p>
+<p>Mas, como a partida já conta como a primeira vez, o terceiro encontro acontece no segundo ciclo comum.</p>
+<hr>
+<h2><span class="badge-oficina">Oficina</span>19. Oficina Olímpica 3 — Dividir ou reencontrar?</h2>
+<p>A Oficina desta sala não começa com uma conta.</p>
+<p>Começa com uma escolha.</p>
+<p>Em cada desafio, antes de resolver, pergunte:</p>
+<blockquote>
+<p>É uma pergunta de dividir sem sobrar ou de reencontrar ciclos?</p>
+</blockquote>
+<h3>Desafio 1 — Pacotes de adesivos</h3>
+<p>Há 54 adesivos verdes e 72 adesivos amarelos. Queremos montar o maior número possível de pacotes iguais, usando todos os adesivos.</p>
+<p>Quantos pacotes podem ser montados?</p>
+<p><strong>Solução.</strong></p>
+<p>Pacotes iguais, usar tudo e sem sobra: MDC.</p>
+<pre><code>54 = 2 × 3 × 3 × 3
+72 = 2 × 2 × 2 × 3 × 3
+</code></pre>
+<p>Peças comuns:</p>
+<pre><code>2 × 3 × 3 = 18
+</code></pre>
+<p>Podem ser montados 18 pacotes.</p>
+<hr>
+<h3>Desafio 2 — Sinos da torre</h3>
+<p>Um sino toca a cada 9 minutos e outro toca a cada 12 minutos. Eles tocaram juntos agora.</p>
+<p>Depois de quantos minutos tocarão juntos novamente?</p>
+<p><strong>Solução.</strong></p>
+<p>Sinos que se repetem: MMC.</p>
+<pre><code>9 = 3 × 3
+12 = 2 × 2 × 3
+</code></pre>
+<pre><code>MMC(9, 12) = 2 × 2 × 3 × 3 = 36
+</code></pre>
+<p>Tocarão juntos novamente depois de 36 minutos.</p>
+<hr>
+<h3>Desafio 3 — A maior fita igual</h3>
+<p>Duas fitas medem 84 cm e 126 cm. Queremos cortá-las em pedaços iguais, todos com o maior comprimento possível, sem sobrar fita.</p>
+<p>Qual deve ser o comprimento de cada pedaço?</p>
+<p><strong>Solução.</strong></p>
+<p>Cortar em pedaços iguais, maior comprimento, sem sobra: MDC.</p>
+<p>Já vimos:</p>
+<pre><code>MDC(84, 126) = 42
+</code></pre>
+<p>Cada pedaço deve medir 42 cm.</p>
+<hr>
+<h3>Desafio 4 — Três luzes</h3>
+<p>Três luzes piscam a cada 4, 6 e 10 segundos. Elas piscaram juntas agora.</p>
+<p>Depois de quantos segundos piscarão juntas novamente?</p>
+<p><strong>Solução.</strong></p>
+<p>Luzes que piscam em ciclos: MMC.</p>
+<pre><code>4 = 2 × 2
+6 = 2 × 3
+10 = 2 × 5
+</code></pre>
+<p>Precisamos de:</p>
+<pre><code>2 × 2 × 3 × 5 = 60
+</code></pre>
+<p>As três luzes piscarão juntas novamente depois de 60 segundos.</p>
+<hr>
+<h3>Desafio 5 — Atividade aberta — A pergunta escondida</h3>
+<p>Explique por que os dois problemas abaixo não têm a mesma resposta, mesmo usando os números 30 e 45.</p>
+<p><strong>Critério de uma resposta completa:</strong> distinguir a pergunta de divisão sem sobra da pergunta de reencontro de ciclos e relacionar os resultados 15 e 90 às duas perguntas.</p>
+<p><strong>a)</strong> Dividir 30 medalhas e 45 cartões no maior número possível de kits iguais.</p>
+<p><strong>b)</strong> Dois eventos se repetem a cada 30 dias e 45 dias; hoje acontecem juntos.</p>
+<p><strong>Solução.</strong></p>
+<p>No item a, a pergunta é de dividir sem sobrar.</p>
+<pre><code>MDC(30, 45) = 15
+</code></pre>
+<p>São 15 kits.</p>
+<p>No item b, a pergunta é de reencontro de ciclos.</p>
+<pre><code>30 = 2 × 3 × 5
+45 = 3 × 3 × 5
+MMC(30, 45) = 2 × 3 × 3 × 5 = 90
+</code></pre>
+<p>Os eventos se reencontram depois de 90 dias.</p>
+<p>Mesmos números, perguntas diferentes.</p>
+<hr>
+<h2>20. As ferramentas da Mochila nesta sala</h2>
+<p>Felipe guardou novas ferramentas na Mochila do Matemático.</p>
+<p>Não eram ferramentas isoladas.</p>
+<p>Eram ferramentas de decisão.</p>
+<ol>
+<li>Procurar divisores comuns quando várias quantidades precisam ser repartidas sem sobra.</li>
+<li>Encontrar o maior divisor comum quando o problema pede o maior pedaço, maior número de grupos ou maior quantidade de pacotes iguais.</li>
+<li>Procurar múltiplos comuns quando há ciclos, ritmos, voltas ou repetições.</li>
+<li>Encontrar o mínimo múltiplo comum quando o problema pede o primeiro reencontro.</li>
+<li>Usar fatoração em primos para organizar MDC e MMC sem depender apenas de listas longas.</li>
+<li>Separar claramente perguntas de divisão e perguntas de reencontro.</li>
+<li>Conferir se a resposta combina com a história do problema.</li>
+</ol>
+<div class="ferramenta" data-num="19" id="f19"><span class="f-badge">Ferramenta 19</span><span class="f-text">Procurar divisores comuns</span></div>
+
+<div class="ferramenta" data-num="20" id="f20"><span class="f-badge">Ferramenta 20</span><span class="f-text">Encontrar o maior divisor comum</span></div>
+
+<div class="ferramenta" data-num="21" id="f21"><span class="f-badge">Ferramenta 21</span><span class="f-text">Procurar o primeiro encontro dos múltiplos</span></div>
+
+<div class="ferramenta" data-num="22" id="f22"><span class="f-badge">Ferramenta 22</span><span class="f-text">Separar MDC e MMC: pedaços comuns versus reencontros de ciclos</span></div>
+
+<p>O Professor fechou a Mochila e disse:</p>
+<p>— O bom matemático não pergunta apenas “qual conta eu faço?”. Ele pergunta “que tipo de encaixe este problema está pedindo?”.</p>
+<hr>
+<h2>21. Figuras aplicadas no ponto de uso</h2>
+<p>As especificações de divisores, múltiplos e comparação MDC/MMC aparecem nas seções correspondentes. O quadro de múltiplos acompanha os ritmos de 6 e 10 minutos deste exemplo, preservando os dados do texto.</p>
+<hr>
+<h2>22. A frase da Academia</h2>
+<blockquote>
+<p>Dividir sem sobrar pede um divisor comum. Reencontrar ciclos pede um múltiplo comum.</p>
+</blockquote>
+<hr>
+<h2>23. Pergunta para amanhã</h2>
+<p>Quando a divisão não é perfeita, que tipo de número nasce?</p>
+<p>A porta seguinte da Academia não tinha caixas, nem lanternas, nem robôs.</p>
+<p>Tinha uma pizza desenhada em quatro partes.</p>
+<p>Ao lado dela, uma pergunta simples:</p>
+<blockquote>
+<p>Se nem sempre a divisão termina em número inteiro, como a matemática guarda os pedaços?</p>
+</blockquote>
+<p>Felipe já sabia que a próxima sala não seria sobre fracasso da divisão.</p>
+<p>Seria sobre uma nova forma de número.</p>
+<p>A sala das frações estava aberta.</p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap03.html" class="nav-prev">← Cap. 3</a>
+      <a href="cap05.html" class="nav-next">Cap. 5 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(4);</script>
+</body>
+</html>

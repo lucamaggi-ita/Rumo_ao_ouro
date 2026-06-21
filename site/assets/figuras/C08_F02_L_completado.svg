@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" role="img" aria-labelledby="title desc">
+  <title id="title">Completar um L até o retângulo</title><desc id="desc">Uso: separa área existente, canto imaginado e subtração final.</desc>
+  <rect width="1000" height="620" fill="#ffffff"/>
+  <text x="50" y="52" font-family="Arial, Helvetica, sans-serif" font-size="27" text-anchor="start" font-weight="700" fill="#18202a">Completar um L até o retângulo</text>
+  <line x1="50" y1="72" x2="950" y2="72" stroke="#7a8a99" stroke-width="1" />
+  <path d="M 290 150 H 710 V 340 H 600 V 450 H 290 Z" fill="#dcecf7" stroke="#18202a" stroke-width="3"/><rect x="600" y="340" width="110" height="110" fill="#fff3cd" stroke="#9b2c2c" stroke-width="2" stroke-dasharray="7 5"/><text x="655" y="485" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle" font-weight="400" fill="#18202a">parte retirada</text><text x="500" y="120" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="middle" font-weight="700" fill="#18202a">figura completa - recorte</text>
+  <text x="50" y="590" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="start" font-weight="400" fill="#18202a">Uso: separa área existente, canto imaginado e subtração final.</text>
+  </svg>

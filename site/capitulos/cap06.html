@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 6 — A regra secreta | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-bronze">Nível Bronze</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link sidebar-active" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 6</span>
+        <h1 class="cap-title">A regra secreta</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Depois das frações e das proporções</h2>
+<p>No capítulo anterior, Felipe aprendeu que uma quantidade pode ter vários nomes: <code>1/2</code>, <code>2/4</code>, <code>3/6</code>; uma receita pode dobrar sem mudar de sabor; um mapa pode reduzir distâncias sem destruir relações.</p>
+<p>Agora aparece outra ideia: uma quantidade pode crescer seguindo uma regra.</p>
+<p>Veja esta fila:</p>
+<p><code>3, 6, 9, 12, 15, ...</code></p>
+<p>É natural imaginar que o próximo número seja <code>18</code>. Mas o ponto importante não é apenas acertar o próximo número. O ponto importante é explicar por quê.</p>
+<p>A sequência parece andar de 3 em 3.</p>
+<p>Agora veja outra:</p>
+<p><code>2, 4, 8, 16, 32, ...</code></p>
+<p>Aqui o próximo número não nasce somando sempre a mesma quantidade. Ele nasce dobrando.</p>
+<p>E esta?</p>
+<p><code>1, 4, 9, 16, 25, ...</code></p>
+<p>A diferença entre os termos não é constante:</p>
+<ul>
+<li>de 1 para 4, aumenta 3;</li>
+<li>de 4 para 9, aumenta 5;</li>
+<li>de 9 para 16, aumenta 7;</li>
+<li>de 16 para 25, aumenta 9.</li>
+</ul>
+<p>Mesmo assim há uma regra. São quadrados perfeitos:</p>
+<p><code>1 × 1</code>, <code>2 × 2</code>, <code>3 × 3</code>, <code>4 × 4</code>, <code>5 × 5</code>.</p>
+<p>A primeira lição da sala dos padrões é esta:</p>
+<blockquote>
+<p>Nem toda sequência cresce por soma constante. Diferença ajuda, mas não manda sozinha.</p>
+</blockquote>
+<hr>
+<h2>2. Sequência é uma fila com sentido</h2>
+<p>Uma sequência é uma fila de termos em que a ordem importa.</p>
+<p>Na fila</p>
+<p><code>5, 8, 11, 14, 17, ...</code></p>
+<p>o número <code>5</code> é o primeiro termo. O número <code>8</code> é o segundo termo. O número <code>11</code> é o terceiro termo.</p>
+<p>Cada termo tem duas informações:</p>
+<ul>
+<li>a <strong>posição</strong> que ele ocupa na fila;</li>
+<li>o <strong>valor</strong> que aparece naquela posição.</li>
+</ul>
+<p>A posição responde à pergunta:</p>
+<blockquote>
+<p>Em que lugar da fila estamos?</p>
+</blockquote>
+<p>O valor responde à pergunta:</p>
+<blockquote>
+<p>Que número aparece naquele lugar?</p>
+</blockquote>
+<p>Isso parece simples, mas muitos erros em problemas de sequência nascem justamente da confusão entre posição e valor.</p>
+<p>Na sequência <code>5, 8, 11, 14, 17, ...</code>, o 5º termo é <code>17</code>.</p>
+<p>Mas a posição 17 não tem valor <code>17</code>. A posição 17 é muito mais adiante na fila.</p>
+<p>Vamos organizar:</p>
+<table>
+<thead>
+<tr>
+<th>Posição</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Valor</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">17</td>
+</tr>
+</tbody>
+</table>
+<p>A tabela deixa visível o que a pressa mistura.</p>
+<p>A posição anda de 1 em 1. O valor anda de 3 em 3.</p>
+<hr>
+<h2>3. A primeira pista: olhar o que muda</h2>
+<p>O Professor escreveu no quadro:</p>
+<p><code>7, 12, 17, 22, 27, ...</code></p>
+<p>— Antes de tentar achar uma fórmula, diga o que muda.</p>
+<p>Felipe observou:</p>
+<ul>
+<li>de 7 para 12, aumenta 5;</li>
+<li>de 12 para 17, aumenta 5;</li>
+<li>de 17 para 22, aumenta 5;</li>
+<li>de 22 para 27, aumenta 5.</li>
+</ul>
+<p>A regra parece ser: começar em 7 e somar 5 a cada passo.</p>
+<p>Então o próximo termo é <code>32</code>.</p>
+<p>Mas a Academia não se contenta com “parece”. Ela pergunta:</p>
+<blockquote>
+<p>A regra explica todos os termos mostrados?</p>
+</blockquote>
+<p>Sim.</p>
+<p>E mais:</p>
+<blockquote>
+<p>A regra permite continuar sem desenhar a fila inteira?</p>
+</blockquote>
+<p>Também sim.</p>
+<p>Para achar o 20º termo, não é preciso escrever todos os termos até o vigésimo. A primeira posição já tem valor 7. Para chegar à 20ª posição, damos 19 passos. Cada passo aumenta 5.</p>
+<p>Então:</p>
+<p><code>7 + 19 × 5 = 7 + 95 = 102</code>.</p>
+<p>O 20º termo é <code>102</code>.</p>
+<p>Perceba o cuidado: da 1ª posição até a 20ª posição não há 20 saltos. Há 19 saltos.</p>
+<p>Essa é uma armadilha clássica.</p>
+<hr>
+<h2>4. Quando a diferença constante abre o caminho</h2>
+<p>Sequências com diferença constante aparecem muito em problemas olímpicos.</p>
+<p>Exemplo:</p>
+<p><code>4, 10, 16, 22, 28, ...</code></p>
+<p>A diferença é sempre 6.</p>
+<p>A ideia nasce assim:</p>
+<ul>
+<li>primeiro termo: <code>4</code>;</li>
+<li>cada nova posição acrescenta <code>6</code>;</li>
+<li>posição 1 não precisa de nenhum salto;</li>
+<li>posição 2 precisa de 1 salto;</li>
+<li>posição 3 precisa de 2 saltos;</li>
+<li>posição 10 precisa de 9 saltos.</li>
+</ul>
+<p>Então o 10º termo é:</p>
+<p><code>4 + 9 × 6 = 58</code>.</p>
+<p>A letra pode aparecer depois, sem susto.</p>
+<p>Se a posição é <code>n</code>, então o número de saltos a partir do primeiro termo é <code>n - 1</code>.</p>
+<p>Por isso o termo da posição <code>n</code> pode ser pensado como:</p>
+<p><code>primeiro termo + (n - 1) × passo</code>.</p>
+<p>Mas a Academia não quer que Felipe decore isso como uma frase vazia. A imagem mental é mais importante:</p>
+<blockquote>
+<p>Para chegar à posição <code>n</code>, saímos da posição 1 e damos <code>n - 1</code> passos.</p>
+</blockquote>
+<hr>
+<h2>5. Diferença ajuda, mas nem sempre resolve</h2>
+<p>A coruja escreveu outra sequência:</p>
+<p><code>1, 3, 6, 10, 15, ...</code></p>
+<p>Felipe olhou as diferenças:</p>
+<ul>
+<li>de 1 para 3, aumenta 2;</li>
+<li>de 3 para 6, aumenta 3;</li>
+<li>de 6 para 10, aumenta 4;</li>
+<li>de 10 para 15, aumenta 5.</li>
+</ul>
+<p>A diferença não é constante. Ela cresce de 1 em 1.</p>
+<p>Isso não significa que a sequência não tenha regra. Pelo contrário: a regra apareceu.</p>
+<p>Cada termo acrescenta o próximo número natural:</p>
+<p><code>1</code></p>
+<p><code>1 + 2 = 3</code></p>
+<p><code>1 + 2 + 3 = 6</code></p>
+<p><code>1 + 2 + 3 + 4 = 10</code></p>
+<p><code>1 + 2 + 3 + 4 + 5 = 15</code></p>
+<p>São números que formam triângulos de pontos.</p>
+<figure class="figura"><img src="../assets/figuras/C06_F01_pontos_triangulares.svg" alt="Cinco configurações crescentes de pontos, alinhadas para `1`, `3`, `6`, `10` e `15`, mostrando a nova fileira acrescentada em cada etapa. Não antecipar fórmula." loading="lazy"><figcaption>Cinco configurações crescentes de pontos, alinhadas para `1`, `3`, `6`, `10` e `15`, mostrando a nova fileira acrescentada em cada etapa. Não antecipar fórmula.</figcaption></figure>
+
+<p>A sequência tem uma regra visual: cada nova figura acrescenta uma fileira maior.</p>
+<p>A diferença não resolveu sozinha, mas mostrou o caminho.</p>
+<hr>
+<h2>6. Termo, posição e tabela</h2>
+<div class="figura-spec fig-manter"><span class="fig-label">Tabela</span><span class="fig-desc">A tabela de posição, pontos e aumento já é a representação necessária. Ela deve permanecer junto ao exemplo, em colunas estáveis, sem desenho adicional.</span></div>
+
+<p>Quando a sequência fica visual, a tabela vira uma lanterna.</p>
+<p>Imagine figuras feitas com pontos:</p>
+<ul>
+<li>Figura 1: 1 ponto.</li>
+<li>Figura 2: 3 pontos.</li>
+<li>Figura 3: 6 pontos.</li>
+<li>Figura 4: 10 pontos.</li>
+<li>Figura 5: 15 pontos.</li>
+</ul>
+<p>A tabela separa posição e valor:</p>
+<table>
+<thead>
+<tr>
+<th>Figura</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pontos</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>Aumento</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">+2</td>
+<td style="text-align: right;">+3</td>
+<td style="text-align: right;">+4</td>
+<td style="text-align: right;">+5</td>
+</tr>
+</tbody>
+</table>
+<p>Agora a pergunta pode mudar.</p>
+<p>Se o problema pergunta “quantos pontos há na Figura 10?”, ele quer um termo específico.</p>
+<p>Se pergunta “quantos pontos foram usados ao todo da Figura 1 até a Figura 10?”, ele quer uma soma acumulada.</p>
+<p>Essas duas perguntas não são iguais.</p>
+<p>Termo específico:</p>
+<blockquote>
+<p>Quanto aparece em uma posição?</p>
+</blockquote>
+<p>Total acumulado:</p>
+<blockquote>
+<p>Quanto aparece somando várias posições?</p>
+</blockquote>
+<p>A Mochila ganha aqui uma ferramenta importantíssima:</p>
+<blockquote>
+<p>Distinguir termo pedido e total acumulado.</p>
+</blockquote>
+<hr>
+<h2>7. Generalizar sem assustar</h2>
+<p>A palavra “generalizar” pode parecer grande. Na Academia, ela tem um significado simples:</p>
+<blockquote>
+<p>Encontrar uma regra que funcione não só para os primeiros casos, mas para qualquer posição.</p>
+</blockquote>
+<p>Se uma fila começa assim:</p>
+<p><code>6, 11, 16, 21, ...</code></p>
+<p>podemos continuar alguns termos. Mas isso ainda é pouco.</p>
+<p>O matemático olímpico quer responder perguntas maiores:</p>
+<ul>
+<li>Qual é o 50º termo?</li>
+<li>Existe algum termo igual a 1001?</li>
+<li>Em que posição aparece o número 126?</li>
+</ul>
+<p>Para isso, precisamos enxergar a estrutura.</p>
+<p>Na sequência <code>6, 11, 16, 21, ...</code>, o primeiro termo é 6 e o passo é 5.</p>
+<p>Na posição <code>n</code>, saímos do 6 e damos <code>n - 1</code> passos de 5.</p>
+<p>Então o valor é:</p>
+<p><code>6 + 5 × (n - 1)</code>.</p>
+<p>Agora podemos perguntar: o número 126 aparece nessa sequência?</p>
+<p>Se aparece, então:</p>
+<p><code>6 + 5 × (n - 1) = 126</code>.</p>
+<p>Isso significa:</p>
+<p><code>5 × (n - 1) = 120</code>.</p>
+<p>Logo:</p>
+<p><code>n - 1 = 24</code>.</p>
+<p>Então <code>n = 25</code>.</p>
+<p>O número 126 aparece na 25ª posição.</p>
+<p>Perceba: a letra <code>n</code> não apareceu para assustar. Ela apareceu para representar uma posição qualquer.</p>
+<hr>
+<h2>8. O padrão dos palitos</h2>
+<p>O Professor colocou sobre a mesa alguns palitos e montou quadrados em fila.</p>
+<p>Um quadrado isolado usa 4 palitos.</p>
+<p>Dois quadrados grudados lado a lado não usam 8 palitos. Eles usam 7, porque compartilham um lado.</p>
+<p>Três quadrados em fila usam 10 palitos.</p>
+<p>A tabela fica assim:</p>
+<table>
+<thead>
+<tr>
+<th>Quadrados em fila</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Palitos</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">16</td>
+</tr>
+</tbody>
+</table>
+<p>O aumento é sempre 3.</p>
+<p>Por quê?</p>
+<p>Porque o primeiro quadrado usa 4 palitos. Cada novo quadrado grudado aproveita um lado já existente e acrescenta apenas 3 palitos.</p>
+<figure class="figura"><img src="../assets/figuras/C06_F02_palitos_compartilhados.svg" alt="Quadrados em fila feitos com palitos, destacando o lado compartilhado e o acréscimo de 3 palitos a cada novo quadrado." loading="lazy"><figcaption>Quadrados em fila feitos com palitos, destacando o lado compartilhado e o acréscimo de 3 palitos a cada novo quadrado.</figcaption></figure>
+
+<p>Então, para <code>n</code> quadrados em fila:</p>
+<ul>
+<li>o primeiro quadrado usa 4 palitos;</li>
+<li>os outros <code>n - 1</code> quadrados acrescentam 3 palitos cada.</li>
+</ul>
+<p>Total:</p>
+<p><code>4 + 3 × (n - 1)</code>.</p>
+<p>Outra forma de ver:</p>
+<p><code>3n + 1</code>.</p>
+<p>Mas a forma mais importante é a primeira, porque conta a história:</p>
+<blockquote>
+<p>Primeiro quadrado completo; depois, cada quadrado novo acrescenta três lados.</p>
+</blockquote>
+<p>A fórmula não deve esconder a ideia.</p>
+<hr>
+<h2>9. O perigo de continuar sem pensar</h2>
+<p>Continuar uma sequência é útil, mas pode enganar.</p>
+<p>Veja:</p>
+<p><code>2, 4, 6, 8, ...</code></p>
+<p>A resposta mais natural para o próximo termo é 10. Mas, só com quatro termos, outras regras estranhas também poderiam gerar os mesmos primeiros números e mudar depois.</p>
+<p>Em problemas olímpicos bem escritos, o desenho, a história ou a construção deixa a regra clara.</p>
+<p>Se o enunciado diz:</p>
+<blockquote>
+<p>A sequência é formada somando 2 a cada termo.</p>
+</blockquote>
+<p>não há dúvida.</p>
+<p>Se o enunciado mostra figuras crescendo por uma construção, a regra precisa nascer da figura.</p>
+<p>O erro é olhar apenas os números e ignorar a construção.</p>
+<p>A coruja repetiu:</p>
+<p>— Padrão verdadeiro explica como a figura foi construída. Não apenas combina com os primeiros valores.</p>
+<p>Por isso, em problemas com figuras, sempre pergunte:</p>
+<ol>
+<li>O que foi acrescentado de uma figura para a próxima?</li>
+<li>O que foi compartilhado?</li>
+<li>O que ficou igual?</li>
+<li>O problema pede uma figura específica ou um total acumulado?</li>
+</ol>
+<hr>
+<h2>10. Padrões que alternam</h2>
+<p>Nem todo padrão cresce. Alguns alternam.</p>
+<p>Imagine uma sequência de medalhas na parede:</p>
+<p><code>ouro, prata, bronze, ouro, prata, bronze, ouro, prata, bronze, ...</code></p>
+<p>O padrão tem ciclo de 3.</p>
+<p>Para descobrir a 100ª medalha, não precisamos listar 100 medalhas. Basta usar restos.</p>
+<p>Como o ciclo tem 3 posições:</p>
+<ul>
+<li>resto 1 → ouro;</li>
+<li>resto 2 → prata;</li>
+<li>resto 0 → bronze.</li>
+</ul>
+<p>Agora dividimos 100 por 3:</p>
+<p><code>100 = 33 × 3 + 1</code>.</p>
+<p>O resto é 1.</p>
+<p>A 100ª medalha é ouro.</p>
+<p>Essa sala conversa com a sala dos restos. Padrões alternados são ciclos disfarçados.</p>
+<figure class="figura"><img src="../assets/figuras/C06_F03_roda_ouro_prata_bronze.svg" alt="Roda de três posições, ouro-prata-bronze, com o resto associado a cada posição; o resto `0` deve continuar visível como a última posição da volta." loading="lazy"><figcaption>Roda de três posições, ouro-prata-bronze, com o resto associado a cada posição; o resto `0` deve continuar visível como a última posição da volta.</figcaption></figure>
+
+<p>Atenção: resto 0 não significa “nada”. Em ciclos de posição, resto 0 costuma indicar a última posição da volta.</p>
+<hr>
+<h2>11. O padrão escondido no mosaico</h2>
+<p>No chão da Academia havia mosaicos em forma de cruz.</p>
+<p>A Figura 1 tinha um quadrado central e um quadrado em cada direção: cima, baixo, esquerda e direita. Total: 5 quadrados.</p>
+<p>A Figura 2 aumentava cada braço em mais um quadrado. Total: 9 quadrados.</p>
+<p>A Figura 3 tinha braços ainda maiores. Total: 13 quadrados.</p>
+<p>A tabela:</p>
+<table>
+<thead>
+<tr>
+<th>Figura</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quadrados</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">17</td>
+</tr>
+</tbody>
+</table>
+<p>O aumento é 4 a cada nova figura.</p>
+<p>Por quê?</p>
+<p>Porque cada nova figura acrescenta um quadrado em cada um dos quatro braços da cruz.</p>
+<figure class="figura"><img src="../assets/figuras/C06_F04_mosaicos_cruz.svg" alt="Três etapas de mosaicos em cruz, distinguindo o centro fixo do crescimento de um quadrado em cada um dos quatro braços." loading="lazy"><figcaption>Três etapas de mosaicos em cruz, distinguindo o centro fixo do crescimento de um quadrado em cada um dos quatro braços.</figcaption></figure>
+
+<p>Então a Figura <code>n</code> tem:</p>
+<ul>
+<li>1 quadrado central;</li>
+<li><code>n</code> quadrados no braço de cima;</li>
+<li><code>n</code> no braço de baixo;</li>
+<li><code>n</code> à esquerda;</li>
+<li><code>n</code> à direita.</li>
+</ul>
+<p>Total:</p>
+<p><code>1 + 4n</code>.</p>
+<p>A regra nasce do desenho, não da tabela sozinha.</p>
+<hr>
+<h2>12. Escadas, andares e degraus</h2>
+<p>Outra parede da Academia tinha escadas de quadradinhos.</p>
+<p>A Figura 1 tinha 1 quadradinho.</p>
+<p>A Figura 2 tinha 3 quadradinhos: 2 embaixo e 1 em cima.</p>
+<p>A Figura 3 tinha 6 quadradinhos: 3 embaixo, 2 no meio e 1 em cima.</p>
+<p>A Figura 4 tinha 10 quadradinhos.</p>
+<p>É a mesma sequência triangular:</p>
+<p><code>1, 3, 6, 10, ...</code></p>
+<p>Mas agora aparece como escada.</p>
+<figure class="figura"><img src="../assets/figuras/C06_F05_escadas_triangulares.svg" alt="Escadas de `1`, `3`, `6` e `10` quadradinhos; após a sequência, mostrar uma segunda escada complementar para justificar o retângulo formado, sem mudar a contagem." loading="lazy"><figcaption>Escadas de `1`, `3`, `6` e `10` quadradinhos; após a sequência, mostrar uma segunda escada complementar para justificar o retângulo formado, sem mudar a contagem.</figcaption></figure>
+
+<p>Para contar a escada de 20 andares, poderíamos somar:</p>
+<p><code>1 + 2 + 3 + ... + 20</code>.</p>
+<p>Mas existe um truque bonito.</p>
+<p>Faça duas escadas iguais. Uma delas de cabeça para baixo. Juntas, elas formam um retângulo de 20 por 21 quadradinhos.</p>
+<p>Esse retângulo tem:</p>
+<p><code>20 × 21 = 420</code> quadradinhos.</p>
+<p>Como ele é formado por duas escadas iguais, uma escada tem:</p>
+<p><code>420 ÷ 2 = 210</code> quadradinhos.</p>
+<p>Assim:</p>
+<p><code>1 + 2 + 3 + ... + 20 = 210</code>.</p>
+<p>A ideia é mais importante que a fórmula:</p>
+<blockquote>
+<p>Duas escadas iguais se encaixam e formam um retângulo.</p>
+</blockquote>
+<p>Essa ponte prepara a geometria do próximo capítulo.</p>
+<hr>
+<h2>13. Quando há mais de uma regra possível</h2>
+<p>A coruja escreveu:</p>
+<p><code>1, 2, 4, 8, ...</code></p>
+<p>Felipe disse:</p>
+<p>— Dobra. O próximo é 16.</p>
+<p>— Pode ser — respondeu a coruja. — Mas de onde veio a sequência?</p>
+<p>Se o enunciado diz que cada termo é o dobro do anterior, a resposta é 16.</p>
+<p>Mas imagine que os números representem a quantidade de regiões em que linhas dividem uma folha, ou a quantidade de caminhos em certo desenho. Talvez a regra continue diferente.</p>
+<p>Em olimpíadas, a sequência quase nunca aparece sem contexto. O enunciado informa uma construção, uma figura, uma regra ou uma história.</p>
+<p>Por isso, a pergunta correta não é apenas:</p>
+<blockquote>
+<p>Que próximo número parece combinar?</p>
+</blockquote>
+<p>A pergunta correta é:</p>
+<blockquote>
+<p>Que regra o enunciado garante?</p>
+</blockquote>
+<p>A Academia ensina prudência: quando só temos poucos termos soltos, podemos criar hipóteses. Quando temos uma construção, devemos obedecer à construção.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>14. Problema em estilo OBMEP — Os pontos da parede dourada</h2>
+<p>Na parede dourada da Academia, as figuras são formadas com pontos.</p>
+<p>A Figura 1 tem 1 ponto.</p>
+<p>A Figura 2 tem 3 pontos.</p>
+<p>A Figura 3 tem 6 pontos.</p>
+<p>A Figura 4 tem 10 pontos.</p>
+<p>A regra é: a Figura <code>n</code> é formada acrescentando uma nova fileira com <code>n</code> pontos à figura anterior.</p>
+<p>Quantos pontos há na Figura 30?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A sequência é:</p>
+<p><code>1, 3, 6, 10, ...</code></p>
+<p>A Figura 30 terá:</p>
+<p><code>1 + 2 + 3 + ... + 30</code> pontos.</p>
+<p>Para somar sem se perder, pareamos:</p>
+<p><code>1 + 30 = 31</code></p>
+<p><code>2 + 29 = 31</code></p>
+<p><code>3 + 28 = 31</code></p>
+<p>E assim por diante.</p>
+<p>São 15 pares, cada um valendo 31.</p>
+<p>Então:</p>
+<p><code>15 × 31 = 465</code>.</p>
+<p>A Figura 30 tem <strong>465 pontos</strong>.</p>
+</div></details>
+<h3>O que a Mochila usou</h3>
+<ul>
+<li>observar a sequência como construção;</li>
+<li>separar figura e quantidade de pontos;</li>
+<li>perceber aumento por fileiras;</li>
+<li>somar de forma organizada.</li>
+</ul>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>15. Problema em estilo OBMEP — A cerca de palitos</h2>
+<p>Felipe quer montar uma cerca feita de quadrados em fila usando palitos.</p>
+<p>Um quadrado usa 4 palitos.</p>
+<p>Dois quadrados grudados lado a lado usam 7 palitos.</p>
+<p>Três quadrados grudados lado a lado usam 10 palitos.</p>
+<p>Quantos quadrados em fila podem ser montados com exatamente 154 palitos?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A tabela começa assim:</p>
+<table>
+<thead>
+<tr>
+<th>Quadrados</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Palitos</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">13</td>
+</tr>
+</tbody>
+</table>
+<p>O primeiro quadrado usa 4 palitos.</p>
+<p>Cada novo quadrado acrescenta 3 palitos, pois compartilha um lado com o quadrado anterior.</p>
+<p>Para <code>n</code> quadrados:</p>
+<p><code>4 + 3 × (n - 1)</code>.</p>
+<p>Queremos:</p>
+<p><code>4 + 3 × (n - 1) = 154</code>.</p>
+<p>Então:</p>
+<p><code>3 × (n - 1) = 150</code>.</p>
+<p>Logo:</p>
+<p><code>n - 1 = 50</code>.</p>
+<p>Portanto:</p>
+<p><code>n = 51</code>.</p>
+<p>Com 154 palitos, Felipe pode montar <strong>51 quadrados em fila</strong>.</p>
+</div></details>
+<h3>Verificação</h3>
+<p>Um quadrado inicial: 4 palitos.</p>
+<p>Mais 50 quadrados novos: <code>50 × 3 = 150</code> palitos.</p>
+<p>Total: <code>4 + 150 = 154</code>.</p>
+<p>A resposta combina com a construção.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>16. Problema em estilo OBMEP — O mosaico da entrada</h2>
+<p>Na entrada da Academia há mosaicos em forma de cruz.</p>
+<p>A Figura 1 tem 5 quadrados.</p>
+<p>A Figura 2 tem 9 quadrados.</p>
+<p>A Figura 3 tem 13 quadrados.</p>
+<p>A cada nova figura, cada um dos quatro braços da cruz aumenta em 1 quadrado.</p>
+<p>Qual é o número da figura que tem 101 quadrados?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A regra não precisa nascer apenas da lista. Ela nasce do desenho.</p>
+<p>A Figura <code>n</code> tem:</p>
+<ul>
+<li>1 quadrado central;</li>
+<li><code>n</code> quadrados em cada um dos 4 braços.</li>
+</ul>
+<p>Então o total é:</p>
+<p><code>1 + 4n</code>.</p>
+<p>Queremos:</p>
+<p><code>1 + 4n = 101</code>.</p>
+<p>Logo:</p>
+<p><code>4n = 100</code>.</p>
+<p>Então:</p>
+<p><code>n = 25</code>.</p>
+<p>A figura com 101 quadrados é a <strong>Figura 25</strong>.</p>
+</div></details>
+<h3>O cuidado</h3>
+<p>Não basta ver que a sequência aumenta de 4 em 4. É preciso saber qual figura corresponde a qual valor.</p>
+<p>A Figura 1 tem <code>1 + 4 × 1 = 5</code>, não <code>1 + 4 × 0</code>.</p>
+<p>A posição importa.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>17. Problema em estilo OBMEP — As cadeiras do auditório</h2>
+<p>No auditório da Academia, a primeira fileira tem 12 cadeiras.</p>
+<p>A segunda tem 15 cadeiras.</p>
+<p>A terceira tem 18 cadeiras.</p>
+<p>Cada nova fileira tem 3 cadeiras a mais que a anterior.</p>
+<p>O auditório tem 20 fileiras.</p>
+<p>Quantas cadeiras há ao todo?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Aqui aparecem duas perguntas possíveis.</p>
+<p>Se o problema perguntasse “quantas cadeiras há na 20ª fileira?”, seria um termo específico.</p>
+<p>Mas ele pergunta “quantas cadeiras há ao todo?”. Então precisamos somar as 20 fileiras.</p>
+<p>Primeiro, achamos a 20ª fileira.</p>
+<p>A primeira tem 12 cadeiras.</p>
+<p>Da 1ª até a 20ª fileira há 19 aumentos de 3.</p>
+<p><code>12 + 19 × 3 = 12 + 57 = 69</code>.</p>
+<p>A 20ª fileira tem 69 cadeiras.</p>
+<p>Agora somamos:</p>
+<p><code>12 + 15 + 18 + ... + 69</code>.</p>
+<p>Pareamos primeira com última:</p>
+<p><code>12 + 69 = 81</code>.</p>
+<p>Segunda com penúltima:</p>
+<p><code>15 + 66 = 81</code>.</p>
+<p>São 20 fileiras, portanto 10 pares.</p>
+<p>Total:</p>
+<p><code>10 × 81 = 810</code>.</p>
+<p>O auditório tem <strong>810 cadeiras</strong>.</p>
+</div></details>
+<h3>O que poderia dar errado</h3>
+<p>Responder 69 seria responder apenas à 20ª fileira.</p>
+<p>Mas o problema pediu o total.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>18. Problema em estilo OBMEP — A sequência das medalhas</h2>
+<p>Na sala das conquistas, as medalhas são colocadas repetindo sempre este ciclo:</p>
+<p><code>ouro, prata, bronze, bronze</code></p>
+<p>Depois o ciclo recomeça:</p>
+<p><code>ouro, prata, bronze, bronze, ouro, prata, bronze, bronze, ...</code></p>
+<p>Qual é a 2026ª medalha da sequência?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>O ciclo tem 4 posições:</p>
+<ol>
+<li>ouro;</li>
+<li>prata;</li>
+<li>bronze;</li>
+<li>bronze.</li>
+</ol>
+<p>Precisamos saber a posição da 2026ª medalha dentro de um ciclo de 4.</p>
+<p>Dividimos 2026 por 4:</p>
+<p><code>2026 = 506 × 4 + 2</code>.</p>
+<p>O resto é 2.</p>
+<p>Resto 2 indica a segunda posição do ciclo.</p>
+<p>A 2026ª medalha é <strong>prata</strong>.</p>
+</div></details>
+<h3>Atenção ao resto 0</h3>
+<p>Se o resto fosse 0, a medalha estaria na quarta posição do ciclo, não fora do padrão.</p>
+<p>Resto 0, em ciclos de posição, geralmente indica o fim da volta.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>19. Problema em estilo OBMEP — A barra de quadradinhos</h2>
+<p>A Academia constrói barras com quadradinhos escuros e claros.</p>
+<p>Na Figura 1, há 1 quadradinho escuro e 2 claros.</p>
+<p>Na Figura 2, há 2 quadradinhos escuros e 4 claros.</p>
+<p>Na Figura 3, há 3 quadradinhos escuros e 6 claros.</p>
+<p>Em cada figura, o número de quadradinhos claros é o dobro do número de quadradinhos escuros.</p>
+<p>Quantos quadradinhos há ao todo na Figura 40?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Na Figura <code>n</code>:</p>
+<ul>
+<li>há <code>n</code> quadradinhos escuros;</li>
+<li>há <code>2n</code> quadradinhos claros.</li>
+</ul>
+<p>Total:</p>
+<p><code>n + 2n = 3n</code>.</p>
+<p>Na Figura 40:</p>
+<p><code>3 × 40 = 120</code>.</p>
+<p>Há <strong>120 quadradinhos</strong>.</p>
+</div></details>
+<h3>Por que este problema está aqui?</h3>
+<p>Ele parece simples, mas treina uma ideia importante: às vezes a regra não é “somar sempre”. Às vezes a regra é uma relação entre partes da mesma figura.</p>
+<p>Aqui os claros dependem dos escuros.</p>
+<p>A figura inteira depende das partes.</p>
+<p>Isso conversa com razão e proporção, estudadas no capítulo anterior.</p>
+<hr>
+<h2><span class="badge-oficina">Oficina</span>20. Oficina Olímpica 5 — Descobrir a regra sem pressa</h2>
+<p>Esta oficina não é uma lista de contas. É uma mesa de investigação.</p>
+<p>Use o caderno se quiser. O objetivo é escolher a ferramenta certa da Mochila.</p>
+<h3>Desafio 1 — O termo distante</h3>
+<p>A sequência começa assim:</p>
+<p><code>9, 16, 23, 30, ...</code></p>
+<p>Qual é o 50º termo?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>O primeiro termo é 9.</p>
+<p>O passo é 7.</p>
+<p>Da posição 1 até a posição 50 há 49 passos.</p>
+<p><code>9 + 49 × 7 = 9 + 343 = 352</code>.</p>
+<p>O 50º termo é <strong>352</strong>.</p>
+<hr>
+</div></details>
+<h3>Desafio 2 — A posição escondida</h3>
+<p>A sequência começa em 4 e aumenta sempre 6:</p>
+<p><code>4, 10, 16, 22, ...</code></p>
+<p>O número 178 aparece nessa sequência? Em que posição?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Se aparece, então:</p>
+<p><code>4 + 6 × (n - 1) = 178</code>.</p>
+<p>Logo:</p>
+<p><code>6 × (n - 1) = 174</code>.</p>
+<p><code>n - 1 = 29</code>.</p>
+<p><code>n = 30</code>.</p>
+<p>O número 178 aparece na <strong>30ª posição</strong>.</p>
+<hr>
+</div></details>
+<h3>Desafio 3 — Palitos compartilhados</h3>
+<p>Uma fila com <code>n</code> triângulos equiláteros de palitos, grudados lado a lado, começa assim:</p>
+<ul>
+<li>1 triângulo usa 3 palitos;</li>
+<li>2 triângulos usam 5 palitos;</li>
+<li>3 triângulos usam 7 palitos.</li>
+</ul>
+<p>Quantos palitos são usados em 60 triângulos?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>O primeiro triângulo usa 3 palitos.</p>
+<p>Cada novo triângulo compartilha um lado e acrescenta 2 palitos.</p>
+<p>Então, em 60 triângulos:</p>
+<p><code>3 + 59 × 2 = 3 + 118 = 121</code>.</p>
+<p>São <strong>121 palitos</strong>.</p>
+<hr>
+</div></details>
+<h3>Desafio 4 — Ciclo de cores</h3>
+<p>As luzes da Academia repetem o ciclo:</p>
+<p><code>azul, azul, verde, amarelo, vermelho</code></p>
+<p>Qual é a cor da 1234ª luz?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>O ciclo tem 5 posições.</p>
+<p>Dividimos 1234 por 5:</p>
+<p><code>1234 = 246 × 5 + 4</code>.</p>
+<p>Resto 4.</p>
+<p>A quarta posição do ciclo é amarelo.</p>
+<p>A 1234ª luz é <strong>amarela</strong>.</p>
+<hr>
+</div></details>
+<h3>Desafio 5 — Escada de quadradinhos</h3>
+<p>Uma escada de 1 andar tem 1 quadradinho.</p>
+<p>Uma escada de 2 andares tem 3 quadradinhos.</p>
+<p>Uma escada de 3 andares tem 6 quadradinhos.</p>
+<p>Quantos quadradinhos tem uma escada de 50 andares?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>A escada de 50 andares tem:</p>
+<p><code>1 + 2 + 3 + ... + 50</code> quadradinhos.</p>
+<p>Pareando:</p>
+<p><code>1 + 50 = 51</code></p>
+<p><code>2 + 49 = 51</code></p>
+<p>Há 25 pares.</p>
+<p>Total:</p>
+<p><code>25 × 51 = 1275</code>.</p>
+<p>A escada tem <strong>1275 quadradinhos</strong>.</p>
+<hr>
+</div></details>
+<h3>Desafio 6 — Termo ou total?</h3>
+<p>Uma arquibancada tem 8 cadeiras na primeira fileira, 11 na segunda, 14 na terceira, e assim por diante, sempre aumentando 3 cadeiras por fileira.</p>
+<p>Quantas cadeiras há ao todo nas 12 primeiras fileiras?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Primeiro achamos a 12ª fileira.</p>
+<p>Da 1ª até a 12ª há 11 aumentos.</p>
+<p><code>8 + 11 × 3 = 41</code>.</p>
+<p>Agora somamos 12 fileiras, da primeira até a última:</p>
+<p><code>8 + 11 + 14 + ... + 41</code>.</p>
+<p>Pareando primeira com última:</p>
+<p><code>8 + 41 = 49</code>.</p>
+<p>São 12 fileiras, então 6 pares.</p>
+<p><code>6 × 49 = 294</code>.</p>
+<p>Há <strong>294 cadeiras</strong> ao todo.</p>
+<hr>
+</div></details>
+<h2>21. As ferramentas da Mochila nesta sala</h2>
+<p>Nesta sala, a Mochila não ganha ferramentas completamente novas fora do percurso. Ela organiza melhor as ferramentas de padrões e generalização que já vinham aparecendo desde a entrada do livro.</p>
+<p>As ferramentas retomadas e fortalecidas são:</p>
+<ol>
+<li>Observar a sequência como uma construção.</li>
+<li>Comparar termos consecutivos.</li>
+<li>Separar posição e valor.</li>
+<li>Usar tabela para enxergar a regra.</li>
+<li>Procurar compartilhamentos em figuras.</li>
+<li>Generalizar sem medo.</li>
+<li>Distinguir termo pedido e total acumulado.</li>
+</ol>
+<div class="ferramenta" data-num="15" id="f15"><span class="f-badge">Ferramenta 15</span><span class="f-text">Generalizar padrões</span></div>
+
+<div class="ferramenta" data-num="30" id="f30"><span class="f-badge">Ferramenta 30</span><span class="f-text">Observar a sequência como uma construção</span></div>
+
+<div class="ferramenta" data-num="31" id="f31"><span class="f-badge">Ferramenta 31</span><span class="f-text">Comparar termos consecutivos</span></div>
+
+<div class="ferramenta" data-num="32" id="f32"><span class="f-badge">Ferramenta 32</span><span class="f-text">Separar posição e valor</span></div>
+
+<div class="ferramenta" data-num="33" id="f33"><span class="f-badge">Ferramenta 33</span><span class="f-text">Usar tabela para enxergar a regra</span></div>
+
+<div class="ferramenta" data-num="34" id="f34"><span class="f-badge">Ferramenta 34</span><span class="f-text">Procurar compartilhamentos em figuras</span></div>
+
+<div class="ferramenta" data-num="35" id="f35"><span class="f-badge">Ferramenta 35</span><span class="f-text">Generalizar sem medo</span></div>
+
+<div class="ferramenta" data-num="36" id="f36"><span class="f-badge">Ferramenta 36</span><span class="f-text">Distinguir termo pedido e total acumulado</span></div>
+
+<p>A regra de ouro da sala é:</p>
+<blockquote>
+<p>Antes de perguntar “qual é a fórmula?”, pergunte “como isso foi construído?”.</p>
+</blockquote>
+<hr>
+<h2>22. Figuras aplicadas no ponto de uso</h2>
+<p>As especificações de pontos, tabela, palitos, ciclo, mosaico e escadas já foram colocadas nos respectivos pontos de uso. Esta sala não exige uma galeria ao final.</p>
+<hr>
+<h2>23. A frase da Academia</h2>
+<blockquote>
+<p>Padrão não é decoração. Padrão é uma regra pedindo para ser descoberta.</p>
+</blockquote>
+<hr>
+<h2>24. Pergunta para amanhã</h2>
+<p>O Professor apagou parte do quadro e deixou apenas uma malha quadriculada.</p>
+<p>Nela havia retângulos, caminhos, bordas e uma figura que parecia feita de várias partes.</p>
+<p>Felipe percebeu que os padrões do capítulo tinham começado a virar desenhos com tamanho, forma e medida.</p>
+<p>A coruja então deixou a próxima pergunta:</p>
+<blockquote>
+<p>Quando os desenhos deixam de ser apenas padrões e começam a ter forma, medida e área, que nova matemática aparece?</p>
+</blockquote>
+<p>A próxima sala da Academia será a geometria essencial.</p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap05.html" class="nav-prev">← Cap. 5</a>
+      <a href="cap07.html" class="nav-next">Cap. 7 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(6);</script>
+</body>
+</html>

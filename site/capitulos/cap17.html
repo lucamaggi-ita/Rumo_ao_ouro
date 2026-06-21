@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 17 — A Mochila Inteira | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-ouro">Nível Ouro</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link sidebar-active" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 17</span>
+        <h1 class="cap-title">A Mochila Inteira</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. A ultima sala antes da prova</h2>
+<p>Felipe abriu a Mochila do Matematico sobre a mesa. Nao havia formulas soltas ali dentro. Havia perguntas, desenhos, tabelas, tentativas, restos, figuras, caminhos e maneiras de voltar quando uma porta parecia fechada.</p>
+<p>O Professor da Academia nao disse: "Agora revise o Capitulo 1, depois o 2, depois o 3."</p>
+<p>Disse:</p>
+<blockquote>
+<p>"Na prova, os capitulos nao chegam com etiquetas. O problema mistura pistas. Sua tarefa e descobrir qual ferramenta quer conversar primeiro."</p>
+</blockquote>
+<p>Esta e a funcao desta ultima sala. Nao e carregar a Mochila outra vez, objeto por objeto. E reconhecer que as ferramentas formam familias e que uma mesma pergunta pode pedir mais de uma delas.</p>
+<p>Uma questao pode falar de sinos, mas pedir ciclos. Pode falar de ladrilhos, mas pedir padrao e area. Pode falar de uma regra de jogo, mas esconder uma impossibilidade por paridade. O enunciado muda de roupa; a ideia matematica continua ali.</p>
+<p>Revisar, portanto, nao e voltar atras. E ganhar liberdade para escolher uma primeira jogada sem depender da ordem em que as ideias foram aprendidas.</p>
+<hr>
+<h2>2. A pergunta das tres portas</h2>
+<p>Antes de escolher uma tecnica, Felipe pode atravessar tres portas pequenas.</p>
+<table>
+<thead>
+<tr>
+<th>Porta</th>
+<th>Pergunta</th>
+<th>O que ela evita</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A pergunta final</td>
+<td>O que exatamente preciso descobrir, provar ou contar?</td>
+<td>Fazer contas que nao respondem ao problema.</td>
+</tr>
+<tr>
+<td>A familia escondida</td>
+<td>Que relacao aparece: ciclos, partes, medida, escolhas, pistas ou algo que nao muda?</td>
+<td>Escolher uma formula pelo assunto aparente.</td>
+</tr>
+<tr>
+<td>A primeira jogada</td>
+<td>Qual acao pequena produz informacao: desenho, tabela, caso pequeno, lista, resto ou divisao em partes?</td>
+<td>Esperar uma ideia completa antes de comecar.</td>
+</tr>
+</tbody>
+</table>
+<p>As tres portas nao prometem que a solucao inteira apareca de imediato. Elas deixam a questao menor e mais concreta.</p>
+<p>Veja a diferenca:</p>
+<blockquote>
+<p>"Preciso resolver esta questao de combinatoria."</p>
+</blockquote>
+<p>e</p>
+<blockquote>
+<p>"Preciso contar caminhos. Ha uma condicao. Vou contar todos e verificar se posso retirar os proibidos."</p>
+</blockquote>
+<p>Na segunda frase, a Mochila ja comecou a trabalhar.</p>
+<h3>Ferramentas 136 e 137 da Mochila</h3>
+<p><strong>136. Revisar por familias de ferramentas, nao apenas por ordem de capitulos.</strong><br>
+<strong>137. Reconhecer a ideia central antes de escolher a tecnica.</strong></p>
+<hr>
+<h2>3. As familias que conversam</h2>
+<p>As familias abaixo nao sao gavetas fechadas. Sao lugares de partida.</p>
+<table>
+<thead>
+<tr>
+<th>Familia</th>
+<th>Sinais frequentes</th>
+<th>Primeiras jogadas possiveis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Numeros por dentro</td>
+<td>divide sem sobra, fator, multiplo, maior divisor, reencontro</td>
+<td>listar, fatorar, procurar divisores ou MMC/MDC</td>
+</tr>
+<tr>
+<td>Restos e ciclos</td>
+<td>volta, repete, dias, relogio, sobra</td>
+<td>identificar o ciclo e eliminar voltas completas</td>
+</tr>
+<tr>
+<td>Partes e medidas</td>
+<td>parte de, fracao, total, area, escala, moldura</td>
+<td>definir o inteiro, desenhar e manter unidades coerentes</td>
+</tr>
+<tr>
+<td>Padroes e formas</td>
+<td>cresce, fila, figura seguinte, borda, perimetro</td>
+<td>fazer casos pequenos e separar o que cresce do que permanece</td>
+</tr>
+<tr>
+<td>Possibilidades e pistas</td>
+<td>quantos, escolhas, ordem, somente, exatamente</td>
+<td>organizar casos, tabela, arvore ou total menos proibidos</td>
+</tr>
+<tr>
+<td>Estrategia de prova</td>
+<td>justificar, revisar, travar, voltar</td>
+<td>escrever em degraus e marcar um ponto de retorno</td>
+</tr>
+</tbody>
+</table>
+<p>Uma questao pode comecar em uma familia e terminar em outra. Isso nao significa que voce escolheu errado. Significa que a conversa ficou mais interessante.</p>
+<h3>Exemplo curto: quando numeros conversam com restos</h3>
+<p>Um numero deixa resto 2 na divisao por 5 e resto 4 na divisao por 7. Qual e o menor numero maior que 10 com essa propriedade?</p>
+<p>A pergunta pede um numero. A familia parece ser a dos restos, mas uma primeira jogada organizada e listar os numeros que deixam resto 2 por 5:</p>
+<p>[
+12,17,22,27,32,37,42,\ldots
+]</p>
+<p>Entre eles, o primeiro que deixa resto 4 por 7 e 32.</p>
+<p>Nao foi necessario decorar uma tecnica grande. Foi necessario tornar o resto visivel e testar um ciclo com cuidado.</p>
+<h3>Ferramenta 138 da Mochila</h3>
+<p><strong>Conectar capitulos distantes quando o problema mistura ideias.</strong></p>
+<hr>
+<h2>4. Quando uma parte precisa de um inteiro</h2>
+<p>Uma fracao nunca mora sozinha. Ela depende de um inteiro de referencia.</p>
+<p>Considere um painel retangular de 12 quadradinhos por 8 quadradinhos. Uma faixa horizontal ocupa 1/4 da altura inteira, e uma faixa vertical ocupa 1/3 da largura inteira. Qual fracao do painel fica coberta por pelo menos uma das duas faixas?</p>
+<p>Primeiro, a pergunta final pede uma fracao da area total. O inteiro e o painel todo:</p>
+<p>[
+12\cdot8=96.
+]</p>
+<p>A faixa horizontal tem altura 2 e area (12\cdot2=24). A faixa vertical tem largura 4 e area (4\cdot8=32). Mas o retangulo de encontro, com 4 por 2, foi contado duas vezes. Sua area e 8.</p>
+<p>Assim, a area coberta e:</p>
+<p>[
+24+32-8=48.
+]</p>
+<p>Logo, a fracao coberta e:</p>
+<p>[
+\frac{48}{96}=\frac12.
+]</p>
+<p>A questao conversa sobre fracoes, area e sobreposicao. A primeira jogada nao era escolher uma formula; era desenhar mentalmente o inteiro e perguntar onde havia contagem dupla.</p>
+<blockquote>
+<p>Quando uma parte parece confusa, procure primeiro o inteiro ao qual ela pertence.</p>
+</blockquote>
+<hr>
+<h2>5. Quando um padrao vira figura</h2>
+<p>Uma sequencia de figuras e uma maneira de fazer uma pergunta sobre o proximo caso. Geometria ajuda a ver por que ele cresce daquele jeito.</p>
+<p>Imagine uma fila de quadrados unitarios: a Figura 1 tem um quadrado, a Figura 2 tem dois quadrados colados por um lado, a Figura 3 tem tres, e assim por diante. Qual e o perimetro da Figura 10?</p>
+<p>Um aluno pode contar os lados da Figura 1, depois da 2 e depois da 3:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Numero de quadrados</th>
+<th style="text-align: right;">Perimetro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+</tr>
+</tbody>
+</table>
+<p>O perimetro cresce 2 a cada quadrado novo, porque o lado de contato deixa de aparecer e surgem dois lados externos novos. Para 10 quadrados:</p>
+<p>[
+4+9\cdot2=22.
+]</p>
+<p>Tambem se pode ver diretamente: ha 10 lados em cima, 10 embaixo e dois nas pontas. Total: 22.</p>
+<p>O padrao nao serviu para adivinhar. Serviu para explicar o crescimento.</p>
+<hr>
+<h2>6. Quando contar exige uma condicao</h2>
+<p>Contar nao e apenas multiplicar escolhas. Primeiro e preciso descobrir se os grupos se sobrepoem, se a ordem importa e se ha casos proibidos.</p>
+<p>De A ate B numa malha, sao necessarios 4 passos para a direita e 3 para cima. Quantos caminhos passam pelo ponto P, que fica apos 1 passo para a direita e 2 para cima a partir de A?</p>
+<p>De A a P, ha uma direita e duas subidas. As posicoes das duas subidas podem ser escolhidas de:</p>
+<p>[
+\binom{3}{2}=3
+]</p>
+<p>formas. De P a B, faltam tres direitas e uma subida, que podem ser ordenadas de:</p>
+<p>[
+\binom{4}{1}=4
+]</p>
+<p>formas. Cada caminho ate P pode se juntar a cada caminho de P ate B. Portanto:</p>
+<p>[
+3\cdot4=12.
+]</p>
+<p>A palavra "passam" criou uma condicao. Ela nao pediu todos os caminhos nem os que evitam P. Pediu que o trajeto fosse dividido em duas partes obrigatorias.</p>
+<h3>Ferramentas 139 e 140 da Mochila</h3>
+<p><strong>139. Usar tres perguntas iniciais: o que pede, que familia aparece, qual primeira jogada.</strong><br>
+<strong>140. Conferir se a ferramenta escolhida combina com a pergunta final.</strong></p>
+<hr>
+<h2>7. Quando a melhor resposta e impossivel</h2>
+<p>Alguns problemas parecem convidar voce a acompanhar todas as jogadas. Antes disso, vale perguntar:</p>
+<blockquote>
+<p>"Existe algo que nao muda?"</p>
+</blockquote>
+<p>Em um tabuleiro ha 12 fichas pretas. Em cada jogada, duas fichas sao trocadas de cor. E possivel terminar com exatamente 17 fichas pretas?</p>
+<p>Ao trocar duas fichas, a quantidade de fichas pretas pode aumentar 2, diminuir 2 ou continuar igual. Portanto, a paridade da quantidade de fichas pretas nao muda.</p>
+<p>No inicio, 12 e par. No fim, 17 seria impar. Logo, o objetivo e impossivel.</p>
+<p>Essa resposta nao e menor por dizer "nao". Ela precisa da razao que fecha a porta.</p>
+<p>Nos problemas mistos, invariantes e paridade sao lanternas: nao mostram cada passo do caminho, mas mostram quais destinos nao podem ser alcancados.</p>
+<hr>
+<h2>8. Saber e reconhecer</h2>
+<p>Felipe consegue resolver um exercicio chamado "MMC". Mas na prova quase nunca existe uma placa dizendo "Use MMC aqui".</p>
+<p>Saber uma ferramenta e conseguir usa-la quando ela vem anunciada. Reconhecer e perceber sua necessidade quando ela aparece disfarçada em sinos, luzes, voltas, plantao, calendario ou maquinas.</p>
+<p>O treino de reconhecimento pode ser curto:</p>
+<ol>
+<li>leia apenas o enunciado e esconda a solucao;</li>
+<li>diga qual familia parece mais presente e por que;</li>
+<li>escreva uma primeira jogada antes de calcular;</li>
+<li>so entao desenvolva a solucao;</li>
+<li>no final, reconte o caminho com suas palavras.</li>
+</ol>
+<p>Se a familia escolhida nao funcionar, isso nao transforma a tentativa em fracasso. Ela pode revelar que a pergunta final pedia outra coisa. Volte a primeira porta: o que eu realmente precisava descobrir?</p>
+<h3>Ferramentas 141 e 142 da Mochila</h3>
+<p><strong>141. Montar um mapa pessoal da Mochila com zonas fortes, medias, frageis necessarias e perigosas.</strong><br>
+<strong>142. Usar problemas-sintese para treinar reconhecimento.</strong></p>
+<figure class="figura"><img src="../assets/figuras/C17_F01_matriz_final.svg" alt="Matriz final do livro: cinco famílias nas linhas e quatro zonas nas colunas, com espaço somente conceitual para autoavaliação. Não a transformar em folha para imprimir." loading="lazy"><figcaption>Matriz final do livro: cinco famílias nas linhas e quatro zonas nas colunas, com espaço somente conceitual para autoavaliação. Não a transformar em folha para imprimir.</figcaption></figure>
+
+<hr>
+<h2><span class="badge-oficina">Oficina</span>9. Oficina Olimpica 16 - A Mochila Inteira</h2>
+<p>Os desafios desta oficina sao <strong>originais, em estilo OBMEP</strong>. Antes de olhar as correcoes, atravesse as tres portas: o que a pergunta pede, qual familia aparece e qual primeira jogada pequena abre uma pista.</p>
+<h3>Desafio 1 - A caixa que abre nos dois ritmos</h3>
+<p>Uma caixa eletrica acende uma luz azul a cada 6 minutos e uma luz amarela a cada 8 minutos. As duas acenderam juntas agora. Depois de quantos minutos elas acenderao juntas pela quinta vez, sem contar o instante atual?</p>
+<h3>Desafio 2 - O cartaz de duas faixas</h3>
+<p>Um cartaz mede 15 cm por 12 cm. Uma faixa horizontal ocupa 1/3 de sua altura e uma faixa vertical ocupa 1/5 de sua largura. As duas faixas se cruzam. Qual e a area coberta por pelo menos uma faixa?</p>
+<h3>Desafio 3 - A fila de quadrados</h3>
+<p>Uma figura e formada por 25 quadrados unitarios em uma unica fila, cada um colado ao seguinte por um lado. Qual e o perimetro da figura?</p>
+<h3>Desafio 4 - A rota com visita obrigatoria</h3>
+<p>Em uma malha, para ir de A a B sao necessarios 5 passos para a direita e 4 para cima. O ponto P fica apos 2 passos para a direita e 1 para cima a partir de A. Quantos caminhos de A ate B passam por P?</p>
+<h3>Desafio 5 - As moedas viradas</h3>
+<p>Sobre uma mesa ha 19 moedas, das quais 11 mostram cara. Em cada jogada, exatamente duas moedas sao viradas. E possivel chegar a uma situacao com 8 moedas mostrando cara? Justifique.</p>
+<hr>
+<h2>10. Correcoes comentadas</h2>
+<h3>Desafio 1</h3>
+<p>"Juntas de novo" aponta para reencontro de ciclos. O MMC de 6 e 8 e 24. Os cinco reencontros depois de agora acontecem aos 24, 48, 72, 96 e 120 minutos.</p>
+<p>Resposta: <strong>120 minutos</strong>.</p>
+<h3>Desafio 2</h3>
+<p>A area total do cartaz e (15\cdot12=180) cm2.</p>
+<p>A faixa horizontal tem altura (12/3=4) cm e area (15\cdot4=60) cm2. A faixa vertical tem largura (15/5=3) cm e area (3\cdot12=36) cm2.</p>
+<p>A intersecao, de 3 por 4, tem area 12 cm2 e foi contada duas vezes. Assim:</p>
+<p>[
+60+36-12=84.
+]</p>
+<p>Resposta: <strong>84 cm2</strong>.</p>
+<h3>Desafio 3</h3>
+<p>Ha 25 lados no alto, 25 embaixo e dois nas extremidades. Portanto:</p>
+<p>[
+25+25+2=52.
+]</p>
+<p>Resposta: <strong>52 unidades de comprimento</strong>.</p>
+<h3>Desafio 4</h3>
+<p>De A a P, precisamos ordenar duas direitas e uma subida. Ha:</p>
+<p>[
+\binom{3}{1}=3
+]</p>
+<p>caminhos. De P a B faltam tres direitas e tres subidas. Ha:</p>
+<p>[
+\binom{6}{3}=20
+]</p>
+<p>caminhos. Logo, os caminhos que passam por P sao:</p>
+<p>[
+3\cdot20=60.
+]</p>
+<p>Resposta: <strong>60 caminhos</strong>.</p>
+<h3>Desafio 5</h3>
+<p>A quantidade de caras pode mudar em 2, em -2 ou em 0 a cada jogada. Sua paridade e preservada. Comecamos com 11 caras, numero impar; 8 e par. Portanto, nao e possivel chegar a 8 caras.</p>
+<p>Resposta: <strong>nao e possivel</strong>.</p>
+<hr>
+<h2>11. O mapa pessoal da Mochila</h2>
+<p>O mapa pessoal nao serve para comparar Felipe com outra pessoa. Ele serve para decidir o proximo retorno.</p>
+<table>
+<thead>
+<tr>
+<th>Familia</th>
+<th>Minha zona hoje</th>
+<th>Evidencia que sustenta a decisao</th>
+<th>Proximo retorno pequeno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Numeros e ciclos</td>
+<td>Forte / media / fragil</td>
+<td>Reconheco reencontros? Explico o MMC?</td>
+<td>Reconstruir um problema de ciclos.</td>
+</tr>
+<tr>
+<td>Partes e medidas</td>
+<td>Forte / media / fragil</td>
+<td>Defino o inteiro? Vejo sobreposicao?</td>
+<td>Desenhar uma area composta.</td>
+</tr>
+<tr>
+<td>Padroes e formas</td>
+<td>Forte / media / fragil</td>
+<td>Consigo justificar o crescimento?</td>
+<td>Fazer tres casos e explicar a regra.</td>
+</tr>
+<tr>
+<td>Possibilidades e pistas</td>
+<td>Forte / media / fragil</td>
+<td>Organizo casos sem repetir?</td>
+<td>Contar um caminho com condicao.</td>
+</tr>
+<tr>
+<td>Estrategia e escrita</td>
+<td>Forte / media / fragil</td>
+<td>Registro a ideia em degraus?</td>
+<td>Recontar uma solucao curta.</td>
+</tr>
+</tbody>
+</table>
+<p>Nao e preciso preencher uma tabela perfeita. Basta uma decisao honesta: qual ferramenta precisa ser mantida viva, qual ponto medio tem uma ponte curta e qual fragilidade precisa de uma pergunta de emergencia?</p>
+<h3>Ferramentas 143 e 144 da Mochila</h3>
+<p><strong>143. Ver a prova como conversa entre ideias, nao como lista de formulas.</strong><br>
+<strong>144. Recontar a solucao com suas proprias palavras.</strong></p>
+<hr>
+<h2>12. O que significa levar a Mochila</h2>
+<p>Levar a Mochila nao e lembrar tudo de cor. E chegar a uma questao nova e saber comecar de algum lugar honesto:</p>
+<ul>
+<li>ler a pergunta inteira;</li>
+<li>reconhecer uma familia possivel;</li>
+<li>fazer uma primeira jogada que produza informacao;</li>
+<li>corrigir a rota quando ela nao responde ao que foi pedido;</li>
+<li>escrever o que ja foi descoberto;</li>
+<li>voltar com calma quando for preciso.</li>
+</ul>
+<p>Essa autonomia vale antes, durante e depois de uma prova. O ouro nao e uma resposta isolada. E o jeito de pensar que continua disponivel quando o enunciado muda.</p>
+<p>O Professor fechou a Mochila e disse:</p>
+<blockquote>
+<p>"Agora voce nao precisa procurar o capitulo certo. Precisa ouvir a conversa certa."</p>
+</blockquote>
+<hr>
+<h2>As ferramentas da Mochila nesta sala</h2>
+<ol>
+<li>Revisar por familias de ferramentas, nao apenas por ordem de capitulos.  </li>
+<li>Reconhecer a ideia central antes de escolher a tecnica.  </li>
+<li>Conectar capitulos distantes quando o problema mistura ideias.  </li>
+<li>Usar tres perguntas iniciais: o que pede, que familia aparece, qual primeira jogada.  </li>
+<li>Conferir se a ferramenta escolhida combina com a pergunta final.  </li>
+<li>Montar um mapa pessoal da Mochila com zonas fortes, medias, frageis necessarias e perigosas.  </li>
+<li>Usar problemas-sintese para treinar reconhecimento.  </li>
+<li>Ver a prova como conversa entre ideias, nao como lista de formulas.  </li>
+<li>Recontar a solucao com suas proprias palavras.</li>
+</ol>
+<div class="ferramenta" data-num="136" id="f136"><span class="f-badge">Ferramenta 136</span><span class="f-text">Revisar por famílias de ferramentas, não apenas por ordem de capítulos</span></div>
+
+<div class="ferramenta" data-num="137" id="f137"><span class="f-badge">Ferramenta 137</span><span class="f-text">Reconhecer a ideia central antes de escolher a técnica</span></div>
+
+<div class="ferramenta" data-num="138" id="f138"><span class="f-badge">Ferramenta 138</span><span class="f-text">Conectar capítulos distantes quando o problema mistura ideias</span></div>
+
+<div class="ferramenta" data-num="139" id="f139"><span class="f-badge">Ferramenta 139</span><span class="f-text">Usar três perguntas iniciais: o que pede, que família aparece, qual primeira jogada</span></div>
+
+<div class="ferramenta" data-num="140" id="f140"><span class="f-badge">Ferramenta 140</span><span class="f-text">Conferir se a ferramenta escolhida combina com a pergunta final</span></div>
+
+<div class="ferramenta" data-num="141" id="f141"><span class="f-badge">Ferramenta 141</span><span class="f-text">Montar um mapa pessoal da Mochila com zonas fortes, médias, frágeis e perigosas</span></div>
+
+<div class="ferramenta" data-num="142" id="f142"><span class="f-badge">Ferramenta 142</span><span class="f-text">Usar problemas-síntese para treinar reconhecimento</span></div>
+
+<div class="ferramenta" data-num="143" id="f143"><span class="f-badge">Ferramenta 143</span><span class="f-text">Ver a prova como conversa entre ideias, não como lista de fórmulas</span></div>
+
+<div class="ferramenta" data-num="144" id="f144"><span class="f-badge">Ferramenta 144</span><span class="f-text">Recontar a solução com suas próprias palavras</span></div>
+
+<h2>Frase da Academia</h2>
+<blockquote>
+<p>Revisar nao e carregar tudo de novo. E descobrir como tudo conversa dentro da Mochila.</p>
+</blockquote>
+<h2>Fechamento</h2>
+<p>Com esta sala, a fase pratica da revisao editorial esta concluida. O proximo trabalho pertence a montagem final do livro: conferir continuidade, rigor, figuras e voz sem apagar o caminho construido.</p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap16.html" class="nav-prev">← Cap. 16</a>
+      <span></span>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(17);</script>
+</body>
+</html>

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 5 — Quando a divisão não termina | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-bronze">Nível Bronze</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link sidebar-active" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 5</span>
+        <h1 class="cap-title">Quando a divisão não termina</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Depois dos divisores e dos reencontros</h2>
+<p>A última sala da Academia tinha deixado uma pergunta acesa no quadro:</p>
+<blockquote>
+<p>Quando a divisão não é perfeita, que tipo de número nasce?</p>
+</blockquote>
+<p>Felipe ainda pensava nos problemas de caixas, lanternas, robôs e ciclos.<br>
+Quando a pergunta era dividir sem sobrar, apareciam os divisores comuns.<br>
+Quando a pergunta era reencontrar ciclos, apareciam os múltiplos comuns.</p>
+<p>Mas agora o Professor colocou uma situação diferente sobre a mesa.</p>
+<p>— Imagine que quatro estudantes querem dividir igualmente três pizzas.</p>
+<p>A coruja, empoleirada na estante da Academia, inclinou a cabeça.</p>
+<p>— Não dá para cada estudante receber uma pizza inteira.</p>
+<p>Felipe respondeu:</p>
+<p>— Então sobra.</p>
+<p>O Professor sorriu.</p>
+<p>— Sobra se você insistir em contar só pizzas inteiras. Mas a matemática não para quando o inteiro acaba.</p>
+<p>A pergunta mudou.</p>
+<p>Não era mais:</p>
+<blockquote>
+<p>Quantas pizzas inteiras cada um recebe?</p>
+</blockquote>
+<p>Era:</p>
+<blockquote>
+<p>Que quantidade de pizza cada um recebe?</p>
+</blockquote>
+<p>Essa pequena mudança abre uma sala enorme da Academia.</p>
+<p>A sala das frações.</p>
+<hr>
+<h2>2. Quando dividir ainda faz sentido</h2>
+<p>Pense no problema:</p>
+<blockquote>
+<p>Três pizzas iguais serão divididas igualmente entre quatro estudantes.<br>
+Quanto cada estudante recebe?</p>
+</blockquote>
+<p>Se fossem quatro pizzas para quatro estudantes, cada um receberia uma pizza.<br>
+Se fossem oito pizzas para quatro estudantes, cada um receberia duas pizzas.</p>
+<p>Mas são três pizzas para quatro estudantes.</p>
+<p>A divisão <code>3 ÷ 4</code> não dá um número inteiro.</p>
+<p>Mesmo assim, a situação existe.<br>
+As pizzas podem ser cortadas.<br>
+Cada estudante pode receber a mesma quantidade.<br>
+A resposta não precisa ser um inteiro.</p>
+<p>O Professor desenhou três círculos no quadro e cortou cada um em quatro partes iguais.</p>
+<p>Cada pizza virou quatro quartos.</p>
+<p>Três pizzas viraram doze quartos.</p>
+<p>Dividindo doze quartos entre quatro estudantes, cada estudante recebe três quartos.</p>
+<p>A resposta é:</p>
+<p><code>3/4</code> de pizza.</p>
+<p>A fração apareceu porque a divisão não terminou em número inteiro.</p>
+<p>Primeiro nasceu a ideia:</p>
+<blockquote>
+<p>repartir uma quantidade em partes iguais.</p>
+</blockquote>
+<p>Depois aparece o nome:</p>
+<blockquote>
+<p>fração.</p>
+</blockquote>
+<hr>
+<h2>3. O pedaço que ainda é número</h2>
+<p>Uma fração não é um número quebrado.</p>
+<p>Essa frase é importante.</p>
+<p>A fração pode representar um pedaço de alguma coisa, mas ela continua sendo número.<br>
+Ela pode ser comparada, somada, colocada em uma reta, usada em receitas, escalas, mapas e problemas de prova.</p>
+<p>Quando dizemos <code>3/4</code>, estamos dizendo:</p>
+<blockquote>
+<p>o inteiro foi dividido em 4 partes iguais, e estamos olhando para 3 dessas partes.</p>
+</blockquote>
+<p>O denominador mostra em quantas partes iguais o inteiro foi dividido.<br>
+O numerador mostra quantas dessas partes estão sendo consideradas.</p>
+<p>Mas cuidado: o nome não deve vir antes da ideia.</p>
+<p>Antes de decorar “numerador” e “denominador”, o leitor precisa enxergar a situação.</p>
+<p>Em <code>3/4</code>:</p>
+<ul>
+<li>o <code>4</code> conta o tamanho da linguagem usada: quartos;</li>
+<li>o <code>3</code> conta quantos quartos foram escolhidos.</li>
+</ul>
+<p>A fração <code>3/4</code> não é “3 e 4 separados”.<br>
+É uma única quantidade escrita com dois números.</p>
+<p>A Mochila do Matemático ganha uma ferramenta:</p>
+<blockquote>
+<p>Ver a fração como parte de um inteiro.</p>
+</blockquote>
+<hr>
+<h2>4. Fração como divisão</h2>
+<figure class="figura"><img src="../assets/figuras/C05_F01_pizzas_3_por_4.svg" alt="Junto ao exemplo de `3 ÷ 4`, mostrar três pizzas inteiras, cada uma dividida em quatro partes iguais, repartidas igualmente entre quatro pessoas. A figura fixa o inteiro de referência e não deve substituir a explicação da divisão." loading="lazy"><figcaption>Junto ao exemplo de `3 ÷ 4`, mostrar três pizzas inteiras, cada uma dividida em quatro partes iguais, repartidas igualmente entre quatro pessoas. A figura fixa o inteiro de referência e não deve substituir a explicação da divisão.</figcaption></figure>
+
+<p>Agora olhe para a mesma fração de outro jeito.</p>
+<p><code>3/4</code> também pode ser lido como:</p>
+<blockquote>
+<p>3 dividido por 4.</p>
+</blockquote>
+<p>Isso significa que fração não é apenas pedaço pintado.<br>
+Ela também é divisão.</p>
+<p>Se 3 pizzas são divididas por 4 estudantes, cada estudante recebe <code>3/4</code> de pizza.<br>
+Se 5 metros de fita são divididos igualmente entre 2 pessoas, cada pessoa recebe <code>5/2</code> metros.<br>
+Se 7 litros de suco são divididos igualmente em 8 garrafas, cada garrafa recebe <code>7/8</code> de litro.</p>
+<p>A fração guarda a divisão dentro dela.</p>
+<p>Por isso, uma fração pode ser menor que 1, igual a 1 ou maior que 1.</p>
+<p><code>3/4</code> é menor que 1, porque 3 partes de 4 não completam o inteiro.</p>
+<p><code>4/4</code> é igual a 1, porque 4 quartos completam o inteiro.</p>
+<p><code>5/4</code> é maior que 1, porque 5 quartos passam de uma pizza inteira.</p>
+<p>A coruja perguntou:</p>
+<p>— Então <code>5/4</code> não é proibido?</p>
+<p>— Não — disse Felipe. — É uma pizza inteira e mais um quarto.</p>
+<p>O Professor escreveu:</p>
+<p><code>5/4 = 1 + 1/4</code></p>
+<p>A Academia aprovou.</p>
+<p>Frações maiores que 1 não são erro.<br>
+São quantidades que passaram de um inteiro.</p>
+<hr>
+<h2>5. A mesma quantidade com roupas diferentes</h2>
+<figure class="figura"><img src="../assets/figuras/C05_F02_fracoes_equivalentes.svg" alt="Mostrar duas barras de mesma largura e a mesma parte pintada: uma dividida em 2 com `1/2` e outra dividida em 4 com `2/4`. Os cortes mudam; a quantidade pintada permanece igual." loading="lazy"><figcaption>Mostrar duas barras de mesma largura e a mesma parte pintada: uma dividida em 2 com `1/2` e outra dividida em 4 com `2/4`. Os cortes mudam; a quantidade pintada permanece igual.</figcaption></figure>
+
+<p>O Professor colocou duas barras iguais no quadro.</p>
+<p>Na primeira, dividiu a barra em 2 partes iguais e pintou 1 parte.<br>
+Na segunda, dividiu a barra em 4 partes iguais e pintou 2 partes.</p>
+<p>A primeira mostrava <code>1/2</code>.<br>
+A segunda mostrava <code>2/4</code>.</p>
+<p>Felipe olhou um instante.</p>
+<p>— A parte pintada é a mesma.</p>
+<p>— Exatamente — respondeu o Professor. — A quantidade é a mesma, mas a escrita mudou.</p>
+<p><code>1/2</code> e <code>2/4</code> são frações equivalentes.</p>
+<p>Equivalentes não significa “parecidas”.<br>
+Significa que representam a mesma quantidade.</p>
+<p>Também vale:</p>
+<p><code>1/2 = 3/6 = 4/8 = 5/10</code></p>
+<p>A ideia é simples: se você divide o inteiro em mais partes, cada parte fica menor.<br>
+Mas, se você pega mais partes na mesma proporção, a quantidade total pode continuar igual.</p>
+<p>Multiplicar numerador e denominador pelo mesmo número muda a roupa da fração, mas não muda a quantidade.</p>
+<p><code>1/2 = 2/4</code></p>
+<p>porque o inteiro foi dividido com uma linguagem mais fina.</p>
+<p>A Mochila ganha outra ferramenta:</p>
+<blockquote>
+<p>Reconhecer frações equivalentes.</p>
+</blockquote>
+<hr>
+<h2>6. Simplificar não é diminuir</h2>
+<p>A palavra “simplificar” costuma enganar.</p>
+<p>Quando simplificamos <code>6/8</code> para <code>3/4</code>, a quantidade não ficou menor.<br>
+A escrita ficou mais simples.</p>
+<p>Imagine uma barra dividida em 8 partes iguais, com 6 partes pintadas.<br>
+Se juntarmos as partes de duas em duas, a mesma região pintada vira 3 partes de um total de 4.</p>
+<p><code>6/8 = 3/4</code></p>
+<p>A quantidade não mudou.</p>
+<p>A escrita ficou mais limpa.</p>
+<p>Aqui aparece uma ponte direta com o Capítulo 4.</p>
+<p>Para simplificar <code>18/24</code>, podemos perguntar:</p>
+<blockquote>
+<p>Qual é o maior número que divide 18 e 24 sem sobrar?</p>
+</blockquote>
+<p>Essa pergunta pede MDC.</p>
+<p>Os divisores comuns de 18 e 24 incluem 1, 2, 3 e 6.<br>
+O maior deles é 6.</p>
+<p>Então:</p>
+<p><code>18/24 = (18 ÷ 6)/(24 ÷ 6) = 3/4</code></p>
+<p>A fração <code>3/4</code> é a forma simplificada de <code>18/24</code>.</p>
+<p>O MDC não apareceu como fórmula solta.<br>
+Ele apareceu porque a pergunta era:</p>
+<blockquote>
+<p>qual é o maior pedaço comum que posso retirar do numerador e do denominador sem mudar a quantidade?</p>
+</blockquote>
+<p>A coruja comentou:</p>
+<p>— Então simplificar fração é usar divisor comum com cuidado.</p>
+<p>Sim.</p>
+<p>E, quando usamos o maior divisor comum, chegamos direto à forma mais simples.</p>
+<hr>
+<h2>7. Comparar frações sem cair na pressa</h2>
+<p>Qual é maior?</p>
+<p><code>3/5</code> ou <code>2/3</code>?</p>
+<p>Um leitor apressado pode pensar:</p>
+<p>— 5 é maior que 3, então <code>3/5</code> deve ser maior.</p>
+<p>Mas o denominador não funciona assim.</p>
+<p>O denominador mostra em quantas partes o inteiro foi dividido.<br>
+Quanto maior o denominador, menores são as partes, se o inteiro é o mesmo.</p>
+<p>Comparar frações exige colocar as duas na mesma linguagem.</p>
+<p>Vamos transformar <code>3/5</code> e <code>2/3</code> em frações com o mesmo denominador.</p>
+<p>Os denominadores são 5 e 3.<br>
+Um denominador comum simples é 15.</p>
+<p><code>3/5 = 9/15</code></p>
+<p>porque multiplicamos numerador e denominador por 3.</p>
+<p><code>2/3 = 10/15</code></p>
+<p>porque multiplicamos numerador e denominador por 5.</p>
+<p>Agora as duas frações estão falando a mesma língua: quinze avos.</p>
+<p><code>9/15 &lt; 10/15</code></p>
+<p>Logo:</p>
+<p><code>3/5 &lt; 2/3</code></p>
+<p>O segredo não foi fazer uma conta grande.<br>
+Foi traduzir as duas quantidades para a mesma linguagem.</p>
+<p>A Mochila ganha uma ferramenta:</p>
+<blockquote>
+<p>Comparar frações colocando na mesma linguagem.</p>
+</blockquote>
+<hr>
+<h2>8. Quando somar frações pede uma linguagem comum</h2>
+<p>A mesma ideia aparece quando somamos frações.</p>
+<p>Imagine que Felipe comeu <code>1/3</code> de uma barra de chocolate pela manhã e <code>1/4</code> da mesma barra à tarde.</p>
+<p>Quanto ele comeu ao todo?</p>
+<p>Não podemos dizer simplesmente:</p>
+<p><code>1/3 + 1/4 = 2/7</code></p>
+<p>Essa conta parece tentadora, mas mistura linguagens.</p>
+<p>Terços e quartos são pedaços de tamanhos diferentes.</p>
+<p>Antes de somar, precisamos colocar tudo na mesma linguagem.</p>
+<p>Um inteiro dividido em 12 partes iguais pode mostrar terços e quartos ao mesmo tempo:</p>
+<p><code>1/3 = 4/12</code></p>
+<p><code>1/4 = 3/12</code></p>
+<p>Então:</p>
+<p><code>1/3 + 1/4 = 4/12 + 3/12 = 7/12</code></p>
+<p>Aqui aparece outra ponte com o Capítulo 4.</p>
+<p>Para encontrar uma linguagem comum eficiente, buscamos um múltiplo comum dos denominadores.</p>
+<p>O menor múltiplo comum de 3 e 4 é 12.</p>
+<p>Por isso, o MMC ajuda a encontrar denominadores comuns.</p>
+<p>Mas a ideia vem antes do nome:</p>
+<blockquote>
+<p>para somar partes de tamanhos diferentes, precisamos transformar tudo em partes do mesmo tamanho.</p>
+</blockquote>
+<hr>
+<h2>9. Fração na reta: entre inteiros também mora matemática</h2>
+<figure class="figura"><img src="../assets/figuras/C05_F03_reta_numerica_quartos.svg" alt="Inserir reta numérica de 0 a 2 com as marcações previstas `1/4`, `1/2`, `3/4`, `1`, `5/4` e `7/4`. Não usar pizzas nesta seção." loading="lazy"><figcaption>Inserir reta numérica de 0 a 2 com as marcações previstas `1/4`, `1/2`, `3/4`, `1`, `5/4` e `7/4`. Não usar pizzas nesta seção.</figcaption></figure>
+
+<p>A fração também mora na reta numérica.</p>
+<p>Entre 0 e 1, há muitos números.</p>
+<p><code>1/2</code> fica exatamente no meio.<br>
+<code>1/4</code> fica antes de <code>1/2</code>.<br>
+<code>3/4</code> fica depois de <code>1/2</code>.</p>
+<p>E frações maiores que 1 passam do primeiro inteiro:</p>
+<p><code>5/4</code> fica entre 1 e 2.<br>
+Mais exatamente, fica em 1 inteiro e 1 quarto.</p>
+<p>A reta ajuda a enxergar três coisas:</p>
+<ol>
+<li>frações são números;</li>
+<li>frações podem ser comparadas;</li>
+<li>frações maiores que 1 não são erro.</li>
+</ol>
+<p>Quando um problema pergunta “qual fração está mais próxima de 1?”, a reta pode ser mais útil que uma conta longa.</p>
+<p>Por exemplo:</p>
+<p><code>7/8</code> está a <code>1/8</code> de completar 1.<br>
+<code>5/6</code> está a <code>1/6</code> de completar 1.</p>
+<p>Como <code>1/8</code> é menor que <code>1/6</code>, a fração <code>7/8</code> está mais perto de 1.</p>
+<p>A conta é pequena porque a ideia veio primeiro.</p>
+<hr>
+<h2>10. Quando a fração conta uma comparação</h2>
+<p>Até agora, a fração apareceu como parte e como divisão.</p>
+<p>Mas ela também pode aparecer como comparação.</p>
+<p>Na sala da Academia há 12 estudantes.<br>
+Destes, 8 resolveram o primeiro desafio.</p>
+<p>A fração dos estudantes que resolveram o desafio é:</p>
+<p><code>8/12</code></p>
+<p>Essa fração compara uma parte com o total.</p>
+<p>Simplificando:</p>
+<p><code>8/12 = 2/3</code></p>
+<p>Então podemos dizer:</p>
+<blockquote>
+<p>Dois terços da turma resolveram o desafio.</p>
+</blockquote>
+<p>Agora pense em outra situação:</p>
+<p>Em uma equipe, há 6 meninas e 4 meninos.</p>
+<p>A fração de meninas em relação ao total é:</p>
+<p><code>6/10 = 3/5</code></p>
+<p>Mas a razão entre meninas e meninos é:</p>
+<p><code>6/4 = 3/2</code></p>
+<p>São perguntas diferentes.</p>
+<p>Uma compara parte com total.<br>
+A outra compara um grupo com outro grupo.</p>
+<p>Essa diferença é uma das armadilhas mais comuns em problemas.</p>
+<p>A pergunta escondida decide tudo:</p>
+<ul>
+<li>fração da turma → parte / total;</li>
+<li>razão entre meninas e meninos → meninas / meninos;</li>
+<li>razão entre meninos e meninas → meninos / meninas.</li>
+</ul>
+<p>A ordem importa.</p>
+<p>A Mochila ganha uma ferramenta:</p>
+<blockquote>
+<p>Pensar em razão como comparação.</p>
+</blockquote>
+<hr>
+<h2>11. A receita que cresce sem mudar de sabor</h2>
+<div class="figura-spec fig-manter"><span class="fig-label">Tabela</span><span class="fig-desc">A própria relação de receita deve permanecer como tabela visual compacta no ponto do cálculo, com os pares `3:2`, `6:4` e `15:10`; não criar imagem separada.</span></div>
+
+<p>O Professor trouxe uma receita da cantina da Academia:</p>
+<p>Para fazer 2 copos de suco especial, usam-se:</p>
+<ul>
+<li>3 medidas de água;</li>
+<li>2 medidas de concentrado.</li>
+</ul>
+<p>A razão entre água e concentrado é:</p>
+<p><code>3 : 2</code></p>
+<p>Se a cantina quiser fazer o dobro da receita, usará:</p>
+<ul>
+<li>6 medidas de água;</li>
+<li>4 medidas de concentrado.</li>
+</ul>
+<p>A razão continua:</p>
+<p><code>6 : 4</code></p>
+<p>Simplificando:</p>
+<p><code>6 : 4 = 3 : 2</code></p>
+<p>O sabor não mudou.</p>
+<p>A receita cresceu, mas a relação entre os ingredientes permaneceu igual.</p>
+<p>Isso é proporção.</p>
+<p>Uma proporção aparece quando duas razões representam a mesma comparação.</p>
+<p><code>3/2 = 6/4 = 9/6 = 12/8</code></p>
+<p>Não é a quantidade absoluta que fica igual.<br>
+O que fica igual é a relação.</p>
+<p>A coruja resumiu:</p>
+<p>— Proporção é quando as quantidades mudam juntas sem mudar a comparação.</p>
+<p>Perfeito.</p>
+<hr>
+<h2>12. O ingrediente escondido</h2>
+<p>A Academia preparava suco para uma turma maior.</p>
+<p>A receita original dizia:</p>
+<blockquote>
+<p>Para 2 medidas de concentrado, use 3 medidas de água.</p>
+</blockquote>
+<p>Agora havia 10 medidas de concentrado.</p>
+<p>Quantas medidas de água seriam necessárias para manter o mesmo sabor?</p>
+<p>A relação é:</p>
+<p><code>3</code> medidas de água para <code>2</code> medidas de concentrado.</p>
+<p>Se o concentrado passou de 2 para 10, ele foi multiplicado por 5.</p>
+<p>Então a água também precisa ser multiplicada por 5.</p>
+<p><code>3 × 5 = 15</code></p>
+<p>Serão necessárias 15 medidas de água.</p>
+<p>Não foi preciso montar uma fórmula pesada.<br>
+Bastou descobrir quanto vale uma parte da comparação e manter a relação.</p>
+<p>A Mochila ganha uma ferramenta:</p>
+<blockquote>
+<p>Descobrir quanto vale uma parte em proporções.</p>
+</blockquote>
+<p>Outro exemplo:</p>
+<blockquote>
+<p>Em um mapa, 1 cm representa 4 km.<br>
+Uma trilha mede 7 cm no mapa.<br>
+Qual é a distância real?</p>
+</blockquote>
+<p>Se 1 cm representa 4 km, então 7 cm representam:</p>
+<p><code>7 × 4 = 28</code></p>
+<p>A distância real é 28 km.</p>
+<p>Escalas são proporções disfarçadas.</p>
+<hr>
+<h2>13. A armadilha do total</h2>
+<figure class="figura"><img src="../assets/figuras/C05_F04_fracao_razao.svg" alt="Inserir quadro comparativo que deixe visível “fração do total” e “razão entre duas partes”, indicando o total de referência somente no primeiro caso. A função é impedir a troca de leitura, sem acrescentar novos exemplos." loading="lazy"><figcaption>Inserir quadro comparativo que deixe visível “fração do total” e “razão entre duas partes”, indicando o total de referência somente no primeiro caso. A função é impedir a troca de leitura, sem acrescentar novos exemplos.</figcaption></figure>
+
+<p>Agora vem uma das armadilhas mais importantes.</p>
+<blockquote>
+<p>Em uma turma, a razão entre meninas e meninos é <code>3 : 2</code>.<br>
+Há 25 estudantes ao todo.<br>
+Quantas meninas há?</p>
+</blockquote>
+<p>Um leitor apressado pode dizer:</p>
+<p>— São 3 meninas.</p>
+<p>Mas <code>3 : 2</code> não significa que há apenas 3 meninas e 2 meninos.</p>
+<p>Significa que, para cada 3 partes de meninas, há 2 partes de meninos.</p>
+<p>O total de partes é:</p>
+<p><code>3 + 2 = 5</code></p>
+<p>Essas 5 partes correspondem a 25 estudantes.</p>
+<p>Então cada parte vale:</p>
+<p><code>25 ÷ 5 = 5</code></p>
+<p>Meninas:</p>
+<p><code>3 × 5 = 15</code></p>
+<p>Meninos:</p>
+<p><code>2 × 5 = 10</code></p>
+<p>Total:</p>
+<p><code>15 + 10 = 25</code></p>
+<p>A resposta é 15 meninas.</p>
+<p>A pergunta escondida era:</p>
+<blockquote>
+<p>quanto vale cada parte?</p>
+</blockquote>
+<p>Em problemas de razão, o total quase nunca é um detalhe decorativo.<br>
+Ele costuma dizer quanto vale a soma das partes.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>14. Problema em estilo OBMEP — A pizza da Academia</h2>
+<p>Na cantina da Academia, 5 pizzas iguais foram divididas igualmente entre 8 estudantes.</p>
+<p><strong>Pergunta:</strong> Que fração de pizza cada estudante recebeu?</p>
+<p>Pense alguns instantes antes de olhar a solução.<br>
+Se quiser, use o caderno para representar as pizzas.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A pergunta é uma divisão:</p>
+<p><code>5 ÷ 8</code></p>
+<p>Como 5 pizzas serão divididas entre 8 estudantes, cada estudante recebe:</p>
+<p><code>5/8</code></p>
+<p>de pizza.</p>
+<p>A resposta é <code>5/8</code> de pizza.</p>
+<p>Aqui a fração aparece como divisão.</p>
+</div></details>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>O que a solução precisa mostrar</h3>
+<p>Não basta escrever <code>5/8</code> sem explicar.<br>
+Uma solução melhor diz:</p>
+<blockquote>
+<p>Como as 5 pizzas são divididas igualmente entre 8 estudantes, a quantidade de pizza recebida por cada estudante é <code>5 ÷ 8</code>, ou seja, <code>5/8</code> de pizza.</p>
+</blockquote>
+<p>Essa frase mostra a ligação entre a história e a fração.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>15. Problema em estilo OBMEP — A receita do bolo dourado</h2>
+<p>Para fazer 4 bolos dourados, a cantina usa 6 xícaras de farinha.</p>
+<p><strong>Pergunta:</strong> Quantas xícaras de farinha serão usadas para fazer 10 bolos, mantendo a mesma receita?</p>
+<h3>Primeira jogada</h3>
+<p>A família do problema é proporção.</p>
+<p>A receita deve crescer sem mudar a relação entre bolos e farinha.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>4 bolos usam 6 xícaras.</p>
+<p>Para 2 bolos, metade disso:</p>
+<p><code>6 ÷ 2 = 3</code></p>
+<p>Então 2 bolos usam 3 xícaras.</p>
+<p>10 bolos são 5 grupos de 2 bolos.</p>
+<p><code>5 × 3 = 15</code></p>
+<p>Logo, 10 bolos usam 15 xícaras de farinha.</p>
+<p>Também poderíamos pensar assim:</p>
+<p>De 4 para 10, o fator de crescimento é <code>10/4 = 5/2</code>.</p>
+<p>Então a farinha também é multiplicada por <code>5/2</code>:</p>
+<p><code>6 × 5/2 = 15</code></p>
+<p>Mas a primeira solução é mais natural para este momento do livro, porque mantém a ideia de partes.</p>
+</div></details>
+<h3>Resposta</h3>
+<p>Serão usadas 15 xícaras de farinha.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>16. Problema em estilo OBMEP — As fitas coloridas</h2>
+<p>Uma fita azul mede <code>3/4</code> de metro.<br>
+Uma fita vermelha mede <code>5/6</code> de metro.</p>
+<p><strong>Pergunta:</strong> Qual fita é maior e quanto a mais ela mede?</p>
+<h3>Primeira jogada</h3>
+<p>As frações têm denominadores diferentes.<br>
+Antes de comparar ou subtrair, precisamos colocá-las na mesma linguagem.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Os denominadores são 4 e 6.</p>
+<p>Um denominador comum eficiente é 12.</p>
+<p><code>3/4 = 9/12</code></p>
+<p><code>5/6 = 10/12</code></p>
+<p>A fita vermelha é maior, pois:</p>
+<p><code>10/12 &gt; 9/12</code></p>
+<p>A diferença é:</p>
+<p><code>10/12 - 9/12 = 1/12</code></p>
+</div></details>
+<h3>Resposta</h3>
+<p>A fita vermelha é maior por <code>1/12</code> de metro.</p>
+<h3>Olho da revisão</h3>
+<p>A resposta precisa dizer a unidade: metro.</p>
+<p>Sem unidade, o número fica sem ligação com a história.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>17. Problema em estilo OBMEP — A turma e as medalhas</h2>
+<p>Em uma turma da Academia, a razão entre estudantes que ganharam medalha e estudantes que não ganharam medalha é <code>2 : 3</code>.</p>
+<p>Ao todo, há 35 estudantes.</p>
+<p><strong>Pergunta:</strong> Quantos estudantes ganharam medalha?</p>
+<h3>Primeira jogada</h3>
+<p>A razão <code>2 : 3</code> não diz diretamente o número de estudantes.<br>
+Ela diz a relação entre duas partes.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>As partes são:</p>
+<ul>
+<li>2 partes com medalha;</li>
+<li>3 partes sem medalha.</li>
+</ul>
+<p>O total de partes é:</p>
+<p><code>2 + 3 = 5</code></p>
+<p>Essas 5 partes correspondem a 35 estudantes.</p>
+<p>Cada parte vale:</p>
+<p><code>35 ÷ 5 = 7</code></p>
+<p>Os estudantes com medalha correspondem a 2 partes:</p>
+<p><code>2 × 7 = 14</code></p>
+</div></details>
+<h3>Resposta</h3>
+<p>14 estudantes ganharam medalha.</p>
+<h3>A armadilha evitada</h3>
+<p>Não era correto responder 2.<br>
+O número 2 representa partes da razão, não estudantes diretamente.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>18. Problema em estilo OBMEP — O mapa da trilha</h2>
+<p>No mapa da Academia, cada 2 cm representam 5 km na trilha real.</p>
+<p>Uma trilha aparece com 14 cm no mapa.</p>
+<p><strong>Pergunta:</strong> Quantos quilômetros tem a trilha real?</p>
+<h3>Primeira jogada</h3>
+<p>É um problema de escala, portanto é uma proporção.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>2 cm no mapa representam 5 km reais.</p>
+<p>14 cm é 7 vezes 2 cm.</p>
+<p>Então a distância real também será 7 vezes 5 km.</p>
+<p><code>7 × 5 = 35</code></p>
+</div></details>
+<h3>Resposta</h3>
+<p>A trilha real tem 35 km.</p>
+<h3>Outra forma de ver</h3>
+<p>Se 2 cm representam 5 km, então 1 cm representa <code>5/2</code> km, isto é, 2,5 km.</p>
+<p>Para 14 cm:</p>
+<p><code>14 × 2,5 = 35</code></p>
+<p>As duas formas chegam à mesma resposta.<br>
+A primeira evita decimal e costuma ser mais confortável.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>19. Problema em estilo OBMEP — O painel dividido</h2>
+<p>Um painel retangular da Academia foi dividido em partes iguais.<br>
+Felipe pintou <code>2/5</code> do painel pela manhã e <code>1/4</code> do mesmo painel à tarde.</p>
+<p><strong>Pergunta:</strong> Que fração do painel foi pintada ao todo?</p>
+<h3>Primeira jogada</h3>
+<p>As frações se referem ao mesmo inteiro: o painel inteiro.<br>
+Mas os denominadores são diferentes.</p>
+<p>Precisamos de uma linguagem comum.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Os denominadores são 5 e 4.</p>
+<p>O menor múltiplo comum de 5 e 4 é 20.</p>
+<p><code>2/5 = 8/20</code></p>
+<p><code>1/4 = 5/20</code></p>
+<p>Somando:</p>
+<p><code>8/20 + 5/20 = 13/20</code></p>
+</div></details>
+<h3>Resposta</h3>
+<p>Felipe pintou <code>13/20</code> do painel.</p>
+<h3>Por que não <code>3/9</code>?</h3>
+<p>Porque quintos e quartos são pedaços de tamanhos diferentes.<br>
+Somar numeradores e denominadores diretamente mistura linguagens.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>20. Problema em estilo OBMEP — A barra misteriosa</h2>
+<p>Três barras de chocolate iguais foram divididas igualmente entre alguns estudantes.</p>
+<p>Cada estudante recebeu <code>3/8</code> de uma barra.<br>
+Ao todo, foram distribuídas exatamente 3 barras inteiras.</p>
+<p><strong>Pergunta:</strong> Quantos estudantes receberam chocolate?</p>
+<h3>Primeira jogada</h3>
+<p>A pergunta não pede uma fração da barra.<br>
+Ela pede quantas vezes a fração <code>3/8</code> cabe em 3 inteiros.</p>
+<p>Vamos transformar 3 inteiros em oitavos.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Cada barra inteira tem <code>8/8</code>.</p>
+<p>Três barras inteiras têm:</p>
+<p><code>3 × 8/8 = 24/8</code></p>
+<p>Cada estudante recebe <code>3/8</code>.</p>
+<p>Então o número de estudantes é:</p>
+<p><code>24/8 ÷ 3/8</code></p>
+<p>Isso significa contar quantos grupos de 3 oitavos cabem em 24 oitavos:</p>
+<p><code>24 ÷ 3 = 8</code></p>
+</div></details>
+<h3>Resposta</h3>
+<p>8 estudantes receberam chocolate.</p>
+<h3>O que este problema treina</h3>
+<p>Ele mostra que fração também pode aparecer em problemas de contagem de partes.</p>
+<p>A pergunta escondida era:</p>
+<blockquote>
+<p>quantos grupos de <code>3/8</code> formam 3 inteiros?</p>
+</blockquote>
+<hr>
+<h2><span class="badge-oficina">Oficina</span>21. Oficina Olímpica 4 — A mesma quantidade com outro nome</h2>
+<p>A Oficina Olímpica desta sala não é uma lista de contas mecânicas.</p>
+<p>Ela treina leitura, comparação e escolha da ferramenta certa.</p>
+<p>Use o caderno se quiser, mas não dependa de espaço impresso.</p>
+<hr>
+<h3>Desafio 1 — Divisão que vira fração</h3>
+<p>Sete barras iguais serão divididas igualmente entre quatro estudantes.</p>
+<p><strong>Pergunta:</strong> Que quantidade de barra cada estudante recebe?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>A situação é:</p>
+<p><code>7 ÷ 4</code></p>
+<p>Logo, cada estudante recebe:</p>
+<p><code>7/4</code></p>
+<p>de barra.</p>
+<p>Como <code>7/4 = 1 + 3/4</code>, cada estudante recebe 1 barra inteira e mais <code>3/4</code> de barra.</p>
+<hr>
+</div></details>
+<h3>Desafio 2 — Simplificar sem mudar</h3>
+<p>Simplifique a fração <code>24/36</code>.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>A pergunta é: qual é o maior divisor comum de 24 e 36?</p>
+<p>O MDC é 12.</p>
+<p>Então:</p>
+<p><code>24/36 = (24 ÷ 12)/(36 ÷ 12) = 2/3</code></p>
+<p>A fração simplificada é <code>2/3</code>.</p>
+<p>A quantidade não mudou.<br>
+A escrita ficou mais simples.</p>
+<hr>
+</div></details>
+<h3>Desafio 3 — Comparar frações</h3>
+<p>Qual fração é maior: <code>4/7</code> ou <code>3/5</code>?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Colocamos as duas na mesma linguagem.</p>
+<p>Um denominador comum para 7 e 5 é 35.</p>
+<p><code>4/7 = 20/35</code></p>
+<p><code>3/5 = 21/35</code></p>
+<p>Logo:</p>
+<p><code>3/5</code> é maior.</p>
+<hr>
+</div></details>
+<h3>Desafio 4 — Total escondido</h3>
+<p>A razão entre bolas azuis e bolas vermelhas em uma caixa é <code>4 : 5</code>.</p>
+<p>A caixa tem 63 bolas ao todo.</p>
+<p><strong>Pergunta:</strong> Quantas bolas vermelhas há?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>A razão tem:</p>
+<p><code>4 + 5 = 9</code></p>
+<p>partes ao todo.</p>
+<p>Essas 9 partes correspondem a 63 bolas.</p>
+<p>Cada parte vale:</p>
+<p><code>63 ÷ 9 = 7</code></p>
+<p>As bolas vermelhas são 5 partes:</p>
+<p><code>5 × 7 = 35</code></p>
+<p>Há 35 bolas vermelhas.</p>
+<hr>
+</div></details>
+<h3>Desafio 5 — Receita incompleta</h3>
+<p>Para fazer 6 copos de suco, usam-se 9 colheres de polpa.</p>
+<p>Quantas colheres de polpa serão usadas para fazer 10 copos, mantendo a mesma receita?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>6 copos usam 9 colheres.</p>
+<p>Dividindo por 3:</p>
+<p>2 copos usam 3 colheres.</p>
+<p>10 copos são 5 grupos de 2 copos.</p>
+<p><code>5 × 3 = 15</code></p>
+<p>Serão usadas 15 colheres de polpa.</p>
+<hr>
+</div></details>
+<h3>Desafio 6 — Perto de 1</h3>
+<p>Qual fração está mais perto de 1: <code>8/9</code> ou <code>6/7</code>?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p><code>8/9</code> falta <code>1/9</code> para chegar a 1.</p>
+<p><code>6/7</code> falta <code>1/7</code> para chegar a 1.</p>
+<p>Como <code>1/9</code> é menor que <code>1/7</code>, a fração <code>8/9</code> está mais perto de 1.</p>
+<hr>
+</div></details>
+<h3>Desafio 7 — Somar com linguagem comum</h3>
+<p>Calcule com sentido:</p>
+<p><code>1/2 + 2/3</code></p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Os denominadores são 2 e 3.</p>
+<p>Uma linguagem comum é sextos.</p>
+<p><code>1/2 = 3/6</code></p>
+<p><code>2/3 = 4/6</code></p>
+<p>Somando:</p>
+<p><code>3/6 + 4/6 = 7/6</code></p>
+<p>A resposta é <code>7/6</code>, ou <code>1 + 1/6</code>.</p>
+<hr>
+</div></details>
+<h3>Desafio 8 — A pergunta que muda tudo</h3>
+<p>Em um grupo de 30 estudantes, 12 praticam xadrez e os outros 18 praticam atletismo.</p>
+<p>Responda às duas perguntas:</p>
+<ol>
+<li>Qual é a razão entre estudantes do xadrez e estudantes do atletismo?</li>
+<li>Que fração do grupo pratica xadrez?</li>
+</ol>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<ol>
+<li>A razão xadrez : atletismo é:</li>
+</ol>
+<p><code>12 : 18</code></p>
+<p>Simplificando por 6:</p>
+<p><code>2 : 3</code></p>
+<ol>
+<li>A fração do grupo que pratica xadrez é:</li>
+</ol>
+<p><code>12/30</code></p>
+<p>Simplificando por 6:</p>
+<p><code>2/5</code></p>
+<p>As respostas são diferentes porque as perguntas são diferentes.</p>
+<p>Na primeira, comparamos xadrez com atletismo.<br>
+Na segunda, comparamos xadrez com o total.</p>
+<hr>
+</div></details>
+<h2>22. As ferramentas da Mochila nesta sala</h2>
+<p>Nesta sala, a Mochila do Matemático reorganiza ferramentas que já estavam previstas para o percurso.</p>
+<ol>
+<li>
+<p><strong>Ver a fração como divisão.</strong><br>
+Quando uma quantidade é dividida igualmente e a resposta não é inteira, a fração guarda essa divisão.</p>
+</li>
+<li>
+<p><strong>Ver a fração como parte de um inteiro.</strong><br>
+O denominador mostra em quantas partes iguais o inteiro foi dividido; o numerador mostra quantas partes foram consideradas.</p>
+</li>
+<li>
+<p><strong>Reconhecer frações equivalentes.</strong><br>
+Duas escritas diferentes podem representar a mesma quantidade.</p>
+</li>
+<li>
+<p><strong>Simplificar usando divisores comuns.</strong><br>
+Simplificar não diminui a quantidade; apenas troca a escrita por uma forma mais limpa. O MDC ajuda a chegar diretamente à forma mais simples.</p>
+</li>
+<li>
+<p><strong>Comparar frações colocando na mesma linguagem.</strong><br>
+Frações com denominadores diferentes precisam ser traduzidas antes da comparação.</p>
+</li>
+<li>
+<p><strong>Pensar em razão como comparação.</strong><br>
+Razão compara quantidades. A ordem e o total de referência importam.</p>
+</li>
+<li>
+<p><strong>Descobrir quanto vale uma parte em proporções.</strong><br>
+Quando a relação deve permanecer igual, descubra o valor de uma parte e faça as quantidades crescerem juntas.</p>
+</li>
+</ol>
+<div class="ferramenta" data-num="23" id="f23"><span class="f-badge">Ferramenta 23</span><span class="f-text">Ver a fração como divisão</span></div>
+
+<div class="ferramenta" data-num="24" id="f24"><span class="f-badge">Ferramenta 24</span><span class="f-text">Ver a fração como parte de um inteiro</span></div>
+
+<div class="ferramenta" data-num="25" id="f25"><span class="f-badge">Ferramenta 25</span><span class="f-text">Reconhecer frações equivalentes</span></div>
+
+<div class="ferramenta" data-num="26" id="f26"><span class="f-badge">Ferramenta 26</span><span class="f-text">Simplificar usando divisores comuns</span></div>
+
+<div class="ferramenta" data-num="27" id="f27"><span class="f-badge">Ferramenta 27</span><span class="f-text">Comparar frações colocando na mesma linguagem</span></div>
+
+<div class="ferramenta" data-num="28" id="f28"><span class="f-badge">Ferramenta 28</span><span class="f-text">Pensar em razão como comparação</span></div>
+
+<div class="ferramenta" data-num="29" id="f29"><span class="f-badge">Ferramenta 29</span><span class="f-text">Descobrir quanto vale uma parte em proporções</span></div>
+
+<hr>
+<h2>23. Figuras úteis marcadas</h2>
+<p>As especificações de pizzas, barras, reta, receita e comparação entre fração e razão acompanham as seções em que cada relação precisa ser usada. Não há conjunto de imagens separado ao final.</p>
+<hr>
+<h2>24. A frase da Academia</h2>
+<blockquote>
+<p>Fração não é apenas pedaço. É divisão, comparação e ponte entre quantidades.</p>
+</blockquote>
+<hr>
+<h2>25. Pergunta para amanhã</h2>
+<p>No fim da sala, Felipe olhou novamente para a reta numérica, para as receitas e para as barras divididas.</p>
+<p>As frações já não pareciam números quebrados.<br>
+Pareciam maneiras diferentes de enxergar uma mesma quantidade.</p>
+<p>O Professor apagou parte do quadro e deixou uma nova sequência:</p>
+<p><code>3, 6, 9, 12, ...</code></p>
+<p>Depois escreveu outra:</p>
+<p><code>1, 4, 9, 16, ...</code></p>
+<p>E outra:</p>
+<p><code>1, 2, 4, 8, ...</code></p>
+<p>A coruja perguntou:</p>
+<p>— Quando os números começam a crescer seguindo uma regra, como descobrimos o próximo passo?</p>
+<p>Felipe sorriu.</p>
+<p>A próxima sala estava chamando.</p>
+<blockquote>
+<p>E quando os números começam a crescer seguindo uma regra secreta, como descobrimos o próximo passo?</p>
+</blockquote>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap04.html" class="nav-prev">← Cap. 4</a>
+      <a href="cap06.html" class="nav-next">Cap. 6 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(5);</script>
+</body>
+</html>

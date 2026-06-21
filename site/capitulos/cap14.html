@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 14 — Entre um simulado e outro | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-prata">Nível Prata</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link sidebar-active" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 14</span>
+        <h1 class="cap-title">Entre um simulado e outro</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. O espaço entre duas provas</h2>
+<p>Depois do simulado, Felipe tinha uma folha de bordo com pistas, respostas, dúvidas e alguns travamentos bem nomeados. Em alguns problemas, ele sabia exatamente o que faria diferente. Em outros, só sabia que precisava voltar.</p>
+<p>— Então agora eu tenho de estudar tudo de novo? — perguntou.</p>
+<p>O Professor olhou para a Mochila aberta sobre a mesa.</p>
+<p>— Não. Agora você tem de escolher o que merece voltar para a Mochila primeiro.</p>
+<p>O espaço entre um simulado e outro não é uma sala de espera. É o lugar em que uma tentativa se transforma em habilidade. Mas isso não acontece por acumular listas, horários rígidos ou promessas enormes. Acontece quando o estudante responde a quatro perguntas honestas:</p>
+<ol>
+<li>O que minha tentativa revelou?</li>
+<li>Qual causa está mais atrapalhando minha próxima prova?</li>
+<li>Que treino pequeno conversa diretamente com essa causa?</li>
+<li>Como vou perceber que a ideia ficou mais disponível?</li>
+</ol>
+<p>No capítulo anterior, o diagnóstico terminava em um plano curto de sete dias. Agora esse plano ganha continuidade. Ele vira um <strong>ciclo</strong>: uma sequência com começo, observação, ajuste e teste, que cabe na vida real.</p>
+<blockquote>
+<p><strong>Retomada da Ferramenta da Mochila 106 — Organizar o estudo em ciclos de simulado, correção, diagnóstico, treino e novo simulado</strong><br>
+Um ciclo liga tentativa, correção, diagnóstico, treino e novo teste. Ele tem direção, mas pode ser ajustado quando a semana muda.</p>
+</blockquote>
+<hr>
+<h2>2. Evoluir não é estudar mais</h2>
+<p>É possível passar muito tempo diante da matemática e ainda repetir o mesmo obstáculo. Por exemplo:</p>
+<ul>
+<li>resolver muitas contas quando o problema era entender o pedido;</li>
+<li>reler uma solução quando faltava escolher uma primeira representação;</li>
+<li>fazer novos exercícios de área quando a dificuldade era explicar por que uma subtração funciona;</li>
+<li>insistir em uma questão longa quando um caso pequeno mostraria a regra.</li>
+</ul>
+<p>Mais tempo não corrige automaticamente uma causa mal identificada.</p>
+<p>Felipe comparou duas anotações depois de um simulado:</p>
+<table>
+<thead>
+<tr>
+<th>Anotação</th>
+<th>O que ela permite fazer?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“Preciso melhorar em matemática.”</td>
+<td>Quase nada: o alvo é grande demais.</td>
+</tr>
+<tr>
+<td>“Em caminhos com ponto proibido, contei todos os caminhos, mas esqueci de retirar os que passam pelo ponto.”</td>
+<td>Criar um treino preciso: total, parte proibida e complemento.</td>
+</tr>
+</tbody>
+</table>
+<p>A segunda frase é mais útil porque transforma uma sensação em uma ação. Ela não diminui o estudante. Pelo contrário: dá a ele uma alavanca.</p>
+<p>Um ciclo pode ter vários assuntos, porque a matemática é ampla. Mesmo assim, convém ter <strong>uma prioridade principal</strong>. Essa prioridade não precisa ser o erro mais feio; deve ser o erro que, se melhorado, abre mais portas.</p>
+<p>Às vezes a prioridade é matemática: restos, frações, áreas, contagem. Às vezes é estratégica: ler o pedido final, deixar uma pista, escrever a justificativa. As duas espécies de treino são reais.</p>
+<hr>
+<h2>3. O ciclo da Academia</h2>
+<p>O ciclo da Academia tem cinco movimentos. Eles não são dias fixos nem uma escada que só pode ser subida uma vez. São funções diferentes do treino.</p>
+<table>
+<thead>
+<tr>
+<th>Movimento</th>
+<th>Pergunta que conduz</th>
+<th>Produto do movimento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tentativa</td>
+<td>O que consigo fazer sozinho agora?</td>
+<td>Uma rota, mesmo incompleta.</td>
+</tr>
+<tr>
+<td>Correção</td>
+<td>O que funcionou e onde a rota quebrou?</td>
+<td>Uma explicação da causa.</td>
+</tr>
+<tr>
+<td>Diagnóstico</td>
+<td>O que é mais importante treinar primeiro?</td>
+<td>Uma prioridade principal.</td>
+</tr>
+<tr>
+<td>Treino-alvo</td>
+<td>Que ideia preciso reconstruir e usar?</td>
+<td>Evidências pequenas de domínio.</td>
+</tr>
+<tr>
+<td>Novo teste</td>
+<td>A ideia aparece sem que alguém a aponte?</td>
+<td>Um retrato mais honesto da evolução.</td>
+</tr>
+</tbody>
+</table>
+<p>O novo teste não precisa esperar uma prova longa. Pode ser um problema curto, uma variação do problema antigo ou um mini-simulado de duas ou três questões. O importante é que ele não dê a primeira jogada de presente.</p>
+<p>Assim, o ciclo não pergunta apenas “acertei?”. Ele pergunta também:</p>
+<ul>
+<li>reconheci a porta?</li>
+<li>escolhi uma representação útil?</li>
+<li>consegui reconstruir a ideia sem olhar a solução?</li>
+<li>escrevi de um modo conferível?</li>
+<li>percebi um caso proibido, uma unidade ou uma condição esquecida?</li>
+</ul>
+<hr>
+<h2>4. Poucos alvos, vistos de perto</h2>
+<p>Uma lista de dez fraquezas parece honesta, mas raramente ajuda. Ela transforma o treino em uma parede. Uma prioridade principal e, no máximo, uma prioridade de apoio deixam o próximo passo visível.</p>
+<p>Veja três exemplos.</p>
+<table>
+<thead>
+<tr>
+<th>Diagnóstico</th>
+<th>Prioridade principal</th>
+<th>Apoio possível</th>
+<th>Evidência de avanço</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“Chego a resultados, mas não justifico.”</td>
+<td>Escrita em degraus.</td>
+<td>Revisão dos cinco olhos.</td>
+<td>Explico duas soluções sem salto decisivo.</td>
+</tr>
+<tr>
+<td>“Não sei por onde entrar em problemas de ordem.”</td>
+<td>Organizar condições em tabela ou bloco.</td>
+<td>Testar casos possíveis.</td>
+<td>Resolvo uma nova fila sem receber a pista do bloco.</td>
+</tr>
+<tr>
+<td>“Uso a fórmula certa, mas troco área por perímetro.”</td>
+<td>Ler grandeza e unidade antes da conta.</td>
+<td>Desenho em malha.</td>
+<td>Escolho a medida correta em três situações diferentes.</td>
+</tr>
+</tbody>
+</table>
+<p>Uma prioridade pode continuar no próximo ciclo quando ainda produz avanço. Ela pode mudar quando a evidência mostra que a ideia já está mais firme ou quando outra causa começou a limitar o trabalho.</p>
+<p>Não há medalha por trocar de foco cedo demais, nem por insistir em algo já dominado. O objetivo é escolher o treino que mais melhora a próxima tentativa.</p>
+<div class="ferramenta" data-num="107" id="f107"><span class="f-badge">Ferramenta 107</span><span class="f-text">Escolher poucos alvos principais por ciclo</span></div>
+
+<blockquote>
+<p>Em cada ciclo, escolha uma prioridade principal e defina uma evidência observável de avanço. “Estudar mais” não é evidência; “justificar três casos sem esquecer nenhum” é.</p>
+</blockquote>
+<hr>
+<h2>5. O caderno de erros é um caderno de retornos</h2>
+<p>O nome “caderno de erros” pode parecer pesado. Se ele virar uma lista de respostas vermelhas, será mesmo. A Academia prefere imaginar um <strong>caderno de retornos</strong>: um lugar para guardar os caminhos que merecem ser revisitados.</p>
+<p>Cada registro deve ser curto o bastante para ser usado de novo. Não é necessário copiar o enunciado inteiro nem escrever uma confissão. Basta guardar o que permitirá reencontrar a ideia.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Exemplo de registro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Situação</td>
+<td>Caminhos mais curtos com ponto proibido.</td>
+</tr>
+<tr>
+<td>Minha primeira rota</td>
+<td>Contei os 10 caminhos totais.</td>
+</tr>
+<tr>
+<td>Ponto de quebra</td>
+<td>Não retirei os caminhos que passam por P.</td>
+</tr>
+<tr>
+<td>Ideia que faltou</td>
+<td>Contar até P, contar de P até B e subtrair.</td>
+</tr>
+<tr>
+<td>Próxima tentativa</td>
+<td>Fazer uma malha 2 por 3 com outro ponto proibido.</td>
+</tr>
+</tbody>
+</table>
+<p>Esse registro não diz “sou ruim em caminhos”. Ele diz o que fazer quando caminhos semelhantes aparecerem de novo.</p>
+<p>Também vale registrar um acerto frágil: uma questão resolvida por tentativa que ainda não poderia ser explicada. Um acerto frágil é uma ideia que chegou ao resultado, mas ainda precisa de estrutura. Anotá-lo evita que ele se esconda atrás da nota.</p>
+<div class="ferramenta" data-num="109" id="f109"><span class="f-badge">Ferramenta 109</span><span class="f-text">Usar o caderno de erros como ferramenta de crescimento, não como castigo</span></div>
+
+<blockquote>
+<p>Guarde a situação, a rota escolhida, o ponto de quebra, a ideia que faltou e uma próxima tentativa. O registro deve chamar você de volta à matemática, não ao julgamento.</p>
+</blockquote>
+<div class="ferramenta" data-num="110" id="f110"><span class="f-badge">Ferramenta 110</span><span class="f-text">Registrar erro com categoria, causa, ferramenta adequada e próximo treino</span></div>
+
+<blockquote>
+<p>Um retorno útil não guarda só a resposta: nomeia a categoria, localiza a causa, escolhe uma ferramenta e deixa uma próxima tentativa verificável.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C14_F01_cartao_retornos.svg" alt="Usar os cinco campos já definidos no texto como cartão digital compacto: situação, primeira rota, ponto de quebra, ideia que faltou e próxima tentativa. Diferenciar da folha de bordo pelo foco em erro e retorno." loading="lazy"><figcaption>Usar os cinco campos já definidos no texto como cartão digital compacto: situação, primeira rota, ponto de quebra, ideia que faltou e próxima tentativa. Diferenciar da folha de bordo pelo foco em erro e retorno.</figcaption></figure>
+
+<hr>
+<h2>6. Repetir não é refazer</h2>
+<p>Depois de corrigir uma questão, há uma armadilha confortável: olhar a solução, concordar com ela e resolver a mesma questão imediatamente. Isso pode dar uma sensação boa, mas ainda não mostra que a ideia ficou disponível.</p>
+<p>Felipe chamou essa armadilha de “seguir as pegadas frescas”. Ele consegue voltar pelo mesmo caminho porque acabou de vê-lo, mas talvez não encontre a trilha amanhã.</p>
+<p>A repetição inteligente tem três voltas.</p>
+<div class="ferramenta" data-num="111" id="f111"><span class="f-badge">Ferramenta 111</span><span class="f-text">Distinguir repetir de refazer</span></div>
+
+<blockquote>
+<p>Reler uma solução ainda visível não prova que a ideia ficou disponível. Refazer exige reconstruir a decisão e usá-la sem a resposta ao lado.</p>
+</blockquote>
+<h3>Primeira volta: entender</h3>
+<p>Leia a solução procurando a decisão principal. Não pergunte apenas “que contas foram feitas?”. Pergunte:</p>
+<ul>
+<li>qual era o pedido?</li>
+<li>qual ferramenta abriu a porta?</li>
+<li>por que essa ferramenta basta?</li>
+<li>onde eu teria tomado uma decisão diferente?</li>
+</ul>
+<h3>Segunda volta: reconstruir</h3>
+<p>Feche a solução e tente contar a ideia com suas próprias palavras. Você não precisa repetir frases. Precisa conseguir reconstruir a ponte entre os dados e a resposta.</p>
+<p>Se a solução usa uma tabela, refaça a tabela. Se usa um bloco de pessoas, monte o bloco. Se usa uma subtração de áreas, desenhe a figura grande e a parte retirada.</p>
+<h3>Terceira volta: transferir</h3>
+<p>Agora mude alguma coisa importante: os números, o ponto proibido, a posição das pessoas, a figura, a pergunta final. A ideia deve sobreviver à mudança de roupa do problema.</p>
+<p>Por exemplo, depois de aprender a contar caminhos que evitam P, tente um caminho que evita Q em uma malha de outro tamanho. A pergunta não é “lembro a resposta antiga?”. É “reconheço a mesma estrutura em um cenário novo?”.</p>
+<div class="ferramenta" data-num="112" id="f112"><span class="f-badge">Ferramenta 112</span><span class="f-text">Fazer repetição inteligente: entender, reconstruir e transferir</span></div>
+
+<blockquote>
+<p>Depois de entender uma solução, reconstrua-a sem olhar e use a mesma ideia em uma variação. Só então você sabe se aprendeu uma rota, e não apenas uma resposta.</p>
+</blockquote>
+<hr>
+<h2>7. Revisão em camadas</h2>
+<p>Uma revisão forte não precisa reler tudo desde o começo. Ela sobe por camadas, conforme a ideia pede mais força.</p>
+<table>
+<thead>
+<tr>
+<th>Camada</th>
+<th>Pergunta central</th>
+<th>Exemplo em MMC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ideia essencial</td>
+<td>O que este conceito responde?</td>
+<td>Quando ritmos voltam a coincidir.</td>
+</tr>
+<tr>
+<td>Problema típico</td>
+<td>Consigo usar a ideia em uma situação clara?</td>
+<td>Duas luzes piscam a cada 4 e 6 minutos.</td>
+</tr>
+<tr>
+<td>Problema misto</td>
+<td>Reconheço a ideia quando ela não vem anunciada?</td>
+<td>Três eventos com horários, condição extra e pergunta sobre o próximo encontro.</td>
+</tr>
+</tbody>
+</table>
+<p>As camadas evitam dois extremos: revisar apenas definições, sem saber usar; ou saltar para um problema gigante, sem ainda ter a ideia essencial firme.</p>
+<p>O mesmo vale para escrita. Primeiro, escreva uma solução típica usando alvo, ferramenta, caminho e fecho. Depois, escreva uma solução em que seja preciso escolher entre duas ferramentas parecidas. Por fim, reveja se um leitor entende por que a escolha foi feita.</p>
+<div class="ferramenta" data-num="113" id="f113"><span class="f-badge">Ferramenta 113</span><span class="f-text">Revisar em camadas: ideia essencial, problema típico e problema misto</span></div>
+
+<blockquote>
+<p>Suba de uma ideia que você consegue explicar para um uso típico e, só então, para um problema em que a ferramenta não vem anunciada.</p>
+</blockquote>
+<p>Conteúdo novo pode entrar no ciclo, mas devagar. Se a prioridade principal ainda precisa de atenção, um novo assunto não deve ocupar todas as portas da semana. Curiosidade é bem-vinda; avalanche, não.</p>
+<hr>
+<h2>8. Mini-simulados: o teste de realidade</h2>
+<p>O treino-alvo pode ser muito guiado: “hoje vou praticar subtrair os caminhos proibidos”. O mini-simulado faz a pergunta complementar: “quando ninguém nomeia essa ferramenta, eu a reconheço?”.</p>
+<p>Um mini-simulado útil pode ter duas, três ou quatro questões. Ele deve misturar pelo menos uma questão ligada à prioridade e outra que peça uma ferramenta já firme. Assim, o estudante não entra sabendo qual porta será cobrada.</p>
+<p>Depois, a correção volta a ser diagnóstica:</p>
+<ul>
+<li>uma resposta certa foi escrita de modo suficiente?</li>
+<li>a prioridade apareceu sem dica?</li>
+<li>um erro novo nasceu de leitura, escolha, desenvolvimento, escrita, revisão ou cálculo?</li>
+<li>o próximo ciclo deve manter a prioridade, ajustá-la ou trocá-la?</li>
+</ul>
+<p>Uma nota pode ser anotada, mas ela não é o relatório inteiro. Dois acertos podem esconder rotas bem diferentes: um foi resolvido com segurança; outro chegou ao resultado por sorte e não sobreviveria a uma variação.</p>
+<div class="ferramenta" data-num="114" id="f114"><span class="f-badge">Ferramenta 114</span><span class="f-text">Medir evolução por sinais concretos, não apenas pela nota</span></div>
+
+<blockquote>
+<p>Observe portas reconhecidas, justificativas mais claras, retornos mais curtos e transferências bem-feitas. A nota é um dado; não é o diagnóstico inteiro.</p>
+</blockquote>
+<hr>
+<h2>9. Um ciclo possível que cabe na vida real</h2>
+<p>Nenhuma semana tem o mesmo tamanho por dentro. Há dias de escola, cansaço, compromissos, vontade de resolver uma questão difícil e dias em que uma boa leitura já é o trabalho possível.</p>
+<p>Por isso, o ciclo abaixo não é um calendário a obedecer. É um exemplo de distribuição de funções ao longo de cerca de duas semanas. Os blocos podem mudar de lugar; o sentido deles deve permanecer.</p>
+<table>
+<thead>
+<tr>
+<th>Momento do ciclo</th>
+<th>Trabalho principal</th>
+<th>Sinal de que basta por hoje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Início</td>
+<td>Ler o simulado e escolher uma prioridade.</td>
+<td>Sei dizer a causa em uma frase precisa.</td>
+</tr>
+<tr>
+<td>Retorno 1</td>
+<td>Entender e reconstruir uma questão importante.</td>
+<td>Consigo explicar a decisão central sem olhar.</td>
+</tr>
+<tr>
+<td>Retorno 2</td>
+<td>Resolver uma variação do mesmo tipo.</td>
+<td>A ferramenta aparece sem ser anunciada.</td>
+</tr>
+<tr>
+<td>Camada de revisão</td>
+<td>Relembrar ideia essencial e problema típico.</td>
+<td>Consigo distinguir a ideia de uma parecida.</td>
+</tr>
+<tr>
+<td>Escrita</td>
+<td>Reescrever uma solução em degraus.</td>
+<td>Um leitor pode conferir o salto principal.</td>
+</tr>
+<tr>
+<td>Mini-simulado</td>
+<td>Misturar duas ou três questões.</td>
+<td>Tenho nova evidência, não apenas sensação.</td>
+</tr>
+<tr>
+<td>Ajuste</td>
+<td>Atualizar o cartão de retorno.</td>
+<td>Sei manter, reduzir ou trocar o alvo.</td>
+</tr>
+</tbody>
+</table>
+<p>Se um dia planejado não acontece, o ciclo não fracassou. Ele apenas continua no próximo espaço possível. O que não funciona é fingir que o dia perdido não existiu e empilhar duas semanas em uma noite.</p>
+<p>Constância não é nunca falhar. É saber retomar sem transformar uma pausa em desistência.</p>
+<div class="ferramenta" data-num="108" id="f108"><span class="f-badge">Ferramenta 108</span><span class="f-text">Equilibrar revisão, problemas-alvo, escrita e mini-simulados</span></div>
+
+<blockquote>
+<p>Um ciclo saudável distribui funções: uma ideia é retomada, uma rota é praticada, uma solução é escrita e um teste novo mostra o que realmente apareceu.</p>
+</blockquote>
+<div class="ferramenta" data-num="115" id="f115"><span class="f-badge">Ferramenta 115</span><span class="f-text">Manter constância com um plano possível e ajustável</span></div>
+
+<blockquote>
+<p>Quando um dia muda, retome pelo próximo ponto útil. O plano deve orientar a vida real, não puni-la.</p>
+</blockquote>
+<hr>
+<h2>10. Quatro testes de rota</h2>
+<p>Os problemas a seguir são originais, em estilo OBMEP. Eles conversam com ideias de organização de treino, mas não revelam antes qual ferramenta escolher. Tente primeiro. Depois use-os para praticar o cartão de retorno: pedido, rota, ponto de quebra, ideia e próxima tentativa.</p>
+<h3>Problema 1 — Os encontros do calendário</h3>
+<blockquote>
+<p>Em um ciclo de treino, Felipe revisa uma ideia a cada 3 dias e faz um mini-simulado a cada 5 dias. Hoje ele fez as duas coisas. Depois de quantos dias as duas atividades voltarão a ocorrer no mesmo dia pela primeira vez?</p>
+</blockquote>
+<h3>Problema 2 — As páginas de retorno</h3>
+<blockquote>
+<p>Um caderno tem páginas com espaço para 6 cartões de retorno cada. Depois de um simulado, Felipe registrou 42 cartões. Ele separou 14 deles como “acertos frágeis” e os demais como “erros que pedem nova tentativa”. Quantas páginas serão necessárias para os cartões que pedem nova tentativa?</p>
+</blockquote>
+<h3>Problema 3 — O tempo do ciclo</h3>
+<blockquote>
+<p>Em uma sessão de 90 minutos, Felipe reservou <code>2/5</code> do tempo para revisão de ideias essenciais e <code>1/3</code> para problemas-alvo. O tempo restante foi usado para escrever soluções. Quantos minutos foram usados para a escrita?</p>
+</blockquote>
+<h3>Problema 4 — As sequências de marcas</h3>
+<blockquote>
+<p>Em um mini-simulado, cada uma de 5 questões recebe uma marca entre quatro possibilidades: verde, amarela, vermelha ou azul. Duas questões consecutivas não podem receber a mesma marca. Quantas sequências de marcas são possíveis?</p>
+</blockquote>
+<hr>
+<h2>11. Correção comentada — O que cada teste mede</h2>
+<h3>Problema 1 — Os encontros do calendário</h3>
+<p>As duas atividades começaram juntas. Procuramos o primeiro instante em que um múltiplo de 3 e um múltiplo de 5 coincidem.</p>
+<p>O MMC de 3 e 5 é 15.</p>
+<blockquote>
+<p><strong>Resposta:</strong> as duas atividades voltarão a coincidir depois de <strong>15 dias</strong>.</p>
+</blockquote>
+<p><strong>Rota para registrar:</strong> se você listou os múltiplos, a ideia estava correta. Se respondeu 8, talvez tenha somado os ritmos em vez de procurar um reencontro.</p>
+<h3>Problema 2 — As páginas de retorno</h3>
+<p>Dos 42 cartões, 14 são acertos frágeis. Portanto, os que pedem nova tentativa são:</p>
+<p><code>42 - 14 = 28</code>.</p>
+<p>Cada página recebe 6 cartões. Quatro páginas recebem 24 cartões, mas ainda restam 4. É necessária mais uma página.</p>
+<blockquote>
+<p><strong>Resposta:</strong> serão ocupadas <strong>5 páginas</strong>.</p>
+</blockquote>
+<p><strong>Rota para registrar:</strong> a divisão <code>28 ÷ 6</code> produz 4 páginas completas e resto 4. A pergunta fala de páginas ocupadas, portanto a página incompleta também conta.</p>
+<h3>Problema 3 — O tempo do ciclo</h3>
+<p>Primeiro somamos as partes reservadas à revisão e aos problemas-alvo:</p>
+<p><code>2/5 + 1/3 = 6/15 + 5/15 = 11/15</code>.</p>
+<p>Sobra:</p>
+<p><code>1 - 11/15 = 4/15</code> do tempo.</p>
+<p>Como a sessão dura 90 minutos:</p>
+<p><code>90 × 4/15 = 24</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> foram usados <strong>24 minutos</strong> para a escrita.</p>
+</blockquote>
+<p><strong>Rota para registrar:</strong> antes de usar os 90 minutos, é necessário descobrir qual fração sobrou. A fração do tempo e o número de minutos são etapas diferentes.</p>
+<h3>Problema 4 — As sequências de marcas</h3>
+<p>Para a primeira questão, existem 4 escolhas possíveis. Para cada questão seguinte, existem 3 escolhas, pois a marca anterior não pode se repetir.</p>
+<p>Assim, o número de sequências é:</p>
+<p><code>4 × 3 × 3 × 3 × 3 = 4 × 3^4 = 324</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> existem <strong>324 sequências</strong> possíveis.</p>
+</blockquote>
+<p><strong>Rota para registrar:</strong> se você fez <code>4^5</code>, contou também as sequências que repetem a mesma marca em questões consecutivas. A condição muda o número de escolhas depois da primeira posição.</p>
+<hr>
+<h2><span class="badge-oficina">Oficina</span>12. Oficina Olímpica 13 — Um treino que se reconhece</h2>
+<p>Os desafios desta oficina são originais, em estilo OBMEP. Escolha uma ordem. Para ao menos dois deles, deixe uma marca curta de rota antes de comparar qualquer solução. Ao terminar, escolha apenas um alvo principal para o próximo ciclo.</p>
+<p>Os Desafios 1 e 2 são <strong>problemas originais em estilo OBMEP</strong> de resposta determinada. Os Desafios 3, 4 e 5 são <strong>atividades abertas</strong> de construção, comparação argumentada ou planejamento: as pistas indicam critérios, não uma única resposta.</p>
+<h3>Desafio 1 — A roda de revisão</h3>
+<blockquote>
+<p>Uma ideia é revisada a cada 4 dias, uma segunda a cada 6 dias e uma terceira a cada 9 dias. Hoje as três foram revisadas. Depois de quantos dias as três voltarão a ser revisadas no mesmo dia?</p>
+</blockquote>
+<h3>Desafio 2 — O cartão incompleto</h3>
+<blockquote>
+<p>Um cartão de retorno diz: “Em uma malha, contei todos os caminhos mais curtos, mas minha resposta ficou grande demais porque havia um ponto que não podia ser usado.” Qual é a ideia mais provável que falta ao cartão? Escreva-a como uma instrução matemática, não apenas como o nome de um assunto.</p>
+</blockquote>
+<h3>Desafio 3 — A nova versão</h3>
+<blockquote>
+<p>Um retângulo de 12 cm por 8 cm tem um quadrado de 4 cm de lado retirado de um canto. Crie uma variação desse problema que exija a mesma ideia, mas não use os números 12, 8 ou 4. Depois resolva a sua própria variação.</p>
+</blockquote>
+<h3>Desafio 4 — As três tentativas</h3>
+<blockquote>
+<p>Em um mini-simulado, três estudantes acertaram uma questão. Ana usou uma tabela e justificou todos os casos. Bruno testou valores até encontrar a resposta, mas não explicou por que não havia outras. Caio copiou uma conta correta, mas não sabe dizer o que ela representa. Coloque as três tentativas em ordem de maior para menor evidência de aprendizagem e justifique.</p>
+</blockquote>
+<h3>Desafio 5 — O próximo alvo</h3>
+<blockquote>
+<p>Leia os registros abaixo e escolha uma única prioridade principal para o próximo ciclo de Felipe.</p>
+<ul>
+<li>Em dois problemas, ele encontrou a conta certa, mas respondeu uma grandeza diferente da pedida.</li>
+<li>Em um problema de lógica, ele fez uma tabela útil e esqueceu de analisar o último caso.</li>
+<li>Em uma questão de MMC, ele reconheceu o reencontro sozinho e explicou bem.</li>
+</ul>
+<p>Escreva: prioridade, dois treinos pequenos e uma evidência que mostraria avanço.</p>
+</blockquote>
+<h3>Pistas de correção</h3>
+<ol>
+<li>O primeiro desafio pede MMC de 4, 6 e 9: <code>36</code> dias.</li>
+<li>A ideia do segundo desafio é separar os caminhos em total e proibidos, contando os que passam pelo ponto e subtraindo-os do total.</li>
+<li>A variação do terceiro desafio pode mudar medidas e posição do recorte, mas precisa conservar a lógica “área total menos área retirada”.</li>
+<li>A ordem do quarto desafio é Ana, Bruno, Caio. Bruno tem uma descoberta, mas falta justificar a completude; Caio ainda não apropriou a ideia.</li>
+<li>No quinto desafio, uma prioridade forte é ler o pedido e conferir a grandeza/unidade antes do fecho. A resposta deve apresentar treinos concretos e uma evidência verificável.</li>
+</ol>
+<hr>
+<h2>13. A Mochila depois do ciclo</h2>
+<p>Entre um simulado e outro, a Mochila não fica mais pesada porque ganhou muitos papéis. Ela fica mais fácil de abrir porque algumas ferramentas passaram por três provas: foram entendidas, reconstruídas e transferidas.</p>
+<p>As ferramentas organizadas neste capítulo são:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Ferramenta</th>
+<th>Movimento que ela protege</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">107</td>
+<td>Escolher poucos alvos principais por ciclo.</td>
+</tr>
+<tr>
+<td style="text-align: right;">108</td>
+<td>Equilibrar revisão, problemas-alvo, escrita e mini-simulados.</td>
+</tr>
+<tr>
+<td style="text-align: right;">109</td>
+<td>Usar o caderno de erros como ferramenta de crescimento, não como castigo.</td>
+</tr>
+<tr>
+<td style="text-align: right;">110</td>
+<td>Registrar erro com categoria, causa, ferramenta adequada e próximo treino.</td>
+</tr>
+<tr>
+<td style="text-align: right;">111</td>
+<td>Distinguir repetir de refazer.</td>
+</tr>
+<tr>
+<td style="text-align: right;">112</td>
+<td>Fazer repetição inteligente: entender, reconstruir e transferir.</td>
+</tr>
+<tr>
+<td style="text-align: right;">113</td>
+<td>Revisar em camadas: ideia essencial, problema típico e problema misto.</td>
+</tr>
+<tr>
+<td style="text-align: right;">114</td>
+<td>Medir evolução por sinais concretos, não apenas pela nota.</td>
+</tr>
+<tr>
+<td style="text-align: right;">115</td>
+<td>Manter constância com um plano possível e ajustável.</td>
+</tr>
+</tbody>
+</table>
+<p>O próximo simulado não será uma sentença sobre o ciclo. Ele será a próxima fotografia da rota. Algumas coisas estarão mais firmes; outras pedirão novo retorno. Isso é exatamente o que um treino vivo deve revelar.</p>
+<blockquote>
+<p><strong>Pergunta para amanhã</strong><br>
+Quando chegar outra prova inteira, como transformar o que foi treinado em decisões claras, mesmo quando uma questão tenta assustar?</p>
+</blockquote>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap13.html" class="nav-prev">← Cap. 13</a>
+      <a href="cap15.html" class="nav-next">Cap. 15 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(14);</script>
+</body>
+</html>

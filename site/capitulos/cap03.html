@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 3 — Quando sobra, nasce uma ideia | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-bronze">Nível Bronze</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link sidebar-active" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 3</span>
+        <h1 class="cap-title">Quando sobra, nasce uma ideia</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Depois do mundo dos números</h2>
+<p>Na sala anterior da Academia do Raciocínio, Felipe descobriu que número não é só quantidade.</p>
+<p>Número tem estrutura.</p>
+<p>O número 24, por exemplo, podia ser visto como:</p>
+<ul>
+<li>1 grupo de 24;</li>
+<li>2 grupos de 12;</li>
+<li>3 grupos de 8;</li>
+<li>4 grupos de 6;</li>
+<li>6 grupos de 4;</li>
+<li>8 grupos de 3;</li>
+<li>12 grupos de 2;</li>
+<li>24 grupos de 1.</li>
+</ul>
+<p>Cada divisão perfeita revelava uma porta.</p>
+<p>Mas o professor da Academia não parou diante das divisões perfeitas. Ele escreveu no quadro:</p>
+<blockquote>
+<p>25 dividido por 4</p>
+</blockquote>
+<p>Felipe pensou rapidamente.</p>
+<p>Quatro cabe seis vezes em 25, porque 4 × 6 = 24.</p>
+<p>Mas sobra 1.</p>
+<p>O professor sorriu.</p>
+<p>— E essa sobra? Ela é um erro?</p>
+<p>Felipe respondeu:</p>
+<p>— Não. Ela está dizendo que a divisão quase encaixou, mas não encaixou completamente.</p>
+<p>— Exatamente. Hoje vamos aprender uma das ideias mais importantes da matemática olímpica: quando sobra, nasce uma informação.</p>
+<p>A coruja da Academia, empoleirada perto do relógio, completou:</p>
+<blockquote>
+<p>Quem ignora a sobra perde metade do problema.</p>
+</blockquote>
+<hr>
+<h2>2. A sobra não é fracasso</h2>
+<p>Na escola, às vezes a sobra aparece como algo que atrapalha.</p>
+<p>Mas em problemas olímpicos, a sobra muitas vezes é a pista principal.</p>
+<p>Veja a divisão:</p>
+<blockquote>
+<p>25 = 4 × 6 + 1</p>
+</blockquote>
+<p>Isso quer dizer:</p>
+<ul>
+<li>25 contém 6 grupos completos de 4;</li>
+<li>depois desses grupos, sobra 1.</li>
+</ul>
+<p>A sobra não está fora da matemática. Ela faz parte da descrição do número.</p>
+<p>Agora compare:</p>
+<blockquote>
+<p>26 = 4 × 6 + 2<br>
+27 = 4 × 6 + 3<br>
+28 = 4 × 7 + 0</p>
+</blockquote>
+<p>Quando dividimos por 4, as sobras possíveis são apenas:</p>
+<blockquote>
+<p>0, 1, 2 ou 3.</p>
+</blockquote>
+<p>Não pode sobrar 4, porque se sobrassem 4 unidades, elas formariam mais um grupo completo de 4.</p>
+<p>Essa é uma das primeiras ideias importantes da sala dos restos:</p>
+<blockquote>
+<p>Ao dividir por um número, a sobra sempre é menor que ele.</p>
+</blockquote>
+<p>Se dividimos por 7, as sobras possíveis são 0, 1, 2, 3, 4, 5 e 6.</p>
+<p>Se dividimos por 10, as sobras possíveis são 0 até 9.</p>
+<p>Se dividimos por 2, as sobras possíveis são só 0 e 1.</p>
+<p>E é por isso que todo número inteiro é par ou ímpar.</p>
+<ul>
+<li>Resto 0 na divisão por 2: número par.</li>
+<li>Resto 1 na divisão por 2: número ímpar.</li>
+</ul>
+<p>A paridade, que parece uma ideia simples, é na verdade a primeira porta dos restos.</p>
+<hr>
+<h2>3. O nome vem depois</h2>
+<p>O professor escreveu:</p>
+<blockquote>
+<p>37 = 5 × 7 + 2</p>
+</blockquote>
+<p>Depois perguntou:</p>
+<p>— O que essa frase diz sobre 37?</p>
+<p>Felipe respondeu:</p>
+<p>— Que 37 dividido por 5 dá 7 grupos completos e sobra 2.</p>
+<p>— Perfeito. Agora podemos dar nome à ideia.</p>
+<p>Quando dizemos que <strong>37 deixa resto 2 na divisão por 5</strong>, estamos dizendo que 37 está 2 passos depois de um múltiplo de 5.</p>
+<p>Os múltiplos de 5 são:</p>
+<blockquote>
+<p>0, 5, 10, 15, 20, 25, 30, 35, 40...</p>
+</blockquote>
+<p>O 37 fica dois passos depois do 35.</p>
+<p>Então a sobra não é uma peça solta. Ela mostra onde o número está em relação à trilha dos múltiplos.</p>
+<p>A Academia registrou na parede:</p>
+<blockquote>
+<p>Resto é posição depois da última volta completa.</p>
+</blockquote>
+<p>Essa frase será mais útil do que parece.</p>
+<hr>
+<h2>4. A trilha dos restos</h2>
+<figure class="figura"><img src="../assets/figuras/C03_F01_ciclo_resto_4.svg" alt="Junto à tabela desta seção, inserir uma faixa numerada com blocos de quatro e separadores de volta completa, mostrando a sequência de restos `0, 1, 2, 3` que se repete. A faixa sustenta a ideia de ciclo, sem estender os dados além dos já mostrados." loading="lazy"><figcaption>Junto à tabela desta seção, inserir uma faixa numerada com blocos de quatro e separadores de volta completa, mostrando a sequência de restos `0, 1, 2, 3` que se repete. A faixa sustenta a ideia de ciclo, sem estender os dados além dos já mostrados.</figcaption></figure>
+
+<p>Felipe caminhou até uma faixa desenhada no chão da sala.</p>
+<p>A faixa tinha marcas de 0 a 20. O professor pediu:</p>
+<p>— Caminhe pela trilha dos números e observe os restos quando dividimos por 4.</p>
+<p>Felipe começou:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Número</th>
+<th style="text-align: right;">Resto na divisão por 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p>A sequência de restos ficou assim:</p>
+<blockquote>
+<p>0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3...</p>
+</blockquote>
+<p>Felipe percebeu rapidamente:</p>
+<p>— Os restos se repetem!</p>
+<p>— Sim — disse o professor. — Quando dividimos por 4, os restos andam em ciclos de 4.</p>
+<p>A palavra <strong>ciclo</strong> apareceu pela primeira vez com força.</p>
+<p>Um ciclo é uma repetição organizada.</p>
+<p>Não é uma repetição bagunçada. É uma volta que retorna ao começo.</p>
+<p>Na divisão por 4, o ciclo dos restos é:</p>
+<blockquote>
+<p>0, 1, 2, 3</p>
+</blockquote>
+<p>Depois volta ao 0.</p>
+<p>Na divisão por 5, o ciclo é:</p>
+<blockquote>
+<p>0, 1, 2, 3, 4</p>
+</blockquote>
+<p>Depois volta ao 0.</p>
+<p>Na divisão por 7, o ciclo é:</p>
+<blockquote>
+<p>0, 1, 2, 3, 4, 5, 6</p>
+</blockquote>
+<p>Depois volta ao 0.</p>
+<p>A coruja bateu as asas e disse:</p>
+<blockquote>
+<p>Um ciclo é uma escada circular: você sobe, sobe, sobe... e volta ao começo.</p>
+</blockquote>
+<hr>
+<h2>5. O relógio que nunca se perde</h2>
+<figure class="figura"><img src="../assets/figuras/C03_F02_relogio_37_horas.svg" alt="No ponto da decomposição de 37 horas, inserir um relógio de 12 horas com a partida às 3 horas, três voltas completas visualmente apagadas e somente o salto final de 1 hora até 4 horas destacado. A figura não deve ser deslocada para o fim do capítulo." loading="lazy"><figcaption>No ponto da decomposição de 37 horas, inserir um relógio de 12 horas com a partida às 3 horas, três voltas completas visualmente apagadas e somente o salto final de 1 hora até 4 horas destacado. A figura não deve ser deslocada para o fim do capítulo.</figcaption></figure>
+
+<p>O professor apontou para o relógio da Academia.</p>
+<p>— O relógio é uma máquina de restos.</p>
+<p>Felipe estranhou.</p>
+<p>— Como assim?</p>
+<p>— Pense no relógio de 12 horas. Se agora são 3 horas, que horas serão daqui a 5 horas?</p>
+<p>Felipe contou:</p>
+<p>4, 5, 6, 7, 8.</p>
+<p>— 8 horas.</p>
+<p>— E daqui a 12 horas?</p>
+<p>— 3 horas de novo.</p>
+<p>— E daqui a 24 horas?</p>
+<p>— 3 horas de novo.</p>
+<p>— E daqui a 37 horas?</p>
+<p>Felipe começou a contar, mas o professor interrompeu:</p>
+<p>— Não conte tudo. Procure as voltas completas.</p>
+<p>37 horas têm 3 voltas completas de 12 horas:</p>
+<blockquote>
+<p>12 × 3 = 36</p>
+</blockquote>
+<p>Depois de 36 horas, o relógio volta ao mesmo lugar.</p>
+<p>Sobra 1 hora.</p>
+<p>Então, saindo de 3 horas:</p>
+<blockquote>
+<p>3 + 1 = 4</p>
+</blockquote>
+<p>Daqui a 37 horas serão 4 horas.</p>
+<p>A conta escondida foi:</p>
+<blockquote>
+<p>37 deixa resto 1 na divisão por 12.</p>
+</blockquote>
+<p>O relógio ensinou uma ferramenta da Mochila:</p>
+<blockquote>
+<p>Para ciclos grandes, elimine as voltas completas.</p>
+</blockquote>
+<p>Não é preciso carregar 37 passos se 36 deles apenas dão voltas inteiras.</p>
+<hr>
+<h2>6. O calendário também é um relógio</h2>
+<figure class="figura"><img src="../assets/figuras/C03_F03_semana_resto_3.svg" alt="Junto ao exemplo semanal, inserir uma faixa ou roda de sete dias, sem datas reais, que mostre a volta completa e o deslocamento de três dias a partir de terça-feira. O resto deve permanecer como a informação que decide a chegada." loading="lazy"><figcaption>Junto ao exemplo semanal, inserir uma faixa ou roda de sete dias, sem datas reais, que mostre a volta completa e o deslocamento de três dias a partir de terça-feira. O resto deve permanecer como a informação que decide a chegada.</figcaption></figure>
+
+<p>A sala seguinte tinha um calendário desenhado na parede.</p>
+<p>O professor perguntou:</p>
+<p>— Se hoje é terça-feira, que dia da semana será daqui a 10 dias?</p>
+<p>Felipe contou:</p>
+<p>Quarta, quinta, sexta, sábado, domingo, segunda, terça, quarta, quinta, sexta.</p>
+<p>— Sexta-feira.</p>
+<p>— Certo. Agora faça sem contar todos os dias.</p>
+<p>A semana tem 7 dias.</p>
+<p>Em 10 dias, há uma volta completa de 7 dias e sobram 3 dias.</p>
+<blockquote>
+<p>10 = 7 × 1 + 3</p>
+</blockquote>
+<p>Então, a partir de terça-feira, avançamos só 3 dias:</p>
+<ul>
+<li>quarta;</li>
+<li>quinta;</li>
+<li>sexta.</li>
+</ul>
+<p>O mesmo resultado.</p>
+<p>Agora o professor mudou a pergunta:</p>
+<p>— Se o dia 1 de um mês foi terça-feira, que dia da semana foi o dia 100 desse mesmo calendário imaginário?</p>
+<p>Felipe quase começou a contar 100 dias.</p>
+<p>Mas parou.</p>
+<p>— Do dia 1 até o dia 100 passam 99 avanços.</p>
+<p>— Muito bem. Essa é a primeira armadilha: do dia 1 ao dia 100 não são 100 pulos. São 99.</p>
+<p>Agora bastava dividir 99 por 7:</p>
+<blockquote>
+<p>99 = 7 × 14 + 1</p>
+</blockquote>
+<p>Sobra 1.</p>
+<p>Então o dia 100 foi um dia depois de terça-feira:</p>
+<blockquote>
+<p>quarta-feira.</p>
+</blockquote>
+<p>A Academia registrou outra frase:</p>
+<blockquote>
+<p>Em problemas de calendário, cuidado com o ponto de partida.</p>
+</blockquote>
+<p>Nem sempre o número escrito no enunciado é o número de passos.</p>
+<hr>
+<h2>7. A informação essencial</h2>
+<p>Nem todo problema de restos parece falar de restos.</p>
+<p>O professor escreveu:</p>
+<blockquote>
+<p>Uma lâmpada pisca a cada 6 segundos. Se ela pisca agora, em que estado estará depois de 125 segundos?</p>
+</blockquote>
+<p>Felipe começou a imaginar a lâmpada acendendo e apagando.</p>
+<p>O professor explicou:</p>
+<p>— Antes de pensar no objeto, descubra o ciclo.</p>
+<p>Se a lâmpada repete seu comportamento a cada 6 segundos, então 6 segundos formam uma volta completa.</p>
+<p>Agora calculamos:</p>
+<blockquote>
+<p>125 = 6 × 20 + 5</p>
+</blockquote>
+<p>Depois de 120 segundos, a lâmpada está no mesmo ponto do ciclo em que começou.</p>
+<p>Depois sobram 5 segundos.</p>
+<p>O problema real não é sobre 125.</p>
+<p>É sobre 5.</p>
+<p>Essa é uma ideia poderosa:</p>
+<blockquote>
+<p>Em ciclos, o resto costuma ser a informação essencial.</p>
+</blockquote>
+<p>Se uma sequência se repete a cada 4 termos, o termo de posição 1000 depende do resto de 1000 na divisão por 4.</p>
+<p>Se uma cor se repete a cada 5 passos, o passo 203 depende do resto de 203 na divisão por 5.</p>
+<p>Se uma máquina volta ao estado inicial a cada 9 movimentos, o movimento 100 depende do resto de 100 na divisão por 9.</p>
+<p>O número grande assusta.</p>
+<p>O resto organiza.</p>
+<hr>
+<h2>8. Padrões que andam em círculo</h2>
+<p>O professor colocou uma faixa de cores no quadro:</p>
+<blockquote>
+<p>azul, verde, amarelo, azul, verde, amarelo, azul, verde, amarelo...</p>
+</blockquote>
+<p>— Qual será a cor da posição 20?</p>
+<p>Felipe viu que o ciclo tinha 3 cores.</p>
+<p>Mas apareceu uma nova dúvida:</p>
+<p>Se a posição 1 é azul, como usar o resto?</p>
+<p>Ele fez uma pequena tabela:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Posição</th>
+<th>Cor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>azul</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>verde</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>amarelo</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>azul</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>verde</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>amarelo</td>
+</tr>
+</tbody>
+</table>
+<p>As posições que deixam resto 1 na divisão por 3 são azul:</p>
+<blockquote>
+<p>1, 4, 7, 10...</p>
+</blockquote>
+<p>As posições que deixam resto 2 são verde:</p>
+<blockquote>
+<p>2, 5, 8, 11...</p>
+</blockquote>
+<p>As posições que deixam resto 0 são amarelo:</p>
+<blockquote>
+<p>3, 6, 9, 12...</p>
+</blockquote>
+<p>Agora:</p>
+<blockquote>
+<p>20 = 3 × 6 + 2</p>
+</blockquote>
+<p>Resto 2.</p>
+<p>Logo, a cor da posição 20 é verde.</p>
+<p>O professor apontou o cuidado principal:</p>
+<p>— Quando o ciclo começa na posição 1, o resto 0 costuma corresponder ao último elemento do ciclo.</p>
+<p>Isso evita muitos erros.</p>
+<p>A Academia anotou:</p>
+<blockquote>
+<p>Resto 0 não significa “nada”. Em ciclos de posições, muitas vezes significa “fim da volta”.</p>
+</blockquote>
+<hr>
+<h2>9. Quando o último algarismo conta a história</h2>
+<p>Na sala dos números, Felipe tinha aprendido que alguns sinais revelam muito.</p>
+<p>Agora o professor escreveu uma pergunta:</p>
+<blockquote>
+<p>Qual é o último algarismo de 7²⁰²⁶?</p>
+</blockquote>
+<p>Felipe arregalou os olhos.</p>
+<p>— Não dá para calcular isso inteiro.</p>
+<p>— Ainda bem — disse o professor. — Problema olímpico bom não quer que você faça força sem pensar.</p>
+<p>Vamos observar os últimos algarismos das potências de 7:</p>
+<blockquote>
+<p>7¹ termina em 7<br>
+7² = 49 termina em 9<br>
+7³ = 343 termina em 3<br>
+7⁴ = 2401 termina em 1<br>
+7⁵ termina em 7 de novo</p>
+</blockquote>
+<p>O ciclo dos últimos algarismos é:</p>
+<blockquote>
+<p>7, 9, 3, 1</p>
+</blockquote>
+<p>Esse ciclo tem comprimento 4.</p>
+<p>Agora basta observar a posição 2026 dentro desse ciclo.</p>
+<blockquote>
+<p>2026 = 4 × 506 + 2</p>
+</blockquote>
+<p>Resto 2.</p>
+<p>A segunda posição do ciclo é 9.</p>
+<p>Logo, o último algarismo de 7²⁰²⁶ é:</p>
+<blockquote>
+<p>9</p>
+</blockquote>
+<p>Felipe percebeu a ideia:</p>
+<p>— A potência enorme virou uma pergunta de ciclo.</p>
+<p>— Exatamente. O problema parecia pedir cálculo gigante, mas pedia observação de restos.</p>
+<p>A coruja completou:</p>
+<blockquote>
+<p>Quando o número é grande demais, talvez ele esteja pedindo um ciclo, não uma conta.</p>
+</blockquote>
+<hr>
+<h2>10. Prever sem calcular tudo</h2>
+<p>O professor propôs outro desafio:</p>
+<blockquote>
+<p>Uma sequência começa assim: 2, 5, 8, 11, 14, 17... Qual é o resto do 100º termo na divisão por 3?</p>
+</blockquote>
+<p>Felipe percebeu que a sequência aumenta de 3 em 3.</p>
+<p>Todos os termos deixam o mesmo resto quando divididos por 3.</p>
+<p>Como o primeiro termo é 2, todos os termos deixam resto 2 na divisão por 3.</p>
+<p>Não foi preciso encontrar o 100º termo.</p>
+<p>A resposta é:</p>
+<blockquote>
+<p>resto 2.</p>
+</blockquote>
+<p>O professor explicou:</p>
+<p>— Quando acrescentamos 3 a um número, o resto na divisão por 3 não muda.</p>
+<p>Exemplos:</p>
+<blockquote>
+<p>2 deixa resto 2<br>
+5 deixa resto 2<br>
+8 deixa resto 2<br>
+11 deixa resto 2</p>
+</blockquote>
+<p>Somar uma volta completa não muda a posição no ciclo.</p>
+<p>Essa ideia aparecerá muitas vezes em problemas de Olimpíada.</p>
+<p>Se somamos 7 em 7, o dia da semana não muda.</p>
+<p>Se somamos 10 em 10, o último algarismo não muda.</p>
+<p>Se somamos 4 em 4, o resto por 4 não muda.</p>
+<p>A volta completa muda o tamanho do número, mas não muda sua posição no ciclo.</p>
+<hr>
+<h2>11. Quando a sobra prova impossibilidade</h2>
+<p>Às vezes o resto não serve para encontrar uma resposta.</p>
+<p>Serve para mostrar que uma resposta não pode existir.</p>
+<p>O professor escreveu:</p>
+<blockquote>
+<p>É possível um número deixar resto 5 na divisão por 4?</p>
+</blockquote>
+<p>Felipe respondeu sem hesitar:</p>
+<p>— Não. Na divisão por 4, os restos possíveis são 0, 1, 2 e 3.</p>
+<p>— Ótimo. Agora um pouco mais difícil.</p>
+<blockquote>
+<p>É possível dividir 29 medalhas em grupos de 6 e sobrarem exatamente 8 medalhas?</p>
+</blockquote>
+<p>Felipe pensou.</p>
+<p>Se sobrassem 8 medalhas, daria para formar mais um grupo de 6 e ainda sobrariam 2.</p>
+<p>Então a sobra 8 não é uma sobra final.</p>
+<p>Logo, não é possível.</p>
+<p>A Academia registrou:</p>
+<blockquote>
+<p>Uma sobra grande demais denuncia que a divisão ainda não terminou.</p>
+</blockquote>
+<p>Agora o professor trouxe um problema com aparência diferente:</p>
+<blockquote>
+<p>Um número é par. É possível que ele deixe resto 1 na divisão por 2?</p>
+</blockquote>
+<p>Não.</p>
+<p>Ser par é exatamente deixar resto 0 na divisão por 2.</p>
+<p>E um número ímpar deixa resto 1.</p>
+<p>Restos ajudam a separar possibilidades.</p>
+<p>Em muitos problemas, a pergunta escondida não é “quanto vale?”, mas:</p>
+<blockquote>
+<p>isso é possível?</p>
+</blockquote>
+<p>E restos são excelentes para responder impossibilidades.</p>
+<hr>
+<h2>12. O efeito dominó</h2>
+<p>O professor colocou 30 fichas em fila.</p>
+<p>Depois pintou as fichas seguindo um ciclo:</p>
+<blockquote>
+<p>vermelho, vermelho, azul, vermelho, vermelho, azul...</p>
+</blockquote>
+<p>— Qual é a cor da ficha 28?</p>
+<p>O ciclo tem 3 posições:</p>
+<ol>
+<li>vermelho;</li>
+<li>vermelho;</li>
+<li>azul.</li>
+</ol>
+<p>Agora:</p>
+<blockquote>
+<p>28 = 3 × 9 + 1</p>
+</blockquote>
+<p>Resto 1.</p>
+<p>Logo, a ficha 28 é vermelha.</p>
+<p>Mas o professor mudou o desafio:</p>
+<p>— E se eu empurrar uma ficha e cada ficha empurrar a próxima seguindo esse padrão de cores, quando aparecerá a próxima azul depois da ficha 28?</p>
+<p>Felipe viu que as fichas azuis aparecem nas posições múltiplas de 3:</p>
+<blockquote>
+<p>3, 6, 9, 12, ..., 27, 30</p>
+</blockquote>
+<p>A ficha 28 é vermelha.</p>
+<p>A próxima azul é a ficha 30.</p>
+<p>O professor explicou:</p>
+<p>— O ciclo não serve apenas para descobrir uma posição. Ele também ajuda a prever o que vem antes e depois.</p>
+<p>Isso é o efeito dominó dos restos.</p>
+<p>Quando sabemos a posição de um número no ciclo, sabemos também como ele se moverá ao somar 1, 2, 3 ou uma volta completa.</p>
+<p>Se um número deixa resto 1 na divisão por 3:</p>
+<ul>
+<li>o próximo deixa resto 2;</li>
+<li>o seguinte deixa resto 0;</li>
+<li>o próximo volta a resto 1.</li>
+</ul>
+<p>Restos não são fotografias isoladas.</p>
+<p>São movimento.</p>
+<hr>
+<h2>13. Duas trilhas ao mesmo tempo</h2>
+<p>Na última parte da sala, havia duas luzes.</p>
+<p>Uma luz azul piscava a cada 4 segundos.</p>
+<p>Uma luz dourada piscava a cada 6 segundos.</p>
+<p>As duas piscavam juntas no instante inicial.</p>
+<p>O professor perguntou:</p>
+<p>— Quando elas piscarão juntas novamente?</p>
+<p>Felipe listou as piscadas da luz azul:</p>
+<blockquote>
+<p>4, 8, 12, 16, 20, 24...</p>
+</blockquote>
+<p>Depois listou as piscadas da luz dourada:</p>
+<blockquote>
+<p>6, 12, 18, 24...</p>
+</blockquote>
+<p>O primeiro encontro depois do início é:</p>
+<blockquote>
+<p>12 segundos.</p>
+</blockquote>
+<p>O professor não usou ainda a palavra formal.</p>
+<p>Mas Felipe percebeu a ideia:</p>
+<p>— Estamos procurando o primeiro número que aparece nas duas trilhas.</p>
+<p>— Exatamente.</p>
+<p>A luz azul tem ciclo de 4.</p>
+<p>A luz dourada tem ciclo de 6.</p>
+<p>O reencontro acontece quando as duas completam um número inteiro de voltas ao mesmo tempo.</p>
+<p>A coruja girou a cabeça:</p>
+<blockquote>
+<p>Um ciclo sozinho pede restos. Dois ciclos juntos pedem encontros.</p>
+</blockquote>
+<p>Essa frase abre a porta do próximo capítulo.</p>
+<hr>
+<h2>14. A ponte para MDC e MMC</h2>
+<p>O professor desenhou duas portas na parede.</p>
+<p>Na primeira, escreveu:</p>
+<blockquote>
+<p>dividir sem sobrar</p>
+</blockquote>
+<p>Na segunda, escreveu:</p>
+<blockquote>
+<p>reencontrar ciclos</p>
+</blockquote>
+<p>Depois perguntou:</p>
+<p>— Essas portas são iguais?</p>
+<p>Felipe pensou.</p>
+<p>Dividir sem sobrar lembra divisores.</p>
+<p>Reencontrar ciclos lembra múltiplos.</p>
+<p>— Não são iguais — respondeu.</p>
+<p>— Muito bem. O próximo capítulo vai estudar essas duas portas com mais profundidade.</p>
+<p>Quando um problema pergunta por grupos iguais, cortes, caixas, kits ou pedaços sem sobra, ele costuma estar olhando para divisores comuns.</p>
+<p>Quando um problema pergunta por sinos, luzes, horários, passos, calendários ou eventos que voltam a acontecer juntos, ele costuma estar olhando para múltiplos comuns.</p>
+<p>O capítulo de hoje não precisa formalizar tudo isso.</p>
+<p>Ele só precisa deixar uma pergunta acesa:</p>
+<blockquote>
+<p>Quando dois ciclos se encontram, existe um jeito inteligente de descobrir o primeiro encontro?</p>
+</blockquote>
+<p>Essa pergunta será respondida na próxima sala.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>15. Problema em estilo OBMEP — O treino das lanternas</h2>
+<p>Na Academia do Raciocínio, uma lanterna azul pisca a cada 5 segundos e uma lanterna verde pisca a cada 8 segundos. As duas piscam juntas no instante inicial.</p>
+<p><strong>Pergunta:</strong> depois de quantos segundos elas piscarão juntas novamente pela primeira vez?</p>
+<h3>Primeira jogada</h3>
+<p>O problema fala de dois ciclos.</p>
+<p>A lanterna azul repete a cada 5 segundos.</p>
+<p>A lanterna verde repete a cada 8 segundos.</p>
+<p>Queremos o primeiro reencontro.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução</h3>
+<p>Piscadas da lanterna azul:</p>
+<blockquote>
+<p>5, 10, 15, 20, 25, 30, 35, 40...</p>
+</blockquote>
+<p>Piscadas da lanterna verde:</p>
+<blockquote>
+<p>8, 16, 24, 32, 40...</p>
+</blockquote>
+<p>O primeiro número que aparece nas duas listas é 40.</p>
+<p>Logo, elas piscam juntas novamente depois de:</p>
+<blockquote>
+<p>40 segundos.</p>
+</blockquote>
+</div></details>
+<h3>O que esse problema ensina</h3>
+<p>Não era um problema de somar 5 + 8.</p>
+<p>Também não era um problema de escolher a lanterna mais rápida.</p>
+<p>Era um problema de reencontro de ciclos.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>16. Problema em estilo OBMEP — A sequência das pulseiras</h2>
+<p>As pulseiras da Academia seguem este padrão de cores:</p>
+<blockquote>
+<p>dourada, prata, bronze, bronze, dourada, prata, bronze, bronze...</p>
+</blockquote>
+<p>O padrão se repete sempre nessa ordem.</p>
+<p><strong>Pergunta:</strong> qual é a cor da 2026ª pulseira?</p>
+<h3>Primeira jogada</h3>
+<p>O ciclo tem 4 posições:</p>
+<ol>
+<li>dourada;</li>
+<li>prata;</li>
+<li>bronze;</li>
+<li>bronze.</li>
+</ol>
+<p>Precisamos descobrir a posição 2026 dentro de um ciclo de 4.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução</h3>
+<p>Dividimos 2026 por 4:</p>
+<blockquote>
+<p>2026 = 4 × 506 + 2</p>
+</blockquote>
+<p>O resto é 2.</p>
+<p>A posição 2 do ciclo é prata.</p>
+<p>Logo, a 2026ª pulseira é:</p>
+<blockquote>
+<p>prata.</p>
+</blockquote>
+</div></details>
+<h3>Cuidado importante</h3>
+<p>Se o resto fosse 0, a resposta seria a 4ª posição do ciclo, isto é, bronze.</p>
+<p>Resto 0 não significa “sem cor”.</p>
+<p>Significa fim da volta.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>17. Problema em estilo OBMEP — O número da sala secreta</h2>
+<p>Um número entre 30 e 60, inclusive, deixa resto 2 quando dividido por 7.</p>
+<p>Além disso, esse número é par.</p>
+<p><strong>Pergunta:</strong> qual é o menor número que pode ser o número da sala secreta?</p>
+<h3>Primeira jogada</h3>
+<p>O número precisa estar 2 passos depois de um múltiplo de 7.</p>
+<p>Vamos listar os números entre 30 e 60 com resto 2 na divisão por 7.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução</h3>
+<p>Múltiplos de 7 próximos:</p>
+<blockquote>
+<p>28, 35, 42, 49, 56</p>
+</blockquote>
+<p>Dois passos depois deles:</p>
+<blockquote>
+<p>30, 37, 44, 51, 58</p>
+</blockquote>
+<p>Agora aplicamos a segunda condição: o número deve ser par.</p>
+<p>Entre esses números, os pares são:</p>
+<blockquote>
+<p>30, 44, 58</p>
+</blockquote>
+<p>O menor é:</p>
+<blockquote>
+<p>30</p>
+</blockquote>
+</div></details>
+<h3>O que esse problema ensina</h3>
+<p>A primeira condição criou uma trilha.</p>
+<p>A segunda condição filtrou a trilha.</p>
+<p>Em problemas olímpicos, muitas respostas aparecem assim: primeiro encontramos candidatos; depois eliminamos os que não servem.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>18. Problema em estilo OBMEP — A porta que não abre</h2>
+<p>Uma porta da Academia só abre com um número que deixa resto 4 na divisão por 6 e resto 1 na divisão por 2.</p>
+<p><strong>Pergunta:</strong> existe algum número que abra essa porta?</p>
+<h3>Primeira jogada</h3>
+<p>A condição “resto 4 na divisão por 6” diz que o número tem a forma:</p>
+<blockquote>
+<p>6 × algum número + 4</p>
+</blockquote>
+<p>Alguns exemplos são:</p>
+<blockquote>
+<p>4, 10, 16, 22, 28, 34...</p>
+</blockquote>
+<p>Todos esses números são pares.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução</h3>
+<p>Se um número deixa resto 4 na divisão por 6, ele é 4 a mais que um múltiplo de 6.</p>
+<p>Todo múltiplo de 6 é par.</p>
+<p>Somar 4 mantém o número par.</p>
+<p>Então todo número que deixa resto 4 na divisão por 6 é par.</p>
+<p>Mas um número que deixa resto 1 na divisão por 2 é ímpar.</p>
+<p>Um número não pode ser par e ímpar ao mesmo tempo.</p>
+<p>Logo:</p>
+<blockquote>
+<p>não existe número que abra essa porta.</p>
+</blockquote>
+</div></details>
+<h3>O que esse problema ensina</h3>
+<p>Restos podem provar impossibilidade.</p>
+<p>Às vezes a resposta correta não é um número, mas uma justificativa de que nenhum número serve.</p>
+<hr>
+<h2><span class="badge-oficina">Oficina</span>19. Oficina Olímpica 2 — Restos e ciclos</h2>
+<p>Esta oficina não é uma lista para correr.</p>
+<p>Ela é um treino de olhar.</p>
+<p>Antes de ler cada solução, tente identificar:</p>
+<ul>
+<li>qual é o ciclo;</li>
+<li>qual é a volta completa;</li>
+<li>qual é o resto;</li>
+<li>se a pergunta pede posição, possibilidade ou reencontro.</li>
+</ul>
+<p>Use o caderno se quiser.</p>
+<hr>
+<h3>Desafio 1 — O relógio da torre</h3>
+<p>Agora são 9 horas. Que hora marcará o relógio daqui a 50 horas?</p>
+<p><strong>Solução comentada</strong></p>
+<p>O relógio de 12 horas repete a cada 12 horas.</p>
+<blockquote>
+<p>50 = 12 × 4 + 2</p>
+</blockquote>
+<p>Depois de 48 horas, o relógio volta ao mesmo horário.</p>
+<p>Sobram 2 horas.</p>
+<p>Saindo de 9 horas:</p>
+<blockquote>
+<p>9 + 2 = 11</p>
+</blockquote>
+<p>Resposta:</p>
+<blockquote>
+<p>11 horas.</p>
+</blockquote>
+<hr>
+<h3>Desafio 2 — As fitas coloridas</h3>
+<p>Uma sequência de fitas segue o padrão:</p>
+<blockquote>
+<p>azul, azul, verde, amarelo, azul, azul, verde, amarelo...</p>
+</blockquote>
+<p>Qual é a cor da fita de posição 99?</p>
+<p><strong>Solução comentada</strong></p>
+<p>O ciclo tem 4 posições:</p>
+<ol>
+<li>azul;</li>
+<li>azul;</li>
+<li>verde;</li>
+<li>amarelo.</li>
+</ol>
+<p>Agora:</p>
+<blockquote>
+<p>99 = 4 × 24 + 3</p>
+</blockquote>
+<p>Resto 3.</p>
+<p>A posição 3 do ciclo é verde.</p>
+<p>Resposta:</p>
+<blockquote>
+<p>verde.</p>
+</blockquote>
+<hr>
+<h3>Desafio 3 — O último algarismo</h3>
+<p>Qual é o último algarismo de 3¹⁰⁰?</p>
+<p><strong>Solução comentada</strong></p>
+<p>Vamos observar os últimos algarismos das potências de 3:</p>
+<blockquote>
+<p>3¹ termina em 3<br>
+3² termina em 9<br>
+3³ termina em 7<br>
+3⁴ termina em 1<br>
+3⁵ termina em 3 de novo</p>
+</blockquote>
+<p>O ciclo é:</p>
+<blockquote>
+<p>3, 9, 7, 1</p>
+</blockquote>
+<p>Comprimento 4.</p>
+<p>Agora:</p>
+<blockquote>
+<p>100 = 4 × 25 + 0</p>
+</blockquote>
+<p>Resto 0 significa a última posição do ciclo.</p>
+<p>A última posição é 1.</p>
+<p>Resposta:</p>
+<blockquote>
+<p>1.</p>
+</blockquote>
+<hr>
+<h3>Desafio 4 — O calendário da Academia</h3>
+<p>O dia 1 de certo mês foi sábado. Que dia da semana será o dia 31?</p>
+<p><strong>Solução comentada</strong></p>
+<p>Do dia 1 ao dia 31 passam 30 avanços.</p>
+<p>A semana tem ciclo de 7 dias.</p>
+<blockquote>
+<p>30 = 7 × 4 + 2</p>
+</blockquote>
+<p>Avançamos 2 dias a partir de sábado:</p>
+<ul>
+<li>domingo;</li>
+<li>segunda.</li>
+</ul>
+<p>Resposta:</p>
+<blockquote>
+<p>segunda-feira.</p>
+</blockquote>
+<hr>
+<h3>Desafio 5 — O número escondido</h3>
+<p>Um número entre 1 e 50 deixa resto 3 na divisão por 5 e é múltiplo de 4.</p>
+<p>Qual é o menor número possível?</p>
+<p><strong>Solução comentada</strong></p>
+<p>Números que deixam resto 3 na divisão por 5:</p>
+<blockquote>
+<p>3, 8, 13, 18, 23, 28, 33, 38, 43, 48</p>
+</blockquote>
+<p>Agora procuramos os múltiplos de 4 nessa lista:</p>
+<blockquote>
+<p>8, 28, 48</p>
+</blockquote>
+<p>O menor é:</p>
+<blockquote>
+<p>8.</p>
+</blockquote>
+<hr>
+<h3>Desafio 6 — O reencontro dos passos</h3>
+<p>Dois robôs saem juntos do mesmo ponto em uma pista circular. Um completa uma volta a cada 6 minutos. O outro completa uma volta a cada 10 minutos.</p>
+<p>Depois de quantos minutos eles estarão novamente juntos no ponto de partida pela primeira vez?</p>
+<p><strong>Solução comentada</strong></p>
+<p>O primeiro robô volta ao ponto de partida nos tempos:</p>
+<blockquote>
+<p>6, 12, 18, 24, 30...</p>
+</blockquote>
+<p>O segundo volta ao ponto de partida nos tempos:</p>
+<blockquote>
+<p>10, 20, 30...</p>
+</blockquote>
+<p>O primeiro reencontro no ponto de partida acontece em:</p>
+<blockquote>
+<p>30 minutos.</p>
+</blockquote>
+<p>Esse desafio prepara diretamente a próxima sala da Academia.</p>
+<hr>
+<h2>20. As ferramentas da Mochila nesta sala</h2>
+<p>Nesta sala, Felipe não ganhou apenas contas novas.</p>
+<p>Ganhou maneiras de enxergar ciclos.</p>
+<p>Ferramentas organizadas:</p>
+<ol>
+<li>Ver a sobra como informação, não como erro.</li>
+<li>Lembrar que o resto sempre é menor que o divisor.</li>
+<li>Reconhecer ciclos em relógios, calendários, cores, potências e sequências.</li>
+<li>Eliminar voltas completas antes de calcular.</li>
+<li>Identificar o resto como a informação essencial.</li>
+<li>Cuidar do ponto de partida em problemas de posição.</li>
+<li>Entender que resto 0 pode indicar o fim da volta.</li>
+<li>Usar restos para prever sem calcular tudo.</li>
+<li>Usar restos para provar impossibilidades.</li>
+<li>Procurar reencontros quando dois ciclos aparecem juntos.</li>
+</ol>
+<div class="ferramenta" data-num="12" id="f12"><span class="f-badge">Ferramenta 12</span><span class="f-text">Procurar ciclos</span></div>
+
+<div class="ferramenta" data-num="13" id="f13"><span class="f-badge">Ferramenta 13</span><span class="f-text">Eliminar voltas completas</span></div>
+
+<div class="ferramenta" data-num="16" id="f16"><span class="f-badge">Ferramenta 16</span><span class="f-text">Verificar a possibilidade</span></div>
+
+<div class="ferramenta" data-num="17" id="f17"><span class="f-badge">Ferramenta 17</span><span class="f-text">Identificar trilhas de restos</span></div>
+
+<div class="ferramenta" data-num="18" id="f18"><span class="f-badge">Ferramenta 18</span><span class="f-text">Encontrar coincidências de ciclos</span></div>
+
+<p>A Mochila ficou mais leve porque Felipe aprendeu uma coisa importante:</p>
+<blockquote>
+<p>números grandes não precisam ser carregados inteiros quando existe um ciclo.</p>
+</blockquote>
+<hr>
+<h2>21. Figuras aplicadas no ponto de uso</h2>
+<p>As três especificações desta sala aparecem nas seções da trilha dos restos, do relógio e do calendário. Elas sustentam ciclos e voltas completas e não formam uma galeria final.</p>
+<hr>
+<h2>22. A frase da Academia</h2>
+<blockquote>
+<p>A sobra não é o fim da conta. É o começo de uma pista.</p>
+</blockquote>
+<hr>
+<h2>23. Pergunta para amanhã</h2>
+<p>O professor fechou a sala dos restos.</p>
+<p>Mas antes de sair, apontou para as duas luzes que piscavam em ritmos diferentes.</p>
+<p>— Hoje você aprendeu a olhar ciclos. Amanhã vamos perguntar algo mais forte: quando dois ciclos se encontram, como encontrar o primeiro reencontro sem listar tudo?</p>
+<p>Felipe guardou a pergunta na Mochila.</p>
+<blockquote>
+<p>Quando dois ciclos ou dois grupos precisam encaixar ao mesmo tempo, que ferramenta encontra o encontro certo?</p>
+</blockquote>
+<p>Resposta operacional para a próxima sala:</p>
+<blockquote>
+<p>O Capítulo 4 — Quando os divisores se encontram — deve ser harmonizado como ponte natural entre divisores, múltiplos, restos, MDC e MMC.</p>
+</blockquote>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap02.html" class="nav-prev">← Cap. 2</a>
+      <a href="cap04.html" class="nav-next">Cap. 4 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(3);</script>
+</body>
+</html>

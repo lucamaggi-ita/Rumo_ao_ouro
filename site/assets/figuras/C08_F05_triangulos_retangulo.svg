@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" role="img" aria-labelledby="title desc">
+  <title id="title">Dois triângulos recompõem um retângulo</title><desc id="desc">Uso: recomposição visual sem acrescentar fórmula.</desc>
+  <rect width="1000" height="620" fill="#ffffff"/>
+  <text x="50" y="52" font-family="Arial, Helvetica, sans-serif" font-size="27" text-anchor="start" font-weight="700" fill="#18202a">Dois triângulos recompõem um retângulo</text>
+  <line x1="50" y1="72" x2="950" y2="72" stroke="#7a8a99" stroke-width="1" />
+  <polygon points="270,430 500,170 500,430" fill="#dcecf7" stroke="#18202a" stroke-width="3"/><polygon points="500,170 730,430 500,430" fill="#fff3cd" stroke="#18202a" stroke-width="3"/><text x="500" y="485" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="middle" font-weight="700" fill="#18202a">dois triângulos recompõem um retângulo</text>
+  <text x="50" y="590" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="start" font-weight="400" fill="#18202a">Uso: recomposição visual sem acrescentar fórmula.</text>
+  </svg>

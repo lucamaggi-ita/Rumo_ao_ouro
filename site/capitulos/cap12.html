@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 12 — A prova inteira | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-prata">Nível Prata</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link sidebar-active" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 12</span>
+        <h1 class="cap-title">A prova inteira</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. A sala dos simulados</h2>
+<p>Felipe chegou à sala maior da Academia. Sobre a mesa havia uma prova inteira: vários problemas, alguns curtos, outros com desenhos, outros cheios de palavras. Por um instante, tudo pareceu pedir atenção ao mesmo tempo.</p>
+<p>O Professor não entregou uma fórmula de tempo nem apontou a primeira questão.</p>
+<p>— Antes de resolver, reconheça o terreno — disse. — Uma prova não é uma lista para cumprir em ordem. É um mapa com portas de abertura diferente.</p>
+<p>Até aqui, Felipe aprendeu a escolher a primeira jogada dentro de um problema. Agora ele vai aprender a fazer isso com a prova toda diante dele.</p>
+<p>O objetivo de um simulado não é apenas descobrir quantas respostas estão certas. É treinar quatro decisões:</p>
+<ol>
+<li>por onde começar;</li>
+<li>quando insistir e quando deixar uma pista para depois;</li>
+<li>como escrever uma solução que possa ser conferida;</li>
+<li>como aprender com o que ainda não funcionou.</li>
+</ol>
+<div class="ferramenta" data-num="87" id="f87"><span class="f-badge">Ferramenta 87</span><span class="f-text">Ler a prova inteira antes de mergulhar em um problema</span></div>
+
+<blockquote>
+<p>Antes de escolher uma questão, percorra os pedidos finais. A prova inteira também é um dado: ela mostra portas de entrada, relações entre problemas e espaço para retornar.</p>
+</blockquote>
+<div class="ferramenta" data-num="88" id="f88"><span class="f-badge">Ferramenta 88</span><span class="f-text">Fazer o reconhecimento do terreno</span></div>
+
+<blockquote>
+<p>Faça uma primeira leitura para perceber pedidos, famílias de ideias e pontos de entrada. Ainda não é hora de resolver tudo.</p>
+</blockquote>
+<hr>
+<h2>2. A primeira volta: ler sem se prender</h2>
+<p>Na primeira leitura de uma prova, ninguém precisa entender cada detalhe. Basta conseguir responder a perguntas simples:</p>
+<ul>
+<li>O que cada problema pede no final?</li>
+<li>Que família de ferramenta parece estar por perto?</li>
+<li>Há uma ideia que já começa a aparecer?</li>
+<li>Existe um ponto em que eu sei o que faria primeiro?</li>
+</ul>
+<p>Essa leitura não é uma corrida nem um ritual com tempo fixo. Em uma prova real, ela pode durar pouco ou um pouco mais, conforme o tamanho dos enunciados. O importante é não transformar a primeira questão lida na questão que obrigatoriamente deve ser resolvida primeiro.</p>
+<p>Felipe criou três marcas mentais para essa primeira volta.</p>
+<table>
+<thead>
+<tr>
+<th>Marca</th>
+<th>O que ela quer dizer</th>
+<th>Ação inicial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verde</td>
+<td>Já vejo uma primeira jogada plausível.</td>
+<td>Começar por aqui.</td>
+</tr>
+<tr>
+<td>Amarela</td>
+<td>Reconheço algo, mas ainda falta organizar a ideia.</td>
+<td>Voltar depois de uma vitória verde.</td>
+</tr>
+<tr>
+<td>Vermelha</td>
+<td>Ainda não sei por onde entrar.</td>
+<td>Deixar descansar, sem apagar da prova.</td>
+</tr>
+</tbody>
+</table>
+<p>As cores não são etiquetas de inteligência nem uma tabela definitiva de dificuldade. Um problema vermelho agora pode ficar amarelo depois de outro problema lembrar uma ferramenta. Um verde pode revelar uma condição esquecida e pedir nova leitura.</p>
+<div class="ferramenta" data-num="89" id="f89"><span class="f-badge">Ferramenta 89</span><span class="f-text">Classificar problemas como verdes, amarelos ou vermelhos</span></div>
+
+<blockquote>
+<p>Use as marcas verde, amarela e vermelha como estados de trabalho, não como julgamentos. A ordem de ataque pode mudar quando uma nova ideia aparece.</p>
+</blockquote>
+<div class="ferramenta" data-num="90" id="f90"><span class="f-badge">Ferramenta 90</span><span class="f-text">Escolher a ordem de ataque</span></div>
+
+<blockquote>
+<p>Entre por uma questão que já oferece uma primeira jogada plausível, sem transformar essa escolha numa obrigação de seguir a prova em fila.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C12_F01_prova_seis_questoes.svg" alt="Página de prova com seis problemas fictícios e estados verde, amarelo e vermelho flexíveis, sem ordem obrigatória de resolução." loading="lazy"><figcaption>Página de prova com seis problemas fictícios e estados verde, amarelo e vermelho flexíveis, sem ordem obrigatória de resolução.</figcaption></figure>
+
+<hr>
+<h2>3. O primeiro ponto de apoio</h2>
+<p>Começar por uma questão verde não é fugir das difíceis. É construir um ponto de apoio.</p>
+<p>Quando uma primeira solução está bem encaminhada, três coisas melhoram:</p>
+<ol>
+<li>a atenção deixa de ficar presa no susto inicial;</li>
+<li>o caderno já recebe uma solução organizada;</li>
+<li>uma ferramenta lembrada pode ajudar em outro problema.</li>
+</ol>
+<p>Mas existe uma diferença entre insistir e explorar.</p>
+<ul>
+<li><strong>Insistir bem</strong> é testar uma representação, listar casos pequenos, organizar dados ou voltar à pergunta final.</li>
+<li><strong>Insistir mal</strong> é repetir a mesma conta sem obter informação nova.</li>
+</ul>
+<p>Se uma tentativa não abriu caminho, ela pode deixar uma pista útil: “já contei os casos que passam por P”, “a paridade parece importante”, “a área total é 96”, “esta condição elimina a última posição”. Essa pista transforma uma pausa em material para a próxima volta.</p>
+<div class="ferramenta" data-num="91" id="f91"><span class="f-badge">Ferramenta 91</span><span class="f-text">Controlar o tempo por voltas</span></div>
+
+<blockquote>
+<p>Resolva o que está vivo, registre uma pista quando travar e retorne aos problemas com olhos renovados. Uma prova se percorre mais de uma vez.</p>
+</blockquote>
+<hr>
+<h2>4. Quando uma questão trava</h2>
+<p>Todo estudante trava. O que muda é o que faz depois disso.</p>
+<p>Quando uma questão parecer fechada, a Academia sugere quatro movimentos curtos:</p>
+<ol>
+<li><strong>Volte ao alvo.</strong> O que exatamente deve ser encontrado, calculado ou provado?</li>
+<li><strong>Troque a forma.</strong> A frase vira tabela? O desenho vira passos? O número grande vira restos?</li>
+<li><strong>Faça um caso pequeno.</strong> Ele revela uma regra, uma exceção ou uma impossibilidade?</li>
+<li><strong>Deixe uma seta para depois.</strong> Anote uma observação verdadeira e siga para outra questão.</li>
+</ol>
+<p>Por exemplo, se um problema fala de caminhos e você ainda não sabe contar todos, talvez já possa escrever: “Os caminhos que passam por P podem ser contados em duas partes”. Essa frase pode ser o começo da solução quando você voltar.</p>
+<p>Pausar não é abandonar. Abandonar seria apagar a questão da prova. Pausar é preservar uma pista e escolher uma porta que está mais aberta agora.</p>
+<div class="ferramenta" data-num="92" id="f92"><span class="f-badge">Ferramenta 92</span><span class="f-text">Circular quando uma tentativa não avança</span></div>
+
+<blockquote>
+<p>Ao parar uma tentativa, deixe registrada uma observação verificável, uma representação ou uma pergunta precisa para a próxima volta.</p>
+</blockquote>
+<div class="ferramenta" data-num="93" id="f93"><span class="f-badge">Ferramenta 93</span><span class="f-text">Trocar de ferramenta quando travar</span></div>
+
+<blockquote>
+<p>Antes de voltar à mesma conta, experimente uma representação diferente, um caso pequeno, uma lista organizada ou uma pergunta mais precisa sobre o pedido.</p>
+</blockquote>
+<hr>
+<h2>5. Escrever enquanto a ideia está viva</h2>
+<p>Na Segunda Fase, uma solução não deve existir apenas na cabeça de quem a encontrou. Ela precisa chegar ao papel em uma forma que outra pessoa consiga acompanhar.</p>
+<p>O Capítulo 29 apresentou a escada da solução: alvo, ferramenta, caminho e fecho. Em uma prova inteira, ela ganha uma função ainda mais prática: impedir que uma ideia boa se perca enquanto você passa para outra questão.</p>
+<p>Uma solução pode seguir estes degraus:</p>
+<ol>
+<li><strong>Alvo:</strong> diga o que será obtido ou provado.</li>
+<li><strong>Dados decisivos:</strong> separe as informações que realmente entram no raciocínio.</li>
+<li><strong>Ferramenta:</strong> mostre a ideia escolhida: tabela, desenho, contagem, resto, caso pequeno ou invariante.</li>
+<li><strong>Desenvolvimento:</strong> avance sem saltos que escondam a razão principal.</li>
+<li><strong>Fecho:</strong> responda ao pedido e diga por que a conclusão basta.</li>
+</ol>
+<p>Isso não significa escrever muito. Significa escrever o necessário para tornar a ideia visível.</p>
+<div class="ferramenta" data-num="94" id="f94"><span class="f-badge">Ferramenta 94</span><span class="f-text">Escrever soluções em degraus</span></div>
+
+<blockquote>
+<p>Faça aparecer alvo, dados decisivos, ferramenta, desenvolvimento e fecho. Uma solução curta pode ser completa quando a ideia decisiva fica visível.</p>
+</blockquote>
+<p>Compare estas duas versões:</p>
+<blockquote>
+<p>“Deu 7 caixas.”</p>
+<p>“O piso tem área <code>9 × 6 = 54 m²</code>. Como cada placa mede <code>1 m²</code>, são necessárias 54 placas. Cada caixa contém 8 placas; 6 caixas fornecem apenas 48 placas, então são necessárias 7 caixas. Portanto, devem ser compradas 7 caixas inteiras.”</p>
+</blockquote>
+<p>A segunda resposta mostra a unidade, a necessidade de arredondar para cima e a razão de 6 não bastar.</p>
+<hr>
+<h2>6. Os cinco olhos da revisão</h2>
+<p>Antes de encerrar uma questão, a Academia convida Felipe a olhá-la cinco vezes, cada vez procurando uma coisa diferente.</p>
+<table>
+<thead>
+<tr>
+<th>Olho</th>
+<th>Pergunta de revisão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resposta</td>
+<td>Eu respondi exatamente o que foi pedido?</td>
+</tr>
+<tr>
+<td>Justificativa</td>
+<td>A ideia decisiva aparece, ou só escrevi o resultado?</td>
+</tr>
+<tr>
+<td>Unidades</td>
+<td>Usei cm², caixas, caminhos, minutos ou outra unidade quando ela importa?</td>
+</tr>
+<tr>
+<td>Casos esquecidos</td>
+<td>Minha lista, contagem ou divisão deixou alguma possibilidade de fora?</td>
+</tr>
+<tr>
+<td>Coerência</td>
+<td>O resultado combina com os dados e com uma estimativa simples?</td>
+</tr>
+</tbody>
+</table>
+<p>Os cinco olhos não exigem que uma questão perfeita vire um texto enorme. Eles evitam erros silenciosos: responder placas quando a pergunta era caixas; contar caminhos que passam pelo ponto proibido; aceitar uma fração de caixa; esquecer que um número deveria ser par.</p>
+<div class="ferramenta" data-num="95" id="f95"><span class="f-badge">Ferramenta 95</span><span class="f-text">Revisar com cinco olhos: resposta, justificativa, unidades, casos e coerência</span></div>
+
+<blockquote>
+<p>Confira resposta, justificativa, unidades, casos esquecidos e coerência antes de considerar uma questão encerrada.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C12_F02_checklist_cinco_olhos.svg" alt="Converter os cinco olhos em checklist visual horizontal: resposta, justificativa, unidades, casos e coerência. A metáfora da lupa não pode esconder os cinco itens." loading="lazy"><figcaption>Converter os cinco olhos em checklist visual horizontal: resposta, justificativa, unidades, casos e coerência. A metáfora da lupa não pode esconder os cinco itens.</figcaption></figure>
+
+<hr>
+<h2>7. Mini-simulado guiado — Reconhecer, escolher, voltar</h2>
+<p>O conjunto seguinte é um mini-simulado original, em estilo OBMEP. Ele não imita uma prova oficial nem impõe uma duração fixa. Seu papel é treinar as voltas de uma prova inteira.</p>
+<p>Na primeira leitura, Felipe marcou os problemas assim:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Problema</th>
+<th>Marca inicial</th>
+<th>Primeira impressão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Verde</td>
+<td>Área, divisão e caixas.</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Verde</td>
+<td>Dois ritmos que se reencontram.</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Amarela</td>
+<td>Filtros de divisibilidade e restos.</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Amarela</td>
+<td>Caminhos com um ponto proibido.</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Vermelha</td>
+<td>Ordem de quatro pessoas com pistas.</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Vermelha</td>
+<td>Transformações; talvez exista algo que não muda.</td>
+</tr>
+</tbody>
+</table>
+<p>Essa marcação não é a resposta do simulado. É apenas o mapa inicial de Felipe. Agora vamos percorrê-lo.</p>
+<h3>Problema 1 — As caixas do piso</h3>
+<blockquote>
+<p>Uma sala retangular mede 9 m por 6 m. Ela será coberta com placas quadradas de 1 m de lado. As placas são vendidas apenas em caixas com 8 unidades. Quantas caixas inteiras devem ser compradas?</p>
+</blockquote>
+<h4>Primeira jogada</h4>
+<p>A pergunta final fala de caixas, mas primeiro precisamos saber quantas placas são necessárias. A área é uma etapa, não a resposta final.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>A área da sala é:</p>
+<p><code>9 × 6 = 54 m²</code>.</p>
+<p>Cada placa cobre <code>1 m²</code>, então são necessárias 54 placas.</p>
+<p>Se cada caixa tem 8 placas, 6 caixas dão <code>6 × 8 = 48</code> placas, que não bastam. Com 7 caixas, há 56 placas.</p>
+<blockquote>
+<p><strong>Resposta:</strong> devem ser compradas <strong>7 caixas</strong>.</p>
+</blockquote>
+</div></details>
+<h4>Cinco olhos</h4>
+<ul>
+<li>A resposta está em caixas, não em metros quadrados nem em placas.</li>
+<li>A justificativa explica por que não se pode comprar <code>54 ÷ 8</code> de caixa.</li>
+<li>A coerência aparece porque 54 está entre 48 e 56.</li>
+</ul>
+<hr>
+<h3>Problema 2 — As duas luzes</h3>
+<blockquote>
+<p>Às 8h00, duas luzes da Academia piscam juntas. A primeira pisca a cada 4 minutos, e a segunda, a cada 6 minutos. Em que horário elas piscarão juntas novamente pela primeira vez?</p>
+</blockquote>
+<h4>Primeira jogada</h4>
+<p>Há dois ritmos que começam juntos e devem se reencontrar. A porta principal é MMC.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Os múltiplos de 4 são <code>4, 8, 12, ...</code> e os de 6 são <code>6, 12, ...</code>.</p>
+<p>O primeiro encontro depois do começo acontece após 12 minutos.</p>
+<blockquote>
+<p><strong>Resposta:</strong> elas piscarão juntas novamente às <strong>8h12</strong>.</p>
+</blockquote>
+</div></details>
+<h4>Cinco olhos</h4>
+<ul>
+<li>O primeiro encontro não é 8 minutos nem 6 minutos: os dois precisam ocorrer no mesmo instante.</li>
+<li>A unidade de tempo foi mantida até o horário final.</li>
+</ul>
+<p>Depois de duas soluções verdes, Felipe volta aos amarelos. Agora ele já está menos apressado e o problema 3 parece mais legível.</p>
+<hr>
+<h3>Problema 3 — O código de dois algarismos</h3>
+<blockquote>
+<p>O código de uma porta é um número de dois algarismos entre 40 e 70. Ele é múltiplo de 6 e deixa resto 1 quando dividido por 5. Qual é o código?</p>
+</blockquote>
+<h4>Primeira jogada</h4>
+<p>Não é necessário testar todos os números do intervalo. Começamos com o filtro mais forte: os múltiplos de 6.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Os múltiplos de 6 entre 40 e 70 são:</p>
+<p><code>42, 48, 54, 60, 66</code>.</p>
+<p>Se dividirmos por 5, os restos são, respectivamente:</p>
+<p><code>2, 3, 4, 0, 1</code>.</p>
+<p>Apenas 66 deixa resto 1.</p>
+<blockquote>
+<p><strong>Resposta:</strong> o código é <strong>66</strong>.</p>
+</blockquote>
+</div></details>
+<h4>Cinco olhos</h4>
+<ul>
+<li>A lista inicial contém todos os múltiplos de 6 no intervalo.</li>
+<li>O último filtro foi aplicado a todos eles.</li>
+<li>Portanto, não há outro código possível.</li>
+</ul>
+<hr>
+<h3>Problema 4 — A rota sem o ponto P</h3>
+<blockquote>
+<p>Em uma malha, para ir de A até B pelo caminho mais curto são necessários 2 passos para a direita e 3 passos para cima. O ponto P está a 1 passo para a direita e 1 passo para cima de A. Quantos caminhos mais curtos de A até B não passam por P?</p>
+</blockquote>
+<h4>Primeira jogada</h4>
+<p>O desenho é uma malha, mas a pergunta pede uma quantidade de caminhos. Vamos representar cada caminho como uma sequência de 2 letras D e 3 letras C, em que D significa direita e C significa cima.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>No total, cada caminho tem 5 passos. Basta escolher as 2 posições dos passos para a direita:</p>
+<p><code>C(5,2) = 10</code> caminhos.</p>
+<p>Agora contamos os que passam por P.</p>
+<p>De A até P há 1 passo D e 1 passo C, que podem ser feitos em 2 ordens. De P até B faltam 1 passo D e 2 passos C, que podem ser ordenados de 3 maneiras.</p>
+<p>Logo, passam por P:</p>
+<p><code>2 × 3 = 6</code> caminhos.</p>
+<p>Os caminhos permitidos são:</p>
+<p><code>10 - 6 = 4</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> existem <strong>4 caminhos</strong> mais curtos que não passam por P.</p>
+</blockquote>
+</div></details>
+<h4>Cinco olhos</h4>
+<ul>
+<li>A subtração é necessária porque a pergunta exclui P.</li>
+<li>Multiplicamos os dois trechos porque, para cada caminho até P, há uma escolha independente de caminho depois de P.</li>
+<li>O resultado 4 é menor que o total 10, como deve ser.</li>
+</ul>
+<figure class="figura"><img src="../assets/figuras/C12_F03_malha_2x3_P.svg" alt="Malha com `A`, `B` e `P`, representando exatamente 2 passos para a direita, 3 para cima e `P` em `(1,1)`; distinguir total, por `P` e permitido." loading="lazy"><figcaption>Malha com `A`, `B` e `P`, representando exatamente 2 passos para a direita, 3 para cima e `P` em `(1,1)`; distinguir total, por `P` e permitido.</figcaption></figure>
+
+<hr>
+<h3>Problema 5 — Os crachás na fila</h3>
+<figure class="figura"><img src="../assets/figuras/C12_F04_fila_Ana_Davi.svg" alt="Bloco `Ana-Davi` nas três posições possíveis da fila, com as eliminações determinadas pelas pistas." loading="lazy"><figcaption>Bloco `Ana-Davi` nas três posições possíveis da fila, com as eliminações determinadas pelas pistas.</figcaption></figure>
+
+<blockquote>
+<p>Ana, Bruno, Caio e Davi ficam em uma fila de quatro lugares, um por lugar. Sabe-se que:</p>
+<ol>
+<li>Davi fica imediatamente depois de Ana.</li>
+<li>Caio não fica nem no primeiro nem no último lugar.</li>
+<li>Bruno fica depois de Caio.</li>
+</ol>
+<p>Qual é a ordem da fila, do primeiro ao último lugar?</p>
+</blockquote>
+<h4>Segunda volta: como o vermelho virou amarelo</h4>
+<p>Felipe percebeu que a primeira pista cria um bloco: <code>Ana-Davi</code>. Esse bloco pode começar no primeiro, segundo ou terceiro lugar. A segunda pista impede Caio de ocupar as pontas. Em vez de tentar ordens aleatórias, ele testa os poucos lugares possíveis do bloco.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Se <code>Ana-Davi</code> começasse no segundo lugar, Caio teria de ficar no primeiro ou no quarto, o que é proibido. Se começasse no terceiro lugar, Caio teria de ficar em segundo e Bruno em primeiro, contrariando a condição de que Bruno fica depois de Caio.</p>
+<p>Portanto, <code>Ana-Davi</code> ocupa os dois primeiros lugares.</p>
+<p>Caio não pode ser o primeiro nem o último, e os primeiros dois lugares já estão ocupados. Logo, Caio fica em terceiro e Bruno em quarto. Isso também respeita a condição de que Bruno fica depois de Caio.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Lugar</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Estudante</td>
+<td>Ana</td>
+<td>Davi</td>
+<td>Caio</td>
+<td>Bruno</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Resposta:</strong> a ordem é <strong>Ana, Davi, Caio, Bruno</strong>.</p>
+</blockquote>
+</div></details>
+<h4>Cinco olhos</h4>
+<ul>
+<li>Todas as três pistas foram verificadas na ordem final.</li>
+<li>O teste dos lugares do bloco mostra por que não existe outra ordem.</li>
+</ul>
+<hr>
+<h3>Problema 6 — O painel das luzes</h3>
+<figure class="figura"><img src="../assets/figuras/C12_F05_painel_paridade.svg" alt="Dois estados abstratos do painel que evidenciem a mudança par; não desenhar sequência de tentativas." loading="lazy"><figcaption>Dois estados abstratos do painel que evidenciem a mudança par; não desenhar sequência de tentativas.</figcaption></figure>
+
+<blockquote>
+<p>Um painel tem 13 luzes acesas. Em cada jogada, devem ser trocadas exatamente 4 luzes: cada luz acesa escolhida apaga, e cada luz apagada escolhida acende. É possível terminar com todas as luzes apagadas?</p>
+</blockquote>
+<h4>Segunda volta: procurar o que não muda</h4>
+<p>O número 13 e a regra “exatamente 4” sugerem observar a paridade da quantidade de luzes acesas.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Em uma jogada, se <code>k</code> das 4 luzes escolhidas estavam acesas, então <code>4 - k</code> estavam apagadas. Depois da troca, as <code>k</code> luzes apagam e as <code>4 - k</code> acendem.</p>
+<p>Assim, a quantidade de luzes acesas muda em:</p>
+<p><code>(4 - k) - k = 4 - 2k</code>.</p>
+<p>Esse número é sempre par. Portanto, a paridade da quantidade de luzes acesas não muda.</p>
+<p>O painel começa com 13 luzes acesas, uma quantidade ímpar. Todas apagadas significaria 0 luzes acesas, uma quantidade par. Isso não pode acontecer.</p>
+<blockquote>
+<p><strong>Resposta:</strong> <strong>não é possível</strong> terminar com todas as luzes apagadas.</p>
+</blockquote>
+</div></details>
+<h4>Cinco olhos</h4>
+<ul>
+<li>Não basta dizer que nenhuma tentativa funcionou; o invariante vale para qualquer sequência de jogadas.</li>
+<li>A conclusão compara uma quantidade inicial ímpar com uma final par, explicando a impossibilidade.</li>
+</ul>
+<hr>
+<h2>8. Depois da última questão: corrigir para aprender</h2>
+<p>Uma correção fraca pergunta apenas: “acertei ou errei?”. Uma correção útil pergunta também: “em que decisão a solução começou a se afastar do caminho?”.</p>
+<p>Após um simulado, cada problema pode deixar um registro curto na folha de bordo mental ou no caderno:</p>
+<table>
+<thead>
+<tr>
+<th>Situação encontrada</th>
+<th>Pergunta para o diagnóstico</th>
+<th>Próxima ação possível</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Não reconheci a família.</td>
+<td>Que palavra, estrutura ou pergunta eu não li?</td>
+<td>Refazer a leitura e marcar a primeira porta.</td>
+</tr>
+<tr>
+<td>Escolhi uma ferramenta ruim.</td>
+<td>Que teste pequeno teria mostrado isso cedo?</td>
+<td>Comparar duas representações.</td>
+</tr>
+<tr>
+<td>Tive a ideia, mas não terminei.</td>
+<td>Onde faltou uma conta, caso ou justificativa?</td>
+<td>Completar a escada da solução.</td>
+</tr>
+<tr>
+<td>Cheguei ao resultado, mas escrevi pouco.</td>
+<td>Como provar que não esqueci casos?</td>
+<td>Reescrever com alvo, ferramenta, caminho e fecho.</td>
+</tr>
+<tr>
+<td>Errei uma conta.</td>
+<td>A estratégia estava certa?</td>
+<td>Corrigir o cálculo sem apagar a ideia válida.</td>
+</tr>
+</tbody>
+</table>
+<p>O erro de cálculo e o erro de estratégia não são a mesma coisa. Uma conta errada pode esconder uma boa escolha. Um resultado certo também pode esconder um caminho que não seria confiável em outro problema. Por isso, a correção precisa olhar a solução inteira.</p>
+<div class="ferramenta" data-num="96" id="f96"><span class="f-badge">Ferramenta 96</span><span class="f-text">Transformar o simulado em diagnóstico de treino</span></div>
+
+<blockquote>
+<p>Registre se a dificuldade foi leitura, escolha de ferramenta, desenvolvimento, escrita, revisão ou cálculo. O próximo treino deve responder a esse diagnóstico.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C12_F06_fluxo_diagnostico.svg" alt="A tabela situação-pergunta-ação já faz este trabalho; apresentá-la como fluxo curto de diagnóstico e próxima ação, não como segunda ficha burocrática." loading="lazy"><figcaption>A tabela situação-pergunta-ação já faz este trabalho; apresentá-la como fluxo curto de diagnóstico e próxima ação, não como segunda ficha burocrática.</figcaption></figure>
+
+<hr>
+<h2>9. O que uma prova inteira realmente treina</h2>
+<p>Uma prova inteira não mede apenas conteúdos. Ela também treina calma, leitura, escolha e retorno.</p>
+<p>Felipe não precisa sair de cada simulado sabendo tudo. Ele precisa sair sabendo algo mais preciso sobre seu trabalho:</p>
+<ul>
+<li>quais portas reconhece rapidamente;</li>
+<li>quais representações o ajudam;</li>
+<li>onde costuma abandonar cedo demais;</li>
+<li>que tipo de justificativa ainda precisa fortalecer;</li>
+<li>qual ferramenta deve voltar para a Mochila de uso rápido.</li>
+</ul>
+<p>O Professor recolheu o mini-simulado e apontou para as cores usadas no começo.</p>
+<p>— Viu? — perguntou. — O problema 5 e o problema 6 começaram vermelhos. Eles não foram derrotados por força. Foram visitados de novo, com uma pergunta melhor.</p>
+<p>Essa é a diferença entre ficar preso em uma prova e percorrê-la com estratégia.</p>
+<hr>
+<h2><span class="badge-oficina">Oficina</span>10. Oficina Olímpica 11 — Uma prova por voltas</h2>
+<p>Os desafios abaixo são originais, em estilo OBMEP. Antes de ler as respostas comentadas, faça uma primeira volta: diga qual seria sua cor inicial e qual ferramenta testaria primeiro.</p>
+<p>Todos são <strong>problemas originais em estilo OBMEP</strong> de resposta determinada; as respostas comentadas funcionam como correções de rota, não como modelos a copiar.</p>
+<h3>Desafio 1 — Verde ou amarelo?</h3>
+<p>Uma padaria coloca 5 pães em cada saco. Para embalar 43 pães, quantos sacos são necessários no mínimo?</p>
+<p><strong>Resposta comentada:</strong> <code>43 ÷ 5</code> deixa resto 3. Oito sacos guardam apenas 40 pães; são necessários 9 sacos.</p>
+<blockquote>
+<p><strong>Resposta:</strong> 9 sacos.</p>
+</blockquote>
+<h3>Desafio 2 — O reencontro</h3>
+<p>Duas fontes lançam água ao mesmo tempo. Uma repete o jato a cada 3 segundos e a outra a cada 5 segundos. Depois de quantos segundos os jatos voltarão a acontecer juntos?</p>
+<p><strong>Resposta comentada:</strong> o primeiro múltiplo comum de 3 e 5 é 15.</p>
+<blockquote>
+<p><strong>Resposta:</strong> 15 segundos.</p>
+</blockquote>
+<h3>Desafio 3 — A conta que pede revisão</h3>
+<p>Uma estudante escreveu que <code>3/4</code> de 28 é 21 e concluiu que a parte que falta é 6. Onde está o erro e qual é a parte que falta?</p>
+<p><strong>Resposta comentada:</strong> <code>3/4</code> de 28 é mesmo 21, mas a parte que falta é <code>28 - 21 = 7</code>, não 6. O olho da coerência também poderia notar que <code>1/4</code> de 28 vale 7.</p>
+<blockquote>
+<p><strong>Resposta:</strong> o erro está na subtração; faltam 7.</p>
+</blockquote>
+<h3>Desafio 4 — O bloco na fila</h3>
+<p>Lia, Nara e Otávio ficam em uma fila. Nara fica imediatamente antes de Otávio, e Lia não fica em primeiro lugar. Qual é a ordem da fila?</p>
+<p><strong>Resposta comentada:</strong> o bloco <code>Nara-Otávio</code> não pode ocupar os lugares 2 e 3, pois Lia ficaria em primeiro. Portanto ocupa os lugares 1 e 2, e Lia fica em terceiro.</p>
+<blockquote>
+<p><strong>Resposta:</strong> Nara, Otávio, Lia.</p>
+</blockquote>
+<h3>Desafio 5 — O retorno inteligente</h3>
+<p>Você marcou uma questão vermelha porque ela fala de uma figura, de caminhos e de um ponto proibido. Depois de resolver outra questão, percebe que a pergunta final é “quantos caminhos”. Qual é a melhor primeira ação ao voltar?</p>
+<p><strong>Resposta comentada:</strong> não é começar calculando área. É representar os caminhos como sequências ou contar os caminhos totais e os proibidos. A pergunta final indica contagem como primeira família.</p>
+<blockquote>
+<p><strong>Resposta:</strong> escolher uma representação de contagem para os caminhos.</p>
+</blockquote>
+<hr>
+<h2>11. As ferramentas da Mochila nesta sala</h2>
+<p>Nesta sala, a Mochila ganhou ferramentas para percorrer uma prova inteira:</p>
+<ol>
+<li>Ler a prova inteira antes de mergulhar em um problema.</li>
+<li>Fazer o reconhecimento do terreno.</li>
+<li>Classificar problemas como verdes, amarelos ou vermelhos.</li>
+<li>Escolher a ordem de ataque.</li>
+<li>Controlar o tempo por voltas.</li>
+<li>Circular quando uma tentativa não avança.</li>
+<li>Trocar de ferramenta quando travar.</li>
+<li>Escrever soluções em degraus.</li>
+<li>Revisar com cinco olhos: resposta, justificativa, unidades, casos e coerência.</li>
+<li>Transformar o simulado em diagnóstico de treino.</li>
+</ol>
+<p>Ao abrir uma prova, Felipe pode começar com este pequeno roteiro:</p>
+<ol>
+<li>Ler os pedidos finais.</li>
+<li>Marcar onde já existe uma primeira jogada.</li>
+<li>Resolver uma porta aberta e escrever a solução enquanto a ideia está viva.</li>
+<li>Voltar aos problemas com uma nova pergunta, não apenas com mais pressa.</li>
+<li>Revisar com os cinco olhos.</li>
+<li>Transformar a correção em próximo treino.</li>
+</ol>
+<hr>
+<h2>12. Figuras aplicadas no ponto de uso</h2>
+<p>O mapa da prova, o checklist, a malha, o bloco de fila, o painel de paridade e o fluxo de diagnóstico foram especificados nos momentos em que Felipe precisa usá-los. Não são imagens adicionais de encerramento.</p>
+<hr>
+<h2>13. Pergunta para amanhã</h2>
+<p>Felipe já consegue fazer uma prova guiada por voltas. No próximo passo, a Academia vai tirar parte das placas de orientação: menos indicação antes da resolução, mais atenção ao que a própria tentativa revela depois.</p>
+<blockquote>
+<p>Como descobrir, sozinho, o que um simulado está dizendo sobre meu jeito de pensar?</p>
+</blockquote>
+<p>No próximo capítulo, o treino ganha mais autonomia, e o diagnóstico passa a guiar o plano dos dias seguintes.</p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap11.html" class="nav-prev">← Cap. 11</a>
+      <a href="cap13.html" class="nav-next">Cap. 13 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(12);</script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 11 — A primeira jogada | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-prata">Nível Prata</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link sidebar-active" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 11</span>
+        <h1 class="cap-title">A primeira jogada</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Muitas portas, uma primeira escolha</h2>
+<p>No capítulo anterior, Felipe aprendeu que uma pista pode eliminar uma possibilidade. Mas os problemas olímpicos nem sempre chegam organizados em uma única família. Às vezes aparecem números, figuras, palavras-sinal, caminhos e uma pergunta final no mesmo enunciado.</p>
+<p>Isso pode dar a impressão de que é preciso usar toda a Mochila do Matemático de uma vez.</p>
+<p>Não é.</p>
+<p>Um problema misto não é uma bagunça de conteúdos. É uma situação em que precisamos descobrir <strong>qual ideia abre a primeira porta</strong>.</p>
+<p>O Professor da Academia colocou sobre a mesa uma chave, uma régua, uma tabela vazia, um relógio e um pequeno desenho em malha.</p>
+<p>— Qual deles resolve o próximo problema? — perguntou.</p>
+<p>Felipe ficou em silêncio.</p>
+<p>— A resposta não está no objeto mais bonito — continuou o Professor. — Está na pergunta final.</p>
+<p>Essa é a primeira lição desta sala:</p>
+<blockquote>
+<p>Antes da primeira conta, escolha a primeira pergunta.</p>
+</blockquote>
+<hr>
+<h2>2. Problema misto não é problema sem família</h2>
+<p>Leia este enunciado:</p>
+<blockquote>
+<p>Em uma malha, um robô sai de A e chega a B andando apenas para a direita ou para cima. Ele deve passar por P. Quantos caminhos são possíveis?</p>
+</blockquote>
+<p>Há uma figura, talvez números e até um obstáculo. Mas a pergunta não pede área nem perímetro. Ela pede uma quantidade de caminhos.</p>
+<p>A família principal é a da <strong>contagem</strong>.</p>
+<p>Agora compare:</p>
+<blockquote>
+<p>Um robô começa no ponto A e, a cada 4 minutos, troca de direção. Em que direção estará depois de 37 minutos?</p>
+</blockquote>
+<p>Aqui o desenho pode ajudar, mas a ideia principal é um <strong>ciclo</strong>: precisamos olhar o resto da divisão de 37 por 4.</p>
+<p>Uma figura não transforma automaticamente um problema em geometria. Um número grande não transforma automaticamente um problema em conta longa. As pistas do enunciado devem ser lidas junto com o que a pergunta realmente quer.</p>
+<div class="ferramenta" data-num="77" id="f77"><span class="f-badge">Ferramenta 77</span><span class="f-text">Escolher a primeira jogada antes da primeira conta</span></div>
+
+<blockquote>
+<p>Pergunte primeiro: o que preciso descobrir? Só depois decida qual ferramenta aproxima essa resposta.</p>
+</blockquote>
+<hr>
+<h2>3. O mapa das famílias</h2>
+<p>As ferramentas da Mochila não são gavetas fechadas. Uma mesma situação pode conversar com mais de uma família. Mesmo assim, reconhecer a porta principal economiza muito esforço.</p>
+<table>
+<thead>
+<tr>
+<th>Quando a pergunta fala de...</th>
+<th>Primeira família para investigar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>divisão sem sobra, pedaços iguais</td>
+<td>divisores e MDC</td>
+</tr>
+<tr>
+<td>reencontro de ritmos, voltas, ciclos</td>
+<td>múltiplos, MMC e restos</td>
+</tr>
+<tr>
+<td>parte de um todo, comparação de receitas</td>
+<td>frações e proporções</td>
+</tr>
+<tr>
+<td>posição, crescimento, próxima figura</td>
+<td>sequências e padrões</td>
+</tr>
+<tr>
+<td>borda, espaço ocupado, recorte</td>
+<td>perímetro e área</td>
+</tr>
+<tr>
+<td>quantas maneiras, escolhas, rotas</td>
+<td>contagem e combinatória</td>
+</tr>
+<tr>
+<td>pistas, verdade, ordem, impossível</td>
+<td>lógica e eliminação</td>
+</tr>
+</tbody>
+</table>
+<p>Esse mapa não dá uma resposta automática. Ele só indica uma primeira porta para testar.</p>
+<p>Em uma prova, uma pergunta pode conter a palavra “quantos” e ainda pedir geometria. Por exemplo, “quantos quadradinhos cabem em uma faixa?” pode ser uma pergunta sobre área. Por isso, a palavra isolada nunca manda sozinha. O conjunto da situação decide.</p>
+<div class="ferramenta" data-num="78" id="f78"><span class="f-badge">Ferramenta 78</span><span class="f-text">Identificar a família do problema</span></div>
+
+<blockquote>
+<p>Use a pergunta final, as restrições e os objetos do enunciado para escolher uma família provável. Depois confirme com um caso pequeno.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C11_F01_mapa_mochila.svg" alt="Mapa da Mochila com sete portas, números, ciclos, frações, padrões, figuras, contagem e lógica, todas conduzindo à pergunta final. O mapa indica uma primeira porta provável, não fornece diagnóstico automático." loading="lazy"><figcaption>Mapa da Mochila com sete portas, números, ciclos, frações, padrões, figuras, contagem e lógica, todas conduzindo à pergunta final. O mapa indica uma primeira porta provável, não fornece diagnóstico automático.</figcaption></figure>
+
+<hr>
+<h2>4. A pergunta escondida, agora mais forte</h2>
+<p>Desde o começo do livro, a Academia pergunta: “O que o problema quer de verdade?” Agora essa pergunta fica mais estratégica.</p>
+<p>Considere:</p>
+<blockquote>
+<p>Uma sala retangular mede 8 m por 5 m. Serão usadas placas quadradas de 1 m de lado. Cada caixa traz 6 placas. Quantas caixas inteiras precisam ser compradas para cobrir o chão?</p>
+</blockquote>
+<p>Há medidas, quadrados, multiplicação e divisão. Mas a pergunta não é “qual é a área?”. A área é uma etapa.</p>
+<p>O caminho pode ser:</p>
+<ol>
+<li>área do chão: <code>8 × 5 = 40 m²</code>;</li>
+<li>cada placa cobre <code>1 m²</code>, então são necessárias 40 placas;</li>
+<li>cada caixa tem 6 placas;</li>
+<li><code>40 ÷ 6</code> não é inteiro: 6 caixas dão apenas 36 placas;</li>
+<li>é preciso comprar <strong>7 caixas</strong>.</li>
+</ol>
+<p>A pergunta escondida era: “quantos grupos completos são necessários para alcançar ou ultrapassar uma quantidade?”.</p>
+<p>Isso mostra outra regra importante: uma conta correta no meio não é necessariamente a resposta final.</p>
+<blockquote>
+<p><strong>Retomada da Ferramenta da Mochila 10 — Descobrir a pergunta escondida</strong><br>
+Circule mentalmente a grandeza pedida: número, posição, figura, possibilidade, justificativa ou quantidade mínima. Verifique se cada etapa aproxima essa resposta.</p>
+</blockquote>
+<hr>
+<h2>5. Dados úteis, perigosos e decorativos</h2>
+<p>Um bom problema pode trazer informações de três tipos.</p>
+<ul>
+<li><strong>Úteis:</strong> entram diretamente na solução.</li>
+<li><strong>Perigosos:</strong> parecem úteis, mas precisam de interpretação cuidadosa.</li>
+<li><strong>Decorativos:</strong> criam contexto, mas não mudam a matemática.</li>
+</ul>
+<p>Veja este exemplo:</p>
+<blockquote>
+<p>Na festa da Academia, 24 estudantes serão organizados em equipes iguais. O pátio foi decorado com 7 bandeiras azuis e 5 douradas. Cada equipe deve ter o maior número possível de estudantes, sem deixar ninguém de fora, e haverá mais de uma equipe. Quantos estudantes terá cada equipe?</p>
+</blockquote>
+<p>As bandeiras são decorativas. O detalhe “mais de uma equipe” é perigoso: ele impede responder 24, pois uma única equipe teria todos os estudantes.</p>
+<p>O dado útil é que o tamanho da equipe deve ser um divisor de 24 menor que 24. O maior é 12.</p>
+<blockquote>
+<p><strong>Resposta:</strong> 12 estudantes por equipe, formando 2 equipes.</p>
+</blockquote>
+<p>Não existe medalha por usar todos os números que aparecem no enunciado. Existe mérito em perceber o papel de cada um.</p>
+<div class="ferramenta" data-num="79" id="f79"><span class="f-badge">Ferramenta 79</span><span class="f-text">Separar dados úteis, dados perigosos e dados decorativos</span></div>
+
+<blockquote>
+<p>Pergunte sobre cada dado: ele restringe a resposta, explica o contexto ou pode estar escondendo uma condição importante?</p>
+</blockquote>
+<hr>
+<h2>6. Trocar de representação</h2>
+<p>Quando uma forma de olhar trava, trocar de representação pode destravar o problema sem mudar a matemática.</p>
+<p>Uma frase pode virar:</p>
+<ul>
+<li>uma tabela;</li>
+<li>um desenho;</li>
+<li>uma lista organizada;</li>
+<li>uma sequência de restos;</li>
+<li>uma fração;</li>
+<li>uma árvore de possibilidades;</li>
+<li>uma figura em malha.</li>
+</ul>
+<p>Por exemplo:</p>
+<blockquote>
+<p>Uma máquina começa no número 1. A cada passo, soma 3. Depois de quantos passos ela chega ao primeiro múltiplo de 10?</p>
+</blockquote>
+<p>Em vez de tentar uma fórmula logo de início, podemos fazer uma pequena tabela:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Passos</th>
+<th style="text-align: right;">Número</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+<p>Chegamos em 10 após 3 passos.</p>
+<p>Agora observe algo mais profundo: os restos ao dividir por 10 são <code>1, 4, 7, 0</code>. A tabela revelou um ciclo de restos e uma sequência ao mesmo tempo.</p>
+<p>Trocar de representação não é abandonar uma ideia. É fazer a mesma ideia aparecer de um jeito mais enxergável.</p>
+<div class="ferramenta" data-num="80" id="f80"><span class="f-badge">Ferramenta 80</span><span class="f-text">Trocar de representação</span></div>
+
+<blockquote>
+<p>Se a frase não anda, faça tabela. Se a tabela fica grande, desenhe. Se o desenho esconde a regra, teste números pequenos ou restos.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C11_F02_mesmo_dado_tres_formas.svg" alt="Usar o mesmo dado do exemplo nas três formas, frase, tabela e trilha de restos, para tornar visível a equivalência entre representações." loading="lazy"><figcaption>Usar o mesmo dado do exemplo nas três formas, frase, tabela e trilha de restos, para tornar visível a equivalência entre representações.</figcaption></figure>
+
+<hr>
+<h2>7. Casos pequenos: o laboratório da estrutura</h2>
+<figure class="figura"><img src="../assets/figuras/C11_F03_perimetro_quadradinhos.svg" alt="Três ou quatro casos de quadradinhos em fila, com o perímetro indicado, tornando visível o acréscimo de 2 por peça nova." loading="lazy"><figcaption>Três ou quatro casos de quadradinhos em fila, com o perímetro indicado, tornando visível o acréscimo de 2 por peça nova.</figcaption></figure>
+
+<p>Casos pequenos não servem para chutar uma regra. Servem para enxergar uma estrutura que depois será justificada.</p>
+<p>Considere a pergunta:</p>
+<blockquote>
+<p>Em uma fileira de quadradinhos, cada novo quadradinho encosta em um lado do anterior. Como cresce o perímetro da figura?</p>
+</blockquote>
+<p>Uma figura com 1 quadradinho tem perímetro 4. Com 2 quadradinhos grudados, o perímetro é 6, não 8, porque o lado em comum deixa de aparecer por fora. Com 3, o perímetro é 8.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Quadradinhos</th>
+<th style="text-align: right;">Perímetro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+<p>O padrão sugere que cada novo quadradinho acrescenta 2 ao perímetro. Mas a justificativa é visual: ele cria 3 lados externos e esconde 1 lado que antes era externo. Variação total: <code>+3 - 1 = +2</code>.</p>
+<p>Casos pequenos mostraram a regra; a explicação mostrou por que ela vale.</p>
+<div class="ferramenta" data-num="81" id="f81"><span class="f-badge">Ferramenta 81</span><span class="f-text">Fazer casos pequenos para enxergar estrutura</span></div>
+
+<blockquote>
+<p>Escolha casos que sejam pequenos o bastante para controlar e variados o bastante para revelar uma regularidade. Depois explique a regularidade.</p>
+</blockquote>
+<hr>
+<h2>8. Quando o fim ajuda mais que o começo</h2>
+<p>Alguns problemas contam como uma situação termina. Neles, trabalhar de trás para frente é mais natural que avançar às cegas.</p>
+<blockquote>
+<p>Um número é transformado assim: primeiro soma-se 5; depois dobra-se o resultado; por fim subtrai-se 4. O resultado final é 30. Qual era o número inicial?</p>
+</blockquote>
+<p>Se começarmos pelo início, não sabemos qual número testar. Pelo fim, desfazemos as operações na ordem inversa:</p>
+<ol>
+<li>antes de subtrair 4, havia <code>30 + 4 = 34</code>;</li>
+<li>antes de dobrar, havia <code>34 ÷ 2 = 17</code>;</li>
+<li>antes de somar 5, havia <code>17 - 5 = 12</code>.</li>
+</ol>
+<p>Verificação: <code>(12 + 5) × 2 - 4 = 30</code>.</p>
+<p>Trabalhar de trás para frente também é útil em percursos, jogos, números construídos por etapas e problemas que dizem exatamente onde se quer chegar.</p>
+<div class="ferramenta" data-num="82" id="f82"><span class="f-badge">Ferramenta 82</span><span class="f-text">Trabalhar de trás para frente</span></div>
+
+<blockquote>
+<p>Quando o final é conhecido e cada passo pode ser desfeito, inverta as operações ou as decisões, uma de cada vez.</p>
+</blockquote>
+<hr>
+<h2>9. Procurar o que não muda</h2>
+<p>Um <strong>invariante</strong> é uma característica que permanece a mesma, mesmo quando a situação muda de aparência.</p>
+<p>Considere um tabuleiro em que, a cada jogada, uma pessoa vira exatamente duas peças. A quantidade de peças pretas pode aumentar, diminuir ou ficar igual. Mas sua <strong>paridade</strong> não muda: a quantidade de pretas varia em <code>-2</code>, <code>0</code> ou <code>+2</code>.</p>
+<p>Se o tabuleiro começa com um número ímpar de peças pretas, ele nunca poderá terminar com um número par de peças pretas.</p>
+<p>Essa conclusão pode resolver uma pergunta sem que seja necessário simular todas as jogadas.</p>
+<p>Invariantes comuns em problemas do nosso nível:</p>
+<ul>
+<li>paridade: par ou ímpar;</li>
+<li>resto numa divisão;</li>
+<li>soma total;</li>
+<li>quantidade de cores ou tipos, quando uma regra conserva essa quantidade;</li>
+<li>área total, quando figuras são apenas recortadas e reorganizadas.</li>
+</ul>
+<div class="ferramenta" data-num="83" id="f83"><span class="f-badge">Ferramenta 83</span><span class="f-text">Procurar invariantes: aquilo que não muda</span></div>
+
+<blockquote>
+<p>Depois de entender uma regra de transformação, pergunte: o que ela não consegue alterar? Paridade, resto, soma, área ou número de peças podem ser a chave.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C11_F04_paridade_tabuleiro.svg" alt="Dois estados de tabuleiro, antes e depois, com a quantidade de peças pretas e sua paridade destacadas como grandeza preservada." loading="lazy"><figcaption>Dois estados de tabuleiro, antes e depois, com a quantidade de peças pretas e sua paridade destacadas como grandeza preservada.</figcaption></figure>
+
+<hr>
+<h2>10. Um problema completo — O número do armário</h2>
+<blockquote>
+<p>O número de um armário da Academia está entre 30 e 60. Ele deixa resto 2 quando dividido por 5, é divisível por 3 e é par. Qual é esse número?</p>
+</blockquote>
+<h3>Primeira jogada</h3>
+<p>Não precisamos listar todos os números de 31 a 59. A pergunta pede um número que passa por filtros. A família principal é números e restos.</p>
+<p>Começamos pelos múltiplos de 3 pares, isto é, múltiplos de 6 entre 30 e 60:</p>
+<p><code>36, 42, 48, 54</code>.</p>
+<p>Agora testamos o resto por 5:</p>
+<ul>
+<li><code>36</code> deixa resto 1;</li>
+<li><code>42</code> deixa resto 2;</li>
+<li><code>48</code> deixa resto 3;</li>
+<li><code>54</code> deixa resto 4.</li>
+</ul>
+<blockquote>
+<p><strong>Resposta:</strong> o número é <code>42</code>.</p>
+</blockquote>
+<p>Por que isso basta? Porque a lista inicial já contém todos os números pares divisíveis por 3 no intervalo, e apenas 42 passa pelo último filtro.</p>
+<hr>
+<h2>11. Um problema completo — A rota que não pode passar por P</h2>
+<figure class="figura"><img src="../assets/figuras/C11_F05_malha_APB.svg" alt="Malha do problema com `A`, `P` e `B`, distinguindo visualmente o total, os caminhos por `P` e os caminhos permitidos pela decomposição em dois trechos." loading="lazy"><figcaption>Malha do problema com `A`, `P` e `B`, distinguindo visualmente o total, os caminhos por `P` e os caminhos permitidos pela decomposição em dois trechos.</figcaption></figure>
+
+<blockquote>
+<p>Em uma malha, para ir de A até B são necessários 3 passos para a direita e 2 para cima. Quantos caminhos mais curtos existem que não passam pelo ponto P, situado a 1 passo para a direita e 1 passo para cima de A?</p>
+</blockquote>
+<h3>Primeira jogada</h3>
+<p>O desenho é importante, mas a pergunta pede quantos caminhos. Vamos transformar cada rota numa sequência de 3 letras D e 2 letras C, onde D significa direita e C significa cima.</p>
+<p>O número total de sequências é o número de maneiras de escolher as 2 posições das letras C entre 5 posições:</p>
+<p><code>C(5,2) = 10</code>.</p>
+<p>Agora contamos os caminhos proibidos, os que passam por P.</p>
+<p>De A até P, há 1 passo D e 1 passo C: existem 2 caminhos.</p>
+<p>De P até B, faltam 2 passos D e 1 passo C: existem 3 caminhos.</p>
+<p>Logo, passam por P:</p>
+<p><code>2 × 3 = 6</code> caminhos.</p>
+<p>Portanto:</p>
+<p><code>10 - 6 = 4</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> existem 4 caminhos mais curtos que não passam por P.</p>
+</blockquote>
+<p>O problema misturou geometria em malha e contagem, mas a primeira porta foi contar sequências de passos.</p>
+<hr>
+<h2>12. Um problema completo — Pistas demais não significam resposta demais</h2>
+<blockquote>
+<p>Três estudantes, Lia, Mauro e Nara, receberam uma medalha de ouro, uma de prata e uma de bronze, sem repetição. Sabe-se que:</p>
+<ol>
+<li>Lia não recebeu ouro.</li>
+<li>Mauro recebeu medalha de valor maior que Nara.</li>
+<li>Nara não recebeu bronze.</li>
+</ol>
+<p>Quem recebeu cada medalha?</p>
+</blockquote>
+<h3>Primeira jogada</h3>
+<p>Há três pessoas, três posições e pistas de comparação. A porta principal é lógica com uma tabela de possibilidades.</p>
+<p>Mauro não pode receber bronze, pois precisaria ter uma medalha maior que a de Nara. Se Mauro recebesse prata, Nara teria de receber bronze, mas a terceira pista proíbe isso.</p>
+<p>Logo, Mauro recebeu ouro.</p>
+<p>Nara não recebe bronze nem ouro; portanto recebe prata. Lia fica com bronze.</p>
+<table>
+<thead>
+<tr>
+<th>Estudante</th>
+<th>Medalha</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lia</td>
+<td>Bronze</td>
+</tr>
+<tr>
+<td>Mauro</td>
+<td>Ouro</td>
+</tr>
+<tr>
+<td>Nara</td>
+<td>Prata</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Resposta:</strong> Mauro recebeu ouro, Nara prata e Lia bronze.</p>
+</blockquote>
+<p>Aqui a primeira jogada não foi calcular. Foi organizar e eliminar.</p>
+<hr>
+<h2>13. Um problema completo — A área que virou fração</h2>
+<blockquote>
+<p>Um retângulo de 12 cm por 8 cm tem uma região pintada formada por dois triângulos iguais. Juntos, os dois triângulos ocupam <code>3/4</code> da área do retângulo. Qual é a área não pintada?</p>
+</blockquote>
+<h3>Primeira jogada</h3>
+<p>A figura chama atenção, mas a pergunta fala de parte de uma área conhecida. A porta principal é área seguida de fração.</p>
+<p>Área total:</p>
+<p><code>12 × 8 = 96 cm²</code>.</p>
+<p>Área pintada:</p>
+<p><code>3/4 de 96 = 72 cm²</code>.</p>
+<p>Área não pintada:</p>
+<p><code>96 - 72 = 24 cm²</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> <code>24 cm²</code>.</p>
+</blockquote>
+<p>A conta é curta porque a primeira escolha foi correta: não era preciso descobrir os lados dos triângulos, apenas usar a fração da área total que o enunciado já entregou.</p>
+<hr>
+<h2>14. Um problema completo — O jogo das trocas</h2>
+<blockquote>
+<p>Em uma mesa há 15 moedas com a face cara para cima. Em cada jogada, Felipe deve virar exatamente 2 moedas. É possível terminar com todas as moedas mostrando coroa?</p>
+</blockquote>
+<h3>Primeira jogada</h3>
+<p>Testar sequências de jogadas seria cansativo. A regra fala em virar 2 moedas por vez, então a paridade merece atenção.</p>
+<p>No início, há 15 caras: quantidade ímpar.</p>
+<p>Ao virar 2 moedas, a quantidade de caras pode mudar em:</p>
+<ul>
+<li><code>-2</code>, se duas caras viram coroa;</li>
+<li><code>0</code>, se uma cara e uma coroa trocam;</li>
+<li><code>+2</code>, se duas coroas viram cara.</li>
+</ul>
+<p>Em todos os casos, a paridade da quantidade de caras continua ímpar.</p>
+<p>Terminar com todas em coroa significaria ter 0 caras, uma quantidade par. Isso é impossível.</p>
+<blockquote>
+<p><strong>Resposta:</strong> não é possível.</p>
+</blockquote>
+<p>Esse tipo de resposta exige uma justificativa, não apenas “não consegui encontrar uma sequência”. O invariante prova que nenhuma sequência pode funcionar.</p>
+<hr>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h2>15. Escrever a solução também é resolver</h2>
+<figure class="figura"><img src="../assets/figuras/C11_F06_escada_justificativa.svg" alt="Escada vertical curta com os quatro degraus alvo, ferramenta, caminho e fecho; ela organiza a justificativa sem virar formulário de preenchimento." loading="lazy"><figcaption>Escada vertical curta com os quatro degraus alvo, ferramenta, caminho e fecho; ela organiza a justificativa sem virar formulário de preenchimento.</figcaption></figure>
+
+<p>Encontrar uma ideia é metade do trabalho. Na Segunda Fase, a solução precisa deixar claro para outra pessoa o que foi pensado e por que isso resolve o problema.</p>
+<p>Uma resposta forte costuma ter quatro degraus:</p>
+<ol>
+<li><strong>Alvo:</strong> diga o que será encontrado ou provado.</li>
+<li><strong>Ferramenta:</strong> apresente a observação, a tabela, o desenho ou a conta decisiva.</li>
+<li><strong>Caminho:</strong> mostre as etapas na ordem necessária.</li>
+<li><strong>Fecho:</strong> escreva a resposta com unidade e justificativa suficiente.</li>
+</ol>
+<p>Compare:</p>
+<blockquote>
+<p>“42.”</p>
+</blockquote>
+<p>com:</p>
+<blockquote>
+<p>“Os números pares divisíveis por 3 entre 30 e 60 são 36, 42, 48 e 54. Entre eles, apenas 42 deixa resto 2 na divisão por 5. Portanto, o número do armário é 42.”</p>
+</blockquote>
+<p>A segunda versão permite conferir a ideia inteira. Ela não depende de uma conta escondida.</p>
+<div class="ferramenta" data-num="84" id="f84"><span class="f-badge">Ferramenta 84</span><span class="f-text">Dividir um problema misto em etapas</span></div>
+
+<div class="ferramenta" data-num="85" id="f85"><span class="f-badge">Ferramenta 85</span><span class="f-text">Perguntar “por que isso basta?”</span></div>
+
+<div class="ferramenta" data-num="86" id="f86"><span class="f-badge">Ferramenta 86</span><span class="f-text">Escrever a solução em passos claros</span></div>
+
+<p>Antes de encerrar, pergunte:</p>
+<blockquote>
+<p>Minha explicação mostra por que não esqueci nenhum caso e por que a resposta realmente atende à pergunta?</p>
+</blockquote>
+<hr>
+</div></details>
+<h2><span class="badge-oficina">Oficina</span>16. Oficina Olímpica 10 — Escolher a primeira jogada</h2>
+<p>Todos os desafios desta Oficina são <strong>problemas originais em estilo OBMEP</strong> e têm resposta determinada. As respostas comentadas abaixo explicam uma rota possível, sem transformar a rota em receita única.</p>
+<h3>Desafio 1 — A primeira porta</h3>
+<p>Um número deixa resto 1 na divisão por 4 e resto 2 na divisão por 3. Ele está entre 10 e 20. Qual é o número?</p>
+<p><strong>Resposta comentada:</strong> os números entre 10 e 20 que deixam resto 1 por 4 são 13 e 17. Entre eles, 17 deixa resto 2 na divisão por 3. A primeira porta é a dos restos e filtros.</p>
+<blockquote>
+<p><strong>Resposta:</strong> <code>17</code>.</p>
+</blockquote>
+<h3>Desafio 2 — Um caso pequeno revela</h3>
+<p>Uma fileira tem <code>n</code> quadradinhos grudados lado a lado. Qual é o perímetro quando <code>n = 6</code>?</p>
+<p><strong>Resposta comentada:</strong> com 1 quadradinho, o perímetro é 4. Cada novo quadradinho acrescenta 2 lados externos. Para 6 quadradinhos: <code>4 + 5 × 2 = 14</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> 14 lados de unidade.</p>
+</blockquote>
+<h3>Desafio 3 — De trás para frente</h3>
+<p>Uma máquina multiplica um número por 3 e depois soma 7. O resultado é 34. Qual era o número inicial?</p>
+<p><strong>Resposta comentada:</strong> desfazemos: <code>34 - 7 = 27</code>; <code>27 ÷ 3 = 9</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> <code>9</code>.</p>
+</blockquote>
+<h3>Desafio 4 — A rota proibida</h3>
+<p>Para ir de A até B em uma malha, são necessários 2 passos para a direita e 2 para cima. Há 6 caminhos mais curtos no total. Se um ponto P está a 1 passo para a direita e 1 para cima de A, quantos caminhos passam por P?</p>
+<p><strong>Resposta comentada:</strong> de A até P há 2 caminhos. De P até B também há 2 caminhos. Portanto, passam por P <code>2 × 2 = 4</code> caminhos.</p>
+<blockquote>
+<p><strong>Resposta:</strong> 4 caminhos.</p>
+</blockquote>
+<h3>Desafio 5 — O que não muda</h3>
+<p>Uma sequência começa com 9 fichas vermelhas. Em cada jogada, duas fichas têm suas cores invertidas: vermelha vira azul e azul vira vermelha. É possível terminar com exatamente 4 fichas vermelhas?</p>
+<p><strong>Resposta comentada:</strong> a quantidade de fichas vermelhas muda em 0 ou 2 a cada jogada. Ela começa ímpar e permanece ímpar. Como 4 é par, não é possível.</p>
+<blockquote>
+<p><strong>Resposta:</strong> não.</p>
+</blockquote>
+<hr>
+<h2>17. As ferramentas da Mochila nesta sala</h2>
+<p>Nesta sala, a Mochila ganhou ferramentas para unir as outras ferramentas:</p>
+<ol>
+<li>Escolher a primeira jogada antes da primeira conta.</li>
+<li>Identificar a família do problema.</li>
+<li>Separar dados úteis, perigosos e decorativos.</li>
+<li>Trocar de representação.</li>
+<li>Fazer casos pequenos para enxergar estrutura.</li>
+<li>Trabalhar de trás para frente.</li>
+<li>Procurar invariantes: aquilo que não muda.</li>
+<li>Dividir um problema misto em etapas.</li>
+<li>Perguntar “por que isso basta?”.</li>
+<li>Escrever a solução em passos claros.</li>
+</ol>
+<p>Quando um enunciado parecer cheio de portas, não tente abri-las todas. Comece com estas perguntas:</p>
+<ol>
+<li>O que a pergunta final pede?</li>
+<li>Qual família parece mais próxima?</li>
+<li>Qual representação deixa as pistas visíveis?</li>
+<li>O que preciso provar para dizer que a resposta basta?</li>
+</ol>
+<hr>
+<h2>18. Figuras aplicadas no ponto de uso</h2>
+<p>Mapa, representações, casos pequenos, invariante, malha e escada de escrita foram especificados nas seções em que dirigem uma primeira jogada ou uma justificativa. Não se repetem como galeria final.</p>
+<hr>
+<h2>19. Pergunta para amanhã</h2>
+<p>Felipe já tem ferramentas e já sabe escolher uma primeira porta. Agora falta aprender a usar essa escolha dentro de uma prova inteira: reconhecer o terreno, decidir por onde começar, escrever com clareza e revisar antes de entregar.</p>
+<blockquote>
+<p>Como treinar uma prova inteira sem se perder no tempo, na escrita e na escolha das soluções?</p>
+</blockquote>
+<p>No próximo capítulo, a Academia entra na sala dos simulados e da estratégia de prova.</p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap10.html" class="nav-prev">← Cap. 10</a>
+      <a href="cap12.html" class="nav-next">Cap. 12 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(11);</script>
+</body>
+</html>

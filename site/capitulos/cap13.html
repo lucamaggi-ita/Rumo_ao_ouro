@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 13 — Sem rodinhas | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-prata">Nível Prata</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link sidebar-active" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 13</span>
+        <h1 class="cap-title">Sem rodinhas</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Quando as placas diminuem</h2>
+<p>Na sala dos simulados, Felipe encontrou outra prova sobre a mesa. Ela tinha problemas de números, figuras, caminhos, posições e transformações. Mas havia uma diferença importante: desta vez, o Professor não tinha marcado questões verdes, amarelas ou vermelhas.</p>
+<p>Também não havia uma frase dizendo qual ferramenta procurar em cada enunciado.</p>
+<p>Felipe olhou para a prova e perguntou:</p>
+<p>— E agora, como eu sei por onde começar?</p>
+<p>— Você não precisa saber tudo antes de começar — respondeu o Professor. — Precisa observar o que a sua tentativa mostra.</p>
+<p>No capítulo anterior, a Academia iluminou algumas portas para ensinar o percurso de uma prova. Agora as luzes iniciais diminuem. As ferramentas continuam na Mochila, mas a escolha passa a ser de Felipe.</p>
+<p>Isso não é um teste para descobrir se ele “tem dom” ou não. É uma forma mais honesta de treinar quatro capacidades:</p>
+<ol>
+<li>reconhecer sozinho uma porta de entrada;</li>
+<li>registrar uma tentativa antes que ela se perca;</li>
+<li>entender com precisão onde surgiu a dificuldade;</li>
+<li>escolher um treino pequeno que responda a essa dificuldade.</li>
+</ol>
+<p>Um simulado menos guiado não serve para deixar o estudante sozinho diante do erro. Ele serve para fazer o erro falar com mais clareza.</p>
+<div class="ferramenta" data-num="97" id="f97"><span class="f-badge">Ferramenta 97</span><span class="f-text">Treinar com menos pistas durante a resolução</span></div>
+
+<blockquote>
+<p>Faça a primeira tentativa antes de consultar uma família, uma cor ou uma ferramenta sugerida. A ajuda volta depois como correção e diagnóstico, não como resposta antecipada.</p>
+</blockquote>
+<div class="ferramenta" data-num="98" id="f98"><span class="f-badge">Ferramenta 98</span><span class="f-text">Registrar a primeira jogada escolhida</span></div>
+
+<blockquote>
+<p>Depois de tentar um problema, anote mentalmente ou no caderno qual foi sua primeira escolha, onde travou e qual pista ficou. O registro vale mais do que um simples “não consegui”.</p>
+</blockquote>
+<hr>
+<h2>2. Antes de começar: um combinado justo</h2>
+<p>“Sem rodinhas” não significa “sem método”. Antes de um simulado autônomo, Felipe ainda pode fazer o que já aprendeu:</p>
+<ul>
+<li>ler a pergunta final de cada problema;</li>
+<li>fazer uma primeira volta sem se obrigar a resolver tudo na ordem;</li>
+<li>trocar uma representação quando a primeira não ajuda;</li>
+<li>testar um caso pequeno;</li>
+<li>pausar deixando uma observação verdadeira;</li>
+<li>revisar uma resposta com os cinco olhos.</li>
+</ul>
+<p>A mudança é outra: antes de descobrir a solução, ele não recebe a família do problema, a cor inicial nem a primeira jogada pronta.</p>
+<p>Há uma diferença importante entre duas frases:</p>
+<blockquote>
+<p>“Não sei resolver este problema.”</p>
+<p>“Comecei por uma tabela, encontrei três casos, mas não consegui justificar que eram todos.”</p>
+</blockquote>
+<p>A segunda frase ainda não é uma solução. Mas já é informação matemática. Ela mostra que a porta escolhida, a tentativa e o ponto de travamento podem ser examinados.</p>
+<p>Durante uma prova, não é necessário interromper o raciocínio para escrever um relatório completo. Basta deixar uma marca curta, por exemplo:</p>
+<ul>
+<li>“tentei listar múltiplos”;</li>
+<li>“desenho mostrou dois caminhos”;</li>
+<li>“bloco BC parece útil”;</li>
+<li>“paridade talvez não mude”;</li>
+<li>“cheguei ao resultado; falta provar que não há outro”.</li>
+</ul>
+<p>Essa é a folha de bordo: não uma folha para preencher por obrigação, mas um modo de tornar visível o caminho percorrido.</p>
+<table>
+<thead>
+<tr>
+<th>O que registrar</th>
+<th>Pergunta curta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pedido</td>
+<td>O que preciso encontrar, calcular ou provar?</td>
+</tr>
+<tr>
+<td>Primeira escolha</td>
+<td>O que tentei primeiro?</td>
+</tr>
+<tr>
+<td>Pista</td>
+<td>O que descobri que é certamente verdadeiro?</td>
+</tr>
+<tr>
+<td>Travamento</td>
+<td>O que ainda não sei ligar?</td>
+</tr>
+<tr>
+<td>Próxima volta</td>
+<td>Que pergunta farei quando retornar?</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Decisão de figura — dispensar.</strong> A tabela imediatamente anterior já contém os cinco campos e suas perguntas; não criar uma segunda ficha de folha de bordo.</p>
+</blockquote>
+<div class="ferramenta" data-num="99" id="f99"><span class="f-badge">Ferramenta 99</span><span class="f-text">Usar uma folha de bordo do simulado</span></div>
+
+<blockquote>
+<p>Registre pedido, primeira escolha, pista, travamento e próxima volta de modo breve. A folha protege a rota; não é uma tarefa burocrática.</p>
+</blockquote>
+<div class="ferramenta" data-num="100" id="f100"><span class="f-badge">Ferramenta 100</span><span class="f-text">Classificar erros por origem</span></div>
+
+<blockquote>
+<p>Troque “travei” por uma frase precisa: “não entendi o pedido”, “não sei escolher a ferramenta”, “a ideia não terminou”, “não sei justificar” ou “preciso conferir a conta”.</p>
+</blockquote>
+<hr>
+<h2>3. Simulado autônomo — Primeiro tente, depois compare</h2>
+<p>Os seis problemas a seguir são originais, em estilo OBMEP. Eles foram escolhidos para conversar com ferramentas já estudadas, mas essa informação não deve decidir sua primeira tentativa.</p>
+<p>Faça uma primeira leitura de todos. Escolha por onde começar. Quando sentir que uma questão não produz informação nova, deixe uma pista e visite outra.</p>
+<p>Não há tempo obrigatório e não há uma ordem certa. O desafio é observar sua própria rota.</p>
+<h3>Problema 1 — As caixas de materiais</h3>
+<blockquote>
+<p>A Academia recebeu 82 cadernos para organizar em caixas com capacidade para 12 cadernos cada. Todas as caixas usadas devem ficar completas, exceto possivelmente a última. Quantas caixas são necessárias no mínimo?</p>
+</blockquote>
+<h3>Problema 2 — A senha</h3>
+<blockquote>
+<p>A senha de uma porta é um número de dois algarismos entre 50 e 90. Ela é múltipla de 7 e deixa resto 2 quando dividida por 5. Qual é a senha?</p>
+</blockquote>
+<h3>Problema 3 — O piso recortado</h3>
+<blockquote>
+<p>Um piso retangular mede 9 m por 7 m. De um de seus cantos foi retirado um quadrado de 3 m de lado para abrir espaço para uma coluna. Qual é a área restante do piso?</p>
+</blockquote>
+<h3>Problema 4 — O caminho proibido</h3>
+<blockquote>
+<p>Para ir de A até B pelo caminho mais curto em uma malha, são necessários 3 passos para a direita e 2 passos para cima. O ponto P fica depois de 1 passo para a direita e 1 passo para cima a partir de A. Quantos caminhos mais curtos de A até B não passam por P?</p>
+</blockquote>
+<h3>Problema 5 — Os quatro lugares</h3>
+<blockquote>
+<p>Ana, Bruno, Caio e Davi sentam-se em quatro lugares de uma fila, um por lugar. Sabe-se que:</p>
+<ol>
+<li>Bruno senta-se imediatamente antes de Caio.</li>
+<li>Ana não se senta no primeiro lugar.</li>
+<li>Davi senta-se depois de Ana.</li>
+</ol>
+<p>Qual é a ordem da fila, do primeiro ao último lugar?</p>
+</blockquote>
+<h3>Problema 6 — As cartas viradas</h3>
+<blockquote>
+<p>Sobre uma mesa há 17 cartas viradas para cima. Em cada jogada, escolhem-se exatamente 4 cartas e todas elas são viradas: as que estavam para cima ficam para baixo, e as que estavam para baixo ficam para cima. É possível terminar com todas as cartas para baixo?</p>
+</blockquote>
+<hr>
+<h2>4. A pausa que transforma tentativa em dado</h2>
+<p>Antes de ler as soluções comentadas, faça uma pausa curta. Não pergunte apenas “quantas acertei?”. Pergunte sobre cada problema:</p>
+<ol>
+<li>Qual foi minha primeira escolha?</li>
+<li>Essa escolha produziu alguma informação nova?</li>
+<li>Em que momento eu soube que deveria insistir, trocar de forma ou pausar?</li>
+<li>Minha resposta ficou escrita de um jeito que outra pessoa pode conferir?</li>
+</ol>
+<p>Você pode resumir cada problema com uma das quatro situações abaixo:</p>
+<table>
+<thead>
+<tr>
+<th>Situação</th>
+<th>O que ela significa</th>
+<th>O que fazer depois</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolvido com segurança</td>
+<td>A ideia e a justificativa apareceram.</td>
+<td>Revisar os cinco olhos e seguir.</td>
+</tr>
+<tr>
+<td>Resolvido com dúvida</td>
+<td>Há resultado, mas falta conferir um salto.</td>
+<td>Procurar unidade, caso esquecido ou explicação.</td>
+</tr>
+<tr>
+<td>Travado com pista</td>
+<td>Algo verdadeiro foi descoberto.</td>
+<td>Registrar a pista e retomar depois.</td>
+</tr>
+<tr>
+<td>Travado sem pista</td>
+<td>A entrada ainda não apareceu.</td>
+<td>Voltar ao pedido e trocar a representação.</td>
+</tr>
+</tbody>
+</table>
+<p>Uma tentativa travada com pista costuma ensinar mais do que uma resposta copiada depressa. Ela mostra exatamente de onde recomeçar.</p>
+<div class="ferramenta" data-num="101" id="f101"><span class="f-badge">Ferramenta 101</span><span class="f-text">Separar erro de conteúdo, leitura, tempo, escrita, revisão e estratégia</span></div>
+
+<blockquote>
+<p>Depois de um problema, avalie duas coisas: a resposta está correta? E o caminho escolhido seria confiável em outro problema parecido?</p>
+</blockquote>
+<hr>
+<h2>5. Correção comentada — Ler o que a tentativa revelou</h2>
+<p>Agora compare suas decisões com uma rota possível. Em matemática, outra rota correta pode existir. A correção não serve para apagar sua tentativa; serve para localizar o que ela já continha e o que ainda faltava.</p>
+<div class="ferramenta" data-num="102" id="f102"><span class="f-badge">Ferramenta 102</span><span class="f-text">Reescrever soluções depois da correção</span></div>
+
+<blockquote>
+<p>Refaça uma solução com suas próprias palavras: pedido, ideia decisiva, desenvolvimento e fecho. Comparar não basta quando a rota ainda não pode ser reconstruída.</p>
+</blockquote>
+<h3>Problema 1 — As caixas de materiais</h3>
+<p>O pedido final é uma quantidade mínima de caixas, não apenas uma divisão.</p>
+<p>Cada caixa comporta 12 cadernos. Se usarmos 6 caixas, teremos espaço para:</p>
+<p><code>6 × 12 = 72</code> cadernos.</p>
+<p>Ainda faltam <code>82 - 72 = 10</code> cadernos. Portanto, é necessária mais uma caixa.</p>
+<blockquote>
+<p><strong>Resposta:</strong> são necessárias <strong>7 caixas</strong>.</p>
+</blockquote>
+<p>Também seria possível calcular <code>82 ÷ 12</code>, obtendo 6 caixas completas e resto 10. O cuidado decisivo é não responder 6: os 10 cadernos restantes também precisam caber em uma caixa.</p>
+<p><strong>O que este problema pode revelar sobre a rota:</strong> se você encontrou 6, talvez tenha lido a divisão mas perdido a pergunta final. Se encontrou 7 sem explicar por quê, falta apenas tornar visível a ideia de quantidade mínima e caixas inteiras.</p>
+<hr>
+<h3>Problema 2 — A senha</h3>
+<p>Uma boa primeira escolha é usar uma condição como filtro e depois testar a outra.</p>
+<p>Os múltiplos de 7 entre 50 e 90 são:</p>
+<p><code>56, 63, 70, 77, 84</code>.</p>
+<p>Ao dividir esses números por 5, os restos são respectivamente:</p>
+<p><code>1, 3, 0, 2, 4</code>.</p>
+<p>Apenas 77 deixa resto 2.</p>
+<blockquote>
+<p><strong>Resposta:</strong> a senha é <strong>77</strong>.</p>
+</blockquote>
+<p>Não era necessário verificar todos os números de 50 a 90. A primeira condição reduziu a busca a cinco candidatos.</p>
+<p><strong>O que este problema pode revelar sobre a rota:</strong> se você listou todos os números do intervalo e chegou a 77, a resposta está certa, mas uma ferramenta de filtro pode tornar o trabalho mais leve. Se você usou apenas uma condição, a revisão deve perguntar: “provei que o candidato também respeita a outra?”.</p>
+<hr>
+<h3>Problema 3 — O piso recortado</h3>
+<p>O desenho pode ser imaginado como uma figura grande da qual foi retirado um pedaço menor.</p>
+<p>A área do retângulo inteiro é:</p>
+<p><code>9 × 7 = 63 m²</code>.</p>
+<p>A área do quadrado retirado é:</p>
+<p><code>3 × 3 = 9 m²</code>.</p>
+<p>Logo, a área que permanece é:</p>
+<p><code>63 - 9 = 54 m²</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> a área restante é <strong>54 m²</strong>.</p>
+</blockquote>
+<p>O resultado deve estar em metros quadrados, porque a pergunta é sobre espaço ocupado, não sobre o contorno do piso.</p>
+<p><strong>O que este problema pode revelar sobre a rota:</strong> se você calculou <code>9 + 7</code>, talvez tenha trocado área por perímetro. Se obteve 54, mas sem unidade, o olho das unidades ainda tem trabalho.</p>
+<figure class="figura"><img src="../assets/figuras/C13_F01_retangulo_9x7_recorte_3x3.svg" alt="Retângulo `9 m por 7 m` com quadrado `3 m por 3 m` retirado de um canto, mantendo as dimensões e o recorte visíveis junto a `63 - 9`." loading="lazy"><figcaption>Retângulo `9 m por 7 m` com quadrado `3 m por 3 m` retirado de um canto, mantendo as dimensões e o recorte visíveis junto a `63 - 9`.</figcaption></figure>
+
+<hr>
+<h3>Problema 4 — O caminho proibido</h3>
+<p>Cada caminho mais curto é uma sequência de 3 passos para a direita e 2 passos para cima. Há 5 passos no total; basta escolher em quais 2 posições ficam os passos para cima:</p>
+<p><code>C(5,2) = 10</code> caminhos no total.</p>
+<p>Agora contamos os caminhos que passam por P.</p>
+<p>De A até P, há 1 passo para a direita e 1 para cima. Eles podem ocorrer em 2 ordens.</p>
+<p>De P até B, faltam 2 passos para a direita e 1 para cima. Esses três passos podem ocorrer em 3 ordens.</p>
+<p>Logo, passam por P:</p>
+<p><code>2 × 3 = 6</code> caminhos.</p>
+<p>Como P é proibido, subtraímos:</p>
+<p><code>10 - 6 = 4</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> existem <strong>4 caminhos</strong> mais curtos que não passam por P.</p>
+</blockquote>
+<p><strong>O que este problema pode revelar sobre a rota:</strong> se você contou 10, reconheceu os caminhos totais, mas ainda não incorporou a condição proibida. Se chegou a 6, encontrou a parte proibida; a pergunta final pedia o complemento. Se ficou sem entrada, desenhar a malha ou escrever sequências de letras são duas representações possíveis.</p>
+<hr>
+<h3>Problema 5 — Os quatro lugares</h3>
+<p>A primeira pista cria um bloco: <code>Bruno-Caio</code>.</p>
+<p>Esse bloco pode ocupar os lugares 1 e 2, 2 e 3 ou 3 e 4.</p>
+<ul>
+<li>Se ocupasse 2 e 3, Ana ficaria no primeiro ou no quarto. Como Davi deve ficar depois de Ana, Ana teria de ficar no primeiro, o que é proibido.</li>
+<li>Se ocupasse 3 e 4, sobrariam os lugares 1 e 2 para Ana e Davi. Ana não pode ficar no primeiro; se ficar no segundo, Davi ficaria antes dela, o que é proibido.</li>
+<li>Portanto, o bloco ocupa os lugares 1 e 2.</li>
+</ul>
+<p>Restam os lugares 3 e 4. Para Davi ficar depois de Ana, Ana fica em terceiro e Davi em quarto.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Lugar</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Pessoa</td>
+<td>Bruno</td>
+<td>Caio</td>
+<td>Ana</td>
+<td>Davi</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Resposta:</strong> <strong>Bruno, Caio, Ana, Davi</strong>.</p>
+</blockquote>
+<p><strong>O que este problema pode revelar sobre a rota:</strong> tentar todas as 24 filas é possível, mas pouco econômico. Transformar duas pessoas em bloco reduz o número de casos e deixa a explicação mais clara. Se sua fila final estava certa, confira se todas as pistas foram verificadas, não apenas as duas primeiras.</p>
+<figure class="figura"><img src="../assets/figuras/C13_F02_bloco_Bruno_Caio.svg" alt="Bloco `Bruno-Caio` nos três pares de posições possíveis, com as eliminações pelas outras pistas explicitadas." loading="lazy"><figcaption>Bloco `Bruno-Caio` nos três pares de posições possíveis, com as eliminações pelas outras pistas explicitadas.</figcaption></figure>
+
+<hr>
+<h3>Problema 6 — As cartas viradas</h3>
+<p>Aqui não é útil testar jogadas ao acaso. Precisamos procurar algo que a regra preserve.</p>
+<p>Em uma jogada, suponha que <code>k</code> das 4 cartas escolhidas estejam para cima. Então <code>4 - k</code> estejam para baixo.</p>
+<p>Depois de virar todas as quatro, <code>k</code> cartas deixam de estar para cima e <code>4 - k</code> passam a estar para cima. Assim, a quantidade de cartas para cima muda em:</p>
+<p><code>(4 - k) - k = 4 - 2k</code>.</p>
+<p>Esse número é sempre par. Portanto, a paridade da quantidade de cartas para cima não muda.</p>
+<p>No início há 17 cartas para cima, uma quantidade ímpar. No final desejado haveria 0 cartas para cima, uma quantidade par. Isso é impossível.</p>
+<blockquote>
+<p><strong>Resposta:</strong> <strong>não é possível</strong> terminar com todas as cartas para baixo.</p>
+</blockquote>
+<p><strong>O que este problema pode revelar sobre a rota:</strong> se você tentou várias sequências de jogadas e não encontrou uma solução, ainda faltava provar que nenhuma sequência funciona. A paridade transforma uma observação em uma justificativa para todos os casos.</p>
+<hr>
+<h2>6. Diagnóstico: onde a rota pediu ajuda?</h2>
+<p>Depois da correção, o objetivo não é fazer uma lista longa de defeitos. É localizar a causa principal de cada dificuldade.</p>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Como ela aparece</th>
+<th>Pergunta de diagnóstico</th>
+<th>Primeiro treino útil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leitura</td>
+<td>Respondi outra coisa, ignorei uma condição ou usei dado decorativo.</td>
+<td>Qual palavra do pedido ou qual restrição eu deixei passar?</td>
+<td>Relê enunciados e escreve o pedido em uma frase.</td>
+</tr>
+<tr>
+<td>Escolha</td>
+<td>Não encontrei uma entrada ou usei uma ferramenta distante do problema.</td>
+<td>Que representação ou caso pequeno eu poderia testar?</td>
+<td>Resolve problemas curtos escolhendo primeiro a família provável.</td>
+</tr>
+<tr>
+<td>Desenvolvimento</td>
+<td>Tive uma ideia, mas ela não chegou à conclusão.</td>
+<td>Qual passo concreto faltou: conta, lista, caso ou ligação?</td>
+<td>Completa soluções interrompidas, uma etapa por vez.</td>
+</tr>
+<tr>
+<td>Escrita</td>
+<td>A resposta pode estar certa, mas ninguém acompanha a razão.</td>
+<td>Onde está a ideia decisiva no que escrevi?</td>
+<td>Reescreve duas soluções com alvo, ferramenta, caminho e fecho.</td>
+</tr>
+<tr>
+<td>Revisão</td>
+<td>Faltou unidade, caso, condição ou coerência.</td>
+<td>Qual dos cinco olhos eu não usei?</td>
+<td>Confere respostas prontas procurando um tipo de falha por vez.</td>
+</tr>
+<tr>
+<td>Cálculo</td>
+<td>A estratégia era boa, mas uma operação mudou o resultado.</td>
+<td>Posso verificar por estimativa ou operação inversa?</td>
+<td>Faz poucas contas verificadas, sem misturá-las ao problema inteiro.</td>
+</tr>
+</tbody>
+</table>
+<p>O mesmo erro pode ter mais de uma camada. Por exemplo, uma resposta de 6 caixas no Problema 1 pode parecer erro de cálculo, mas a divisão pode estar correta. A causa real pode ser leitura: a pergunta pedia caixas necessárias, inclusive a última incompleta.</p>
+<p>Por isso, o diagnóstico não deve usar rótulos vazios como “sou ruim em problemas”. Um diagnóstico útil aponta uma decisão treinável:</p>
+<blockquote>
+<p>“Em problemas de caminhos, eu conto o total, mas esqueço de retirar os casos proibidos.”</p>
+</blockquote>
+<p>Essa frase já sugere um próximo passo concreto.</p>
+<div class="ferramenta" data-num="103" id="f103"><span class="f-badge">Ferramenta 103</span><span class="f-text">Transformar erro em exercício-alvo</span></div>
+
+<blockquote>
+<p>Antes de refazer um problema, descubra se a dificuldade foi leitura, escolha, desenvolvimento, escrita, revisão ou cálculo. Treino sem diagnóstico repete esforço; treino com diagnóstico escolhe alvo.</p>
+</blockquote>
+<hr>
+<h2>7. Um plano de sete dias que cabe na vida real</h2>
+<p>Depois de um simulado, é tentador prometer: “Vou revisar tudo”. Essa promessa é grande demais para orientar o próximo dia.</p>
+<p>Um plano útil escolhe <strong>uma prioridade principal</strong> e, no máximo, <strong>uma prioridade de apoio</strong>. O objetivo não é estudar sete horas por dia nem preencher uma agenda perfeita. É voltar durante uma semana ao tipo de decisão que precisa ficar mais forte.</p>
+<p>Veja três exemplos de plano. Eles não são receitas obrigatórias; são modelos para adaptar.</p>
+<table>
+<thead>
+<tr>
+<th>Diagnóstico principal</th>
+<th>Prioridade da semana</th>
+<th>Evidência de avanço</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Esqueço condições e pedidos finais.</td>
+<td>Leitura estratégica.</td>
+<td>Consigo resumir pedido e restrições antes de calcular.</td>
+</tr>
+<tr>
+<td>Tenho ideias, mas paro no meio.</td>
+<td>Desenvolvimento da solução.</td>
+<td>Consigo completar a ponte entre ideia e conclusão.</td>
+</tr>
+<tr>
+<td>Chego a resultados sem justificativa.</td>
+<td>Escrita e revisão.</td>
+<td>Consigo mostrar a razão principal e conferir os cinco olhos.</td>
+</tr>
+</tbody>
+</table>
+<h3>Exemplo A — Semana de leitura estratégica</h3>
+<table>
+<thead>
+<tr>
+<th>Dia</th>
+<th>Ação pequena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Escolher três problemas curtos e escrever apenas o pedido final de cada um.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Marcar, em dois enunciados, os dados úteis, perigosos e decorativos.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Resolver um problema e conferir se a resposta está na unidade pedida.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Refazer um problema em que uma condição foi esquecida.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Escolher duas questões e dizer qual família parece ser a primeira porta.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Fazer um mini-simulado de três questões, registrando a primeira escolha.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Relê a folha de bordo e escreve uma frase sobre o que passou a notar.</td>
+</tr>
+</tbody>
+</table>
+<h3>Exemplo B — Semana de desenvolvimento</h3>
+<table>
+<thead>
+<tr>
+<th>Dia</th>
+<th>Ação pequena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Escolher duas soluções interrompidas e descobrir o próximo passo concreto.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Resolver um problema com tabela ou desenho, sem saltar da ideia à resposta.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Fazer um caso pequeno e explicar o que ele revelou.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Completar uma contagem separando total, casos proibidos e resultado pedido.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Resolver um problema de trás para frente e verificar no sentido direto.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Fazer duas questões com uma pausa planejada: deixar uma pista antes de trocar.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Comparar uma primeira tentativa com a versão final e nomear a ponte que faltava.</td>
+</tr>
+</tbody>
+</table>
+<h3>Exemplo C — Semana de escrita e revisão</h3>
+<table>
+<thead>
+<tr>
+<th>Dia</th>
+<th>Ação pequena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Reescrever uma resposta curta usando alvo, ferramenta, caminho e fecho.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Usar apenas o olho das unidades em três respostas antigas.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Usar apenas o olho dos casos esquecidos em uma lista ou contagem.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Explicar por que um resultado é possível ou impossível, sem apenas afirmar.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Comparar duas soluções: qual deixa a ideia decisiva mais visível?</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Fazer um problema completo e revisar com os cinco olhos.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Escolher a melhor solução da semana e anotar o que a torna conferível.</td>
+</tr>
+</tbody>
+</table>
+<p>Uma semana não precisa terminar em perfeição. Ela precisa deixar uma evidência: uma leitura mais cuidadosa, uma ponte que antes faltava, uma justificativa mais clara ou um erro que agora é reconhecido mais cedo.</p>
+<div class="ferramenta" data-num="104" id="f104"><span class="f-badge">Ferramenta 104</span><span class="f-text">Montar plano de treino curto a partir do diagnóstico</span></div>
+
+<blockquote>
+<p>Escolha uma prioridade principal, uma ação pequena por dia e uma evidência observável de avanço. Não tente consertar a Mochila inteira em uma semana.</p>
+</blockquote>
+<div class="ferramenta" data-num="105" id="f105"><span class="f-badge">Ferramenta 105</span><span class="f-text">Comparar a estratégia escolhida com a estratégia ideal</span></div>
+
+<blockquote>
+<p>Depois da correção, nomeie o que sua primeira tentativa já tinha de útil e o passo que faria a rota ficar mais curta, clara ou completa.</p>
+</blockquote>
+<div class="ferramenta" data-num="106" id="f106"><span class="f-badge">Ferramenta 106</span><span class="f-text">Organizar o estudo em ciclos de simulado, correção, diagnóstico, treino e novo simulado</span></div>
+
+<blockquote>
+<p>Uma semana curta de treino é parte de um ciclo: ela devolve uma nova tentativa ao simulado, onde a ferramenta precisa aparecer sem ser anunciada.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C13_F03_mapa_7_dias.svg" alt="Mapa de decisão curto que sai do diagnóstico e chega a uma evidência concreta em sete dias, sem horários rígidos nem promessa de progresso linear." loading="lazy"><figcaption>Mapa de decisão curto que sai do diagnóstico e chega a uma evidência concreta em sete dias, sem horários rígidos nem promessa de progresso linear.</figcaption></figure>
+
+<hr>
+<h2><span class="badge-oficina">Oficina</span>8. Oficina Olímpica 12 — A rota é sua</h2>
+<p>Os desafios abaixo são originais, em estilo OBMEP. Antes das respostas, escolha sozinho uma primeira jogada e deixe uma pista se decidir pausar. Depois, faça um diagnóstico de uma frase: leitura, escolha, desenvolvimento, escrita, revisão ou cálculo.</p>
+<p>Todos são <strong>problemas originais em estilo OBMEP</strong> de resposta determinada. O diagnóstico pedido depois de cada tentativa é uma atividade aberta de reflexão sobre a própria rota, não uma questão com gabarito único.</p>
+<h3>Desafio 1 — A última caixa</h3>
+<p>Uma biblioteca recebeu 95 livros e tem caixas para 15 livros cada. Quantas caixas são necessárias no mínimo?</p>
+<p><strong>Resposta comentada:</strong> 6 caixas comportam 90 livros; sobram 5. São necessárias 7 caixas. O ponto importante é responder caixas inteiras, não apenas o quociente.</p>
+<blockquote>
+<p><strong>Resposta:</strong> 7 caixas.</p>
+</blockquote>
+<h3>Desafio 2 — O número filtrado</h3>
+<p>Qual número entre 30 e 50 é múltiplo de 4 e deixa resto 1 na divisão por 3?</p>
+<p><strong>Resposta comentada:</strong> os múltiplos de 4 são <code>32, 36, 40, 44, 48</code>. Seus restos por 3 são <code>2, 0, 1, 2, 0</code>. Apenas 40 serve.</p>
+<blockquote>
+<p><strong>Resposta:</strong> 40.</p>
+</blockquote>
+<h3>Desafio 3 — O retângulo e o quadrado</h3>
+<p>Um retângulo de 8 cm por 6 cm perde um quadrado de 2 cm por 2 cm em um canto. Qual é a área restante?</p>
+<p><strong>Resposta comentada:</strong> área do retângulo: <code>48 cm²</code>; área retirada: <code>4 cm²</code>; área restante: <code>44 cm²</code>.</p>
+<blockquote>
+<p><strong>Resposta:</strong> 44 cm².</p>
+</blockquote>
+<h3>Desafio 4 — A fila possível</h3>
+<p>Lia, Nara e Otávio ficam em uma fila. Nara fica imediatamente antes de Otávio, e Lia não fica no primeiro lugar. Qual é a ordem?</p>
+<p><strong>Resposta comentada:</strong> o bloco <code>Nara-Otávio</code> não pode estar nas posições 2 e 3, pois Lia ficaria em primeiro. Logo, o bloco ocupa 1 e 2, e Lia fica em terceiro.</p>
+<blockquote>
+<p><strong>Resposta:</strong> Nara, Otávio, Lia.</p>
+</blockquote>
+<h3>Desafio 5 — A troca de moedas</h3>
+<p>Uma mesa começa com 9 moedas mostrando cara. Em cada jogada, exatamente 4 moedas são viradas. É possível terminar com nenhuma moeda mostrando cara?</p>
+<p><strong>Resposta comentada:</strong> a quantidade de caras muda sempre por um número par. Ela começa ímpar (9) e deveria terminar par (0), o que é impossível.</p>
+<blockquote>
+<p><strong>Resposta:</strong> não é possível.</p>
+</blockquote>
+<hr>
+<h2>9. A Mochila depois do simulado</h2>
+<p>Neste capítulo, a Mochila organizou dez ferramentas de autonomia:</p>
+<ol>
+<li>Treinar com menos pistas durante a resolução.</li>
+<li>Registrar a primeira jogada escolhida.</li>
+<li>Usar uma folha de bordo do simulado.</li>
+<li>Classificar erros por origem.</li>
+<li>Separar erro de conteúdo, leitura, tempo, escrita, revisão e estratégia.</li>
+<li>Reescrever soluções depois da correção.</li>
+<li>Transformar erro em exercício-alvo.</li>
+<li>Montar plano de treino curto a partir do diagnóstico.</li>
+<li>Comparar a estratégia escolhida com a estratégia ideal.</li>
+<li>Organizar o estudo em ciclos de simulado, correção, diagnóstico, treino e novo simulado.</li>
+</ol>
+<p>Elas não substituem as ferramentas anteriores. Elas dizem o que fazer quando um problema, uma prova ou uma correção deixam uma pergunta aberta.</p>
+<p>Um estudante autônomo não é aquele que nunca pede ajuda. É aquele que consegue chegar com uma pergunta melhor:</p>
+<blockquote>
+<p>“Eu li o pedido, tentei uma tabela e encontrei este padrão. Não sei ainda como provar que ele continua. Qual passo devo investigar?”</p>
+</blockquote>
+<p>Essa pergunta já carrega trabalho, observação e direção.</p>
+<hr>
+<h2>10. Pergunta para amanhã</h2>
+<p>Felipe agora pode usar um simulado para reconhecer não apenas o que acertou, mas o tipo de treino de que realmente precisa. O próximo passo é dar continuidade a esse diagnóstico sem transformar a matemática em uma planilha cansativa.</p>
+<blockquote>
+<p>Como criar uma rotina que faça a Mochila ficar mais rápida de abrir, sem perder curiosidade nem acumular tarefas impossíveis?</p>
+</blockquote>
+<p>No próximo capítulo, a Academia organiza ciclos de treino, um caderno de erros que ensina e uma rotina que cabe em semanas reais.</p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap12.html" class="nav-prev">← Cap. 12</a>
+      <a href="cap14.html" class="nav-next">Cap. 14 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(13);</script>
+</body>
+</html>

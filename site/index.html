@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rumo ao Ouro</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header home-header">
+  <div class="header-left">
+    <span class="logo">Rumo ao Ouro</span>
+  </div>
+  <div class="header-right">
+    <a href="mochila.html" class="btn-icon">🎒 Mochila</a>
+    <a href="oficinas.html" class="btn-icon">⚙ Oficinas</a>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()">🌙</button>
+  </div>
+</header>
+
+<main class="home">
+  <div class="home-hero">
+    <h1>Rumo ao Ouro</h1>
+    <p class="home-subtitle">Preparação para a Segunda Fase da OBMEP — Nível 2</p>
+    <div class="legend">
+      <span class="nivel-badge nivel-bronze">Nível Bronze (caps. 1–9)</span>
+      <span class="nivel-badge nivel-prata">Nível Prata (caps. 10–15)</span>
+      <span class="nivel-badge nivel-ouro">Nível Ouro (caps. 16–17)</span>
+    </div>
+  </div>
+  <ol class="chapter-list">
+    <li class="idx-item nivel-bronze" data-cap="1" id="idx-1">  <a href="capitulos/cap01.html">    <span class="idx-num">1</span>    <span class="idx-title">A primeira chave</span>  </a>  <span class="idx-nivel">Nível Bronze</span>  <span class="idx-status" id="status-1"></span></li><li class="idx-item nivel-bronze" data-cap="2" id="idx-2">  <a href="capitulos/cap02.html">    <span class="idx-num">2</span>    <span class="idx-title">O mundo dos números</span>  </a>  <span class="idx-nivel">Nível Bronze</span>  <span class="idx-status" id="status-2"></span></li><li class="idx-item nivel-bronze" data-cap="3" id="idx-3">  <a href="capitulos/cap03.html">    <span class="idx-num">3</span>    <span class="idx-title">Quando sobra, nasce uma ideia</span>  </a>  <span class="idx-nivel">Nível Bronze</span>  <span class="idx-status" id="status-3"></span></li><li class="idx-item nivel-bronze" data-cap="4" id="idx-4">  <a href="capitulos/cap04.html">    <span class="idx-num">4</span>    <span class="idx-title">Quando os divisores se encontram</span>  </a>  <span class="idx-nivel">Nível Bronze</span>  <span class="idx-status" id="status-4"></span></li><li class="idx-item nivel-bronze" data-cap="5" id="idx-5">  <a href="capitulos/cap05.html">    <span class="idx-num">5</span>    <span class="idx-title">Quando a divisão não termina</span>  </a>  <span class="idx-nivel">Nível Bronze</span>  <span class="idx-status" id="status-5"></span></li><li class="idx-item nivel-bronze" data-cap="6" id="idx-6">  <a href="capitulos/cap06.html">    <span class="idx-num">6</span>    <span class="idx-title">A regra secreta</span>  </a>  <span class="idx-nivel">Nível Bronze</span>  <span class="idx-status" id="status-6"></span></li><li class="idx-item nivel-bronze" data-cap="7" id="idx-7">  <a href="capitulos/cap07.html">    <span class="idx-num">7</span>    <span class="idx-title">Quando o desenho ganha medida</span>  </a>  <span class="idx-nivel">Nível Bronze</span>  <span class="idx-status" id="status-7"></span></li><li class="idx-item nivel-bronze" data-cap="8" id="idx-8">  <a href="capitulos/cap08.html">    <span class="idx-num">8</span>    <span class="idx-title">A arte de montar e desmontar figuras</span>  </a>  <span class="idx-nivel">Nível Bronze</span>  <span class="idx-status" id="status-8"></span></li><li class="idx-item nivel-bronze" data-cap="9" id="idx-9">  <a href="capitulos/cap09.html">    <span class="idx-num">9</span>    <span class="idx-title">A arte de contar sem se perder</span>  </a>  <span class="idx-nivel">Nível Bronze</span>  <span class="idx-status" id="status-9"></span></li><li class="idx-item nivel-prata" data-cap="10" id="idx-10">  <a href="capitulos/cap10.html">    <span class="idx-num">10</span>    <span class="idx-title">Quando a lógica encontra o caminho</span>  </a>  <span class="idx-nivel">Nível Prata</span>  <span class="idx-status" id="status-10"></span></li><li class="idx-item nivel-prata" data-cap="11" id="idx-11">  <a href="capitulos/cap11.html">    <span class="idx-num">11</span>    <span class="idx-title">A primeira jogada</span>  </a>  <span class="idx-nivel">Nível Prata</span>  <span class="idx-status" id="status-11"></span></li><li class="idx-item nivel-prata" data-cap="12" id="idx-12">  <a href="capitulos/cap12.html">    <span class="idx-num">12</span>    <span class="idx-title">A prova inteira</span>  </a>  <span class="idx-nivel">Nível Prata</span>  <span class="idx-status" id="status-12"></span></li><li class="idx-item nivel-prata" data-cap="13" id="idx-13">  <a href="capitulos/cap13.html">    <span class="idx-num">13</span>    <span class="idx-title">Sem rodinhas</span>  </a>  <span class="idx-nivel">Nível Prata</span>  <span class="idx-status" id="status-13"></span></li><li class="idx-item nivel-prata" data-cap="14" id="idx-14">  <a href="capitulos/cap14.html">    <span class="idx-num">14</span>    <span class="idx-title">Entre um simulado e outro</span>  </a>  <span class="idx-nivel">Nível Prata</span>  <span class="idx-status" id="status-14"></span></li><li class="idx-item nivel-prata" data-cap="15" id="idx-15">  <a href="capitulos/cap15.html">    <span class="idx-num">15</span>    <span class="idx-title">A prova que confirma</span>  </a>  <span class="idx-nivel">Nível Prata</span>  <span class="idx-status" id="status-15"></span></li><li class="idx-item nivel-ouro" data-cap="16" id="idx-16">  <a href="capitulos/cap16.html">    <span class="idx-num">16</span>    <span class="idx-title">A reta final</span>  </a>  <span class="idx-nivel">Nível Ouro</span>  <span class="idx-status" id="status-16"></span></li><li class="idx-item nivel-ouro" data-cap="17" id="idx-17">  <a href="capitulos/cap17.html">    <span class="idx-num">17</span>    <span class="idx-title">A Mochila Inteira</span>  </a>  <span class="idx-nivel">Nível Ouro</span>  <span class="idx-status" id="status-17"></span></li>
+  </ol>
+</main>
+
+<script src="assets/js/app.js"></script>
+<script>initIndex();</script>
+</body>
+</html>

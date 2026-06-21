@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 16 — A reta final | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-ouro">Nível Ouro</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link sidebar-active" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 16</span>
+        <h1 class="cap-title">A reta final</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. A porta depois da confirmacao</h2>
+<p>Felipe fechou o caderno depois do simulado de confirmacao. Havia respostas certas, uma resposta que precisava de explicacao melhor e dois problemas aos quais ele voltaria de outro jeito.</p>
+<p>O Professor da Academia nao perguntou quantas ele tinha acertado.</p>
+<p>Perguntou:</p>
+<blockquote>
+<p>"Agora que voce tem pistas de verdade, o que vale a pena fazer com os dias que restam?"</p>
+</blockquote>
+<p>Essa e a pergunta da reta final.</p>
+<p>Reta final nao e hora de recomeçar o livro inteiro. Tambem nao e hora de tentar aprender tudo que ainda parece grande. E o momento de <strong>escolher bem</strong>: conservar o que ja funciona, fortalecer o que pode melhorar e preparar uma resposta simples para os pontos que ainda assustam.</p>
+<p>O Matematico Invisivel deixou uma observacao no quadro:</p>
+<blockquote>
+<p>"Medo faz listas enormes. Evidencia faz planos pequenos."</p>
+</blockquote>
+<p>Uma evidencia pode vir de uma prova, de um mini-simulado, de uma solucao escrita ou de uma reconstrução feita sem olhar. Ela responde perguntas concretas:</p>
+<ul>
+<li>reconheci rapidamente um problema de restos?</li>
+<li>consegui explicar por que subtrai os caminhos proibidos?</li>
+<li>soube circular e voltar a uma questao?</li>
+<li>usei o ultimo tempo para revisar, ou fiquei preso numa unica porta?</li>
+</ul>
+<p>Essas respostas valem mais do que a frase vaga "acho que sou ruim nisso".</p>
+<hr>
+<h2>2. O mapa honesto da Mochila</h2>
+<p>Antes de decidir o que estudar, Felipe nao precisa dar uma nota para cada capitulo. Precisa desenhar um mapa honesto das ferramentas que leva para a prova.</p>
+<table>
+<thead>
+<tr>
+<th>Zona</th>
+<th>O que significa</th>
+<th>Decisao na reta final</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ferramenta forte</td>
+<td>Voce reconhece a ideia, usa-a e consegue explicar.</td>
+<td>Manter viva com revisoes curtas.</td>
+</tr>
+<tr>
+<td>Ponto medio</td>
+<td>A ideia aparece, mas demora, falha em enunciado misto ou precisa de ajuda.</td>
+<td>E o melhor lugar para ganhar terreno.</td>
+</tr>
+<tr>
+<td>Fragilidade necessaria</td>
+<td>Pode aparecer na prova e ainda trava voce.</td>
+<td>Criar uma versao de emergencia.</td>
+</tr>
+<tr>
+<td>Conteudo perigoso agora</td>
+<td>Exigiria abrir um assunto grande, raro ou ainda sem base.</td>
+<td>Nao transformar em prioridade de ultima hora.</td>
+</tr>
+</tbody>
+</table>
+<p>Esse mapa nao e uma etiqueta para sempre. "Ponto medio" nao quer dizer incapacidade. Quer dizer: <strong>ha uma ponte curta e util daqui ate uma resposta melhor</strong>.</p>
+<p>Por exemplo:</p>
+<ul>
+<li>Felipe reconhece MMC em problemas de sinos e reencontros, mas as vezes esquece de interpretar a pergunta. Isso e ponto medio, nao motivo para abandonar MMC.</li>
+<li>Ele percebe facilmente uma area de retangulo, mas se confunde quando ha faixa, buraco ou sobreposicao. A ferramenta basica e forte; a leitura de figuras compostas pode ser o ponto medio.</li>
+<li>Se um tipo muito raro de problema exigir uma tecnica que nunca foi estudada, abrir essa tecnica na vespera pode ser conteudo perigoso. A melhor defesa pode ser ler com calma, fazer um caso pequeno e escrever o que ja se sabe.</li>
+</ul>
+<figure class="figura"><img src="../assets/figuras/C16_F01_matriz_quatro_zonas.svg" alt="Manter uma matriz simples das quatro zonas, fortes, médias, fragilidades necessárias e conteúdos perigosos para agora. Não repetir aqui as cinco famílias, que pertencem ao mapa completo do capítulo seguinte." loading="lazy"><figcaption>Manter uma matriz simples das quatro zonas, fortes, médias, fragilidades necessárias e conteúdos perigosos para agora. Não repetir aqui as cinco famílias, que pertencem ao mapa completo do capítulo seguinte.</figcaption></figure>
+
+<h3>A pergunta que escolhe</h3>
+<p>Para cada possivel prioridade, use tres perguntas:</p>
+<ol>
+<li>Ela apareceu em simulados, correcoes ou tentativas reais?</li>
+<li>Uma revisao curta e pratica pode melhorar meu desempenho nela?</li>
+<li>Ela conversa com mais de uma familia de problemas?</li>
+</ol>
+<p>Quanto mais respostas "sim", maior o ganho provavel.</p>
+<p>Uma prioridade boa nao precisa ser bonita. Pode ser muito concreta:</p>
+<blockquote>
+<p>"Quando houver caminhos em malha, vou primeiro contar todos os caminhos e depois verificar se preciso retirar os que passam pelo ponto proibido."</p>
+</blockquote>
+<p>Isso e mais util do que escrever apenas "treinar combinatoria".</p>
+<hr>
+<h2>3. Ansiedade tambem precisa de uma primeira jogada</h2>
+<p>Na reta final, a ansiedade costuma falar como se tudo fosse urgente:</p>
+<blockquote>
+<p>"Voce esqueceu frações."<br>
+"E se cair geometria?"<br>
+"E se a prova vier diferente?"</p>
+</blockquote>
+<p>O problema dessas frases nao e que elas sejam proibidas. O problema e que elas nao dizem o que fazer.</p>
+<p>Na Academia, ansiedade recebe a mesma pergunta que um problema dificil:</p>
+<blockquote>
+<p>"Qual e a primeira jogada pequena que abre uma porta?"</p>
+</blockquote>
+<p>Pode ser:</p>
+<ul>
+<li>reconstruir uma solucao de restos em cinco minutos;</li>
+<li>escrever uma solucao de area com tres frases completas;</li>
+<li>fazer dois problemas de ponto medio, nao dez aleatorios;</li>
+<li>separar o material do proximo simulado;</li>
+<li>encerrar o estudo no horario combinado para descansar de verdade.</li>
+</ul>
+<p>Transformar ansiedade em acao nao significa fingir que a prova nao importa. Significa nao entregar a direcao dos estudos ao alarme.</p>
+<h3>Ferramenta 125 da Mochila</h3>
+<p><strong>Transformar ansiedade em plano de acao.</strong></p>
+<p>Quando surgir uma preocupacao, escreva mentalmente a traducao pratica:</p>
+<table>
+<thead>
+<tr>
+<th>Preocupacao vaga</th>
+<th>Pergunta util</th>
+<th>Acao pequena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Posso travar em restos."</td>
+<td>Em qual passo eu travo?</td>
+<td>Fazer uma trilha curta de restos e explicar o ciclo.</td>
+</tr>
+<tr>
+<td>"Minha escrita esta fraca."</td>
+<td>O que falta: ideia, justificativa ou fecho?</td>
+<td>Reescrever uma solucao em degraus.</td>
+</tr>
+<tr>
+<td>"Nao sei tudo."</td>
+<td>O que ja sei reconhecer?</td>
+<td>Revisar duas ferramentas fortes.</td>
+</tr>
+</tbody>
+</table>
+<p>O Professor sorriu:</p>
+<blockquote>
+<p>"Nenhum plano elimina a surpresa. Mas um plano deixa voce livre para responder a ela."</p>
+</blockquote>
+<hr>
+<h2>4. As ferramentas fortes ficam vivas</h2>
+<p>Uma ferramenta forte nao precisa ser estudada como se fosse nova. Mas tambem nao deve ficar esquecida ate a prova.</p>
+<p>Uma revisao viva pode ter tres movimentos curtos:</p>
+<ol>
+<li>dizer a ideia essencial com suas palavras;</li>
+<li>resolver ou reconstruir um problema pequeno;</li>
+<li>reconhecer onde ela poderia aparecer escondida num enunciado misto.</li>
+</ol>
+<p>Veja o exemplo de ciclos:</p>
+<ul>
+<li><strong>ideia essencial:</strong> depois de uma volta completa, a posicao depende do resto;</li>
+<li><strong>problema tipico:</strong> descobrir o dia da semana depois de certo numero de dias;</li>
+<li><strong>problema misto:</strong> decidir quando dois ciclos voltam a coincidir e perceber que a pergunta agora pede um multiplo comum.</li>
+</ul>
+<p>Essa revisao e curta porque a meta nao e provar que voce sabe tudo outra vez. E manter a ferramenta disponivel quando ela aparecer na prova.</p>
+<h3>Ferramenta 128 da Mochila</h3>
+<p><strong>Manter vivas as ferramentas fortes.</strong></p>
+<p>Uma ferramenta forte merece retorno breve e frequente, nao uma maratona que rouba o tempo dos pontos medios.</p>
+<hr>
+<h2>5. O melhor terreno para crescer: os pontos medios</h2>
+<p>Pontos medios sao preciosos. Neles, voce ja possui parte da estrada.</p>
+<p>Talvez voce saiba que, em uma figura com um buraco, a area que falta deve ser subtraida. Mas as unidades se embaralham. Ou talvez saiba montar uma arvore de possibilidades, mas ainda conta duas vezes quando a ordem nao importa.</p>
+<p>Em vez de trocar de assunto toda vez que aparece um erro, escolha uma ponte curta.</p>
+<h3>Uma ponte de tres voltas</h3>
+<p>Para um ponto medio, experimente:</p>
+<ol>
+<li><strong>reconhecer:</strong> qual palavra, desenho ou relacao deveria acender a ferramenta?</li>
+<li><strong>praticar:</strong> resolver um problema tipico sem consultar a resposta;</li>
+<li><strong>transferir:</strong> resolver um problema misto, em que a ferramenta nao vem anunciada.</li>
+</ol>
+<p>Se voce melhora na primeira volta, mas trava na terceira, isso nao anula o progresso. Apenas mostra o proximo treino: reconhecimento em enunciados mistos.</p>
+<h3>Ferramentas 129 e 130 da Mochila</h3>
+<p><strong>Reforcar pontos medios antes de perseguir novidades enormes.</strong><br>
+<strong>Criar versoes de emergencia para fragilidades necessarias.</strong></p>
+<p>Uma versao de emergencia nao e uma formula magica. E uma pequena sequencia de perguntas que voce consegue usar sob pressao.</p>
+<p>Exemplos:</p>
+<table>
+<thead>
+<tr>
+<th>Se a fragilidade aparece em...</th>
+<th>Versao de emergencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Restos e ciclos</td>
+<td>"Qual e o ciclo? Onde comeca? Posso eliminar voltas completas?"</td>
+</tr>
+<tr>
+<td>Area composta</td>
+<td>"Posso dividir, completar ou subtrair? As medidas estao na mesma unidade?"</td>
+</tr>
+<tr>
+<td>Caminhos</td>
+<td>"Quais passos sao obrigatorios? Conto tudo? Ha casos proibidos para retirar?"</td>
+</tr>
+<tr>
+<td>Logica</td>
+<td>"O que esta garantido? O que e apenas possivel? Posso testar uma hipotese e buscar contradicao?"</td>
+</tr>
+<tr>
+<td>Escrita</td>
+<td>"O que quero provar? Qual foi a ideia? Por que cada passo vale? Qual e a resposta final?"</td>
+</tr>
+</tbody>
+</table>
+<p>Uma boa versao de emergencia cabe na Mochila. Ela nao promete resolver todo problema daquela familia. Ela impede que o primeiro susto vire paralisia.</p>
+<hr>
+<h2>6. O que nao cabe agora</h2>
+<p>Ha uma coragem silenciosa em dizer: "Este assunto nao e minha prioridade nesta semana."</p>
+<p>Isso nao e desistir de aprender. E proteger o que ja esta sendo construído.</p>
+<p>Evite abrir conteudo novo apenas porque ele parece sofisticado, porque alguem mencionou uma tecnica diferente ou porque uma lista na internet parece interminavel. Um assunto novo pode consumir energia, trazer comparacoes injustas e fazer voce abandonar uma ponte que estava quase pronta.</p>
+<h3>Ferramenta 131 da Mochila</h3>
+<p><strong>Evitar conteudo novo que so aumenta ansiedade.</strong></p>
+<p>Antes de colocar algo novo no plano, pergunte:</p>
+<ul>
+<li>ele aparece como necessidade real nas minhas tentativas?</li>
+<li>ha tempo para entender, praticar e transferir?</li>
+<li>ele substitui uma prioridade concreta ou so aumenta a lista?</li>
+</ul>
+<p>Se a resposta for "so aumenta a lista", ele pode esperar depois da prova.</p>
+<hr>
+<h2>7. Uma reta final que cabe na vida</h2>
+<p>Nao existe calendario perfeito para todos. Ha dias de aula, familia, cansaco, outros compromissos e diferentes quantidades de tempo. Por isso, a reta final nao deve ser um quadro que cobra horas iguais todos os dias.</p>
+<p>Ela pode ser organizada por <strong>funcoes</strong>, que voce alterna conforme o tempo real disponivel:</p>
+<table>
+<thead>
+<tr>
+<th>Funcao</th>
+<th>Pergunta que ela responde</th>
+<th>Exemplo de sessao curta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Revisao</td>
+<td>O que preciso manter acessivel?</td>
+<td>Ideia essencial mais um problema pequeno.</td>
+</tr>
+<tr>
+<td>Treino-alvo</td>
+<td>Onde ha maior ganho provavel?</td>
+<td>Dois problemas de um ponto medio.</td>
+</tr>
+<tr>
+<td>Escrita</td>
+<td>Consigo transformar ideia em solucao comunicavel?</td>
+<td>Reescrever uma resposta em degraus.</td>
+</tr>
+<tr>
+<td>Correcao</td>
+<td>O que a tentativa ensinou?</td>
+<td>Localizar o primeiro ponto de quebra.</td>
+</tr>
+<tr>
+<td>Simulado</td>
+<td>Como ajo quando as familias se misturam?</td>
+<td>Prova curta com funcao definida.</td>
+</tr>
+<tr>
+<td>Descanso</td>
+<td>Estou devolvendo energia ao pensamento?</td>
+<td>Parar, dormir e fazer outra coisa sem culpa.</td>
+</tr>
+</tbody>
+</table>
+<h3>Ferramenta 132 da Mochila</h3>
+<p><strong>Alternar revisao, treino, correcao, escrita e descanso.</strong></p>
+<p>Descanso nao e uma recompensa por estudar o suficiente. E parte do preparo. Uma mente exausta pode transformar uma ferramenta forte em erro de leitura.</p>
+<figure class="figura"><img src="../assets/figuras/C16_F02_roda_preparo.svg" alt="Roda com revisão, treino-alvo, escrita, correção, simulado e descanso, sem início obrigatório nem calendário rígido." loading="lazy"><figcaption>Roda com revisão, treino-alvo, escrita, correção, simulado e descanso, sem início obrigatório nem calendário rígido.</figcaption></figure>
+
+<hr>
+<h2>8. Os ultimos simulados precisam ter uma funcao</h2>
+<p>Fazer muitos simulados sem saber para que serve cada um pode virar apenas cansaço acumulado.</p>
+<p>Na reta final, um simulado pode ter uma de tres funcoes:</p>
+<table>
+<thead>
+<tr>
+<th>Funcao do simulado</th>
+<th>O que observar</th>
+<th>O que nao exigir dele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treino de percurso</td>
+<td>Ordem de ataque, retorno e uso do tempo.</td>
+<td>Uma nota perfeita.</td>
+</tr>
+<tr>
+<td>Confirmacao</td>
+<td>Evidencias de que um ponto medio melhorou.</td>
+<td>Que todo erro desapareca.</td>
+</tr>
+<tr>
+<td>Revisao leve</td>
+<td>Reconhecimento e escrita antes da prova.</td>
+<td>Aprender um assunto inteiro novo.</td>
+</tr>
+</tbody>
+</table>
+<p>Depois de cada simulado, escolha no maximo uma pergunta principal. Por exemplo:</p>
+<blockquote>
+<p>"Quando eu circulei, deixei uma pista suficiente para voltar?"</p>
+</blockquote>
+<p>ou</p>
+<blockquote>
+<p>"Minha resposta escrita explica a ideia antes de fazer a conta?"</p>
+</blockquote>
+<p>Isso deixa o simulado honesto. Ele nao precisa medir o universo inteiro de uma vez.</p>
+<h3>Ferramenta 133 da Mochila</h3>
+<p><strong>Usar os ultimos simulados com funcao clara.</strong></p>
+<hr>
+<h2>9. Escrever e uma forma de encontrar pontos</h2>
+<p>Em uma prova de Segunda Fase, uma ideia correta que nao chega ao papel pode ficar invisivel. Por isso, escrita nao e enfeite de ultima hora. E uma fonte real de ganho.</p>
+<p>Quando a solucao ainda nao esta completa, voce pode escrever o que ja sabe de modo organizado:</p>
+<ul>
+<li>o que a pergunta pede;</li>
+<li>um dado decisivo que voce observou;</li>
+<li>a representacao escolhida;</li>
+<li>uma conta ou caso pequeno que tenha sido justificado;</li>
+<li>o proximo passo que falta verificar.</li>
+</ul>
+<p>Isso protege parte do raciocinio e tambem ajuda voce a pensar. Uma folha vazia faz o problema parecer maior. Uma ideia escrita em degraus da um lugar de onde continuar.</p>
+<h3>Pequeno treino de escrita</h3>
+<p>Considere: dois sinos tocam juntos agora. Um toca de 6 em 6 minutos e o outro de 8 em 8 minutos. Quando tocarao juntos pela quarta vez depois de agora?</p>
+<p>Uma resposta fraca seria apenas:</p>
+<blockquote>
+<p>96 minutos.</p>
+</blockquote>
+<p>Uma resposta em degraus pode ser:</p>
+<blockquote>
+<p>Eles voltam a tocar juntos a cada MMC de 6 e 8 minutos. Como o MMC e 24, os reencontros depois de agora acontecem aos 24, 48, 72 e 96 minutos. Portanto, a quarta vez depois de agora sera em 96 minutos.</p>
+</blockquote>
+<p>O calculo nao ficou mais dificil. A solucao ficou visivel e verificavel.</p>
+<hr>
+<h2>10. A vespera: diminuir o barulho</h2>
+<p>Na vespera, o objetivo nao e descobrir quanto ainda falta. E chegar ao dia seguinte com a Mochila organizada e a mente menos ocupada.</p>
+<p>Uma vespera util pode incluir:</p>
+<ul>
+<li>conferir horario, local, documento e material permitido;</li>
+<li>separar o que sera usado no dia seguinte;</li>
+<li>fazer uma revisao leve de ideias familiares, se isso acalma;</li>
+<li>nao iniciar um assunto enorme;</li>
+<li>encerrar em horario que proteja o sono.</li>
+</ul>
+<p>O Professor da Academia foi direto:</p>
+<blockquote>
+<p>"Na vespera, voce nao fabrica uma nova versao de si mesmo. Voce cuida da versao que treinou."</p>
+</blockquote>
+<h3>Ferramenta 134 da Mochila</h3>
+<p><strong>Preparar o plano do dia da prova antes do dia da prova.</strong></p>
+<p>Planejar antes evita ter de inventar tudo quando o relogio e o nervosismo ja estao na sala.</p>
+<hr>
+<h2>11. Plano A, Plano B e Plano C</h2>
+<p>Todo plano bom aceita que a prova pode surpreender. Por isso, Felipe nao leva apenas um roteiro rigido. Leva tres respostas possiveis.</p>
+<h3>Plano A - A prova abre portas</h3>
+<p>Use quando voce consegue reconhecer ao menos alguns problemas logo na primeira volta.</p>
+<ol>
+<li>Leia a prova inteira sem resolver tudo de uma vez.</li>
+<li>Comece por uma porta verde ou amarela clara.</li>
+<li>Escreva em degraus enquanto a ideia esta viva.</li>
+<li>Marque os problemas aos quais deseja voltar.</li>
+<li>Reserve uma volta final para os cinco olhos.</li>
+</ol>
+<h3>Plano B - A prova parece mais fechada do que esperava</h3>
+<p>Use quando o primeiro contato traz dificuldade, mas ainda ha pistas em varios problemas.</p>
+<ol>
+<li>Pare de procurar imediatamente a questao "perfeita".</li>
+<li>Escolha a que tem uma primeira jogada pequena: desenho, tabela, caso pequeno, lista ou conta parcial.</li>
+<li>Escreva o que foi descoberto e marque um ponto de retorno.</li>
+<li>Circule antes que a insistencia vire repeticao sem informacao nova.</li>
+<li>Volte depois com outra representacao ou outra ferramenta.</li>
+</ol>
+<h3>Plano C - O nervosismo ou um travamento toma muito espaco</h3>
+<p>Use quando a mente parece vazia, o tempo parece correr ou um erro balanca sua confianca.</p>
+<ol>
+<li>Volte para uma pergunta pequena: "O que exatamente esta sendo pedido?"</li>
+<li>Respire, leia de novo e sublinhe dados decisivos.</li>
+<li>Escolha uma acao que caiba em dois minutos: desenhar, testar um caso, listar possibilidades ou escrever uma relacao.</li>
+<li>Proteja os pontos que ja pode construir em outro problema.</li>
+<li>Lembre: uma prova dificil para voce pode estar dificil para muita gente; o trabalho e construir a proxima ponte, nao adivinhar a nota.</li>
+</ol>
+<h3>Ferramenta 135 da Mochila</h3>
+<p><strong>Entrar na prova com Plano A, Plano B e Plano C.</strong></p>
+<p>Os tres planos nao existem para controlar a prova. Existem para impedir que uma surpresa controle voce.</p>
+<figure class="figura"><img src="../assets/figuras/C16_F03_planos_ABC.svg" alt="Três trilhas curtas para os Planos A, B e C, com gatilhos claros de troca; a figura deve orientar o retorno à prova, não prescrever respostas." loading="lazy"><figcaption>Três trilhas curtas para os Planos A, B e C, com gatilhos claros de troca; a figura deve orientar o retorno à prova, não prescrever respostas.</figcaption></figure>
+
+<hr>
+<h2><span class="badge-oficina">Oficina</span>12. Oficina Olimpica 15 - Escolher para chegar inteiro</h2>
+<p>Os desafios desta oficina sao <strong>originais, em estilo OBMEP</strong>. Antes de olhar as correcoes, escolha a primeira jogada e, se quiser, anote no caderno apenas a pista que pretende usar.</p>
+<h3>Desafio 1 - O encontro que volta</h3>
+<p>Dois sinais luminosos piscam juntos agora. O primeiro pisca a cada 6 segundos e o segundo a cada 8 segundos. Em quantos segundos ocorrera o quarto novo instante em que eles piscam juntos?</p>
+<h3>Desafio 2 - O caminho que nao pode passar por P</h3>
+<p>Em uma malha, uma pessoa sai de A e chega a B dando apenas passos para a direita ou para cima. Para chegar de A a B, ela deve dar 5 passos para a direita e 3 para cima. O ponto P fica apos 2 passos para a direita e 1 para cima, partindo de A. Quantos caminhos de A ate B nao passam por P?</p>
+<h3>Desafio 3 - A moldura</h3>
+<p>Um retangulo mede 14 cm por 10 cm. Em seu interior, foi desenhada uma moldura de largura 1 cm em todos os lados. Qual e a area da parte central que nao pertence a moldura?</p>
+<h3>Desafio 4 - As fichas que mudam juntas</h3>
+<p>Em uma mesa ha 15 fichas, sendo 8 pretas e 7 brancas. Em cada jogada, exatamente duas fichas sao viradas, trocando de cor. E possivel terminar com exatamente 15 fichas pretas? Justifique.</p>
+<hr>
+<h2>13. Correcoes comentadas da oficina</h2>
+<h3>Desafio 1</h3>
+<p>O reencontro acontece a cada MMC de 6 e 8.</p>
+<p>[
+\operatorname{MMC}(6,8)=24.
+]</p>
+<p>Depois de agora, os reencontros ocorrem aos 24, 48, 72 e 96 segundos. Portanto, o quarto novo encontro acontece em <strong>96 segundos</strong>.</p>
+<p>Primeira jogada que abre a porta: reconhecer que "juntos de novo" pede reencontro de ciclos, portanto MMC.</p>
+<h3>Desafio 2</h3>
+<p>Sem o ponto proibido, o caminho e uma sequencia de 5 passos para a direita e 3 para cima. Basta escolher as posicoes dos 3 passos para cima:</p>
+<p>[
+\binom{8}{3}=56.
+]</p>
+<p>Agora contamos os caminhos que passam por P. De A ate P, ha 2 passos para a direita e 1 para cima:</p>
+<p>[
+\binom{3}{1}=3.
+]</p>
+<p>De P ate B, faltam 3 passos para a direita e 2 para cima:</p>
+<p>[
+\binom{5}{2}=10.
+]</p>
+<p>Assim, passam por P:</p>
+<p>[
+3\cdot10=30.
+]</p>
+<p>Os permitidos sao:</p>
+<p>[
+56-30=26.
+]</p>
+<p>Resposta: <strong>26 caminhos</strong>.</p>
+<p>Primeira jogada que abre a porta: contar tudo e retirar os casos proibidos, separando o trajeto em duas partes quando o caminho passa por P.</p>
+<h3>Desafio 3</h3>
+<p>Uma moldura interna de largura 1 cm tira 1 cm de cada lado. Portanto, a parte central mede:</p>
+<p>[
+14-2=12\text{ cm}
+]</p>
+<p>por</p>
+<p>[
+10-2=8\text{ cm}.
+]</p>
+<p>Sua area e:</p>
+<p>[
+12\cdot8=96\text{ cm}^2.
+]</p>
+<p>Resposta: <strong>96 cm²</strong>.</p>
+<p>Primeira jogada que abre a porta: desenhar ou imaginar o retangulo interno e perceber que a moldura aparece dos dois lados de cada medida.</p>
+<h3>Desafio 4</h3>
+<p>Ao virar duas fichas, o numero de fichas pretas pode aumentar 2, diminuir 2 ou permanecer igual. Portanto, sua paridade nao muda.</p>
+<p>No inicio ha 8 fichas pretas, um numero par. No fim, 15 fichas pretas seria um numero impar. Isso e impossivel.</p>
+<p>Resposta: <strong>nao e possivel</strong>.</p>
+<p>Primeira jogada que abre a porta: em vez de acompanhar todas as jogadas, procurar algo que nao muda. Aqui, a paridade da quantidade de fichas pretas e um invariante.</p>
+<hr>
+<h2>14. O que esta oficina ensina sobre a reta final</h2>
+<p>Os quatro desafios nao pedem quatro assuntos novos. Eles pedem ferramentas que ja existem na Mochila:</p>
+<ul>
+<li>reencontro de ciclos e MMC;</li>
+<li>contagem total menos proibidos;</li>
+<li>area por figura interna;</li>
+<li>invariante de paridade.</li>
+</ul>
+<p>Essa e uma boa imagem da reta final: nao encher a Mochila com objetos desconhecidos, e aprender a encontrar com rapidez os que ja estao la.</p>
+<p>Se um desses desafios travou voce, use o mapa honesto:</p>
+<ul>
+<li>era uma ferramenta forte que so precisava de revisao curta?</li>
+<li>era um ponto medio que merece dois treinos dirigidos?</li>
+<li>era uma fragilidade necessaria que pede uma versao de emergencia?</li>
+<li>ou era apenas um erro de leitura, pressa ou escrita?</li>
+</ul>
+<p>O diagnostico certo diminui o tamanho do proximo passo.</p>
+<hr>
+<h2>15. As ferramentas da Mochila nesta sala</h2>
+<ol>
+<li>Transformar ansiedade em plano de acao.  </li>
+<li>Selecionar prioridades por evidencia, nao por medo.  </li>
+<li>Procurar o maior ganho provavel no menor tempo util.  </li>
+<li>Manter vivas as ferramentas fortes.  </li>
+<li>Reforcar pontos medios antes de perseguir novidades enormes.  </li>
+<li>Criar versoes de emergencia para fragilidades necessarias.  </li>
+<li>Evitar conteudo novo que so aumenta ansiedade.  </li>
+<li>Alternar revisao, treino, correcao, escrita e descanso.  </li>
+<li>Usar ultimos simulados com funcao clara.  </li>
+<li>Preparar o plano do dia da prova antes do dia da prova.  </li>
+<li>Entrar na prova com Plano A, Plano B e Plano C.</li>
+</ol>
+<div class="ferramenta" data-num="125" id="f125"><span class="f-badge">Ferramenta 125</span><span class="f-text">Transformar ansiedade em plano de ação</span></div>
+
+<div class="ferramenta" data-num="126" id="f126"><span class="f-badge">Ferramenta 126</span><span class="f-text">Selecionar prioridades por evidência, não por medo</span></div>
+
+<div class="ferramenta" data-num="127" id="f127"><span class="f-badge">Ferramenta 127</span><span class="f-text">Procurar o maior ganho provável no menor tempo útil</span></div>
+
+<div class="ferramenta" data-num="128" id="f128"><span class="f-badge">Ferramenta 128</span><span class="f-text">Manter vivas as ferramentas fortes</span></div>
+
+<div class="ferramenta" data-num="129" id="f129"><span class="f-badge">Ferramenta 129</span><span class="f-text">Reforçar pontos médios antes de perseguir novidades enormes</span></div>
+
+<div class="ferramenta" data-num="130" id="f130"><span class="f-badge">Ferramenta 130</span><span class="f-text">Criar versões de emergência para pontos frágeis necessários</span></div>
+
+<div class="ferramenta" data-num="131" id="f131"><span class="f-badge">Ferramenta 131</span><span class="f-text">Evitar conteúdo novo que só aumenta ansiedade</span></div>
+
+<div class="ferramenta" data-num="132" id="f132"><span class="f-badge">Ferramenta 132</span><span class="f-text">Alternar revisão, treino, correção, escrita e descanso</span></div>
+
+<div class="ferramenta" data-num="133" id="f133"><span class="f-badge">Ferramenta 133</span><span class="f-text">Usar últimos simulados com função clara</span></div>
+
+<div class="ferramenta" data-num="134" id="f134"><span class="f-badge">Ferramenta 134</span><span class="f-text">Preparar o plano do dia da prova antes do dia da prova</span></div>
+
+<div class="ferramenta" data-num="135" id="f135"><span class="f-badge">Ferramenta 135</span><span class="f-text">Entrar na prova com Plano A, Plano B e Plano C</span></div>
+
+<hr>
+<h2>Frase da Academia</h2>
+<blockquote>
+<p>Reta final nao pede que voce carregue tudo. Pede que voce escolha bem o que leva na Mochila e use com calma o que ja aprendeu.</p>
+</blockquote>
+<h2>Pergunta para amanha</h2>
+<blockquote>
+<p>Quando todas as ferramentas ja estao na Mochila, como reconhecer a familia escondida de um problema misto e escolher a primeira jogada sem depender da ordem dos capitulos?</p>
+</blockquote>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap15.html" class="nav-prev">← Cap. 15</a>
+      <a href="cap17.html" class="nav-next">Cap. 17 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(16);</script>
+</body>
+</html>

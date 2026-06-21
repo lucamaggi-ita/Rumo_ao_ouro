@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 7 — Quando o desenho ganha medida | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-bronze">Nível Bronze</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link sidebar-active" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 7</span>
+        <h1 class="cap-title">Quando o desenho ganha medida</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Depois dos padrões visuais</h2>
+<p>Na sala anterior da Academia do Raciocínio, Felipe aprendeu que um desenho pode esconder uma regra.</p>
+<p>Pontos formavam triângulos.</p>
+<p>Palitos formavam quadrados em fila.</p>
+<p>Escadas de quadradinhos cresciam andar por andar.</p>
+<p>Mosaicos pareciam decoração, mas tinham uma estrutura.</p>
+<p>O Professor abriu a porta seguinte e mostrou uma parede cheia de desenhos: retângulos, triângulos, caminhos, quadradinhos, cantos, linhas e figuras incompletas.</p>
+<p>— No Capítulo 6 — disse ele — você olhava para o desenho e perguntava: “qual é o padrão?”. Agora a pergunta muda um pouco.</p>
+<p>Felipe leu a frase escrita na entrada da sala:</p>
+<blockquote>
+<p>Quando um desenho ganha medida, ele vira geometria.</p>
+</blockquote>
+<p>A coruja da Academia apareceu no alto da porta.</p>
+<p>— Então geometria é decorar nomes de figuras?</p>
+<p>O Professor sorriu.</p>
+<p>— Não. Geometria é aprender a medir o que os olhos enxergam.</p>
+<p>Antes de aparecerem nomes como perímetro, área, reta, segmento e ângulo, aparece uma ideia mais simples:</p>
+<blockquote>
+<p>Um desenho pode ter borda, espaço interno, caminho, abertura e medida.</p>
+</blockquote>
+<p>Esse capítulo é a primeira sala dessa linguagem.</p>
+<hr>
+<h2>2. Ver não é o mesmo que medir</h2>
+<p>Felipe olhou para dois retângulos desenhados no quadro.</p>
+<p>O primeiro era comprido e baixo.</p>
+<p>O segundo era quase quadrado.</p>
+<p>— Qual é maior? — perguntou o Professor.</p>
+<p>Felipe respondeu rápido:</p>
+<p>— O primeiro parece maior.</p>
+<p>— Parece. Mas a geometria não vive só de aparência.</p>
+<p>O Professor colocou uma malha quadriculada atrás dos dois desenhos.</p>
+<p>O primeiro retângulo tinha 12 quadradinhos.</p>
+<p>O segundo também tinha 12 quadradinhos.</p>
+<p>A aparência enganou porque a forma mudou, mas a quantidade de espaço interno era a mesma.</p>
+<p>Depois ele desenhou duas figuras com o mesmo espaço interno, mas bordas de tamanhos diferentes.</p>
+<p>Felipe percebeu outra armadilha:</p>
+<blockquote>
+<p>Duas figuras podem ocupar o mesmo espaço e ter bordas diferentes.</p>
+</blockquote>
+<p>A primeira ferramenta desta sala é simples:</p>
+<blockquote>
+<p>Antes de calcular, pergunte o que está sendo medido.</p>
+</blockquote>
+<p>O problema quer a borda?</p>
+<p>Quer o espaço interno?</p>
+<p>Quer um caminho?</p>
+<p>Quer uma abertura?</p>
+<p>Quer uma distância?</p>
+<p>A palavra certa depende da pergunta escondida.</p>
+<hr>
+<h2>3. Ponto, reta e segmento: o começo do mapa</h2>
+<p>O Professor desenhou um pequeno ponto no quadro.</p>
+<p>— Isto é um ponto. Ele marca uma posição.</p>
+<p>Depois desenhou uma linha que continuava para os dois lados, com setas nas extremidades.</p>
+<p>— Isto representa uma reta. Ela indica uma direção que continua sem fim.</p>
+<p>Por fim, desenhou apenas um pedaço de linha, com começo e fim.</p>
+<p>— Isto é um segmento. Ele tem duas pontas e pode ser medido.</p>
+<p>Felipe ficou olhando.</p>
+<p>— Então, quando eu meço o lado de um quadrado, estou medindo um segmento?</p>
+<p>— Exatamente.</p>
+<p>O Professor escreveu:</p>
+<ul>
+<li>ponto: posição;</li>
+<li>reta: direção sem fim;</li>
+<li>segmento: pedaço de reta com começo e fim.</li>
+</ul>
+<figure class="figura"><img src="../assets/figuras/C07_F01_ponto_reta_segmento.svg" alt="Um único esquema mínimo: ponto isolado, reta com setas nos dois sentidos e segmento com duas extremidades marcadas. Não acrescentar outros exemplos visuais." loading="lazy"><figcaption>Um único esquema mínimo: ponto isolado, reta com setas nos dois sentidos e segmento com duas extremidades marcadas. Não acrescentar outros exemplos visuais.</figcaption></figure>
+
+<p>A ideia importante não é decorar nomes.</p>
+<p>A ideia importante é perceber que uma figura geométrica é feita de peças: posições, caminhos, lados e regiões.</p>
+<hr>
+<h2>4. Caminho reto e caminho com volta</h2>
+<p>No chão da sala havia uma malha desenhada.</p>
+<p>A coruja colocou uma ficha no canto inferior esquerdo e outra ficha no canto superior direito.</p>
+<p>— Qual é o caminho mais curto entre elas?</p>
+<p>Felipe apontou uma linha reta.</p>
+<p>— Esse.</p>
+<p>— E se eu só puder andar pelas linhas da malha, para a direita e para cima?</p>
+<p>Agora o caminho mudava.</p>
+<p>Felipe não podia atravessar os quadradinhos pela diagonal. Precisava seguir os corredores da malha.</p>
+<p>O Professor explicou:</p>
+<p>— Em geometria, o caminho permitido importa. Às vezes o caminho reto existe no desenho, mas não é permitido pela história do problema.</p>
+<p>Essa ideia será muito útil em problemas de malha, ruas, tabuleiros e caminhos.</p>
+<p>A pergunta escondida pode ser:</p>
+<ul>
+<li>distância em linha reta;</li>
+<li>caminho pela borda;</li>
+<li>caminho pelas ruas da malha;</li>
+<li>caminho em volta de uma figura;</li>
+<li>número de passos.</li>
+</ul>
+<p>Felipe anotou mentalmente:</p>
+<blockquote>
+<p>Não basta olhar os pontos de partida e chegada. É preciso olhar as regras do caminho.</p>
+</blockquote>
+<hr>
+<h2>5. Ângulos: a abertura entre dois caminhos</h2>
+<p>O Professor abriu um livro sobre a mesa.</p>
+<p>— Veja esta abertura.</p>
+<p>Felipe percebeu que as duas capas formavam uma espécie de canto.</p>
+<p>Depois o Professor apontou para o canto de um caderno, para uma porta entreaberta e para o canto de um retângulo.</p>
+<p>— Um ângulo mede uma abertura entre dois caminhos que saem do mesmo ponto.</p>
+<p>O primeiro ângulo importante desta sala é o ângulo reto.</p>
+<p>Ele aparece nos cantos de quadrados e retângulos.</p>
+<p>Ele parece um canto bem “certinho”, como o canto de uma folha de papel.</p>
+<p>O Professor desenhou um pequeno quadradinho no canto.</p>
+<p>— Quando um problema diz que uma figura é um retângulo, ele está escondendo quatro ângulos retos.</p>
+<p>Felipe percebeu que nomes geométricos carregam informações.</p>
+<p>Um retângulo não é qualquer figura de quatro lados.</p>
+<p>Ele tem lados opostos paralelos e quatro cantos retos.</p>
+<blockquote>
+<p><strong>Decisão de figura — dispensar.</strong> Não criar imagem separada para as três analogias de ângulo reto; a relação será sustentada pela malha e pelo retângulo desta sala, sem duplicação visual.</p>
+</blockquote>
+<p>A coruja comentou:</p>
+<p>— Então uma palavra pequena pode carregar muita matemática.</p>
+<p>— Exatamente — respondeu o Professor. — Por isso geometria também é leitura.</p>
+<hr>
+<h2>6. Formas planas: quando linhas fecham uma região</h2>
+<p>O Professor desenhou três linhas soltas no quadro.</p>
+<p>Elas não fechavam nada.</p>
+<p>Depois desenhou um triângulo.</p>
+<p>Felipe percebeu a diferença.</p>
+<p>O triângulo fechava uma região.</p>
+<p>— Quando linhas fecham uma parte do plano, nasce uma forma plana.</p>
+<p>As primeiras formas desta sala são:</p>
+<ul>
+<li>triângulo;</li>
+<li>quadrado;</li>
+<li>retângulo;</li>
+<li>círculo.</li>
+</ul>
+<p>O triângulo tem três lados.</p>
+<p>O quadrado tem quatro lados iguais e quatro ângulos retos.</p>
+<p>O retângulo tem quatro ângulos retos, mas seus lados vizinhos não precisam ser iguais.</p>
+<p>O círculo não é feito de segmentos retos; ele tem uma borda curva.</p>
+<p>Mas o Professor avisou:</p>
+<p>— Não transforme este capítulo em lista de nomes. Nas olimpíadas, o mais importante é saber usar as figuras.</p>
+<p>Felipe perguntou:</p>
+<p>— Usar como?</p>
+<p>— Medindo bordas, espaços, partes faltantes, caminhos e figuras escondidas.</p>
+<hr>
+<h2>7. Perímetro: o passeio pela borda</h2>
+<p>O Professor desenhou um jardim retangular.</p>
+<p>— Imagine que você vai caminhar em volta dele, sempre pela borda, até voltar ao ponto de partida. O comprimento total desse passeio é o perímetro.</p>
+<p>Felipe olhou para o retângulo.</p>
+<p>O jardim tinha 8 metros de comprimento e 5 metros de largura.</p>
+<p>O passeio completo tinha:</p>
+<p><code>8 + 5 + 8 + 5 = 26</code> metros.</p>
+<p>O Professor completou:</p>
+<p>— Como lados opostos do retângulo têm a mesma medida, também poderíamos pensar em:</p>
+<p><code>2 × 8 + 2 × 5 = 26</code></p>
+<p>ou</p>
+<p><code>2 × (8 + 5) = 26</code>.</p>
+<p>Mas a fórmula veio depois do passeio.</p>
+<p>Primeiro a ideia:</p>
+<blockquote>
+<p>Perímetro é a medida da borda.</p>
+</blockquote>
+<p>Depois a escrita econômica.</p>
+<p>Felipe percebeu uma coisa:</p>
+<p>— Se o problema fala em cerca, fita em volta, contorno ou moldura, provavelmente está pedindo perímetro.</p>
+<p>— Boa pista — disse o Professor. — Mas sempre confira a pergunta final.</p>
+<hr>
+<h2>8. Área: o espaço que a figura ocupa</h2>
+<p>Na mesma parede, o Professor desenhou outro retângulo.</p>
+<p>Dessa vez colocou uma malha quadriculada dentro dele.</p>
+<p>O retângulo tinha 6 quadradinhos de comprimento e 4 quadradinhos de largura.</p>
+<p>Felipe contou:</p>
+<p><code>6 × 4 = 24</code> quadradinhos.</p>
+<p>— Isso é área? — perguntou.</p>
+<p>— Sim. Área mede o espaço interno ocupado pela figura.</p>
+<p>A ideia nasceu da contagem dos quadradinhos.</p>
+<p>Depois vem a escrita econômica:</p>
+<blockquote>
+<p>Área do retângulo = comprimento × largura.</p>
+</blockquote>
+<p>Se cada quadradinho mede 1 cm de lado, a área é medida em centímetros quadrados: <code>cm²</code>.</p>
+<p>Se cada quadradinho mede 1 m de lado, a área é medida em metros quadrados: <code>m²</code>.</p>
+<p>O Professor avisou:</p>
+<p>— Perímetro usa unidades de comprimento: cm, m, km. Área usa unidades quadradas: cm², m², km².</p>
+<p>A coruja levantou uma placa:</p>
+<blockquote>
+<p>Unidade errada costuma denunciar ideia errada.</p>
+</blockquote>
+<p>Felipe guardou isso na Mochila.</p>
+<hr>
+<h2>9. A armadilha: mesma área, perímetros diferentes</h2>
+<p>O Professor desenhou dois retângulos na malha.</p>
+<p>O primeiro tinha 1 quadradinho de altura e 12 de comprimento.</p>
+<p>O segundo tinha 3 quadradinhos de altura e 4 de comprimento.</p>
+<p>As áreas eram iguais:</p>
+<p><code>1 × 12 = 12</code></p>
+<p><code>3 × 4 = 12</code></p>
+<p>Mas os perímetros não eram iguais.</p>
+<p>O primeiro tinha perímetro:</p>
+<p><code>12 + 1 + 12 + 1 = 26</code></p>
+<p>O segundo tinha perímetro:</p>
+<p><code>4 + 3 + 4 + 3 = 14</code></p>
+<p>Felipe ficou surpreso.</p>
+<p>— A mesma área pode ter uma borda muito diferente.</p>
+<p>— Sim. Essa é uma das armadilhas mais comuns da geometria.</p>
+<p>O Professor escreveu:</p>
+<blockquote>
+<p>Área fala do dentro. Perímetro fala da volta.</p>
+</blockquote>
+<p>Quando um problema mistura os dois, a primeira jogada é separar as perguntas.</p>
+<p>A figura pode ter muita área e pouca borda.</p>
+<p>Pode ter pouca área e borda longa.</p>
+<p>Pode ter a mesma área de outra figura, mas perímetro diferente.</p>
+<hr>
+<h2>10. A malha quadriculada: a geometria fica contável</h2>
+<p>A sala seguinte tinha o chão quadriculado.</p>
+<p>Felipe gostou, porque a geometria parecia virar contagem.</p>
+<p>O Professor explicou:</p>
+<p>— A malha quadriculada é um laboratório. Ela permite transformar áreas em quadradinhos, caminhos em passos e figuras compostas em partes simples.</p>
+<p>Na malha, é possível:</p>
+<ul>
+<li>contar quadradinhos inteiros;</li>
+<li>juntar meios quadradinhos;</li>
+<li>completar uma figura até virar retângulo;</li>
+<li>subtrair uma parte faltante;</li>
+<li>acompanhar caminhos pela borda;</li>
+<li>perceber lados compartilhados.</li>
+</ul>
+<figure class="figura"><img src="../assets/figuras/C07_F02_area_perimetro_malha.svg" alt="Retângulo em malha com contorno externo em um traço e quadradinhos internos em outro, acompanhado de legenda que separe área e perímetro." loading="lazy"><figcaption>Retângulo em malha com contorno externo em um traço e quadradinhos internos em outro, acompanhado de legenda que separe área e perímetro.</figcaption></figure>
+
+<p>O Professor desenhou uma figura irregular feita de quadradinhos grudados.</p>
+<p>Felipe começou a contar todos os lados de todos os quadradinhos.</p>
+<p>— Cuidado — disse a coruja.</p>
+<p>Os lados que ficavam grudados entre dois quadradinhos não apareciam na borda externa.</p>
+<p>Eles eram lados internos.</p>
+<p>Para perímetro, só interessa o contorno de fora.</p>
+<p>Para área, todos os quadradinhos contam.</p>
+<hr>
+<h2>11. O retângulo escondido</h2>
+<p>O Professor desenhou uma figura em forma de L.</p>
+<p>Felipe tentou contar quadradinhos um por um.</p>
+<p>Funcionava, mas era demorado.</p>
+<p>— Procure uma figura conhecida escondida — sugeriu o Professor.</p>
+<p>Felipe percebeu que o L podia ser dividido em dois retângulos.</p>
+<p>Também percebeu outro caminho:</p>
+<ul>
+<li>imaginar um retângulo maior completo;</li>
+<li>retirar o retângulo pequeno que faltava no canto.</li>
+</ul>
+<p>Duas estratégias, mesma área.</p>
+<p>Se o retângulo maior tinha <code>5 × 4 = 20</code> quadradinhos e o pedaço faltante tinha <code>2 × 2 = 4</code>, a figura em L tinha:</p>
+<p><code>20 - 4 = 16</code> quadradinhos.</p>
+<p>O Professor escreveu:</p>
+<blockquote>
+<p>Em geometria, transformar a figura muitas vezes é melhor do que atacar a figura como ela aparece.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C07_F03_L_recorte.svg" alt="Figura em L dentro do retângulo completo, com o canto retirado claramente destacado e a operação de subtração associada ao recorte." loading="lazy"><figcaption>Figura em L dentro do retângulo completo, com o canto retirado claramente destacado e a operação de subtração associada ao recorte.</figcaption></figure>
+
+<p>Essa ideia prepara a próxima sala do livro, onde figuras compostas serão desmontadas com mais profundidade.</p>
+<p>Aqui, por enquanto, Felipe precisava aprender a enxergar o retângulo escondido.</p>
+<hr>
+<h2>12. Triângulos: metade de um retângulo</h2>
+<p>O Professor desenhou um retângulo de 6 por 4 quadradinhos.</p>
+<p>Depois traçou uma diagonal, ligando um canto ao canto oposto.</p>
+<p>A diagonal cortou o retângulo em dois triângulos iguais.</p>
+<p>A área do retângulo era:</p>
+<p><code>6 × 4 = 24</code></p>
+<p>Cada triângulo ocupava metade:</p>
+<p><code>24 ÷ 2 = 12</code></p>
+<p>— Então a área desse triângulo é 12 quadradinhos — disse Felipe.</p>
+<p>— Sim. A fórmula pode aparecer depois, mas a ideia é esta: alguns triângulos são metade de retângulos.</p>
+<p>O Professor escreveu:</p>
+<blockquote>
+<p>Quando um triângulo aparece dentro de um retângulo, pergunte se ele é metade de algo conhecido.</p>
+</blockquote>
+<figure class="figura"><img src="../assets/figuras/C07_F04_diagonal_metades.svg" alt="Retângulo dividido por diagonal em duas metades congruentes, com somente uma metade preenchida." loading="lazy"><figcaption>Retângulo dividido por diagonal em duas metades congruentes, com somente uma metade preenchida.</figcaption></figure>
+
+<p>A coruja avisou:</p>
+<p>— Mas nem todo triângulo do mundo vai aparecer bonitinho assim.</p>
+<p>— Verdade — respondeu o Professor. — Por enquanto, vamos usar a ideia nos casos em que o retângulo está claro.</p>
+<hr>
+<h2>13. Caminhos na malha: nem sempre o caminho é diagonal</h2>
+<p>Felipe voltou ao chão quadriculado.</p>
+<p>A ficha A estava no canto inferior esquerdo.</p>
+<p>A ficha B estava 4 quadradinhos à direita e 3 quadradinhos acima.</p>
+<p>Se fosse permitido voar em linha reta, haveria um caminho diagonal.</p>
+<p>Mas o problema dizia:</p>
+<blockquote>
+<p>Só é permitido caminhar pelas linhas da malha.</p>
+</blockquote>
+<p>Então Felipe precisava andar 4 passos para a direita e 3 passos para cima, em alguma ordem.</p>
+<p>O comprimento total do caminho mais curto pela malha era:</p>
+<p><code>4 + 3 = 7</code> passos.</p>
+<p>O Professor explicou:</p>
+<p>— Esse tipo de caminho será importante depois, na combinatória. Por enquanto, guarde a ideia: a regra do movimento muda a medida do caminho.</p>
+<p>Se o problema pede caminho pela malha, não use a diagonal sem permissão.</p>
+<p>Se o problema pede contorno de uma figura, não atravesse o interior.</p>
+<p>Se o problema pede distância reta, não caminhe pela borda.</p>
+<p>A pergunta decide o caminho.</p>
+<hr>
+<h2>14. Perímetro em figuras com quadradinhos grudados</h2>
+<p>O Professor colocou seis quadradinhos no chão.</p>
+<p>Quatro formavam uma fileira.</p>
+<p>Dois ficavam grudados em cima dos dois quadradinhos centrais.</p>
+<p>Felipe contou a área primeiro:</p>
+<p>— São 6 quadradinhos.</p>
+<p>— Certo. E o perímetro?</p>
+<p>Felipe ia responder 24, porque cada quadradinho tem 4 lados.</p>
+<p>Mas a coruja tossiu.</p>
+<p>— Lados grudados não aparecem do lado de fora.</p>
+<p>Felipe olhou com calma.</p>
+<p>Cada lado compartilhado tirava dois lados da borda externa: um de cada quadradinho.</p>
+<p>A figura tinha 6 lados compartilhados.</p>
+<p>Se todos os quadradinhos estivessem separados, seriam:</p>
+<p><code>6 × 4 = 24</code> lados.</p>
+<p>Como havia 6 compartilhamentos, tiramos:</p>
+<p><code>6 × 2 = 12</code> lados.</p>
+<p>O perímetro era:</p>
+<p><code>24 - 12 = 12</code> lados.</p>
+<p>O Professor completou:</p>
+<p>— Você também poderia simplesmente caminhar pela borda de fora e contar. O importante é não contar lados internos.</p>
+<figure class="figura"><img src="../assets/figuras/C07_F05_seis_quadradinhos.svg" alt="Seis quadradinhos grudados, separando visualmente os lados internos que não contam e o contorno externo que conta no perímetro." loading="lazy"><figcaption>Seis quadradinhos grudados, separando visualmente os lados internos que não contam e o contorno externo que conta no perímetro.</figcaption></figure>
+
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>15. Problema em estilo OBMEP — A cerca do jardim</h2>
+<p>Na Academia do Raciocínio há um jardim retangular de 8 metros por 5 metros.</p>
+<p>Será colocada uma cerca em volta do jardim, mas haverá uma entrada sem cerca de 2 metros em um dos lados maiores.</p>
+<p>Quantos metros de cerca serão necessários?</p>
+<p>Pense alguns instantes antes de continuar.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A cerca acompanha a borda do jardim.</p>
+<p>Então a ferramenta é perímetro.</p>
+<p>O perímetro completo do retângulo seria:</p>
+<p><code>8 + 5 + 8 + 5 = 26</code> metros.</p>
+<p>Mas existe uma entrada de 2 metros sem cerca.</p>
+<p>Então a quantidade de cerca é:</p>
+<p><code>26 - 2 = 24</code> metros.</p>
+<p>Resposta: serão necessários <strong>24 metros de cerca</strong>.</p>
+</div></details>
+<h3>O que este problema treinou</h3>
+<p>Ele treinou a pergunta escondida:</p>
+<blockquote>
+<p>cerca em volta → borda → perímetro.</p>
+</blockquote>
+<p>Mas também treinou o cuidado com uma parte que não entra na conta.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>16. Problema em estilo OBMEP — O piso da sala dourada</h2>
+<p>A sala dourada da Academia tem formato retangular.</p>
+<p>Ela mede 6 metros de comprimento e 4 metros de largura.</p>
+<p>O piso será coberto por placas quadradas de 1 metro de lado.</p>
+<p>Quantas placas serão necessárias para cobrir todo o piso?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>O problema fala em cobrir o piso.</p>
+<p>Isso não é borda.</p>
+<p>É espaço interno.</p>
+<p>A ferramenta é área.</p>
+<p>A área do retângulo é:</p>
+<p><code>6 × 4 = 24</code></p>
+<p>Cada placa cobre 1 metro quadrado.</p>
+<p>Logo, são necessárias <strong>24 placas</strong>.</p>
+</div></details>
+<h3>Cuidado importante</h3>
+<p>Se alguém calculasse:</p>
+<p><code>6 + 4 + 6 + 4 = 20</code></p>
+<p>teria calculado o perímetro, não a área.</p>
+<p>O número 20 mede a volta da sala.</p>
+<p>O piso inteiro exige 24 placas.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>17. Problema em estilo OBMEP — O tapete em forma de L</h2>
+<p>Um tapete da Academia cabe dentro de um retângulo de 5 metros por 4 metros.</p>
+<p>Mas falta um canto retangular de 2 metros por 2 metros, formando uma figura em L.</p>
+<p>Qual é a área do tapete?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Primeiro imagine o retângulo completo.</p>
+<p>Área do retângulo maior:</p>
+<p><code>5 × 4 = 20</code></p>
+<p>Área do canto que falta:</p>
+<p><code>2 × 2 = 4</code></p>
+<p>Área do tapete:</p>
+<p><code>20 - 4 = 16</code></p>
+<p>Resposta: o tapete tem <strong>16 metros quadrados</strong> de área.</p>
+</div></details>
+<h3>O que este problema treinou</h3>
+<p>Ele treinou completamento e subtração:</p>
+<blockquote>
+<p>complete a figura para formar algo simples, depois retire o que não pertence.</p>
+</blockquote>
+<p>Essa ferramenta será aprofundada no próximo capítulo.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>18. Problema em estilo OBMEP — O triângulo do painel</h2>
+<p>Um painel retangular da Academia mede 10 cm de comprimento por 6 cm de altura.</p>
+<p>Uma diagonal liga dois cantos opostos, dividindo o painel em dois triângulos iguais.</p>
+<p>Qual é a área de cada triângulo?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A área do retângulo é:</p>
+<p><code>10 × 6 = 60</code> cm².</p>
+<p>A diagonal divide o retângulo em dois triângulos iguais.</p>
+<p>Então cada triângulo tem metade da área:</p>
+<p><code>60 ÷ 2 = 30</code> cm².</p>
+<p>Resposta: cada triângulo tem <strong>30 cm²</strong>.</p>
+</div></details>
+<h3>Cuidado importante</h3>
+<p>A resposta precisa estar em <code>cm²</code>, porque estamos medindo área.</p>
+<p>Se fosse perímetro, usaríamos cm.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>19. Problema em estilo OBMEP — Os quadradinhos grudados</h2>
+<p>Uma figura é formada por 6 quadradinhos iguais.</p>
+<p>Quatro quadradinhos estão em uma fileira horizontal.</p>
+<p>Os outros dois estão grudados em cima dos dois quadradinhos centrais da fileira.</p>
+<p>Cada lado de quadradinho mede 1 cm.</p>
+<p>Qual é o perímetro da figura?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Se os 6 quadradinhos estivessem separados, teríamos:</p>
+<p><code>6 × 4 = 24</code> lados de 1 cm.</p>
+<p>Mas alguns lados ficam grudados por dentro.</p>
+<p>Vamos contar os compartilhamentos:</p>
+<ul>
+<li>na fileira de baixo, há 3 compartilhamentos horizontais;</li>
+<li>na fileira de cima, os dois quadradinhos compartilham 1 lado;</li>
+<li>os dois quadradinhos de cima ficam grudados nos dois quadradinhos centrais de baixo, criando 2 compartilhamentos verticais.</li>
+</ul>
+<p>Total de compartilhamentos:</p>
+<p><code>3 + 1 + 2 = 6</code></p>
+<p>Cada compartilhamento tira 2 lados da borda externa.</p>
+<p>Então tiramos:</p>
+<p><code>6 × 2 = 12</code></p>
+<p>Perímetro:</p>
+<p><code>24 - 12 = 12</code> cm.</p>
+<p>Resposta: o perímetro da figura é <strong>12 cm</strong>.</p>
+</div></details>
+<h3>O que este problema treinou</h3>
+<p>Ele treinou a ideia:</p>
+<blockquote>
+<p>Para área, quadradinhos grudados continuam contando. Para perímetro, lados internos desaparecem.</p>
+</blockquote>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>20. Problema em estilo OBMEP — O caminho em volta da praça</h2>
+<p>Uma praça da Academia ocupa uma região retangular de 7 metros por 3 metros.</p>
+<p>Felipe quer dar uma volta completa pela borda da praça e voltar ao ponto de partida.</p>
+<p>Quantos metros ele caminhará?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A frase “volta completa pela borda” indica perímetro.</p>
+<p>O retângulo tem dois lados de 7 metros e dois lados de 3 metros.</p>
+<p>Então:</p>
+<p><code>7 + 3 + 7 + 3 = 20</code></p>
+<p>Felipe caminhará <strong>20 metros</strong>.</p>
+</div></details>
+<h3>Pergunta extra</h3>
+<p>A área da praça seria:</p>
+<p><code>7 × 3 = 21</code> m².</p>
+<p>Veja como os dois números aparecem próximos, mas respondem perguntas diferentes.</p>
+<p>A borda mede 20 metros.</p>
+<p>O espaço interno mede 21 metros quadrados.</p>
+<hr>
+<h2><span class="badge-oficina">Oficina</span>21. Oficina Olímpica 6 — Bordas, áreas e figuras escondidas</h2>
+<p>Agora é hora de treinar sem pressa.</p>
+<p>Use o caderno se quiser.</p>
+<p>O objetivo não é apenas responder. É escolher a ferramenta certa.</p>
+<h3>Desafio 1 — A moldura</h3>
+<p>Um quadro retangular mede 12 cm por 8 cm.</p>
+<p>Uma fita será colada em volta do quadro.</p>
+<p>Quantos centímetros de fita serão necessários?</p>
+<p><strong>Solução:</strong></p>
+<p>Fita em volta indica perímetro.</p>
+<p><code>12 + 8 + 12 + 8 = 40</code></p>
+<p>Resposta: <strong>40 cm</strong>.</p>
+<hr>
+<h3>Desafio 2 — A capa do caderno</h3>
+<p>A capa de um caderno mede 21 cm por 15 cm.</p>
+<p>Qual é a área da capa?</p>
+<p><strong>Solução:</strong></p>
+<p>Área do retângulo:</p>
+<p><code>21 × 15 = 315</code></p>
+<p>Resposta: <strong>315 cm²</strong>.</p>
+<hr>
+<h3>Desafio 3 — Mesma área, outra borda</h3>
+<p>Compare dois retângulos:</p>
+<ul>
+<li>Retângulo A: 2 cm por 12 cm.</li>
+<li>Retângulo B: 4 cm por 6 cm.</li>
+</ul>
+<p>Eles têm a mesma área? E o mesmo perímetro?</p>
+<p><strong>Solução:</strong></p>
+<p>Áreas:</p>
+<p><code>2 × 12 = 24</code></p>
+<p><code>4 × 6 = 24</code></p>
+<p>Têm a mesma área.</p>
+<p>Perímetros:</p>
+<p><code>2 + 12 + 2 + 12 = 28</code></p>
+<p><code>4 + 6 + 4 + 6 = 20</code></p>
+<p>Não têm o mesmo perímetro.</p>
+<hr>
+<h3>Desafio 4 — O canto retirado</h3>
+<p>Uma figura cabe em um retângulo de 9 por 5 quadradinhos, mas foi retirado um canto de 3 por 2 quadradinhos.</p>
+<p>Qual é a área da figura restante?</p>
+<p><strong>Solução:</strong></p>
+<p>Retângulo completo:</p>
+<p><code>9 × 5 = 45</code></p>
+<p>Canto retirado:</p>
+<p><code>3 × 2 = 6</code></p>
+<p>Área restante:</p>
+<p><code>45 - 6 = 39</code></p>
+<p>Resposta: <strong>39 quadradinhos</strong>.</p>
+<hr>
+<h3>Desafio 5 — Metade do retângulo</h3>
+<p>Um retângulo mede 14 cm por 5 cm.</p>
+<p>Uma diagonal o divide em dois triângulos iguais.</p>
+<p>Qual é a área de cada triângulo?</p>
+<p><strong>Solução:</strong></p>
+<p>Área do retângulo:</p>
+<p><code>14 × 5 = 70</code> cm².</p>
+<p>Cada triângulo é metade:</p>
+<p><code>70 ÷ 2 = 35</code> cm².</p>
+<p>Resposta: <strong>35 cm²</strong>.</p>
+<hr>
+<h3>Desafio 6 — O erro da unidade</h3>
+<p>Um estudante respondeu:</p>
+<blockquote>
+<p>A área de um retângulo de 8 cm por 3 cm é 24 cm.</p>
+</blockquote>
+<p>O número está certo? A unidade está certa?</p>
+<p><strong>Solução:</strong></p>
+<p>A conta está certa:</p>
+<p><code>8 × 3 = 24</code>.</p>
+<p>Mas a unidade está errada.</p>
+<p>Área usa unidade quadrada.</p>
+<p>Resposta correta: <strong>24 cm²</strong>.</p>
+<hr>
+<h2>22. As ferramentas da Mochila nesta sala</h2>
+<p>Nesta sala, Felipe não ganhou uma lista de fórmulas para decorar.</p>
+<p>Ele organizou ferramentas que serão usadas em muitos problemas da OBMEP.</p>
+<ol>
+<li>
+<p><strong>Observar a figura antes de calcular.</strong><br>
+A figura costuma esconder caminhos, partes, bordas e regiões.</p>
+</li>
+<li>
+<p><strong>Distinguir borda e interior.</strong><br>
+Perímetro mede a volta. Área mede o espaço ocupado.</p>
+</li>
+<li>
+<p><strong>Procurar palavras-sinal.</strong><br>
+Cerca, moldura, contorno e volta costumam indicar perímetro. Piso, cobertura, pintura e espaço ocupado costumam indicar área.</p>
+</li>
+<li>
+<p><strong>Usar retângulos como blocos básicos.</strong><br>
+Retângulos são peças fortes porque sua área nasce de linhas e colunas.</p>
+</li>
+<li>
+<p><strong>Dividir ou completar figuras.</strong><br>
+Figuras difíceis podem virar figuras simples.</p>
+</li>
+<li>
+<p><strong>Cuidar das unidades.</strong><br>
+Comprimento usa cm, m, km. Área usa cm², m², km².</p>
+</li>
+<li>
+<p><strong>Ignorar lados internos no perímetro externo.</strong><br>
+Quadradinhos grudados compartilham lados que não aparecem na borda.</p>
+</li>
+<li>
+<p><strong>Enxergar figuras conhecidas escondidas.</strong><br>
+Um L pode esconder retângulos. Um triângulo pode esconder metade de um retângulo.</p>
+</li>
+</ol>
+<div class="ferramenta" data-num="37" id="f37"><span class="f-badge">Ferramenta 37</span><span class="f-text">Observar a figura antes de calcular</span></div>
+
+<div class="ferramenta" data-num="38" id="f38"><span class="f-badge">Ferramenta 38</span><span class="f-text">Distinguir borda e interior</span></div>
+
+<div class="ferramenta" data-num="39" id="f39"><span class="f-badge">Ferramenta 39</span><span class="f-text">Procurar palavras-sinal</span></div>
+
+<div class="ferramenta" data-num="40" id="f40"><span class="f-badge">Ferramenta 40</span><span class="f-text">Usar retângulos como blocos básicos</span></div>
+
+<div class="ferramenta" data-num="41" id="f41"><span class="f-badge">Ferramenta 41</span><span class="f-text">Dividir ou completar figuras</span></div>
+
+<div class="ferramenta" data-num="42" id="f42"><span class="f-badge">Ferramenta 42</span><span class="f-text">Cuidar das unidades</span></div>
+
+<div class="ferramenta" data-num="43" id="f43"><span class="f-badge">Ferramenta 43</span><span class="f-text">Ignorar lados internos no perímetro externo</span></div>
+
+<div class="ferramenta" data-num="44" id="f44"><span class="f-badge">Ferramenta 44</span><span class="f-text">Enxergar figuras conhecidas escondidas</span></div>
+
+<hr>
+<h2>23. Figuras aplicadas no ponto de uso</h2>
+<p>As especificações aprovadas estão nos pontos de vocabulário, malha, recorte, diagonal e quadradinhos. A analogia repetida do ângulo reto foi dispensada por duplicar a mesma compreensão.</p>
+<hr>
+<h2>24. A frase da Academia</h2>
+<blockquote>
+<p>A figura não entrega a resposta para quem olha com pressa. Ela entrega pistas para quem sabe perguntar.</p>
+</blockquote>
+<hr>
+<h2>25. Pergunta para amanhã</h2>
+<p>E quando uma figura é formada por pedaços, buracos, sobreposições e partes que se encaixam?</p>
+<p>Como calcular sua área sem se perder?</p>
+<p>A próxima sala da Academia aprofunda essa pergunta.</p>
+<p>O desenho já ganhou medida.</p>
+<p>Agora ele vai aprender a ser montado e desmontado.</p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap06.html" class="nav-prev">← Cap. 6</a>
+      <a href="cap08.html" class="nav-next">Cap. 8 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(7);</script>
+</body>
+</html>

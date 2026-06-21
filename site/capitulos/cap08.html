@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 8 — A arte de montar e desmontar figuras | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-bronze">Nível Bronze</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link sidebar-active" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 8</span>
+        <h1 class="cap-title">A arte de montar e desmontar figuras</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Depois das bordas e das áreas</h2>
+<p>Na sala anterior da Academia do Raciocínio, Felipe aprendeu uma diferença que parece simples, mas muda muita coisa:</p>
+<ul>
+<li><strong>perímetro</strong> é o passeio pela borda;</li>
+<li><strong>área</strong> é o espaço ocupado por dentro.</li>
+</ul>
+<p>Essa diferença abriu uma porta.</p>
+<p>Do outro lado dela, não havia apenas quadrados e retângulos organizados. Havia figuras recortadas, pedaços colados, janelas, buracos, regiões sombreadas, triângulos escondidos e formas que pareciam não caber em fórmula nenhuma.</p>
+<p>Felipe olhou para o chão da nova sala e viu um desenho estranho. Não era retângulo. Não era triângulo. Não era quadrado. Parecia uma peça de quebra-cabeça.</p>
+<p>O Professor da Academia perguntou:</p>
+<p>— Você acha que essa figura é difícil porque ela é impossível ou porque ainda não foi transformada?</p>
+<p>Felipe não respondeu de imediato.</p>
+<p>A coruja, pousada sobre uma régua, completou:</p>
+<p>— Muitas figuras difíceis são apenas figuras simples usando disfarce.</p>
+<p>Neste capítulo, a missão é aprender a tirar esse disfarce.</p>
+<hr>
+<h2>2. Quando uma figura não vem pronta</h2>
+<p>Algumas figuras aparecem prontas para calcular.</p>
+<p>Um retângulo de 8 cm por 5 cm tem área:</p>
+<pre><code class="language-text">8 × 5 = 40 cm²
+</code></pre>
+<p>Um quadrado de lado 6 cm tem área:</p>
+<pre><code class="language-text">6 × 6 = 36 cm²
+</code></pre>
+<p>Mas problemas olímpicos raramente entregam tudo tão arrumado.</p>
+<p>Eles podem mostrar uma figura em L, uma moldura, uma parede com janela, uma peça recortada, uma região sombreada ou uma malha cheia de partes.</p>
+<p>Nesses casos, a pergunta não é:</p>
+<blockquote>
+<p>Qual fórmula eu decorei?</p>
+</blockquote>
+<p>A pergunta melhor é:</p>
+<blockquote>
+<p>Em que figuras mais simples esta figura pode se transformar?</p>
+</blockquote>
+<p>Essa mudança é a chave.</p>
+<p>Quando uma figura não vem pronta, o matemático não briga com ela. Ele procura uma transformação.</p>
+<hr>
+<h2>3. Figura composta: uma figura feita de ideias menores</h2>
+<p>Uma <strong>figura composta</strong> é uma figura formada por pedaços de figuras que você já conhece.</p>
+<p>Ela pode ser feita de:</p>
+<ul>
+<li>retângulos;</li>
+<li>quadrados;</li>
+<li>triângulos;</li>
+<li>metades de retângulos;</li>
+<li>partes retiradas;</li>
+<li>partes sobrepostas;</li>
+<li>pedaços que podem ser reorganizados.</li>
+</ul>
+<p>O nome vem depois. A ideia vem antes.</p>
+<p>Uma figura composta não precisa ser calculada de uma vez. Ela pode ser estudada por partes.</p>
+<p>Imagine uma sala em forma de L.</p>
+<p>Ela não é um retângulo completo. Mas talvez seja formada por dois retângulos menores. Ou talvez seja um retângulo grande com um pedaço faltando.</p>
+<p>Essas duas leituras podem estar certas ao mesmo tempo.</p>
+<p>A matemática olímpica gosta disso: mais de um caminho correto para a mesma resposta.</p>
+<hr>
+<h2>4. A pergunta escondida continua mandando</h2>
+<p>Antes de montar ou desmontar qualquer figura, a Academia exige uma pergunta:</p>
+<blockquote>
+<p>O problema quer área ou perímetro?</p>
+</blockquote>
+<p>Isso é importante porque uma mesma figura pode pedir estratégias diferentes.</p>
+<p>Para área, muitas vezes você pode:</p>
+<ul>
+<li>dividir a figura em partes;</li>
+<li>completar até formar uma figura maior;</li>
+<li>subtrair buracos;</li>
+<li>recompor pedaços;</li>
+<li>usar metades de retângulos.</li>
+</ul>
+<p>Para perímetro, o cuidado muda:</p>
+<ul>
+<li>o que conta é a borda externa;</li>
+<li>lados internos não entram;</li>
+<li>lados colados desaparecem do contorno;</li>
+<li>completar uma figura pode criar bordas que não existiam.</li>
+</ul>
+<p>Veja a armadilha:</p>
+<p>Se uma figura em L é completada até virar retângulo, esse completamento pode ajudar a calcular a <strong>área</strong>. Mas, se o problema pede <strong>perímetro</strong>, não basta calcular o perímetro do retângulo maior.</p>
+<p>A figura não mudou de contorno só porque você imaginou um pedaço faltando.</p>
+<p>A primeira pergunta da sala é sempre:</p>
+<blockquote>
+<p>Estou medindo o espaço de dentro ou o passeio pela borda?</p>
+</blockquote>
+<hr>
+<h2>5. Quatro estratégias para não se perder</h2>
+<p>A nova sala da Academia tinha quatro portas, cada uma com uma palavra gravada:</p>
+<ol>
+<li><strong>Dividir</strong>.</li>
+<li><strong>Completar</strong>.</li>
+<li><strong>Subtrair</strong>.</li>
+<li><strong>Recompor</strong>.</li>
+</ol>
+<p>O Professor explicou:</p>
+<p>— Quando a figura parece complicada, escolha uma dessas portas. Não tente enxergar tudo ao mesmo tempo.</p>
+<p>A coruja acrescentou:</p>
+<p>— Figura difícil não pede pressa. Pede transformação.</p>
+<p>Essas quatro estratégias são o centro deste capítulo.</p>
+<hr>
+<h2>6. Estratégia 1: dividir</h2>
+<p>Dividir é transformar uma figura composta em pedaços simples.</p>
+<p>Suponha uma figura em L formada por dois retângulos:</p>
+<ul>
+<li>um retângulo de 8 cm por 3 cm;</li>
+<li>outro retângulo de 4 cm por 5 cm.</li>
+</ul>
+<p>Se esses dois pedaços não se sobrepõem, a área total é a soma das áreas:</p>
+<pre><code class="language-text">8 × 3 = 24
+4 × 5 = 20
+24 + 20 = 44
+</code></pre>
+<p>A área da figura é <strong>44 cm²</strong>.</p>
+<p>A ideia não foi decorar uma fórmula para figura em L. A ideia foi enxergar retângulos escondidos.</p>
+<p>Essa estratégia funciona quando você consegue cortar a figura em pedaços que não se sobrepõem e que cobrem toda a região desejada.</p>
+<p>A pergunta de controle é:</p>
+<blockquote>
+<p>Meus pedaços cobrem tudo sem deixar buraco e sem passar duas vezes pelo mesmo lugar?</p>
+</blockquote>
+<p>Se a resposta for sim, você pode somar as áreas.</p>
+<hr>
+<h2>7. Dividir de mais de um jeito</h2>
+<figure class="figura"><img src="../assets/figuras/C08_F01_L_duas_decomposicoes.svg" alt="O mesmo L dividido de duas maneiras, com os dois cortes alternativos e as áreas parciais; as partes não podem se sobrepor." loading="lazy"><figcaption>O mesmo L dividido de duas maneiras, com os dois cortes alternativos e as áreas parciais; as partes não podem se sobrepor.</figcaption></figure>
+
+<p>Uma mesma figura pode ser dividida de várias maneiras.</p>
+<p>Imagine um L dentro de uma malha quadriculada. Você pode cortar na vertical e formar dois retângulos. Ou pode cortar na horizontal e formar outros dois retângulos.</p>
+<p>Os pedaços mudam, mas a área total deve ser a mesma.</p>
+<p>Isso é bom.</p>
+<p>Quando dois caminhos diferentes chegam à mesma resposta, eles ajudam a conferir o raciocínio.</p>
+<p>Felipe perguntou:</p>
+<p>— Então existe um jeito certo?</p>
+<p>O Professor respondeu:</p>
+<p>— Existe jeito correto. Nem sempre existe um único jeito.</p>
+<p>Na OBMEP, isso é muito importante. Uma solução pode ser diferente da solução oficial e ainda estar certa, desde que seja clara, rigorosa e completa.</p>
+<p>A Academia não quer que você memorize cortes. Ela quer que você aprenda a escolher cortes úteis.</p>
+<hr>
+<h2>8. Estratégia 2: completar</h2>
+<figure class="figura"><img src="../assets/figuras/C08_F02_L_completado.svg" alt="L completado até o retângulo maior, diferenciando a área existente, o canto imaginado e a subtração final." loading="lazy"><figcaption>L completado até o retângulo maior, diferenciando a área existente, o canto imaginado e a subtração final.</figcaption></figure>
+
+<p>Às vezes, em vez de dividir a figura, é mais fácil completar o que falta.</p>
+<p>Imagine um retângulo grande de 10 cm por 6 cm. No canto dele falta um retângulo pequeno de 3 cm por 2 cm.</p>
+<p>A figura restante tem forma de L.</p>
+<p>Você poderia dividir essa figura em dois retângulos. Mas também pode pensar assim:</p>
+<pre><code class="language-text">área do retângulo grande = 10 × 6 = 60
+área do pedaço faltando = 3 × 2 = 6
+área da figura = 60 - 6 = 54
+</code></pre>
+<p>A área é <strong>54 cm²</strong>.</p>
+<p>Aqui, completar não significa colar um pedaço de verdade. Significa imaginar a figura como parte de uma figura maior simples.</p>
+<p>A pergunta de controle é:</p>
+<blockquote>
+<p>Que figura simples aparece se eu completar o que falta?</p>
+</blockquote>
+<p>Completar é útil para:</p>
+<ul>
+<li>figuras em L;</li>
+<li>cantos retirados;</li>
+<li>regiões sombreadas dentro de retângulos;</li>
+<li>figuras quase retangulares;</li>
+<li>molduras.</li>
+</ul>
+<p>Mas cuidado: se completar ajuda a calcular área, você precisa subtrair o pedaço que inventou.</p>
+<p>Não se esqueça de devolver a figura ao que ela era.</p>
+<hr>
+<h2>9. Estratégia 3: subtrair buracos e partes faltantes</h2>
+<figure class="figura"><img src="../assets/figuras/C08_F03_parede_janela_porta.svg" alt="Parede retangular com janela e porta, rotulando somente as dimensões das três regiões usadas e tornando visíveis as áreas retiradas do total." loading="lazy"><figcaption>Parede retangular com janela e porta, rotulando somente as dimensões das três regiões usadas e tornando visíveis as áreas retiradas do total.</figcaption></figure>
+
+<p>Algumas figuras são mais fáceis de entender como um todo com partes retiradas.</p>
+<p>Uma parede retangular com uma janela não precisa ser dividida em vários pedaços ao redor da janela.</p>
+<p>Se a parede mede 8 m por 5 m e a janela mede 2 m por 3 m, a área que pode ser pintada é:</p>
+<pre><code class="language-text">parede inteira: 8 × 5 = 40
+janela: 2 × 3 = 6
+parte pintada: 40 - 6 = 34
+</code></pre>
+<p>A resposta é <strong>34 m²</strong>.</p>
+<p>O mesmo vale para:</p>
+<ul>
+<li>piscina dentro de um terreno;</li>
+<li>canteiro dentro de uma praça;</li>
+<li>buraco no meio de uma placa;</li>
+<li>região não sombreada dentro de uma figura;</li>
+<li>moldura em volta de uma foto.</li>
+</ul>
+<p>A ideia é simples:</p>
+<blockquote>
+<p>Calcule o todo. Depois retire o que não pertence à pergunta.</p>
+</blockquote>
+<p>Mas a pergunta escondida ainda manda.</p>
+<p>Se o problema pede a área da moldura, você subtrai o espaço interno. Se pede a área total da placa, talvez não subtraia nada. Se pede o contorno da moldura, o problema é de perímetro, e a estratégia muda.</p>
+<hr>
+<h2>10. Estratégia 4: recompor</h2>
+<p>Recompor é mudar a posição dos pedaços sem mudar a área.</p>
+<p>Imagine dois triângulos iguais que parecem difíceis de medir separados. Se você encaixar um no outro, talvez eles formem um retângulo.</p>
+<p>A área não muda quando você apenas desloca pedaços sem esticar, encolher ou sobrepor.</p>
+<p>Essa ideia aparece muito em problemas com:</p>
+<ul>
+<li>triângulos;</li>
+<li>paralelogramos;</li>
+<li>peças de mosaico;</li>
+<li>regiões sombreadas;</li>
+<li>figuras em malha;</li>
+<li>recortes que se encaixam.</li>
+</ul>
+<p>O Professor pegou duas peças triangulares e as juntou.</p>
+<p>— O que mudou? — perguntou.</p>
+<p>Felipe respondeu:</p>
+<p>— A forma.</p>
+<p>— E o espaço ocupado pelos pedaços?</p>
+<p>— Continua o mesmo.</p>
+<p>— Então a área continua a mesma.</p>
+<p>Essa é uma das ideias mais bonitas da geometria: mudar a forma para revelar uma conta mais simples.</p>
+<hr>
+<h2>11. Sobreposição: quando contar duas vezes vira armadilha</h2>
+<figure class="figura"><img src="../assets/figuras/C08_F04_faixas_sobrepostas.svg" alt="Duas faixas sobrepostas, com a interseção destacada como região contada duas vezes antes da subtração única." loading="lazy"><figcaption>Duas faixas sobrepostas, com a interseção destacada como região contada duas vezes antes da subtração única.</figcaption></figure>
+
+<p>Nem toda soma de áreas funciona diretamente.</p>
+<p>Imagine um retângulo de 10 cm por 8 cm. Nele há uma faixa vertical sombreada de 3 cm de largura e uma faixa horizontal sombreada de 2 cm de altura.</p>
+<p>Se você calcular:</p>
+<pre><code class="language-text">faixa vertical: 3 × 8 = 24
+faixa horizontal: 10 × 2 = 20
+24 + 20 = 44
+</code></pre>
+<p>parece que a área sombreada é 44 cm².</p>
+<p>Mas há uma região no cruzamento das duas faixas que foi contada duas vezes.</p>
+<p>Essa região de sobreposição mede 3 cm por 2 cm:</p>
+<pre><code class="language-text">3 × 2 = 6
+</code></pre>
+<p>Então a área sombreada correta é:</p>
+<pre><code class="language-text">24 + 20 - 6 = 38
+</code></pre>
+<p>A resposta é <strong>38 cm²</strong>.</p>
+<p>A sobreposição é uma das armadilhas mais comuns em geometria e contagem.</p>
+<p>Ela ensina uma pergunta importante:</p>
+<blockquote>
+<p>Quando eu somei duas partes, alguma região entrou duas vezes?</p>
+</blockquote>
+<p>Essa pergunta voltará com força no capítulo de contagem.</p>
+<hr>
+<h2>12. Triângulos escondidos</h2>
+<figure class="figura"><img src="../assets/figuras/C08_F05_triangulos_retangulo.svg" alt="Dois triângulos iguais recompondo um retângulo, mostrando o encaixe ou translação sem acrescentar fórmula." loading="lazy"><figcaption>Dois triângulos iguais recompondo um retângulo, mostrando o encaixe ou translação sem acrescentar fórmula.</figcaption></figure>
+
+<p>No capítulo anterior, Felipe viu que uma diagonal divide um retângulo em dois triângulos iguais.</p>
+<p>Essa ideia agora ganha mais força.</p>
+<p>Se um retângulo mede 12 cm por 5 cm, sua área é:</p>
+<pre><code class="language-text">12 × 5 = 60 cm²
+</code></pre>
+<p>Se uma diagonal divide esse retângulo em dois triângulos iguais, cada triângulo tem metade da área:</p>
+<pre><code class="language-text">60 ÷ 2 = 30 cm²
+</code></pre>
+<p>Isso não é apenas uma fórmula. É uma transformação visual.</p>
+<p>O triângulo pode ser visto como metade de um retângulo quando ele ocupa exatamente metade desse retângulo.</p>
+<p>Em muitos problemas, o triângulo aparece escondido dentro de uma malha, de uma bandeira, de um painel ou de uma região sombreada.</p>
+<p>A pergunta útil é:</p>
+<blockquote>
+<p>Este triângulo pode ser completado até formar um retângulo?</p>
+</blockquote>
+<p>Se puder, a área dele pode ser encontrada pela metade.</p>
+<hr>
+<h2>13. A malha quadriculada como laboratório</h2>
+<figure class="figura"><img src="../assets/figuras/C08_F06_meios_quadradinhos.svg" alt="Malha com unidades inteiras e pares de meios quadradinhos sombreados, mantendo uma unidade de área como escala." loading="lazy"><figcaption>Malha com unidades inteiras e pares de meios quadradinhos sombreados, mantendo uma unidade de área como escala.</figcaption></figure>
+
+<p>A malha quadriculada é um laboratório porque transforma geometria em contagem.</p>
+<p>Em uma malha, cada quadradinho pode valer 1 unidade de área.</p>
+<p>Então você pode:</p>
+<ul>
+<li>contar quadradinhos inteiros;</li>
+<li>juntar dois meios quadradinhos;</li>
+<li>completar retângulos;</li>
+<li>retirar partes faltantes;</li>
+<li>comparar áreas sem medir com régua;</li>
+<li>enxergar caminhos e regiões.</li>
+</ul>
+<p>Mas a malha também exige cuidado.</p>
+<p>Se a figura passa pela diagonal de quadradinhos, nem sempre basta contar quadradinhos completos. Às vezes, dois meios formam um inteiro. Às vezes, uma parte precisa ser completada.</p>
+<p>A malha não resolve sozinha. Ela organiza as pistas.</p>
+<p>Felipe percebeu que a malha era como uma ponte entre três salas da Academia:</p>
+<ul>
+<li>a sala da geometria;</li>
+<li>a sala dos padrões;</li>
+<li>a sala da contagem.</li>
+</ul>
+<p>Por isso este capítulo prepara o próximo.</p>
+<hr>
+<h2>14. Molduras, corredores e regiões sombreadas</h2>
+<p>Muitos problemas de área usam uma figura maior e uma figura menor dentro dela.</p>
+<p>Uma moldura é um exemplo clássico.</p>
+<p>Imagine uma foto retangular de 12 cm por 8 cm. Ao redor dela há uma moldura de largura 2 cm em todos os lados.</p>
+<p>As medidas externas da moldura completa são:</p>
+<pre><code class="language-text">12 + 2 + 2 = 16 cm
+8 + 2 + 2 = 12 cm
+</code></pre>
+<p>A área do retângulo externo é:</p>
+<pre><code class="language-text">16 × 12 = 192 cm²
+</code></pre>
+<p>A área da foto é:</p>
+<pre><code class="language-text">12 × 8 = 96 cm²
+</code></pre>
+<p>A área da moldura é:</p>
+<pre><code class="language-text">192 - 96 = 96 cm²
+</code></pre>
+<p>A resposta é <strong>96 cm²</strong>.</p>
+<p>O cuidado está nas medidas externas. Uma largura de 2 cm em todos os lados aumenta 4 cm no comprimento total e 4 cm na altura total.</p>
+<p>Esse tipo de detalhe separa leitura apressada de raciocínio olímpico.</p>
+<hr>
+<h2>15. O erro clássico: misturar área com perímetro</h2>
+<p>A sala das figuras compostas tinha uma placa vermelha:</p>
+<blockquote>
+<p>Não confunda borda com interior.</p>
+</blockquote>
+<p>Esse aviso parece repetido, mas agora ele é ainda mais importante.</p>
+<p>Quando uma figura tem buracos, recortes e sobreposições, área e perímetro podem se comportar de maneiras muito diferentes.</p>
+<p>Retirar um buraco sempre diminui a área. Mas pode aumentar o perímetro, se o buraco cria uma nova borda interna.</p>
+<p>Juntar dois quadrados lado a lado dobra a área, mas não dobra o perímetro, porque o lado colado deixa de fazer parte da borda externa.</p>
+<p>Completar uma figura pode ajudar no cálculo da área, mas não autoriza trocar automaticamente o perímetro pelo perímetro da figura completa.</p>
+<p>Antes de qualquer conta, pergunte:</p>
+<blockquote>
+<p>O problema quer medir espaço ou caminhar na borda?</p>
+</blockquote>
+<p>Essa pergunta salva muitas soluções.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>16. Problema em estilo OBMEP — O pátio em forma de L</h2>
+<p>O pátio da Academia tem a forma de um retângulo de 9 m por 6 m, mas um canto retangular de 3 m por 2 m foi reservado para uma sala de materiais e não faz parte do pátio.</p>
+<p>Qual é a área do pátio?</p>
+<p>Pense alguns instantes antes de continuar.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>A figura pode ser vista como um retângulo grande com um pedaço faltando.</p>
+<p>Área do retângulo grande:</p>
+<pre><code class="language-text">9 × 6 = 54
+</code></pre>
+<p>Área do canto retirado:</p>
+<pre><code class="language-text">3 × 2 = 6
+</code></pre>
+<p>Área do pátio:</p>
+<pre><code class="language-text">54 - 6 = 48
+</code></pre>
+<p>A área do pátio é <strong>48 m²</strong>.</p>
+<p>A estratégia usada foi completar mentalmente a figura e subtrair o pedaço que não pertence ao pátio.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>17. Problema em estilo OBMEP — A parede com janela</h2>
+<p>Uma parede retangular mede 7 m de largura e 4 m de altura. Nela há uma janela retangular de 2 m por 1 m e uma porta retangular de 1 m por 2 m.</p>
+<p>A parede será pintada, mas a janela e a porta não serão pintadas.</p>
+<p>Qual é a área que receberá tinta?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Primeiro calculamos a parede inteira:</p>
+<pre><code class="language-text">7 × 4 = 28
+</code></pre>
+<p>Agora retiramos a janela:</p>
+<pre><code class="language-text">2 × 1 = 2
+</code></pre>
+<p>E retiramos a porta:</p>
+<pre><code class="language-text">1 × 2 = 2
+</code></pre>
+<p>Área pintada:</p>
+<pre><code class="language-text">28 - 2 - 2 = 24
+</code></pre>
+<p>A área que receberá tinta é <strong>24 m²</strong>.</p>
+<p>A pergunta era de área, não de contorno. Por isso subtrair as partes não pintadas foi suficiente.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>18. Problema em estilo OBMEP — O mosaico recortado</h2>
+<p>Um mosaico quadrado tem 6 quadradinhos de lado por 6 quadradinhos de lado. Foram retirados quatro quadradinhos dos cantos, um em cada canto.</p>
+<p>Qual é a área restante do mosaico, em quadradinhos?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>O quadrado completo teria:</p>
+<pre><code class="language-text">6 × 6 = 36
+</code></pre>
+<p>Foram retirados 4 quadradinhos.</p>
+<p>Então a área restante é:</p>
+<pre><code class="language-text">36 - 4 = 32
+</code></pre>
+<p>A área restante é <strong>32 quadradinhos</strong>.</p>
+<p>Este problema parece visual, mas a estratégia é simples: todo menos partes retiradas.</p>
+<p>Se o problema pedisse perímetro, a conversa seria diferente. Retirar cantos muda o contorno.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>19. Problema em estilo OBMEP — Dois triângulos que viram retângulo</h2>
+<p>Dois triângulos retângulos iguais têm catetos medindo 6 cm e 4 cm. Eles podem ser encaixados para formar um retângulo de 6 cm por 4 cm.</p>
+<p>Qual é a área de cada triângulo?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Os dois triângulos juntos formam um retângulo de área:</p>
+<pre><code class="language-text">6 × 4 = 24
+</code></pre>
+<p>Como os dois triângulos são iguais, cada um tem metade dessa área:</p>
+<pre><code class="language-text">24 ÷ 2 = 12
+</code></pre>
+<p>Cada triângulo tem área <strong>12 cm²</strong>.</p>
+<p>A estratégia foi recompor: juntar dois pedaços para enxergar uma figura simples.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>20. Problema em estilo OBMEP — A região sombreada</h2>
+<p>Em um retângulo de 10 cm por 8 cm, foi sombreada uma faixa vertical de 3 cm de largura e uma faixa horizontal de 2 cm de altura. As duas faixas se cruzam.</p>
+<p>Qual é a área sombreada?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Área da faixa vertical:</p>
+<pre><code class="language-text">3 × 8 = 24
+</code></pre>
+<p>Área da faixa horizontal:</p>
+<pre><code class="language-text">10 × 2 = 20
+</code></pre>
+<p>Se somarmos diretamente:</p>
+<pre><code class="language-text">24 + 20 = 44
+</code></pre>
+<p>contamos a região do cruzamento duas vezes.</p>
+<p>A região de cruzamento mede:</p>
+<pre><code class="language-text">3 × 2 = 6
+</code></pre>
+<p>Então a área sombreada é:</p>
+<pre><code class="language-text">24 + 20 - 6 = 38
+</code></pre>
+<p>A área sombreada é <strong>38 cm²</strong>.</p>
+<p>A estratégia foi cuidar da sobreposição.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>21. Problema em estilo OBMEP — A peça que se encaixa</h2>
+<p>Uma peça de madeira é formada por um retângulo de 8 cm por 3 cm e outro retângulo de 5 cm por 4 cm. Eles estão encostados por um lado, sem sobreposição.</p>
+<p>Qual é a área total da peça?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Como os dois retângulos não se sobrepõem, podemos somar as áreas.</p>
+<p>Primeiro retângulo:</p>
+<pre><code class="language-text">8 × 3 = 24
+</code></pre>
+<p>Segundo retângulo:</p>
+<pre><code class="language-text">5 × 4 = 20
+</code></pre>
+<p>Área total:</p>
+<pre><code class="language-text">24 + 20 = 44
+</code></pre>
+<p>A área total da peça é <strong>44 cm²</strong>.</p>
+<p>Se o problema pedisse o perímetro, precisaríamos saber exatamente como os retângulos estão encostados. Para área, basta saber que não há sobreposição.</p>
+<hr>
+</div></details>
+<h2><span class="badge-oficina">Oficina</span>22. Oficina Olímpica 7 — Montar, desmontar e transformar</h2>
+<p>Agora é sua vez de usar as quatro estratégias da sala.</p>
+<p>Use o caderno se quiser. Antes de calcular, escolha uma porta:</p>
+<ul>
+<li>dividir;</li>
+<li>completar;</li>
+<li>subtrair;</li>
+<li>recompor.</li>
+</ul>
+<h3>Desafio 1 — O tapete em L</h3>
+<p>Um tapete pode ser visto como um retângulo de 8 m por 5 m com um retângulo de 3 m por 2 m retirado de um canto.</p>
+<p>Qual é a área do tapete?</p>
+<p><strong>Solução.</strong></p>
+<p>Área do retângulo grande:</p>
+<pre><code class="language-text">8 × 5 = 40
+</code></pre>
+<p>Área retirada:</p>
+<pre><code class="language-text">3 × 2 = 6
+</code></pre>
+<p>Área do tapete:</p>
+<pre><code class="language-text">40 - 6 = 34
+</code></pre>
+<p>Resposta: <strong>34 m²</strong>.</p>
+<hr>
+<h3>Desafio 2 — A moldura da foto</h3>
+<p>Uma foto mede 10 cm por 6 cm. Ela recebe uma moldura de 1 cm de largura em todos os lados.</p>
+<p>Qual é a área da moldura?</p>
+<p><strong>Solução.</strong></p>
+<p>As medidas externas ficam:</p>
+<pre><code class="language-text">10 + 1 + 1 = 12
+6 + 1 + 1 = 8
+</code></pre>
+<p>Área externa:</p>
+<pre><code class="language-text">12 × 8 = 96
+</code></pre>
+<p>Área da foto:</p>
+<pre><code class="language-text">10 × 6 = 60
+</code></pre>
+<p>Área da moldura:</p>
+<pre><code class="language-text">96 - 60 = 36
+</code></pre>
+<p>Resposta: <strong>36 cm²</strong>.</p>
+<hr>
+<h3>Desafio 3 — As duas faixas</h3>
+<p>Em um retângulo de 12 cm por 7 cm, uma faixa vertical de 2 cm de largura e uma faixa horizontal de 3 cm de altura foram pintadas. Elas se cruzam.</p>
+<p>Qual é a área pintada?</p>
+<p><strong>Solução.</strong></p>
+<p>Faixa vertical:</p>
+<pre><code class="language-text">2 × 7 = 14
+</code></pre>
+<p>Faixa horizontal:</p>
+<pre><code class="language-text">12 × 3 = 36
+</code></pre>
+<p>Sobreposição:</p>
+<pre><code class="language-text">2 × 3 = 6
+</code></pre>
+<p>Área pintada:</p>
+<pre><code class="language-text">14 + 36 - 6 = 44
+</code></pre>
+<p>Resposta: <strong>44 cm²</strong>.</p>
+<hr>
+<h3>Desafio 4 — O triângulo escondido</h3>
+<p>Um retângulo mede 9 cm por 4 cm. Uma diagonal o divide em dois triângulos iguais.</p>
+<p>Qual é a área de cada triângulo?</p>
+<p><strong>Solução.</strong></p>
+<p>Área do retângulo:</p>
+<pre><code class="language-text">9 × 4 = 36
+</code></pre>
+<p>Cada triângulo tem metade:</p>
+<pre><code class="language-text">36 ÷ 2 = 18
+</code></pre>
+<p>Resposta: <strong>18 cm²</strong>.</p>
+<hr>
+<h3>Desafio 5 — O jardim com lago</h3>
+<p>Um jardim retangular mede 15 m por 8 m. Dentro dele há um lago retangular de 5 m por 3 m.</p>
+<p>Qual é a área do jardim que não é ocupada pelo lago?</p>
+<p><strong>Solução.</strong></p>
+<p>Área total do jardim:</p>
+<pre><code class="language-text">15 × 8 = 120
+</code></pre>
+<p>Área do lago:</p>
+<pre><code class="language-text">5 × 3 = 15
+</code></pre>
+<p>Área restante:</p>
+<pre><code class="language-text">120 - 15 = 105
+</code></pre>
+<p>Resposta: <strong>105 m²</strong>.</p>
+<hr>
+<h3>Desafio 6 — A peça de quadradinhos</h3>
+<p>Uma peça é formada por 10 quadradinhos iguais. Outra peça é formada pelos mesmos 10 quadradinhos, mas organizados de outro jeito.</p>
+<p>As duas peças têm a mesma área?</p>
+<p><strong>Solução.</strong></p>
+<p>Sim.</p>
+<p>Se cada peça tem 10 quadradinhos iguais e não há sobreposição dentro de cada peça, as duas áreas são iguais:</p>
+<pre><code class="language-text">10 unidades quadradas
+</code></pre>
+<p>A forma pode mudar, mas a área permanece igual quando usamos a mesma quantidade de quadradinhos.</p>
+<p>O perímetro, porém, pode mudar. Isso depende de como os quadradinhos encostam uns nos outros.</p>
+<hr>
+<h2>23. As ferramentas da Mochila nesta sala</h2>
+<p>Nesta sala, a Mochila do Matemático ganhou força na geometria.</p>
+<p>As ferramentas trabalhadas foram:</p>
+<ol>
+<li>
+<p><strong>Decompor figuras compostas.</strong><br>
+Transformar uma figura complicada em partes conhecidas.</p>
+</li>
+<li>
+<p><strong>Completar para formar uma figura simples.</strong><br>
+Imaginar uma figura maior e depois retirar o que foi acrescentado.</p>
+</li>
+<li>
+<p><strong>Subtrair buracos e partes faltantes.</strong><br>
+Calcular o todo e retirar aquilo que não pertence à pergunta.</p>
+</li>
+<li>
+<p><strong>Recompor sem mudar a área.</strong><br>
+Mudar a posição dos pedaços para revelar uma forma mais simples.</p>
+</li>
+<li>
+<p><strong>Cuidar da sobreposição.</strong><br>
+Perceber quando uma soma contou a mesma região duas vezes.</p>
+</li>
+<li>
+<p><strong>Ver triângulos como metades de retângulos.</strong><br>
+Usar a ideia de metade antes de decorar fórmulas.</p>
+</li>
+<li>
+<p><strong>Escolher a estratégia antes da conta.</strong><br>
+Decidir se o melhor caminho é dividir, completar, subtrair ou recompor.</p>
+</li>
+</ol>
+<div class="ferramenta" data-num="45" id="f45"><span class="f-badge">Ferramenta 45</span><span class="f-text">Decompor figuras compostas</span></div>
+
+<div class="ferramenta" data-num="46" id="f46"><span class="f-badge">Ferramenta 46</span><span class="f-text">Completar para formar uma figura simples</span></div>
+
+<div class="ferramenta" data-num="47" id="f47"><span class="f-badge">Ferramenta 47</span><span class="f-text">Subtrair buracos e partes faltantes</span></div>
+
+<div class="ferramenta" data-num="48" id="f48"><span class="f-badge">Ferramenta 48</span><span class="f-text">Recompor sem mudar a área</span></div>
+
+<div class="ferramenta" data-num="49" id="f49"><span class="f-badge">Ferramenta 49</span><span class="f-text">Cuidar da sobreposição</span></div>
+
+<div class="ferramenta" data-num="50" id="f50"><span class="f-badge">Ferramenta 50</span><span class="f-text">Ver triângulos como metades de retângulos</span></div>
+
+<div class="ferramenta" data-num="51" id="f51"><span class="f-badge">Ferramenta 51</span><span class="f-text">Escolher a estratégia antes da conta</span></div>
+
+<p>Essas ferramentas não servem apenas para geometria. Elas ensinam um modo de pensar:</p>
+<blockquote>
+<p>Quando algo parece complicado, transforme.</p>
+</blockquote>
+<hr>
+<h2>24. Figuras aplicadas no ponto de uso</h2>
+<p>As seis especificações de figura já acompanham as estratégias e a malha em que o leitor precisa usar cada relação. Não há segunda versão delas ao final da sala.</p>
+<hr>
+<h2>25. A frase da Academia</h2>
+<blockquote>
+<p>Figura difícil não pede pressa. Pede transformação.</p>
+</blockquote>
+<hr>
+<h2>26. Pergunta para amanhã</h2>
+<p>Felipe fechou o caderno e olhou para uma malha desenhada no chão.</p>
+<p>Havia vários caminhos possíveis para atravessar a sala.</p>
+<p>Alguns passavam por pontos proibidos. Outros repetiam trechos. Outros pareciam diferentes, mas chegavam ao mesmo lugar.</p>
+<p>A coruja sorriu:</p>
+<p>— Agora você já sabe medir figuras. Mas e quando a pergunta não for medir? E quando for contar todos os caminhos possíveis?</p>
+<p>O Professor abriu a próxima porta da Academia.</p>
+<p>Nela estava escrito:</p>
+<blockquote>
+<p>Quando existem muitos caminhos possíveis, como contar todos sem esquecer nenhum e sem repetir?</p>
+</blockquote>
+<p>Essa será a próxima sala.</p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap07.html" class="nav-prev">← Cap. 7</a>
+      <a href="cap09.html" class="nav-next">Cap. 9 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(8);</script>
+</body>
+</html>

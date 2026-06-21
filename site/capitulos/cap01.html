@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 1 — A primeira chave | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-bronze">Nível Bronze</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link sidebar-active" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 1</span>
+        <h1 class="cap-title">A primeira chave</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Antes da primeira conta</h2>
+<p>Felipe chegou à porta da Academia do Raciocínio esperando encontrar uma sala cheia de fórmulas.</p>
+<p>Imaginou quadros cobertos de contas enormes, professores falando rápido e estudantes respondendo antes mesmo de terminar a pergunta.</p>
+<p>Mas a primeira sala estava quase vazia.</p>
+<p>Havia apenas uma mesa, três cadeiras, uma janela aberta e um cartaz na parede:</p>
+<blockquote>
+<p><strong>Antes de calcular, aprenda a olhar.</strong></p>
+</blockquote>
+<p>Felipe estranhou.</p>
+<p>— Professor, não era para começar com números?</p>
+<p>O Professor da Academia sorriu.</p>
+<p>— Vamos começar com algo mais importante do que números.</p>
+<p>— O quê?</p>
+<p>— O modo de entrar em um problema.</p>
+<p>Do alto de uma estante, uma pequena coruja desenhada em madeira parecia observar a conversa. Felipe ainda não sabia, mas aquela coruja seria chamada de Matemático Invisível. Ela apareceria sempre que uma pergunta pequena escondesse uma ideia grande.</p>
+<p>O Professor colocou sobre a mesa cinco cartões:</p>
+<p><code>2   4   6   8   10</code></p>
+<p>— Qual é o próximo número? — perguntou.</p>
+<p>Felipe respondeu quase sem respirar:</p>
+<p>— 12.</p>
+<p>— Pode ser — disse o Professor.</p>
+<p>— Como assim, pode ser? É 12.</p>
+<p>— Talvez. Mas antes de declarar vitória, diga qual regra você viu.</p>
+<p>Felipe olhou de novo.</p>
+<p>— Os números estão aumentando de 2 em 2.</p>
+<p>— Ótimo. Com essa regra, o próximo é 12. Mas e se a regra fosse: “os cinco primeiros números pares positivos escritos em ordem”?</p>
+<p>— Também daria 12.</p>
+<p>— Sim. Agora imagine outra regra: “números pares até 10 e depois o número 100 para assustar quem responde depressa”.</p>
+<p>Felipe riu.</p>
+<p>— Aí seria 100. Mas isso seria uma regra meio maldosa.</p>
+<p>— Seria. E nem sempre uma regra maldosa é uma boa regra matemática. O importante é perceber uma coisa: muitas vezes a primeira resposta nasce antes da primeira pergunta bem feita.</p>
+<p>A coruja pareceu sussurrar:</p>
+<blockquote>
+<p>“Responder rápido é diferente de entender.”</p>
+</blockquote>
+<p>Felipe ficou olhando os cartões.</p>
+<p>A primeira lição da Academia não era sobre o número 12.</p>
+<p>Era sobre pressa.</p>
+<hr>
+<h2>2. A primeira chave</h2>
+<p>O Professor abriu uma pequena gaveta e tirou uma chave dourada.</p>
+<p>— Esta é a primeira chave da Academia.</p>
+<p>Felipe esperou alguma explicação complicada.</p>
+<p>Mas o Professor apenas disse:</p>
+<p>— <strong>Curiosidade.</strong></p>
+<p>— Só isso?</p>
+<p>— Não é pouco. Um estudante curioso não pergunta apenas “qual é a resposta?”. Ele pergunta:
+- o que está acontecendo aqui?
+- por que esses dados foram escolhidos?
+- existe uma armadilha?
+- já vi algo parecido?
+- o que o problema realmente quer?</p>
+<p>Felipe pegou a chave.</p>
+<p>Ela era leve, mas parecia importante.</p>
+<p>— A OBMEP gosta de estudantes curiosos? — perguntou.</p>
+<p>— A OBMEP gosta de estudantes que pensam. Curiosidade é o começo desse pensamento.</p>
+<p>A primeira ferramenta entrou na Mochila do Matemático.</p>
+<div class="ferramenta" data-num="1" id="f1"><span class="f-badge">Ferramenta 1</span><span class="f-text">Curiosidade: observar antes de calcular</span></div>
+
+<p>Não era uma fórmula.</p>
+<p>Era uma postura.</p>
+<p>E, na Academia, postura vinha antes de técnica.</p>
+<hr>
+<h2>3. O problema da mesa incompleta</h2>
+<p>O Professor colocou agora alguns palitos sobre a mesa.</p>
+<p>Com eles, formou uma figura simples:</p>
+<p>Um quadrado feito com 4 palitos.</p>
+<p>Depois, grudou outro quadrado ao lado do primeiro. A nova figura tinha 7 palitos, não 8, porque os dois quadrados compartilhavam um lado.</p>
+<p>Depois, formou três quadrados em fila. Felipe contou 10 palitos.</p>
+<p>O Professor escreveu:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Quantidade de quadrados</th>
+<th style="text-align: right;">Quantidade de palitos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+<p>— Quantos palitos seriam necessários para formar 6 quadrados em fila? — perguntou.</p>
+<p>Felipe quase começou a desenhar todos.</p>
+<p>Mas parou.</p>
+<p>O cartaz da parede ainda estava lá:</p>
+<blockquote>
+<p>Antes de calcular, aprenda a olhar.</p>
+</blockquote>
+<p>Ele observou a tabela.</p>
+<p>De 4 para 7, aumentou 3.</p>
+<p>De 7 para 10, aumentou 3.</p>
+<p>— Cada novo quadrado acrescenta 3 palitos, porque um lado já está compartilhado.</p>
+<p>— Continue — disse o Professor.</p>
+<p>Felipe pensou:</p>
+<p>1 quadrado: 4 palitos.<br>
+2 quadrados: 7.<br>
+3 quadrados: 10.<br>
+4 quadrados: 13.<br>
+5 quadrados: 16.<br>
+6 quadrados: 19.</p>
+<p>— Para 6 quadrados, 19 palitos.</p>
+<p>— Muito bem. Agora me diga: qual foi a parte mais importante?</p>
+<p>— Contar direito?</p>
+<p>— Também. Mas antes disso?</p>
+<p>Felipe olhou novamente.</p>
+<p>— Perceber que o quadrado novo não usa 4 palitos. Usa 3.</p>
+<p>O Professor bateu palmas uma única vez.</p>
+<p>— Exato. Você não venceu o problema porque fez uma conta grande. Venceu porque viu a estrutura.</p>
+<p>A segunda ferramenta entrou na Mochila.</p>
+<div class="ferramenta" data-num="2" id="f2"><span class="f-badge">Ferramenta 2</span><span class="f-text">Procurar padrões</span></div>
+
+<p>Mas o Professor fez questão de completar:</p>
+<p>— Padrão não é adivinhação. Padrão é uma observação que começa a se repetir.</p>
+<hr>
+<h2>4. Observar não é ficar parado</h2>
+<p>Muita gente pensa que observar é não fazer nada.</p>
+<p>Na Academia, observar é trabalho ativo.</p>
+<p>Observar é comparar.<br>
+Observar é procurar o que muda.<br>
+Observar é procurar o que não muda.<br>
+Observar é desconfiar de respostas rápidas demais.<br>
+Observar é perguntar por que uma informação foi colocada no enunciado.</p>
+<p>O Professor escreveu no quadro:</p>
+<blockquote>
+<p>Um problema é uma sala.<br>
+Os dados são móveis.<br>
+A pergunta é a porta.<br>
+Antes de sair correndo, veja onde você está.</p>
+</blockquote>
+<p>Felipe achou a frase um pouco estranha, mas entendeu a ideia.</p>
+<p>Um estudante que entra em um problema com pressa tropeça nos móveis.</p>
+<p>Um estudante que olha primeiro percebe o caminho.</p>
+<hr>
+<h2>5. Fatos, suposições e hipóteses</h2>
+<p>A coruja de madeira pareceu inclinar a cabeça.</p>
+<p>O Professor colocou outro cartão sobre a mesa:</p>
+<blockquote>
+<p>Em uma sala há 12 estudantes. Alguns usam camiseta azul. Os outros usam camiseta branca. Há mais estudantes de azul do que de branco.</p>
+</blockquote>
+<p>— Quantos estudantes usam camiseta azul?</p>
+<p>Felipe franziu a testa.</p>
+<p>— Não dá para saber exatamente.</p>
+<p>— O que você sabe?</p>
+<p>— Que são mais de 6, porque se fossem 6 e 6 não haveria mais azuis do que brancos.</p>
+<p>— Cuidado. “Mais de 6” é uma boa conclusão?</p>
+<p>Felipe pensou.</p>
+<p>Se há 12 estudantes e mais azuis que brancos, os azuis podem ser 7, 8, 9, 10, 11 ou 12.</p>
+<p>— Sim. Pelo menos 7.</p>
+<p>— E podem ser 12?</p>
+<p>— Podem, se todos estiverem de azul. A frase diz “alguns usam camiseta azul. Os outros usam branca”. Espera… Se diz “os outros usam branca”, talvez existam outros.</p>
+<p>O Professor sorriu.</p>
+<p>— Ótimo. Você acabou de encontrar uma porta importante: leitura exata.</p>
+<p>Felipe releu:</p>
+<p>“Alguns usam camiseta azul. Os outros usam camiseta branca.”</p>
+<p>Se “os outros” existem, então nem todos usam azul. Mas a palavra “alguns” às vezes pode ser usada de modo impreciso em textos comuns. Em matemática, precisamos tomar cuidado.</p>
+<p>— Então o problema está um pouco ambíguo? — perguntou Felipe.</p>
+<p>— Está. E reconhecer ambiguidade também é raciocínio.</p>
+<p>O Professor escreveu três palavras:</p>
+<p><strong>Fato.</strong><br>
+<strong>Suposição.</strong><br>
+<strong>Hipótese.</strong></p>
+<p>Depois explicou:</p>
+<ul>
+<li><strong>Fato</strong> é o que o enunciado garante.</li>
+<li><strong>Suposição</strong> é algo que você colocou sem perceber.</li>
+<li><strong>Hipótese</strong> é uma ideia que você testa sabendo que ainda pode estar errada.</li>
+</ul>
+<p>Felipe anotou no caderno:</p>
+<blockquote>
+<p>Nem tudo que parece estar no problema realmente está escrito no problema.</p>
+</blockquote>
+<p>A terceira e a quarta ferramentas entraram na Mochila.</p>
+<div class="ferramenta" data-num="3" id="f3"><span class="f-badge">Ferramenta 3</span><span class="f-text">Colecionar observações</span></div>
+
+<div class="ferramenta" data-num="4" id="f4"><span class="f-badge">Ferramenta 4</span><span class="f-text">Criar hipóteses</span></div>
+
+<p>A Academia não queria que Felipe tivesse medo de imaginar caminhos.</p>
+<p>Mas queria que ele soubesse testar esses caminhos.</p>
+<hr>
+<h2>6. A pergunta escondida</h2>
+<p>O Professor apagou parte do quadro e escreveu:</p>
+<blockquote>
+<p>Uma sequência começa assim:<br>
+3, 6, 9, 12, 15, ...</p>
+</blockquote>
+<p>— Qual é o vigésimo termo?</p>
+<p>Felipe respondeu:</p>
+<p>— É só continuar de 3 em 3 até o vigésimo.</p>
+<p>— Pode fazer isso. Mas há um caminho melhor?</p>
+<p>Felipe pensou.</p>
+<p>Cada termo é 3 vezes a posição:</p>
+<p>1º termo: 3<br>
+2º termo: 6<br>
+3º termo: 9<br>
+4º termo: 12</p>
+<p>Então o 20º termo é 3 × 20 = 60.</p>
+<p>— Resposta: 60.</p>
+<p>— Muito bem. Agora mudo a pergunta:</p>
+<blockquote>
+<p>Qual é a soma dos vinte primeiros termos?</p>
+</blockquote>
+<p>Felipe começou:</p>
+<p>3 + 6 + 9 + 12...</p>
+<p>— Parece o mesmo problema, mas não é — percebeu.</p>
+<p>— Essa é a pergunta escondida — disse o Professor. — Às vezes o enunciado se parece com um problema que você já viu, mas a pergunta final muda tudo.</p>
+<p>Felipe entendeu.</p>
+<p>No primeiro caso, queria um termo.<br>
+No segundo, queria um total.</p>
+<p>O Professor disse:</p>
+<p>— Uma das maiores causas de erro em prova não é falta de conteúdo. É responder uma pergunta parecida com a que foi feita, mas não a pergunta que foi feita.</p>
+<p>A quinta ferramenta entrou na Mochila.</p>
+<div class="ferramenta" data-num="5" id="f5"><span class="f-badge">Ferramenta 5</span><span class="f-text">Fazer boas perguntas</span></div>
+
+<p>E logo depois veio outra:</p>
+<div class="ferramenta" data-num="6" id="f6"><span class="f-badge">Ferramenta 6</span><span class="f-text">Questionar regras invisíveis</span></div>
+
+<p>Porque havia uma regra invisível perigosa: “se parece com o problema anterior, deve pedir a mesma coisa”.</p>
+<p>Nem sempre.</p>
+<hr>
+<h2>7. Ler exatamente o que está escrito</h2>
+<p>Na sala seguinte da Academia, havia uma porta com a seguinte placa:</p>
+<blockquote>
+<p>Para entrar, diga quantos números inteiros maiores que 10 e menores que 20 existem.</p>
+</blockquote>
+<p>Felipe respondeu:</p>
+<p>— De 10 até 20 são 11 números.</p>
+<p>A porta não abriu.</p>
+<p>Ele olhou de novo.</p>
+<p>“Maiores que 10 e menores que 20.”</p>
+<p>Não dizia “de 10 a 20”.<br>
+Não dizia “maiores ou iguais a 10”.<br>
+Não dizia “menores ou iguais a 20”.</p>
+<p>Os números eram:</p>
+<p>11, 12, 13, 14, 15, 16, 17, 18, 19.</p>
+<p>— Nove números — disse Felipe.</p>
+<p>A porta abriu.</p>
+<p>A coruja parecia satisfeita.</p>
+<p>O Professor comentou:</p>
+<p>— Em matemática, uma palavra pequena muda uma resposta inteira.</p>
+<p>Felipe percebeu que “maior que” e “maior ou igual a” não são a mesma coisa.<br>
+“Entre” pode precisar de cuidado.<br>
+“Exatamente” não é “pelo menos”.<br>
+“No máximo” não é “menos que”.<br>
+“Algum” não é “todos”.</p>
+<p>A ferramenta seguinte entrou na Mochila.</p>
+<div class="ferramenta" data-num="9" id="f9"><span class="f-badge">Ferramenta 9</span><span class="f-text">Ler exatamente o que está escrito</span></div>
+
+<p>O número da ferramenta parecia pular algumas posições porque a Mochila seria organizada ao longo do livro. Algumas ferramentas apareceriam com força agora, outras seriam aprofundadas depois.</p>
+<p>Mas a ideia já estava plantada:</p>
+<blockquote>
+<p>Quem lê com pressa resolve outro problema.</p>
+</blockquote>
+<hr>
+<h2>8. Mudar o ponto de vista</h2>
+<p>O Professor desenhou no quadro um retângulo dividido em quadradinhos.</p>
+<p>E marcou uma região em forma de L.</p>
+<p>— Quantos quadradinhos há na região marcada?</p>
+<p>Felipe começou a contar um por um.</p>
+<p>Depois percebeu que a figura em L podia ser vista de outro modo: era um retângulo maior com um pedaço faltando.</p>
+<p>— Posso contar o retângulo inteiro e tirar o buraco?</p>
+<p>— Pode.</p>
+<p>— Então a figura difícil vira uma figura simples menos uma parte.</p>
+<p>— Isso é mudar o ponto de vista.</p>
+<p>A mesma ideia apareceria muitas vezes na Academia:</p>
+<ul>
+<li>uma sequência pode virar uma tabela;</li>
+<li>um caminho pode virar uma lista de passos;</li>
+<li>uma fração pode virar divisão;</li>
+<li>uma área complicada pode virar soma ou subtração de retângulos;</li>
+<li>um problema de frente pode ser resolvido de trás para frente;</li>
+<li>um erro pode virar pista.</li>
+</ul>
+<p>Felipe gostou especialmente da última frase.</p>
+<p>— Um erro pode virar pista?</p>
+<p>— Pode, se você olhar para ele com honestidade.</p>
+<p>A sétima e a oitava ferramentas entraram na Mochila.</p>
+<div class="ferramenta" data-num="7" id="f7"><span class="f-badge">Ferramenta 7</span><span class="f-text">Mudar o ponto de vista</span></div>
+
+<div class="ferramenta" data-num="8" id="f8"><span class="f-badge">Ferramenta 8</span><span class="f-text">Transformar erros em pistas</span></div>
+
+<p>O Professor completou:</p>
+<p>— Erro escondido vira repetição. Erro observado vira treino.</p>
+<p>Felipe não sabia ainda, mas essa ideia voltaria muitas vezes perto dos simulados.</p>
+<hr>
+<h2>9. O primeiro problema em estilo olímpico</h2>
+<p>O Professor abriu uma caixa pequena e tirou seis fichas numeradas:</p>
+<p><code>1, 2, 3, 4, 5, 6</code></p>
+<p>Depois disse:</p>
+<blockquote>
+<p>Felipe deve escolher três fichas.<br>
+A soma dos números escolhidos deve ser 12.<br>
+De quantas maneiras diferentes ele pode fazer isso?</p>
+</blockquote>
+<p>Felipe começou a pensar.</p>
+<p>A primeira vontade era sair somando qualquer coisa.</p>
+<p>Mas agora ele tinha uma Mochila, mesmo que ainda pequena.</p>
+<p>Ele perguntou:</p>
+<p>— A ordem importa?</p>
+<p>— Boa pergunta.</p>
+<p>— Se eu escolher 1, 5 e 6 é a mesma coisa que escolher 6, 5 e 1?</p>
+<p>— Sim. São as mesmas três fichas.</p>
+<p>Felipe começou a listar com cuidado.</p>
+<p>Com 1:
+1 + 2 + 9 não dá, 9 não existe.<br>
+1 + 3 + 8 não dá.<br>
+1 + 4 + 7 não dá.<br>
+1 + 5 + 6 = 12. Uma maneira.</p>
+<p>Com 2:
+2 + 3 + 7 não dá.<br>
+2 + 4 + 6 = 12. Outra.<br>
+2 + 5 + 5 não vale, porque só há uma ficha 5.</p>
+<p>Com 3:
+3 + 4 + 5 = 12. Outra.</p>
+<p>Depois disso, se começasse com 4, repetiria casos já vistos: 4 + 3 + 5, por exemplo, era o mesmo que 3 + 4 + 5.</p>
+<p>— Três maneiras — disse Felipe.</p>
+<p>O Professor pediu:</p>
+<p>— Agora explique como você sabe que não esqueceu nenhuma.</p>
+<p>Felipe percebeu que a resposta sozinha não bastava.</p>
+<p>Ele precisava justificar.</p>
+<p>— Eu listei começando pelo menor número escolhido. Primeiro os casos com 1, depois com 2, depois com 3. Quando o menor fosse 4, os três números seriam pelo menos 4, 5 e 6, que somam 15, então passaria de 12. Por isso não há mais casos.</p>
+<p>O Professor assentiu.</p>
+<p>— Excelente. Você acabou de fazer uma solução, não apenas uma conta.</p>
+<p>A coruja parecia sorrir.</p>
+<hr>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h2>10. O que uma solução precisa mostrar</h2>
+<p>Na OBMEP Segunda Fase, muitas questões pedem mais do que marcar uma alternativa.</p>
+<p>É preciso mostrar o caminho.</p>
+<p>A Academia não quer que Felipe escreva textos enormes.<br>
+Também não quer que ele esconda o raciocínio.</p>
+<p>Uma boa solução precisa deixar claro:</p>
+<ol>
+<li>o que foi observado;</li>
+<li>que estratégia foi escolhida;</li>
+<li>como os casos foram organizados;</li>
+<li>por que a resposta encontrada é suficiente;</li>
+<li>qual é a resposta final.</li>
+</ol>
+<p>O Professor mostrou duas respostas para o problema das fichas.</p>
+<p><strong>Resposta fraca:</strong></p>
+<blockquote>
+<p>Dá 3.</p>
+</blockquote>
+<p><strong>Resposta melhor:</strong></p>
+<blockquote>
+<p>As escolhas possíveis são {1,5,6}, {2,4,6} e {3,4,5}. Para não repetir casos, listei sempre do menor para o maior. Não há outros casos, pois começando por 4 a menor soma possível seria 4+5+6=15, maior que 12. Portanto, há 3 maneiras.</p>
+</blockquote>
+<p>Felipe percebeu a diferença.</p>
+<p>A primeira resposta talvez estivesse certa, mas não mostrava pensamento.<br>
+A segunda mostrava controle.</p>
+<p>O Professor disse:</p>
+<p>— A prova não vê o que ficou dentro da sua cabeça. Ela vê o que você conseguiu transformar em solução.</p>
+<p>Essa ideia seria aprofundada mais tarde.</p>
+<p>Por enquanto, bastava guardar:</p>
+<blockquote>
+<p>Uma resposta certa sem explicação pode ser frágil.<br>
+Uma solução clara protege o raciocínio.</p>
+</blockquote>
+<hr>
+</div></details>
+<h2>11. O problema das portas da Academia</h2>
+<p>Ao final da sala, havia três portas.</p>
+<p>Sobre elas, três placas:</p>
+<p><strong>Porta A:</strong> “A porta correta é a B.”<br>
+<strong>Porta B:</strong> “A porta correta não é a C.”<br>
+<strong>Porta C:</strong> “A porta correta é a A.”</p>
+<p>O Professor explicou:</p>
+<blockquote>
+<p>Exatamente uma das três placas diz a verdade.<br>
+Qual porta é a correta?</p>
+</blockquote>
+<p>Felipe respirou fundo.</p>
+<p>Esse problema não parecia de conta.<br>
+Parecia de testar possibilidades.</p>
+<p>Ele decidiu fazer uma hipótese de cada vez.</p>
+<h3>Hipótese 1: a porta correta é A</h3>
+<p>Se a correta é A:</p>
+<ul>
+<li>Placa A diz: “A porta correta é a B.” Falso.</li>
+<li>Placa B diz: “A porta correta não é a C.” Verdadeiro, porque é A.</li>
+<li>Placa C diz: “A porta correta é a A.” Verdadeiro.</li>
+</ul>
+<p>Duas placas seriam verdadeiras. Mas o enunciado dizia exatamente uma.</p>
+<p>Então a porta correta não pode ser A.</p>
+<h3>Hipótese 2: a porta correta é B</h3>
+<p>Se a correta é B:</p>
+<ul>
+<li>Placa A diz: “A porta correta é a B.” Verdadeiro.</li>
+<li>Placa B diz: “A porta correta não é a C.” Verdadeiro.</li>
+<li>Placa C diz: “A porta correta é a A.” Falso.</li>
+</ul>
+<p>De novo, duas placas verdadeiras.</p>
+<p>Então a porta correta não pode ser B.</p>
+<h3>Hipótese 3: a porta correta é C</h3>
+<p>Se a correta é C:</p>
+<ul>
+<li>Placa A diz: “A porta correta é a B.” Falso.</li>
+<li>Placa B diz: “A porta correta não é a C.” Falso.</li>
+<li>Placa C diz: “A porta correta é a A.” Falso.</li>
+</ul>
+<p>Nenhuma placa verdadeira.</p>
+<p>Também não serve.</p>
+<p>Felipe ficou parado.</p>
+<p>— Então nenhuma porta funciona?</p>
+<p>— Essa é uma conclusão possível — disse o Professor.</p>
+<p>— Mas o problema perguntou qual porta é a correta.</p>
+<p>— E talvez essa pergunta tenha sido feita para testar se você aceita uma contradição só porque espera que exista uma resposta.</p>
+<p>Felipe olhou as placas de novo.</p>
+<p>Exatamente uma deveria dizer a verdade.<br>
+Nenhuma hipótese dava exatamente uma.</p>
+<p>Logo, com essas placas, não existe porta correta que satisfaça a condição.</p>
+<p>— Então a resposta é: não há solução.</p>
+<p>— Isso mesmo.</p>
+<p>Felipe achou estranho, mas poderoso.</p>
+<p>A matemática não era obrigada a confirmar o que a pergunta parecia prometer.</p>
+<p>A ferramenta de “verificar a possibilidade” ainda seria aprofundada depois, mas sua semente estava ali.</p>
+<blockquote>
+<p>Às vezes, a melhor resposta é mostrar que a situação não pode acontecer.</p>
+</blockquote>
+<hr>
+<h2>12. Quando o problema engana sem mentir</h2>
+<p>O Professor disse:</p>
+<p>— Um bom problema não precisa mentir para enganar. Basta ele deixar você completar o enunciado com coisas que não foram ditas.</p>
+<p>Felipe pensou nos exemplos do dia:</p>
+<ul>
+<li>Na sequência dos números pares, ele tinha achado que a regra era única.</li>
+<li>Na sala das camisetas, quase assumiu informações que não estavam claras.</li>
+<li>Na porta dos números entre 10 e 20, quase incluiu os extremos.</li>
+<li>No problema das fichas, podia ter contado a mesma escolha várias vezes.</li>
+<li>Nas portas da Academia, podia ter forçado uma resposta inexistente.</li>
+</ul>
+<p>O Professor escreveu:</p>
+<blockquote>
+<p>O problema entrega pistas.<br>
+A pressa inventa o resto.</p>
+</blockquote>
+<p>A coruja pareceu aprovar.</p>
+<hr>
+<h2>13. Um pequeno mapa para entrar em problemas</h2>
+<p>A Academia não queria que Felipe decorasse uma lista enorme antes de começar.</p>
+<p>Mas ofereceu um pequeno mapa.</p>
+<p>Ao encontrar um problema, ele poderia perguntar:</p>
+<ol>
+<li><strong>O que o problema está pedindo exatamente?</strong></li>
+<li><strong>Quais dados são fatos garantidos?</strong></li>
+<li><strong>Estou supondo algo que não foi dito?</strong></li>
+<li><strong>Existe padrão, organização ou repetição?</strong></li>
+<li><strong>A ordem importa?</strong></li>
+<li><strong>Há casos diferentes?</strong></li>
+<li><strong>Posso desenhar, tabelar ou mudar o ponto de vista?</strong></li>
+<li><strong>Minha resposta precisa de justificativa?</strong></li>
+<li><strong>Como sei que não esqueci nenhum caso?</strong></li>
+<li><strong>A situação é realmente possível?</strong></li>
+</ol>
+<p>O Professor avisou:</p>
+<p>— Você não vai usar todas essas perguntas em todos os problemas. Elas são como lanternas. Cada problema pede uma luz diferente.</p>
+<p>Felipe gostou da imagem.</p>
+<p>A Mochila do Matemático não era um peso.</p>
+<p>Era um conjunto de lanternas.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>14. Problema em estilo OBMEP — O mural de medalhas</h2>
+<p>Na entrada da Academia, há um mural formado por placas quadradas iguais, colocadas em fila.</p>
+<p>Em volta de cada placa, são colocadas medalhas nos cantos e nos pontos de encontro entre as placas. A figura abaixo representa a ideia:</p>
+<ul>
+<li>com 1 placa, aparecem 4 medalhas;</li>
+<li>com 2 placas em fila, aparecem 6 medalhas;</li>
+<li>com 3 placas em fila, aparecem 8 medalhas.</li>
+</ul>
+<figure class="figura"><img src="../assets/figuras/C01_F01_placas_medalhas.svg" alt="Três placas quadradas iguais em fila, para os casos de 1, 2 e 3 placas; destacar cada lado compartilhado entre placas vizinhas. A figura deve tornar visível que, no acréscimo de uma placa, os dois cantos compartilhados já existem e, por isso, entram 2 medalhas novas, não 4." loading="lazy"><figcaption>Três placas quadradas iguais em fila, para os casos de 1, 2 e 3 placas; destacar cada lado compartilhado entre placas vizinhas. A figura deve tornar visível que, no acréscimo de uma placa, os dois cantos compartilhados já existem e, por isso, entram 2 medalhas novas, não 4.</figcaption></figure>
+
+<p>Quantas medalhas aparecem em um mural com 10 placas em fila?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Antes da solução</h3>
+<p>Pense alguns instantes.</p>
+<p>O problema não pergunta quantas medalhas caberiam se cada placa tivesse 4 medalhas separadas.<br>
+As placas compartilham pontos quando estão encostadas.</p>
+</div></details>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Vamos observar a tabela:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Placas</th>
+<th style="text-align: right;">Medalhas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+</tr>
+</tbody>
+</table>
+<p>Cada nova placa acrescenta 2 medalhas, não 4.</p>
+<p>Por quê?</p>
+<p>Porque, ao colocar uma nova placa ao lado da anterior, dois pontos já pertencem à placa vizinha. Só aparecem dois novos pontos na borda externa.</p>
+<p>Então:</p>
+<p>1 placa: 4 medalhas.<br>
+2 placas: 6 medalhas.<br>
+3 placas: 8 medalhas.<br>
+4 placas: 10 medalhas.<br>
+5 placas: 12 medalhas.</p>
+<p>A regra é:</p>
+<blockquote>
+<p>número de medalhas = 2 × número de placas + 2.</p>
+</blockquote>
+<p>Para 10 placas:</p>
+<p>2 × 10 + 2 = 22.</p>
+<p>Resposta: aparecem <strong>22 medalhas</strong>.</p>
+</div></details>
+<h3>O que este problema treinou</h3>
+<p>Não foi apenas uma conta.</p>
+<p>Ele treinou:
+- observar uma construção;
+- perceber compartilhamento;
+- evitar multiplicar por 4 sem pensar;
+- transformar desenho em padrão;
+- justificar a regra.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>15. Problema em estilo OBMEP — Os números da porta</h2>
+<p>Para abrir uma porta, Felipe precisa escolher um número inteiro que satisfaça as três condições:</p>
+<ol>
+<li>é maior que 20 e menor que 40;</li>
+<li>é múltiplo de 3;</li>
+<li>quando dividido por 5, deixa resto 1.</li>
+</ol>
+<p>Quais números Felipe pode escolher?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Primeiro, vamos listar os múltiplos de 3 maiores que 20 e menores que 40:</p>
+<p>21, 24, 27, 30, 33, 36, 39.</p>
+<p>Agora verificamos o resto na divisão por 5:</p>
+<ul>
+<li>21 deixa resto 1;</li>
+<li>24 deixa resto 4;</li>
+<li>27 deixa resto 2;</li>
+<li>30 deixa resto 0;</li>
+<li>33 deixa resto 3;</li>
+<li>36 deixa resto 1;</li>
+<li>39 deixa resto 4.</li>
+</ul>
+<p>Portanto, os números possíveis são:</p>
+<p><strong>21 e 36.</strong></p>
+</div></details>
+<h3>O que este problema treinou</h3>
+<p>Ele treinou:
+- ler exatamente “maior que” e “menor que”;
+- trabalhar com condições ao mesmo tempo;
+- eliminar candidatos;
+- não procurar uma única resposta quando pode haver mais de uma.</p>
+<p>A pergunta era “quais números”, não “qual número”.</p>
+<p>Essa palavra muda tudo.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>16. Problema em estilo OBMEP — A caixa das fichas</h2>
+<p>Em uma caixa há fichas numeradas de 1 a 9.</p>
+<p>Felipe quer escolher duas fichas diferentes cuja soma seja 10.</p>
+<p>De quantas maneiras diferentes ele pode fazer isso?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Vamos listar sem repetir.</p>
+<p>Se a menor ficha escolhida for 1, a outra deve ser 9:</p>
+<p>1 + 9 = 10.</p>
+<p>Se a menor for 2:</p>
+<p>2 + 8 = 10.</p>
+<p>Se a menor for 3:</p>
+<p>3 + 7 = 10.</p>
+<p>Se a menor for 4:</p>
+<p>4 + 6 = 10.</p>
+<p>Se a menor for 5, precisaríamos de outra ficha 5, mas as fichas devem ser diferentes.</p>
+<p>A partir de 6, repetiríamos casos já contados, como 6 + 4.</p>
+<p>Portanto, as maneiras são:</p>
+<p>{1, 9}, {2, 8}, {3, 7}, {4, 6}.</p>
+<p>Resposta: <strong>4 maneiras</strong>.</p>
+</div></details>
+<h3>O que este problema treinou</h3>
+<p>Ele treinou:
+- organizar casos;
+- evitar repetição;
+- perceber se a ordem importa;
+- explicar por que a lista terminou.</p>
+<hr>
+<h2><span class="badge-oficina">Oficina</span>17. Oficina Olímpica de Entrada — Antes da conta</h2>
+<p>Esta primeira oficina não quer velocidade.</p>
+<p>Quer olhar.</p>
+<p>Use o caderno se quiser. O mais importante é perceber a primeira jogada.</p>
+<hr>
+<h3>Desafio 1 — A palavra pequena</h3>
+<p>Quantos números inteiros são maiores que 15 e menores ou iguais a 22?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Os números são:</p>
+<p>16, 17, 18, 19, 20, 21, 22.</p>
+<p>São <strong>7 números</strong>.</p>
+<p>A palavra “maiores que 15” exclui o 15.<br>
+A expressão “menores ou iguais a 22” inclui o 22.</p>
+<hr>
+</div></details>
+<h3>Desafio 2 — A sequência apressada</h3>
+<p>Uma sequência começa assim:</p>
+<p>2, 5, 8, 11, 14, ...</p>
+<p>Qual é o 10º termo?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>A sequência aumenta de 3 em 3.</p>
+<p>1º termo: 2.<br>
+2º: 5.<br>
+3º: 8.<br>
+4º: 11.<br>
+5º: 14.<br>
+6º: 17.<br>
+7º: 20.<br>
+8º: 23.<br>
+9º: 26.<br>
+10º: 29.</p>
+<p>Resposta: <strong>29</strong>.</p>
+<p>Também poderíamos observar que, para chegar ao 10º termo, saímos do 1º termo e fazemos 9 aumentos de 3:</p>
+<p>2 + 9 × 3 = 2 + 27 = 29.</p>
+<hr>
+</div></details>
+<h3>Desafio 3 — A pergunta mudou</h3>
+<p>Na sequência do desafio anterior, qual é a soma dos três primeiros termos?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Agora a pergunta não quer o próximo termo nem o 10º termo.</p>
+<p>Quer uma soma:</p>
+<p>2 + 5 + 8 = 15.</p>
+<p>Resposta: <strong>15</strong>.</p>
+<p>A primeira jogada é perceber que a pergunta mudou.</p>
+<hr>
+</div></details>
+<h3>Desafio 4 — As camisetas</h3>
+<p>Em uma equipe há 18 estudantes. Exatamente 11 usam camiseta verde. Os outros usam camiseta branca.</p>
+<p>Quantos usam camiseta branca?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Se há 18 estudantes ao todo e 11 usam verde, então os outros são:</p>
+<p>18 − 11 = 7.</p>
+<p>Resposta: <strong>7 estudantes</strong>.</p>
+<p>Aqui a palavra “exatamente” ajuda: não é “cerca de 11”, nem “pelo menos 11”.</p>
+<hr>
+</div></details>
+<h3>Desafio 5 — A lista sem repetição</h3>
+<p>Com os números 1, 2, 3, 4 e 5, quantos pares diferentes podem ser formados usando dois números distintos, sem importar a ordem?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>Vamos listar pelo menor número do par.</p>
+<p>Com 1:
+{1,2}, {1,3}, {1,4}, {1,5} — 4 pares.</p>
+<p>Com 2:
+{2,3}, {2,4}, {2,5} — 3 pares.</p>
+<p>Com 3:
+{3,4}, {3,5} — 2 pares.</p>
+<p>Com 4:
+{4,5} — 1 par.</p>
+<p>Total:</p>
+<p>4 + 3 + 2 + 1 = 10.</p>
+<p>Resposta: <strong>10 pares</strong>.</p>
+<p>A ordem não importa: {1,4} e {4,1} são o mesmo par.</p>
+<hr>
+</div></details>
+<h3>Desafio 6 — Atividade aberta — O erro que vira pista</h3>
+<p>Um estudante resolveu assim:</p>
+<blockquote>
+<p>“Para formar 5 quadrados em fila, uso 5 × 4 = 20 palitos.”</p>
+</blockquote>
+<p>Explique por que esse raciocínio está errado se os quadrados estão grudados lado a lado.</p>
+<p><strong>Critério de uma resposta completa:</strong> explicar o compartilhamento dos lados, mostrar por que <code>5 × 4</code> conta alguns palitos duas vezes e concluir corretamente que são necessários 16 palitos.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h4>Solução</h4>
+<p>O erro está em contar cada quadrado como se estivesse separado.</p>
+<p>Quando os quadrados ficam grudados, quadrados vizinhos compartilham um lado. Esse lado não deve ser contado duas vezes.</p>
+<p>Para 1 quadrado: 4 palitos.<br>
+Cada novo quadrado acrescenta 3 palitos.</p>
+<p>Para 5 quadrados:</p>
+<p>4 + 4 × 3 = 4 + 12 = 16.</p>
+<p>Ou, pela sequência:</p>
+<p>1 quadrado: 4<br>
+2 quadrados: 7<br>
+3 quadrados: 10<br>
+4 quadrados: 13<br>
+5 quadrados: 16</p>
+<p>Resposta correta: <strong>16 palitos</strong>.</p>
+<p>O erro foi útil porque mostrou exatamente a armadilha: esquecer os lados compartilhados.</p>
+<hr>
+</div></details>
+<h2>18. As primeiras ferramentas da Mochila</h2>
+<p>Ao final da primeira entrada na Academia, Felipe ainda não sabia tudo.</p>
+<p>Na verdade, quase não sabia nada do que viria depois.</p>
+<p>Mas já carregava algo mais importante do que uma fórmula decorada: um jeito de começar.</p>
+<p>As primeiras ferramentas da Mochila eram:</p>
+<ol>
+<li><strong>Curiosidade / observar antes de calcular.</strong></li>
+<li><strong>Procurar padrões.</strong></li>
+<li><strong>Colecionar observações.</strong></li>
+<li><strong>Criar hipóteses.</strong></li>
+<li><strong>Fazer boas perguntas.</strong></li>
+<li><strong>Questionar regras invisíveis.</strong></li>
+<li><strong>Mudar o ponto de vista.</strong></li>
+<li><strong>Transformar erros em pistas.</strong></li>
+<li><strong>Ler exatamente o que está escrito.</strong></li>
+<li><strong>Descobrir a pergunta escondida.</strong></li>
+</ol>
+<div class="ferramenta" data-num="10" id="f10"><span class="f-badge">Ferramenta 10</span><span class="f-text">Descobrir a pergunta escondida</span></div>
+
+<p>O Professor explicou:</p>
+<p>— Algumas ferramentas serão aprofundadas muitas vezes. Outras só estão nascendo agora. Não se preocupe em decorar a lista. Preocupe-se em usar a Mochila quando o problema pedir.</p>
+<p>Felipe fechou a Mochila.</p>
+<p>Ela ainda estava leve.</p>
+<p>Mas já fazia diferença.</p>
+<hr>
+<h2>19. A frase da Academia</h2>
+<p>Antes de sair, Felipe voltou ao primeiro cartaz da sala.</p>
+<p>Agora ele parecia menos simples.</p>
+<blockquote>
+<p><strong>Antes de calcular, aprenda a olhar.</strong></p>
+</blockquote>
+<p>O Professor acrescentou uma segunda frase logo abaixo:</p>
+<blockquote>
+<p><strong>A primeira chave da matemática olímpica não é saber a resposta. É saber entrar no problema.</strong></p>
+</blockquote>
+<p>Felipe guardou isso.</p>
+<p>Porque, dali em diante, cada capítulo abriria uma nova sala.</p>
+<p>Números.<br>
+Restos.<br>
+Divisores.<br>
+Frações.<br>
+Padrões.<br>
+Figuras.<br>
+Contagem.<br>
+Lógica.<br>
+Simulados.</p>
+<p>Mas todas as salas teriam a mesma fechadura inicial:</p>
+<p>olhar antes de correr.</p>
+<hr>
+<h2>20. Pergunta para amanhã</h2>
+<p>Na saída, a coruja de madeira deixou um cartão preso à porta:</p>
+<blockquote>
+<p>Os números parecem simples quando estão em fila.<br>
+Mas o que acontece quando começamos a olhar os números por dentro?</p>
+</blockquote>
+<p>Felipe virou o cartão.</p>
+<p>Do outro lado estava escrito:</p>
+<blockquote>
+<p>Amanhã, a Academia abre o mundo dos números.</p>
+</blockquote>
+<p>E, pela primeira vez, ele percebeu que talvez a matemática não fosse uma coleção de contas.</p>
+<p>Talvez fosse uma forma de enxergar.</p>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <span></span>
+      <a href="cap02.html" class="nav-next">Cap. 2 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(1);</script>
+</body>
+</html>

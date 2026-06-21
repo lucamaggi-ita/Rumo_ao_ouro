@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 9 — A arte de contar sem se perder | Rumo ao Ouro</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="btn-icon btn-menu" id="btn-menu" onclick="toggleSidebar()" title="Menu capítulos">
+      ☰
+    </button>
+    <a href="../index.html" class="logo-link">Rumo ao Ouro</a>
+    <span class="nivel-badge nivel-bronze">Nível Bronze</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-icon" id="btn-treino" onclick="toggleTreino()" title="Modo Treino">
+      ✏ Treino
+    </button>
+    <button class="btn-icon" id="btn-mochila" onclick="toggleMochila()" title="Mochila do Matemático">
+      🎒 Mochila
+    </button>
+    <button class="btn-icon" id="btn-theme" onclick="toggleTheme()" title="Tema claro/escuro">
+      🌙
+    </button>
+  </div>
+</header>
+
+<aside id="mochila-panel" class="mochila-panel" aria-hidden="true">
+  <div class="mochila-header">
+    <span>🎒 Mochila do Matemático</span>
+    <button onclick="toggleMochila()" class="btn-close">✕</button>
+  </div>
+  <input type="search" id="mochila-search" placeholder="Buscar ferramenta..."
+         oninput="filterMochila(this.value)">
+  <div id="mochila-list" class="mochila-list"></div>
+</aside>
+<div id="mochila-overlay" class="mochila-overlay" onclick="toggleMochila()"></div>
+
+<div class="page-layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="Capítulos">
+    <div class="sidebar-top">
+      <a href="../index.html" class="sidebar-home">← Índice geral</a>
+    </div>
+<div class="s-level-label nivel-bronze">Bronze</div>
+<a href="cap01.html" class="sidebar-link" title="A primeira chave"><span class="s-num">1</span><span class="s-title">A primeira chave</span></a>
+<a href="cap02.html" class="sidebar-link" title="O mundo dos números"><span class="s-num">2</span><span class="s-title">O mundo dos números</span></a>
+<a href="cap03.html" class="sidebar-link" title="Quando sobra, nasce uma ideia"><span class="s-num">3</span><span class="s-title">Quando sobra, nasce uma ideia</span></a>
+<a href="cap04.html" class="sidebar-link" title="Quando os divisores se encontram"><span class="s-num">4</span><span class="s-title">Quando os divisores se encontram</span></a>
+<a href="cap05.html" class="sidebar-link" title="Quando a divisão não termina"><span class="s-num">5</span><span class="s-title">Quando a divisão não termina</span></a>
+<a href="cap06.html" class="sidebar-link" title="A regra secreta"><span class="s-num">6</span><span class="s-title">A regra secreta</span></a>
+<a href="cap07.html" class="sidebar-link" title="Quando o desenho ganha medida"><span class="s-num">7</span><span class="s-title">Quando o desenho ganha medida</span></a>
+<a href="cap08.html" class="sidebar-link" title="A arte de montar e desmontar figuras"><span class="s-num">8</span><span class="s-title">A arte de montar e desmontar figuras</span></a>
+<a href="cap09.html" class="sidebar-link sidebar-active" title="A arte de contar sem se perder"><span class="s-num">9</span><span class="s-title">A arte de contar sem se perder</span></a>
+<div class="s-level-label nivel-prata">Prata</div>
+<a href="cap10.html" class="sidebar-link" title="Quando a lógica encontra o caminho"><span class="s-num">10</span><span class="s-title">Quando a lógica encontra o caminho</span></a>
+<a href="cap11.html" class="sidebar-link" title="A primeira jogada"><span class="s-num">11</span><span class="s-title">A primeira jogada</span></a>
+<a href="cap12.html" class="sidebar-link" title="A prova inteira"><span class="s-num">12</span><span class="s-title">A prova inteira</span></a>
+<a href="cap13.html" class="sidebar-link" title="Sem rodinhas"><span class="s-num">13</span><span class="s-title">Sem rodinhas</span></a>
+<a href="cap14.html" class="sidebar-link" title="Entre um simulado e outro"><span class="s-num">14</span><span class="s-title">Entre um simulado e outro</span></a>
+<a href="cap15.html" class="sidebar-link" title="A prova que confirma"><span class="s-num">15</span><span class="s-title">A prova que confirma</span></a>
+<div class="s-level-label nivel-ouro">Ouro</div>
+<a href="cap16.html" class="sidebar-link" title="A reta final"><span class="s-num">16</span><span class="s-title">A reta final</span></a>
+<a href="cap17.html" class="sidebar-link" title="A Mochila Inteira"><span class="s-num">17</span><span class="s-title">A Mochila Inteira</span></a>
+    <div class="sidebar-links">
+      <a href="../mochila.html" class="sidebar-extra">🎒 Mochila</a>
+      <a href="../oficinas.html" class="sidebar-extra">⚙ Oficinas</a>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div class="page-content">
+    <main class="chapter">
+      <div class="chapter-title-block">
+        <span class="cap-label">Capítulo 9</span>
+        <h1 class="cap-title">A arte de contar sem se perder</h1>
+      </div>
+      <article class="chapter-body">
+<h2>1. Depois das figuras compostas</h2>
+<p>Na sala anterior, Felipe aprendeu que uma figura difícil pode ser transformada.</p>
+<p>Às vezes é preciso dividir.<br>
+Às vezes é preciso completar.<br>
+Às vezes é preciso subtrair buracos.<br>
+Às vezes é preciso recompor pedaços.</p>
+<p>No fim da aula, o Professor da Academia desenhou uma malha quadriculada no quadro. Havia um ponto no canto inferior esquerdo e outro no canto superior direito.</p>
+<p>— Para chegar daqui até ali — disse o Professor — você só pode andar para a direita ou para cima.</p>
+<p>Felipe olhou para o desenho.</p>
+<p>— Parece geometria.</p>
+<p>A coruja, pousada sobre a Mochila do Matemático, abriu um olho.</p>
+<p>— Parece. Mas agora a pergunta mudou.</p>
+<p>O Professor sorriu.</p>
+<p>— Antes perguntávamos: “qual é a área?” ou “qual é o perímetro?”. Agora perguntamos: <strong>quantos caminhos existem?</strong></p>
+<p>Essa pergunta abre uma nova sala da Academia.</p>
+<p>A sala da <strong>contagem organizada</strong>.</p>
+<hr>
+<h2>2. Contar não é apenas dizer “um, dois, três”</h2>
+<p>Quando os objetos estão na mesa, contar parece simples.</p>
+<p>Se há cinco medalhas sobre a mesa, contamos:</p>
+<p>1, 2, 3, 4, 5.</p>
+<p>Mas muitos problemas olímpicos não mostram todos os objetos.</p>
+<p>Eles mostram possibilidades.</p>
+<p>Por exemplo:</p>
+<ul>
+<li>quantas senhas podem ser formadas;</li>
+<li>quantos caminhos levam de um ponto a outro;</li>
+<li>quantas duplas podem ser escolhidas;</li>
+<li>quantos uniformes diferentes uma equipe pode usar;</li>
+<li>quantas maneiras existem de organizar uma fila;</li>
+<li>quantos casos precisam ser analisados em um problema de lógica.</li>
+</ul>
+<p>Nesses casos, a lista existe, mas está invisível.</p>
+<p>A tarefa do matemático não é sair escrevendo tudo sem controle.<br>
+A tarefa é construir uma forma de contar sem esquecer nenhum caso e sem repetir o mesmo caso duas vezes.</p>
+<p>Essa é a combinatória que interessa aqui.</p>
+<p>Não começa com fórmula.</p>
+<p>Começa com uma pergunta:</p>
+<blockquote>
+<p>Que escolhas estão sendo feitas?</p>
+</blockquote>
+<hr>
+<h2>3. Quando aparece o “ou”</h2>
+<p>O Professor colocou três sucos sobre a mesa da Academia:</p>
+<ul>
+<li>laranja;</li>
+<li>uva;</li>
+<li>maracujá.</li>
+</ul>
+<p>Depois colocou dois bolos:</p>
+<ul>
+<li>chocolate;</li>
+<li>milho.</li>
+</ul>
+<p>E perguntou:</p>
+<p>— Felipe pode escolher <strong>um suco ou um bolo</strong>. Quantas escolhas diferentes ele tem?</p>
+<p>Felipe contou:</p>
+<p>3 sucos e 2 bolos.</p>
+<p>Total: 5 escolhas.</p>
+<p>Aqui a palavra importante é <strong>ou</strong>.</p>
+<p>Ele escolhe um suco <strong>ou</strong> escolhe um bolo. As possibilidades estão em grupos separados.</p>
+<p>Então somamos:</p>
+<p><code>3 + 2 = 5</code></p>
+<p>O nome pode aparecer depois:</p>
+<blockquote>
+<p>Quando as escolhas são alternativas separadas, usamos o princípio aditivo.</p>
+</blockquote>
+<p>Mas a ideia veio primeiro:</p>
+<blockquote>
+<p>Se posso escolher isto ou aquilo, e os grupos não se misturam, conto um grupo e depois somo o outro.</p>
+</blockquote>
+<hr>
+<h2>4. A armadilha da repetição</h2>
+<p>A coruja empurrou uma placa para o centro da mesa.</p>
+<p>Na placa estava escrito:</p>
+<blockquote>
+<p>Na turma da Academia, 8 alunos gostam de geometria e 6 gostam de lógica. Quantos alunos gostam de geometria ou lógica?</p>
+</blockquote>
+<p>Felipe começou:</p>
+<p>— 8 + 6 = 14.</p>
+<p>A coruja não disse nada. Só apontou para a palavra <strong>ou</strong>.</p>
+<p>O Professor completou:</p>
+<p>— A palavra “ou” ajuda, mas não resolve sozinha. Falta uma pergunta.</p>
+<p>Felipe pensou.</p>
+<p>— Pode ter aluno que gosta das duas coisas?</p>
+<p>— Exatamente.</p>
+<p>Se 3 alunos gostam de geometria <strong>e</strong> de lógica, eles foram contados duas vezes na soma <code>8 + 6</code>.</p>
+<p>Então a contagem correta é:</p>
+<p><code>8 + 6 - 3 = 11</code></p>
+<p>A primeira lição da contagem organizada é esta:</p>
+<blockquote>
+<p>Antes de somar grupos, verifique se eles se misturam.</p>
+</blockquote>
+<p>Se os grupos não se sobrepõem, somar é seguro.<br>
+Se os grupos se sobrepõem, é preciso retirar o que foi contado duas vezes.</p>
+<p>A mesma ideia já apareceu nas figuras compostas: quando duas faixas se sobrepõem, a região comum não pode ser contada duas vezes.</p>
+<p>Na geometria, a armadilha era área duplicada.<br>
+Na combinatória, a armadilha é caso duplicado.</p>
+<hr>
+<h2>5. Quando aparece o “e depois”</h2>
+<p>Agora o Professor mudou a mesa.</p>
+<p>Felipe deve escolher:</p>
+<ol>
+<li>uma camiseta entre 4 cores;</li>
+<li>depois uma bermuda entre 3 cores.</li>
+</ol>
+<p>Quantos uniformes diferentes ele pode formar?</p>
+<p>Felipe começou a imaginar:</p>
+<ul>
+<li>camiseta azul com bermuda preta;</li>
+<li>camiseta azul com bermuda branca;</li>
+<li>camiseta azul com bermuda cinza;</li>
+<li>camiseta verde com bermuda preta;</li>
+<li>camiseta verde com bermuda branca;</li>
+<li>camiseta verde com bermuda cinza;</li>
+<li>e assim por diante.</li>
+</ul>
+<p>Para cada camiseta, há 3 bermudas possíveis.</p>
+<p>Como há 4 camisetas:</p>
+<p><code>4 × 3 = 12</code></p>
+<p>Aqui a ideia importante não é “ou”.</p>
+<p>É <strong>e depois</strong>.</p>
+<p>Escolhe uma camiseta <strong>e depois</strong> uma bermuda.</p>
+<p>O nome pode aparecer depois:</p>
+<blockquote>
+<p>Quando há escolhas em sequência, usamos o princípio multiplicativo.</p>
+</blockquote>
+<p>Mas a ideia é mais simples:</p>
+<blockquote>
+<p>Se cada primeira escolha abre o mesmo número de segundas escolhas, multiplicamos.</p>
+</blockquote>
+<hr>
+<h2>6. Soma ou multiplicação?</h2>
+<p>A Academia colocou duas portas diante de Felipe.</p>
+<p>Na primeira porta estava escrito:</p>
+<blockquote>
+<p>Escolha um lanche: sanduíche, tapioca ou pastel.<br>
+Escolha uma bebida: suco ou água.</p>
+</blockquote>
+<p>Na segunda porta estava escrito:</p>
+<blockquote>
+<p>Escolha um lanche ou uma bebida.</p>
+</blockquote>
+<p>As duas situações usam as mesmas quantidades:</p>
+<ul>
+<li>3 lanches;</li>
+<li>2 bebidas.</li>
+</ul>
+<p>Mas as perguntas são diferentes.</p>
+<p>Na primeira porta, Felipe escolhe um lanche <strong>e depois</strong> uma bebida.</p>
+<p><code>3 × 2 = 6</code></p>
+<p>Na segunda porta, Felipe escolhe um lanche <strong>ou</strong> uma bebida.</p>
+<p><code>3 + 2 = 5</code></p>
+<p>A conta não nasce dos números.<br>
+Nasce da história.</p>
+<p>Por isso a Mochila do Matemático ganha uma ferramenta importante:</p>
+<blockquote>
+<p>Identificar se as escolhas são alternativas ou sequenciais.</p>
+</blockquote>
+<p>Alternativas separadas pedem soma.<br>
+Escolhas em sequência pedem multiplicação.</p>
+<hr>
+<h2>7. A árvore de possibilidades</h2>
+<p>Quando as escolhas são poucas, podemos enxergar tudo em uma árvore.</p>
+<p>Imagine uma senha com duas posições.</p>
+<p>A primeira posição pode ser A ou B.<br>
+A segunda posição pode ser 1, 2 ou 3.</p>
+<p>As possibilidades são:</p>
+<ul>
+<li>A1;</li>
+<li>A2;</li>
+<li>A3;</li>
+<li>B1;</li>
+<li>B2;</li>
+<li>B3.</li>
+</ul>
+<figure class="figura"><img src="../assets/figuras/C09_F01_arvore_A_B_1_2_3.svg" alt="Árvore com os primeiros galhos `A` e `B` e, de cada um, os ramos `1`, `2` e `3`, totalizando seis folhas, uma por possibilidade. A ordem das escolhas deve permanecer visível." loading="lazy"><figcaption>Árvore com os primeiros galhos `A` e `B` e, de cada um, os ramos `1`, `2` e `3`, totalizando seis folhas, uma por possibilidade. A ordem das escolhas deve permanecer visível.</figcaption></figure>
+
+<p>A árvore mostra a multiplicação sem precisar decorar:</p>
+<p>Para A, há 3 finais.<br>
+Para B, há 3 finais.</p>
+<p>Total:</p>
+<p><code>2 × 3 = 6</code></p>
+<p>A árvore também ajuda a evitar esquecimento.</p>
+<p>Se um galho termina cedo, vemos que algo está faltando.<br>
+Se o mesmo final aparece em dois lugares, percebemos uma repetição.</p>
+<p>Árvore não é enfeite.</p>
+<p>É organização.</p>
+<hr>
+<h2>8. Tabelas de escolhas</h2>
+<p>Às vezes, uma tabela é mais limpa do que uma árvore.</p>
+<p>Imagine que a Academia tem 3 tipos de massa:</p>
+<ul>
+<li>fina;</li>
+<li>média;</li>
+<li>grossa.</li>
+</ul>
+<p>E 4 coberturas:</p>
+<ul>
+<li>queijo;</li>
+<li>tomate;</li>
+<li>frango;</li>
+<li>milho.</li>
+</ul>
+<p>Cada pizza é formada por uma massa e uma cobertura.</p>
+<p>Podemos montar uma tabela:</p>
+<table>
+<thead>
+<tr>
+<th>Massa \ Cobertura</th>
+<th style="text-align: right;">Queijo</th>
+<th style="text-align: right;">Tomate</th>
+<th style="text-align: right;">Frango</th>
+<th style="text-align: right;">Milho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fina</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Média</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Grossa</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>A tabela tem 3 linhas e 4 colunas.</p>
+<p>Total:</p>
+<p><code>3 × 4 = 12</code></p>
+<figure class="figura"><img src="../assets/figuras/C09_F02_tabela_massas_coberturas.svg" alt="A tabela de massas por coberturas já apresentada deve receber cabeçalhos claros e uma célula-modelo; não duplicar essa mesma informação em árvore." loading="lazy"><figcaption>A tabela de massas por coberturas já apresentada deve receber cabeçalhos claros e uma célula-modelo; não duplicar essa mesma informação em árvore.</figcaption></figure>
+
+<p>A tabela é boa quando há dois conjuntos de escolhas.</p>
+<p>A árvore é boa quando há escolhas em etapas.</p>
+<p>As duas ferramentas dizem a mesma coisa:</p>
+<blockquote>
+<p>Contar bem é organizar antes de calcular.</p>
+</blockquote>
+<hr>
+<h2>9. Quando a ordem importa</h2>
+<p>O Professor escreveu no quadro:</p>
+<blockquote>
+<p>Com os algarismos 1, 2 e 3, quantas senhas de dois algarismos diferentes podem ser formadas?</p>
+</blockquote>
+<p>Felipe pensou em <code>12</code> e <code>21</code>.</p>
+<p>— São diferentes? — perguntou a coruja.</p>
+<p>— Sim. Numa senha, trocar a ordem muda a senha.</p>
+<p>Então a ordem importa.</p>
+<p>Para a primeira posição, há 3 escolhas: 1, 2 ou 3.</p>
+<p>Depois de escolher a primeira, sobram 2 escolhas para a segunda, porque os algarismos devem ser diferentes.</p>
+<p>Total:</p>
+<p><code>3 × 2 = 6</code></p>
+<p>As senhas são:</p>
+<p><code>12, 13, 21, 23, 31, 32</code></p>
+<p>Aqui aparecem duas perguntas essenciais:</p>
+<ol>
+<li>A ordem muda o resultado?</li>
+<li>A repetição é permitida?</li>
+</ol>
+<p>Neste problema:</p>
+<ul>
+<li>ordem importa;</li>
+<li>repetição não é permitida.</li>
+</ul>
+<p>Por isso o número de escolhas diminui na segunda posição.</p>
+<hr>
+<h2>10. Quando a repetição é permitida</h2>
+<p>Agora a pergunta muda:</p>
+<blockquote>
+<p>Com os algarismos 1, 2 e 3, quantas senhas de dois algarismos podem ser formadas, permitindo repetição?</p>
+</blockquote>
+<p>Agora <code>11</code> é permitido.<br>
+<code>22</code> também.<br>
+<code>33</code> também.</p>
+<p>Para a primeira posição, há 3 escolhas.<br>
+Para a segunda posição, ainda há 3 escolhas.</p>
+<p>Total:</p>
+<p><code>3 × 3 = 9</code></p>
+<p>As possibilidades são:</p>
+<p><code>11, 12, 13, 21, 22, 23, 31, 32, 33</code></p>
+<p>O erro clássico é usar a conta do problema anterior sem perceber que a regra mudou.</p>
+<p>Na combinatória, uma palavra pequena muda tudo.</p>
+<p>“Diferentes” muda tudo.<br>
+“Podem repetir” muda tudo.<br>
+“Sem repetir” muda tudo.<br>
+“Ordem não importa” muda tudo.</p>
+<p>A leitura exata volta para a Mochila.</p>
+<hr>
+<h2>11. Quando a ordem não importa</h2>
+<figure class="figura"><img src="../assets/figuras/C09_F03_rede_duplas.svg" alt="Quatro pessoas ligadas em rede simples, sem direção nas arestas; cada linha representa uma dupla e torna visível que inverter os nomes não cria outro caso." loading="lazy"><figcaption>Quatro pessoas ligadas em rede simples, sem direção nas arestas; cada linha representa uma dupla e torna visível que inverter os nomes não cria outro caso.</figcaption></figure>
+
+<p>O Professor chamou quatro alunos imaginários:</p>
+<p>Ana, Bruno, Caio e Dora.</p>
+<p>A pergunta:</p>
+<blockquote>
+<p>Quantas duplas podem ser formadas?</p>
+</blockquote>
+<p>Felipe começou a listar:</p>
+<ul>
+<li>Ana e Bruno;</li>
+<li>Ana e Caio;</li>
+<li>Ana e Dora;</li>
+<li>Bruno e Caio;</li>
+<li>Bruno e Dora;</li>
+<li>Caio e Dora.</li>
+</ul>
+<p>Total: 6 duplas.</p>
+<p>Agora a coruja perguntou:</p>
+<p>— Ana-Bruno e Bruno-Ana são duas duplas diferentes?</p>
+<p>— Não. É a mesma dupla.</p>
+<p>Se Felipe tivesse feito <code>4 × 3</code>, teria contado:</p>
+<ul>
+<li>escolher a primeira pessoa: 4 opções;</li>
+<li>escolher a segunda: 3 opções.</li>
+</ul>
+<p>Isso daria 12.</p>
+<p>Mas cada dupla apareceria duas vezes:</p>
+<p>Ana-Bruno e Bruno-Ana.<br>
+Caio-Dora e Dora-Caio.</p>
+<p>Então precisamos dividir por 2:</p>
+<p><code>12 ÷ 2 = 6</code></p>
+<p>Essa divisão não apareceu por mágica.</p>
+<p>Ela corrige uma contagem duplicada.</p>
+<blockquote>
+<p>Quando a ordem não importa, mas a contagem tratou a ordem como se importasse, é preciso dividir pelo número de repetições de cada caso.</p>
+</blockquote>
+<hr>
+<h2>12. O torneio relâmpago</h2>
+<p>A Academia organizou um torneio com 6 estudantes.</p>
+<p>Cada estudante joga uma partida contra cada outro estudante, uma única vez.</p>
+<p>Quantas partidas haverá?</p>
+<p>Uma partida é como uma dupla.</p>
+<p>Aluno A contra aluno B é a mesma partida que aluno B contra aluno A.</p>
+<p>Se escolhêssemos o primeiro jogador e depois o segundo, teríamos:</p>
+<p><code>6 × 5 = 30</code></p>
+<p>Mas cada partida foi contada duas vezes.</p>
+<p>Então:</p>
+<p><code>30 ÷ 2 = 15</code></p>
+<p>Resposta: 15 partidas.</p>
+<p>A pergunta escondida era:</p>
+<blockquote>
+<p>Estamos contando pares sem ordem.</p>
+</blockquote>
+<p>Essa família aparece muitas vezes na OBMEP:</p>
+<ul>
+<li>apertos de mão;</li>
+<li>partidas entre equipes;</li>
+<li>diagonais entre vértices;</li>
+<li>duplas de alunos;</li>
+<li>pares de números.</li>
+</ul>
+<p>A ferramenta não é decorar todos esses casos.</p>
+<p>É reconhecer a pergunta:</p>
+<blockquote>
+<p>Trocar a ordem cria um caso novo ou apenas repete o mesmo caso?</p>
+</blockquote>
+<hr>
+<h2>13. Caminhos em malha: a ponte com a geometria</h2>
+<p>Agora o Professor voltou à malha quadriculada.</p>
+<p>Felipe precisa sair do ponto A e chegar ao ponto B.</p>
+<p>Para isso, só pode andar:</p>
+<ul>
+<li>para a direita;</li>
+<li>para cima.</li>
+</ul>
+<figure class="figura"><img src="../assets/figuras/C09_F04_malha_3x2_rota.svg" alt="Malha `3 por 2` com `A` no canto inferior esquerdo e `B` no superior direito, somente com movimentos para a direita e para cima e uma rota-exemplo. Não desenhar as dez rotas." loading="lazy"><figcaption>Malha `3 por 2` com `A` no canto inferior esquerdo e `B` no superior direito, somente com movimentos para a direita e para cima e uma rota-exemplo. Não desenhar as dez rotas.</figcaption></figure>
+
+<p>Imagine que o ponto B está 3 passos à direita e 2 passos acima de A.</p>
+<p>Todo caminho possível terá exatamente:</p>
+<ul>
+<li>3 passos para a direita, que podemos chamar de D;</li>
+<li>2 passos para cima, que podemos chamar de C.</li>
+</ul>
+<p>Um caminho poderia ser:</p>
+<p><code>D D C D C</code></p>
+<p>Outro:</p>
+<p><code>C D D C D</code></p>
+<p>Outro:</p>
+<p><code>D C D D C</code></p>
+<p>Então um caminho virou uma sequência de letras.</p>
+<p>A pergunta “quantos caminhos?” virou:</p>
+<blockquote>
+<p>De quantas maneiras podemos organizar 3 letras D e 2 letras C?</p>
+</blockquote>
+<p>Há 5 posições no total.<br>
+Precisamos escolher quais 2 posições serão ocupadas pelos passos C.</p>
+<p>Por exemplo, se os C ficam nas posições 2 e 5:</p>
+<p><code>D C D D C</code></p>
+<p>A quantidade de escolhas é:</p>
+<p><code>5 × 4 ÷ 2 = 10</code></p>
+<p>Por quê?</p>
+<p>Há 5 escolhas para a primeira posição do C e 4 para a segunda, mas a ordem em que escolhemos as duas posições não importa. Escolher posições 2 e 5 é o mesmo que escolher posições 5 e 2.</p>
+<p>Então dividimos por 2.</p>
+<p>Resposta: 10 caminhos.</p>
+<p>O importante aqui não é a fórmula.</p>
+<p>O importante é a transformação:</p>
+<blockquote>
+<p>Caminhos em malha podem ser contados como sequências de passos.</p>
+</blockquote>
+<hr>
+<h2>14. Caminhos com obstáculo</h2>
+<figure class="figura"><img src="../assets/figuras/C09_F05_malha_ponto_proibido.svg" alt="Na malha com ponto proibido `P`, separar visualmente total, caminhos `A-P`, caminhos `P-B` e total menos caminhos proibidos. `P` não pode parecer um destino." loading="lazy"><figcaption>Na malha com ponto proibido `P`, separar visualmente total, caminhos `A-P`, caminhos `P-B` e total menos caminhos proibidos. `P` não pode parecer um destino.</figcaption></figure>
+
+<p>A coruja colocou uma pedra em um ponto da malha.</p>
+<p>— Agora os caminhos não podem passar por aqui.</p>
+<p>Imagine a mesma malha: 3 passos para a direita e 2 para cima.</p>
+<p>Sem obstáculo, havia 10 caminhos.</p>
+<p>Agora suponha que o ponto proibido P fica depois de 1 passo à direita e 1 passo para cima.</p>
+<p>Para contar os caminhos proibidos, fazemos duas etapas:</p>
+<ol>
+<li>caminhos de A até P;</li>
+<li>caminhos de P até B.</li>
+</ol>
+<p>De A até P, é preciso dar:</p>
+<ul>
+<li>1 passo D;</li>
+<li>1 passo C.</li>
+</ul>
+<p>Há 2 caminhos:</p>
+<p><code>D C</code> ou <code>C D</code>.</p>
+<p>De P até B, ainda faltam:</p>
+<ul>
+<li>2 passos D;</li>
+<li>1 passo C.</li>
+</ul>
+<p>Há 3 caminhos, pois o C pode ocupar a primeira, segunda ou terceira posição:</p>
+<p><code>C D D</code>, <code>D C D</code>, <code>D D C</code>.</p>
+<p>Então os caminhos que passam por P são:</p>
+<p><code>2 × 3 = 6</code></p>
+<p>Como o total era 10, os caminhos permitidos são:</p>
+<p><code>10 - 6 = 4</code></p>
+<p>Resposta: 4 caminhos.</p>
+<p>A estratégia foi:</p>
+<ol>
+<li>contar tudo;</li>
+<li>contar os proibidos;</li>
+<li>subtrair.</li>
+</ol>
+<p>A mesma ideia apareceu nas áreas:</p>
+<p>parede total menos janela.<br>
+painel total menos buraco.<br>
+caminhos totais menos caminhos proibidos.</p>
+<p>A matemática gosta de reutilizar ideias em salas diferentes.</p>
+<hr>
+<h2>15. O problema das bandeiras</h2>
+<p>A Academia tem bandeiras feitas com três faixas verticais.</p>
+<p>Cada faixa pode ser pintada de uma das cores:</p>
+<ul>
+<li>azul;</li>
+<li>verde;</li>
+<li>amarelo.</li>
+</ul>
+<p>A regra é:</p>
+<blockquote>
+<p>Faixas vizinhas não podem ter a mesma cor.</p>
+</blockquote>
+<p>Quantas bandeiras diferentes podem ser feitas?</p>
+<p>Vamos escolher da esquerda para a direita.</p>
+<p>Primeira faixa: 3 escolhas.</p>
+<p>Segunda faixa: não pode repetir a primeira, então há 2 escolhas.</p>
+<p>Terceira faixa: não pode repetir a segunda, mas pode ser igual à primeira. Então há 2 escolhas.</p>
+<p>Total:</p>
+<p><code>3 × 2 × 2 = 12</code></p>
+<p>O cuidado do problema está na palavra <strong>vizinhas</strong>.</p>
+<p>Ela não diz que todas as faixas precisam ter cores diferentes.<br>
+Ela diz apenas que faixas lado a lado não podem repetir.</p>
+<p>Então azul-verde-azul é permitido.</p>
+<p>Esse é um exemplo de leitura exata dentro da contagem.</p>
+<p>A conta certa nasce da regra certa.</p>
+<hr>
+<h2><span class="badge-obmep">OBMEP</span>16. Problema em estilo OBMEP — Os uniformes da equipe</h2>
+<p>A equipe da Academia vai escolher um uniforme formado por uma camiseta e uma faixa.</p>
+<p>Há 5 cores de camiseta e 4 cores de faixa.<br>
+A faixa não pode ter a mesma cor da camiseta quando essa cor existir entre as faixas.<br>
+Todas as 4 cores de faixa também existem entre as cores de camiseta.</p>
+<p>Quantos uniformes diferentes podem ser formados?</p>
+<p>Pense alguns instantes antes de seguir.</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Se não houvesse restrição, seriam:</p>
+<p><code>5 × 4 = 20</code></p>
+<p>Mas há uniformes proibidos: aqueles em que a faixa tem a mesma cor da camiseta.</p>
+<p>Como existem 4 cores de faixa, há 4 coincidências proibidas.</p>
+<p>Então:</p>
+<p><code>20 - 4 = 16</code></p>
+<p>Resposta: 16 uniformes.</p>
+<p>Outra forma:</p>
+<ul>
+<li>para cada uma das 4 camisetas que também têm cor de faixa, sobram 3 faixas permitidas;</li>
+<li>para a camiseta cuja cor não aparece nas faixas, há 4 faixas possíveis.</li>
+</ul>
+<p>Total:</p>
+<p><code>4 × 3 + 1 × 4 = 12 + 4 = 16</code></p>
+<p>As duas estratégias chegam ao mesmo resultado.</p>
+<p>Uma contou tudo e retirou os proibidos.<br>
+A outra separou os casos.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>17. Problema em estilo OBMEP — A senha da sala secreta</h2>
+<p>A senha da sala secreta tem três algarismos.</p>
+<p>Ela deve ser formada com os algarismos 1, 2, 3, 4 e 5.<br>
+Nenhum algarismo pode se repetir.<br>
+O primeiro algarismo deve ser ímpar.</p>
+<p>Quantas senhas podem ser formadas?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Os algarismos ímpares disponíveis são:</p>
+<p>1, 3, 5.</p>
+<p>Então há 3 escolhas para o primeiro algarismo.</p>
+<p>Depois disso, restam 4 algarismos para a segunda posição.</p>
+<p>Depois, restam 3 algarismos para a terceira posição.</p>
+<p>Total:</p>
+<p><code>3 × 4 × 3 = 36</code></p>
+<p>Resposta: 36 senhas.</p>
+<p>A ordem importa porque é senha.<br>
+A repetição não é permitida porque o enunciado diz que nenhum algarismo pode se repetir.<br>
+A restrição do primeiro algarismo deve ser tratada antes das outras posições.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>18. Problema em estilo OBMEP — As duplas de treino</h2>
+<p>Em uma turma há 8 estudantes. O Professor quer formar uma dupla para resolver um problema no quadro.</p>
+<p>Quantas duplas diferentes podem ser formadas?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Se escolhêssemos uma primeira pessoa e depois uma segunda, teríamos:</p>
+<p><code>8 × 7 = 56</code></p>
+<p>Mas cada dupla seria contada duas vezes.</p>
+<p>Por exemplo:</p>
+<p>Ana-Bruno e Bruno-Ana são a mesma dupla.</p>
+<p>Então:</p>
+<p><code>56 ÷ 2 = 28</code></p>
+<p>Resposta: 28 duplas.</p>
+<p>A pergunta escondida é:</p>
+<blockquote>
+<p>A ordem importa?</p>
+</blockquote>
+<p>Aqui não importa.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>19. Problema em estilo OBMEP — Caminhos até o pátio</h2>
+<p>Felipe está em uma malha quadriculada. Para chegar ao pátio da Academia, ele precisa dar exatamente 4 passos para a direita e 2 passos para cima.</p>
+<p>Ele só pode andar para a direita ou para cima.</p>
+<p>Quantos caminhos diferentes existem?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Cada caminho terá 6 passos no total:</p>
+<ul>
+<li>4 passos D;</li>
+<li>2 passos C.</li>
+</ul>
+<p>Basta escolher em quais 2 das 6 posições ficarão os passos C.</p>
+<p>Número de escolhas:</p>
+<p><code>6 × 5 ÷ 2 = 15</code></p>
+<p>Resposta: 15 caminhos.</p>
+<p>Também poderíamos escolher as posições dos 4 passos D. Daria o mesmo resultado.</p>
+<p>O ponto central é transformar caminho em sequência de passos.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>20. Problema em estilo OBMEP — O torneio relâmpago</h2>
+<p>Sete estudantes participam de um torneio de xadrez. Cada estudante joga exatamente uma partida contra cada outro estudante.</p>
+<p>Quantas partidas serão jogadas?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Uma partida é um par de estudantes sem ordem.</p>
+<p>Se a ordem importasse, teríamos:</p>
+<p><code>7 × 6 = 42</code></p>
+<p>Mas cada partida foi contada duas vezes:</p>
+<ul>
+<li>A contra B;</li>
+<li>B contra A.</li>
+</ul>
+<p>Então:</p>
+<p><code>42 ÷ 2 = 21</code></p>
+<p>Resposta: 21 partidas.</p>
+<hr>
+</div></details>
+<h2><span class="badge-obmep">OBMEP</span>21. Problema em estilo OBMEP — A rota com ponto proibido</h2>
+<p>Em uma malha, Felipe precisa sair de A e chegar a B andando apenas para a direita ou para cima.</p>
+<p>De A até B são necessários 3 passos para a direita e 3 passos para cima.</p>
+<p>Há um ponto proibido P localizado exatamente depois de 1 passo para a direita e 2 passos para cima a partir de A.</p>
+<p>Quantos caminhos de A até B não passam por P?</p>
+<details class="solucao"><summary>Ver solução</summary><div class="sol-body">
+<h3>Solução comentada</h3>
+<p>Primeiro contamos todos os caminhos de A até B.</p>
+<p>São 6 passos no total:</p>
+<ul>
+<li>3 D;</li>
+<li>3 C.</li>
+</ul>
+<p>Escolhemos as posições dos 3 passos C entre 6 posições.</p>
+<p><code>6 × 5 × 4 ÷ (3 × 2 × 1) = 20</code></p>
+<p>Total sem restrição: 20 caminhos.</p>
+<p>Agora contamos os caminhos que passam por P.</p>
+<p>De A até P:</p>
+<ul>
+<li>1 D;</li>
+<li>2 C.</li>
+</ul>
+<p>São 3 passos. Basta escolher a posição do D, ou as posições dos dois C:</p>
+<p><code>3</code> caminhos.</p>
+<p>De P até B:</p>
+<p>Como no total eram 3 D e 3 C, e até P já usamos 1 D e 2 C, faltam:</p>
+<ul>
+<li>2 D;</li>
+<li>1 C.</li>
+</ul>
+<p>Há 3 caminhos.</p>
+<p>Então os caminhos que passam por P são:</p>
+<p><code>3 × 3 = 9</code></p>
+<p>Caminhos permitidos:</p>
+<p><code>20 - 9 = 11</code></p>
+<p>Resposta: 11 caminhos.</p>
+<p>A estratégia foi contar tudo e retirar o proibido.</p>
+<hr>
+</div></details>
+<h2><span class="badge-oficina">Oficina</span>22. Oficina Olímpica 8 — Contar sem esquecer nem repetir</h2>
+<p>Agora é sua vez de treinar como a Academia treina: olhando primeiro para a estrutura da escolha.</p>
+<p>Use o caderno se quiser. Não tente apenas adivinhar a conta. Antes de calcular, responda mentalmente:</p>
+<ul>
+<li>é soma ou multiplicação?</li>
+<li>a ordem importa?</li>
+<li>a repetição é permitida?</li>
+<li>há casos proibidos?</li>
+<li>estou contando algum caso duas vezes?</li>
+</ul>
+<h3>Desafio 1 — O cardápio da Academia</h3>
+<p>Há 4 pratos principais e 3 sobremesas. Felipe escolherá um prato principal e uma sobremesa.</p>
+<p>Quantas refeições diferentes podem ser formadas?</p>
+<p><strong>Solução:</strong><br>
+São escolhas em sequência:</p>
+<p><code>4 × 3 = 12</code></p>
+<p>Resposta: 12 refeições.</p>
+<hr>
+<h3>Desafio 2 — Prato ou sobremesa</h3>
+<p>No mesmo cardápio, Felipe escolherá apenas um item: ou um prato principal ou uma sobremesa.</p>
+<p>Quantas escolhas existem?</p>
+<p><strong>Solução:</strong><br>
+Agora são alternativas separadas:</p>
+<p><code>4 + 3 = 7</code></p>
+<p>Resposta: 7 escolhas.</p>
+<hr>
+<h3>Desafio 3 — Senha curta</h3>
+<p>Uma senha tem dois algarismos diferentes escolhidos entre 0, 1, 2, 3 e 4. O primeiro algarismo não pode ser 0.</p>
+<p>Quantas senhas podem ser formadas?</p>
+<p><strong>Solução:</strong><br>
+Primeiro algarismo: 1, 2, 3 ou 4. Há 4 escolhas.</p>
+<p>Depois, para o segundo algarismo, podemos usar qualquer um dos 5 algarismos exceto o primeiro já escolhido. Sobram 4 escolhas, e o 0 agora pode aparecer.</p>
+<p>Total:</p>
+<p><code>4 × 4 = 16</code></p>
+<p>Resposta: 16 senhas.</p>
+<hr>
+<h3>Desafio 4 — Apertos de mão</h3>
+<p>Em uma reunião com 10 pessoas, cada pessoa cumprimenta cada outra pessoa exatamente uma vez.</p>
+<p>Quantos apertos de mão acontecem?</p>
+<p><strong>Solução:</strong><br>
+Escolher duas pessoas entre 10, sem ordem.</p>
+<p>Se a ordem importasse:</p>
+<p><code>10 × 9 = 90</code></p>
+<p>Cada aperto foi contado duas vezes.</p>
+<p><code>90 ÷ 2 = 45</code></p>
+<p>Resposta: 45 apertos de mão.</p>
+<hr>
+<h3>Desafio 5 — Caminho simples</h3>
+<p>Em uma malha, para ir de A até B, Felipe precisa dar 2 passos para a direita e 3 passos para cima.</p>
+<p>Quantos caminhos existem se ele só pode andar para a direita ou para cima?</p>
+<p><strong>Solução:</strong><br>
+São 5 passos no total:</p>
+<ul>
+<li>2 D;</li>
+<li>3 C.</li>
+</ul>
+<p>Escolhemos as posições dos 2 passos D entre 5 posições:</p>
+<p><code>5 × 4 ÷ 2 = 10</code></p>
+<p>Resposta: 10 caminhos.</p>
+<hr>
+<h3>Desafio 6 — Cores vizinhas</h3>
+<p>Uma faixa tem 4 quadrados em fila. Cada quadrado será pintado de azul, verde ou amarelo. Quadrados vizinhos não podem ter a mesma cor.</p>
+<p>Quantas faixas diferentes podem ser pintadas?</p>
+<p><strong>Solução:</strong><br>
+Primeiro quadrado: 3 escolhas.</p>
+<p>Segundo: não pode repetir o primeiro, então 2 escolhas.</p>
+<p>Terceiro: não pode repetir o segundo, então 2 escolhas.</p>
+<p>Quarto: não pode repetir o terceiro, então 2 escolhas.</p>
+<p>Total:</p>
+<p><code>3 × 2 × 2 × 2 = 24</code></p>
+<p>Resposta: 24 faixas.</p>
+<hr>
+<h2>23. As ferramentas da Mochila nesta sala</h2>
+<p>Nesta sala, a Mochila do Matemático não ganhou fórmulas para decorar. Ela ganhou perguntas para organizar a contagem.</p>
+<p>Ferramentas retomadas e organizadas:</p>
+<ol>
+<li>Contar casos sem misturar tipos diferentes.  </li>
+<li>Usar o princípio aditivo quando há escolhas alternativas.  </li>
+<li>Usar o princípio multiplicativo quando há escolhas em sequência.  </li>
+<li>Fazer árvore de possibilidades.  </li>
+<li>Organizar escolhas em tabela.  </li>
+<li>Verificar se a ordem importa.  </li>
+<li>Verificar se a repetição é permitida.  </li>
+<li>Dividir quando a contagem contou cada caso mais de uma vez.  </li>
+<li>Transformar caminhos em sequências de passos.  </li>
+<li>Contar tudo e retirar os casos proibidos.  </li>
+<li>Conferir se nenhuma possibilidade foi esquecida ou repetida.</li>
+</ol>
+<div class="ferramenta" data-num="52" id="f52"><span class="f-badge">Ferramenta 52</span><span class="f-text">Contar casos sem misturar tipos diferentes</span></div>
+
+<div class="ferramenta" data-num="53" id="f53"><span class="f-badge">Ferramenta 53</span><span class="f-text">Usar o princípio aditivo quando há escolhas alternativas</span></div>
+
+<div class="ferramenta" data-num="54" id="f54"><span class="f-badge">Ferramenta 54</span><span class="f-text">Usar o princípio multiplicativo quando há escolhas em sequência</span></div>
+
+<div class="ferramenta" data-num="55" id="f55"><span class="f-badge">Ferramenta 55</span><span class="f-text">Fazer árvore de possibilidades</span></div>
+
+<div class="ferramenta" data-num="56" id="f56"><span class="f-badge">Ferramenta 56</span><span class="f-text">Organizar escolhas em tabela</span></div>
+
+<div class="ferramenta" data-num="57" id="f57"><span class="f-badge">Ferramenta 57</span><span class="f-text">Verificar se a ordem importa</span></div>
+
+<div class="ferramenta" data-num="58" id="f58"><span class="f-badge">Ferramenta 58</span><span class="f-text">Verificar se a repetição é permitida</span></div>
+
+<div class="ferramenta" data-num="59" id="f59"><span class="f-badge">Ferramenta 59</span><span class="f-text">Dividir quando a contagem contou cada caso mais de uma vez</span></div>
+
+<div class="ferramenta" data-num="60" id="f60"><span class="f-badge">Ferramenta 60</span><span class="f-text">Transformar caminhos em sequências de passos</span></div>
+
+<div class="ferramenta" data-num="61" id="f61"><span class="f-badge">Ferramenta 61</span><span class="f-text">Contar tudo e retirar os casos proibidos</span></div>
+
+<div class="ferramenta" data-num="62" id="f62"><span class="f-badge">Ferramenta 62</span><span class="f-text">Conferir se nenhuma possibilidade foi esquecida ou repetida</span></div>
+
+<p>A ferramenta principal da sala talvez seja esta:</p>
+<blockquote>
+<p>Antes de contar, descubra o que está sendo escolhido.</p>
+</blockquote>
+<hr>
+<h2>24. Figuras aplicadas no ponto de uso</h2>
+<p>As especificações de árvore, tabela, malhas e rede de duplas aparecem nas seções de escolha, caminhos e ordem. Cada uma organiza a contagem que o texto já pede, sem decoração adicional.</p>
+<hr>
+<h2>25. A frase da Academia</h2>
+<blockquote>
+<p>Contar possibilidades é construir uma lista invisível sem perder nenhum item e sem escrever o mesmo item duas vezes.</p>
+</blockquote>
+<hr>
+<h2>26. Pergunta para amanhã</h2>
+<p>Felipe guardou a ferramenta da contagem na Mochila.</p>
+<p>A coruja, porém, ainda parecia inquieta.</p>
+<p>— E quando o problema não pedir uma conta? — perguntou ela. — E quando ele vier cheio de frases, pistas, verdades, mentiras e condições?</p>
+<p>O Professor apagou a malha do quadro e desenhou três portas.</p>
+<p>Uma dizia: “sempre”.<br>
+Outra dizia: “nunca”.<br>
+A terceira dizia: “exatamente um”.</p>
+<p>Felipe percebeu que a próxima sala não seria de fórmulas.</p>
+<p>Seria de cuidado com as palavras.</p>
+<p>Pergunta para amanhã:</p>
+<blockquote>
+<p>Quando um problema parece não ter conta nenhuma, como a lógica encontra o caminho?</p>
+</blockquote>
+      </article>
+    </main>
+
+    <nav class="chapter-nav">
+      <a href="cap08.html" class="nav-prev">← Cap. 8</a>
+      <a href="cap10.html" class="nav-next">Cap. 10 →</a>
+    </nav>
+  </div>
+
+</div>
+
+<script src="../assets/js/mochila-data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>initChapter(9);</script>
+</body>
+</html>
