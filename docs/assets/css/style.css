@@ -894,3 +894,33 @@ mark { background: #ffe066; color: inherit; border-radius: 2px; }
   color: var(--text-muted);
   text-align: center;
 }
+
+/* ==========================================================================
+   MELHORIAS DE CONTRASTE E ACESSIBILIDADE (DARK MODE)
+   ========================================================================== */
+
+[data-theme="dark"] {
+  --text-muted:   #9a9890;
+}
+
+[data-theme="dark"] .chapter-body blockquote,
+[data-theme="dark"] .frase-label {
+  font-weight: 550;
+  letter-spacing: 0.01em;
+}
+
+[data-theme="dark"] figure.figura img {
+  filter: invert(0.9) hue-rotate(180deg);
+  mix-blend-mode: lighten;
+  opacity: 0.85;
+  transition: filter var(--transition), opacity var(--transition);
+}
+
+/* ==========================================================================
+   CORREÇÃO DE SELETOR E ESTADOS (MODO TREINO)
+   ========================================================================== */
+
+body.treino-ativo details.solucao summary {
+  cursor: not-allowed;
+  opacity: 0.7;
+}

@@ -120,12 +120,9 @@ function toggleTreino() {
   const btn = document.getElementById("btn-treino");
   if (btn) btn.classList.toggle("active", treinoAtivo);
 
-  // Fechar todas as soluções quando modo treino ativo,
-  // abrir todas quando modo treino desativado
-  const details = document.querySelectorAll("details.solucao");
-  details.forEach(d => {
-    d.open = !treinoAtivo;
-  });
+  if (treinoAtivo) {
+    document.querySelectorAll("details.solucao").forEach(d => { d.open = false; });
+  }
 
   localStorage.setItem("ruo-treino", String(treinoAtivo));
 }
@@ -177,7 +174,6 @@ function initChapter(capNum) {
   renderMochilaPanel(capNum);
   setupReadTracking(capNum);
 
-  // Abrir soluções por defeito (modo treino desativado = soluções abertas)
   if (!treinoAtivo) {
     document.querySelectorAll("details.solucao").forEach(d => { d.open = true; });
   }
@@ -222,11 +218,26 @@ function escHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
+// ─── Bloqueio do Modo Treino (fase de captura — cobre clique, Enter e Espaço) ──
+document.addEventListener("click", e => {
+  const summary = e.target.closest("details.solucao > summary");
+  if (summary && treinoAtivo) {
+    e.preventDefault();
+    e.stopPropagation();
+    alert("O Modo Treino está ativo! Desative-o no topo da página para ver a solução.");
+  }
+}, true);
+
 // ─── Atalhos de teclado ────────────────────────────────────────────────────────
 document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
+    if (e.key === "Escape" && mochilaOpen) toggleMochila();
+    return;
+  }
+
   if (e.key === "Escape" && sidebarOpen) toggleSidebar();
   if (e.key === "Escape" && mochilaOpen) toggleMochila();
-  // Seta esq/dir para navegar entre capítulos
+
   if (e.altKey) {
     if (e.key === "ArrowLeft") {
       const prev = document.querySelector(".nav-prev");
